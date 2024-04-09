@@ -43,6 +43,6 @@ jobs:
           key: ${{ secrets.AWS_KEY }}
           script: |
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
-            sudo docker stop my-react-app || true
-            sudo docker rm my-react-app || true
+            sudo docker stop my-react-container || true
+            sudo docker rm my-react-container || true
             sudo docker run -d --name my-react-app -p 80:80 ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
