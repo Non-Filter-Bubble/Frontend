@@ -1,0 +1,90 @@
+.img-drawer {
+    position: absolute;
+    top: 15.625rem;
+    left: 77.5rem;
+    border-radius: 20px;
+    width: 18.75rem;
+    height: 15.625rem;
+    object-fit: cover;
+}
+.btn-right {
+    position: absolute;
+    top: 17rem;
+    left: 115rem;
+    width: 1.875rem;
+    height: 3.5rem;
+    object-fit: contain;
+    cursor: pointer;
+}
+.btn-left {
+    position: absolute;
+    top: 17rem;
+    left: 3.125rem;
+    width: 1.875rem;
+    height: 3.5rem;
+    cursor: pointer;
+}
+.slide02-ment1 {
+    position: absolute;
+    top: 5.75rem;
+    left: 26rem;
+    font-weight: 300;
+}
+.ment {
+    margin: 0;
+}
+.slide02-ment2 {
+    position: absolute;
+    top: 12.625rem;
+    left: 26rem;
+    font-size: 1.375rem;
+    font-weight: 300;
+}
+.detail-box {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    background-color: #d9d9d9;
+    width: 11.25rem;
+    height: 2.5rem;
+}
+.detail {
+    position: absolute;
+    top: 0.438rem;
+    left: 2.813rem;
+    line-height: 150%;
+}
+.btn-detail {
+    position: absolute;
+    top: 28.75rem;
+    left: 26rem;
+    width: 11.25rem;
+    height: 2.5rem;
+    font-size: 1.125rem;
+    color: #000;
+    cursor: pointer;
+}
+.number-left {
+    font-weight: 800;
+}
+.nummber-right {
+    font-weight: 300;
+}
+.page-number {
+    position: absolute;
+    top: 31.25rem;
+    left: 95.813rem;
+    font-size: 1.25rem;
+}
+.slide-02 {
+    width: 100%;
+    position: relative;
+    background-color: #aa6565;
+    height: 37.5rem;
+    overflow: hidden;
+    text-align: left;
+    font-size: 3.125rem;
+    color: #fff;
+    font-family: Pretendard;
+}
+
