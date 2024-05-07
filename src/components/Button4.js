@@ -10,7 +10,7 @@ const Button4 = () => {
     return (
         <div className="button4">
           <div className="button-div">
-            <div className="search-div">
+            <div className="search-button-div">
               <div className="btn-border"></div>
               <div className="search-inner">
                 <div className="btn-name1">도서 검색</div>
