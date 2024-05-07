@@ -3,6 +3,8 @@ import Header from "../components/Header";
 import Slide from "../components/Slide";
 import Button4 from "../components/Button4";
 import NonFilter from "../components/NonFilter";
+import Filter from "../components/Filter";
+
 
 
 
@@ -18,6 +20,7 @@ const Main = () => {
             <Slide/>
             <Button4/>
             <NonFilter/>
+            <Filter/>
             
         </div>
 
