@@ -1,5 +1,3 @@
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import "../styles/Button4.css";
 
 
@@ -30,7 +28,7 @@ const Button4 = () => {
               <div className="btn-border"></div>
               <div className="inner">
                 <div className="wrapper">
-                  <div className="btn-name1">찜목록</div>
+                  <div className="btn-name2">찜목록</div>
                 </div>
                 <img className="icon" alt="" src="images/heart.png" />
               </div>

@@ -1,5 +1,3 @@
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 import "../styles/Slide02.css";
 
 const Slide02 = ({goToPrevSlide}) => {
