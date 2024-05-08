@@ -1,0 +1,144 @@
+.filter-ment1 {
+    position: absolute;
+    top: 6.25rem;
+    left: 25.625rem;
+}
+.filter-ment3 {
+    margin: 0;
+}
+.filter-ment2 {
+    position: absolute;
+    top: 11.125rem;
+    left: 25.625rem;
+    font-size: 1.563rem;
+    font-weight: 300;
+    color: #666;
+    text-align: left;
+}
+.filter-background {
+    position: relative;
+    height: auto;
+    object-fit: cover;
+    top: 21.125rem;
+    left: 14rem;
+}
+.oneline-3-back {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    border-radius: 25px;
+    background-color: #fff;
+    width: 21.875rem;
+    height: 6.25rem;
+}
+.div2 {
+    width: 20rem;
+    position: relative;
+    font-weight: 500;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.oneline-31 {
+    position: absolute;
+    top: 0.938rem;
+    left: 0.313rem;
+    width: 21.25rem;
+    height: 4.375rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem 0.625rem;
+    box-sizing: border-box;
+}
+.oneline-3 {
+    position: absolute;
+    top: 21.875rem;
+    left: 3.125rem;
+    width: 21.875rem;
+    height: 6.25rem;
+}
+.oneline-2 {
+    position: absolute;
+    top: 12.5rem;
+    left: 3.125rem;
+    width: 21.875rem;
+    height: 6.25rem;
+}
+.oneline-1 {
+    position: absolute;
+    top: 3.125rem;
+    left: 3.125rem;
+    width: 21.875rem;
+    height: 6.25rem;
+}
+.filter-right {
+    position: absolute;
+    top: 21.1rem;
+    left: 59.725rem;
+    width: 28.125rem;
+    height: 31.25rem;
+    font-size: 1.25rem;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: Pretendard;
+}
+.filter-left-back {
+    position: relative;
+    width: 28.125rem;
+    height: 31.25rem;
+}
+.filter-book-icon {
+    align-self: stretch;
+    flex: 1;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+}
+.filter-book-wrapper {
+    position: absolute;
+    top: 3.875rem;
+    left: 6.313rem;
+    width: 14.375rem;
+    height: 22.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.filter-left {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    width: 28.125rem;
+    height: 31.25rem;
+}
+.btn-reset-icon {
+    position: absolute;
+    top: 0.625rem;
+    left: 24.375rem;
+    width: 3.125rem;
+    height: 3.125rem;
+    object-fit: cover;
+}
+.filterleft {
+    position: absolute;
+    top: 21.125rem;
+    left: 31.875rem;
+    width: 28.125rem;
+    height: 31.25rem;
+    cursor: pointer;
+}
+.filter {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    height: 58.625rem;
+    overflow: hidden;
+    text-align: center;
+    font-size: 2.5rem;
+    color: #000;
+    font-family: Pretendard;
+}
+
