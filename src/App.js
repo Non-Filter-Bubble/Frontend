@@ -7,10 +7,6 @@ import {
 } from "react-router-dom";
 import Main from "./pages/Main";
 
-
-
-
-
 function App() {
   const action = useNavigationType();
   const location = useLocation();
@@ -28,12 +24,12 @@ function App() {
 
     switch (pathname) {
       case "/":
-        title = "";
-        metaDescription = "";
+        title = "Home Page"; // 홈 페이지의 제목
+        metaDescription = "Welcome to our website!"; // 홈 페이지의 메타 설명
         break;
-      case "/":
-        title = "";
-        metaDescription = "";
+      default:
+        title = "Page Not Found"; // 기본 제목
+        metaDescription = "This page is not available."; // 기본 메타 설명
         break;
     }
 
@@ -57,4 +53,5 @@ function App() {
       </Routes>
   );
 }
+
 export default App;
