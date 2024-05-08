@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import Header from "../components/Header";
 import Slide from "../components/Slide";
 import Button4 from "../components/Button4";

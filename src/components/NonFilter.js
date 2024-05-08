@@ -4,7 +4,7 @@ import "../styles/NonFilter.css";
 
 
 const NonFilter = () => {
-    const [books, setBooks] = useState([{}]); // 빈 객체를 포함하는 배열로 초기화
+    const [books] = useState([{}]); // 빈 객체를 포함하는 배열로 초기화
   
     useEffect(() => {
         // API 요청 코드 (나중에 구현)
