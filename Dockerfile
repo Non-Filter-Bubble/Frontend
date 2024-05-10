@@ -19,7 +19,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # 사용자 정의 Nginx 설정 파일을 Docker 이미지에 복사
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY /etc/nginx/nginx.conf /etc/nginx/nginx.conf
 
 # 첫 번째 단계에서 생성된 빌드 파일을 Nginx에 복사
 COPY --from=build /app/build /usr/share/nginx/html
