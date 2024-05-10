@@ -16,7 +16,9 @@ COPY . .
 RUN npm run build
 
 # 두 번째 단계: Nginx 이미지 사용하여 애플리케이션 실행
-FROM nginx:alpine
+# FROM nginx:alpine
+
+FROM nginx:latest
 
 # Nginx의 기본 사이트 구성 파일을 백업
 RUN mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.bak
