@@ -18,17 +18,6 @@ RUN npm run build
 # 두 번째 단계: Nginx 이미지 사용하여 애플리케이션 실행
 FROM nginx:alpine
 
-# Nginx 설정 추가
-RUN echo "server {\
-    listen 80;\
-    server_name localhost;\
-    location / {\
-        root /usr/share/nginx/html;\
-        index index.html;\
-        try_files \$uri \$uri/ /index.html;\
-    }\
-}" > /etc/nginx/conf.d/default.conf
-
 # 첫 번째 단계에서 생성된 빌드 파일을 Nginx에 복사
 COPY --from=build /app/build /usr/share/nginx/html
 
@@ -36,3 +25,5 @@ COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
+
+
