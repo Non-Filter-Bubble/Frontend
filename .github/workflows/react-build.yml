@@ -35,6 +35,18 @@ jobs:
           docker build -t ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest .
           docker push ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
 
+      # - name: Deploy to AWS EC2
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.SSH_USERNAME }}
+      #     key: ${{ secrets.AWS_KEY }}
+      #     script: |
+      #       sudo docker pull ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
+      #       sudo docker stop my-react-app || true
+      #       sudo docker rm my-react-app || true
+      #       sudo docker run -d --name my-react-app -p 3000:80 ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
+      
       - name: Deploy to AWS EC2
         uses: appleboy/ssh-action@master
         with:
@@ -45,6 +57,10 @@ jobs:
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
             sudo docker stop my-react-app || true
             sudo docker rm my-react-app || true
-            sudo docker run -d --name my-react-app -p 3000:80 ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
+            sudo docker run -d --name my-react-app -p 3000:80 \
+              -v /path/to/nginx.conf:/etc/nginx/nginx.conf \
+              ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
+
+        
 
 
