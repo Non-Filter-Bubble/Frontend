@@ -45,6 +45,4 @@ jobs:
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
             sudo docker stop my-react-app || true
             sudo docker rm my-react-app || true
-            sudo docker run -d --name my-react-app -p 3000:80 ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
-
-
+            sudo docker run -d --name my-react-app -p 80:80 ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
