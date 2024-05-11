@@ -19,7 +19,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # 첫 번째 단계에서 생성된 빌드 파일을 Nginx에 복사
-COPY --from=build /usr/src/app/build /usr/share/nginx/html
+COPY --from=build /app/build /usr/share/nginx/html
 
 # 포트 80을 열고 Nginx 실행
 EXPOSE 80
