@@ -19,22 +19,22 @@ const Header = () => {
     // icon 클릭 시 실행할 코드
   };
 
+    
   return (
-    <div className="header-div">
-      <div className="logo-div" onClick={logoClick}>
-        <b className="bubble-pop">BUBBLE POP</b>
+    <div className="div-header">
+      <div className="div-logo" onClick={logoClick}>
+        <div className="logo">BUBBLE POP</div>
       </div>
-      <div className="logout-div" id="container1" onClick={LogoutClick}>
+      <div className="div-logout" id="container1" onClick={LogoutClick}>
         <div className="logout">logout</div>
       </div>
-      <div className="search-div">
+      <div className="div-search">
       <input type="text" className="search-input" placeholder="Search..."/>
-        <img className="search-icon" alt="" src="images/search-icon.png" onClick={searchIconClick} />
+        <img className="icon-search" alt="Image" src="images/search-icon.png" onClick={searchIconClick} />
       </div>
-      <img className="user-icon" alt="" src="images/user-icon.png" id="icon1" onClick={userIconClick} />
+      <img className="icon-user" alt="Image" src="images/user-icon.png" id="icon1" onClick={userIconClick} />
+      <img className="line-header" alt="Line" src="vector/line-header.svg" />
     </div>
   );
 };
-    
-<b className="bubble-pop">BUBBLE POP</b>
 export default Header;
