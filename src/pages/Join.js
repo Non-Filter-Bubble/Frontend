@@ -15,12 +15,12 @@ const Join = () => {
         <div className="div-join">
         <div className="title-join">
             <div className="join-title">회원 가입</div>
-            <img className="back-join" alt="Vector" src="vector/back.svg" onClick={handleBack}/>
+            <img className="back-join" alt="" src="vector/back.svg" onClick={handleBack}/>
         </div>
         <div className="div-form">
             <div className="form-join">
-            <img className="img-profile" alt="Profile" src="images/profile.png" />
-            <img className="rect-form" alt="Rectangle" src="vector/rect-join.svg" />
+            <img className="img-profile" alt="" src="images/profile.png" />
+            <img className="rect-form" alt="" src="vector/rect-join.svg" />
             <div className="div-password">
                 <input className="rect-input1" type="password" placeholder=" " />
                 <p className="title-password">

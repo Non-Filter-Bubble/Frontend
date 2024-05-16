@@ -30,10 +30,10 @@ const Header = () => {
       </div>
       <div className="div-search">
       <input type="text" className="search-input" placeholder="Search..."/>
-        <img className="icon-search" alt="Image" src="images/search-icon.png" onClick={searchIconClick} />
+        <img className="icon-search" alt="" src="images/search-icon.png" onClick={searchIconClick} />
       </div>
-      <img className="icon-user" alt="Image" src="images/user-icon.png" id="icon1" onClick={userIconClick} />
-      <img className="line-header" alt="Line" src="vector/line-header.svg" />
+      <img className="icon-user" alt="" src="images/user-icon.png" id="icon1" onClick={userIconClick} />
+      <img className="line-header" alt="" src="vector/line-header.svg" />
     </div>
   );
 };
