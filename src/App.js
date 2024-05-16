@@ -1,56 +1,50 @@
-import { useEffect } from "react";
-import {
-  Routes,
-  Route,
-  useNavigationType,
-  useLocation,
-} from "react-router-dom";
-import Main from "./pages/Main";
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import Header from './components/Header'; // Header 컴포넌트의 정확한 경로를 확인해주세요.
+import Main from './pages/Main';
+import Join from './pages/Join';
 
 function App() {
-  const action = useNavigationType();
   const location = useLocation();
-  const pathname = location.pathname;
 
   useEffect(() => {
-    if (action !== "POP") {
-      window.scrollTo(0, 0);
-    }
-  }, [action, pathname]);
+    window.scrollTo(0, 0); // 페이지 전환 시 화면 상단으로 스크롤
 
-  useEffect(() => {
-    let title = "";
-    let metaDescription = "";
-
-    switch (pathname) {
+    // 페이지 별 메타 태그 설정
+    let title;
+    let metaDescription;
+    switch (location.pathname) {
       case "/":
-        title = "Home Page"; // 홈 페이지의 제목
-        metaDescription = "Welcome to our website!"; // 홈 페이지의 메타 설명
+        title = "Home Page";
+        metaDescription = "Welcome to our website!";
+        break;
+      case "/join":
+        title = "Join Page";
+        metaDescription = "Join us and enjoy our service!";
         break;
       default:
-        title = "Page Not Found"; // 기본 제목
-        metaDescription = "This page is not available."; // 기본 메타 설명
+        title = "Page Not Found";
+        metaDescription = "This page is not available.";
         break;
     }
 
-    if (title) {
-      document.title = title;
+    document.title = title;
+    const metaTag = document.querySelector('meta[name="description"]');
+    if (metaTag) {
+      metaTag.content = metaDescription;
     }
-
-    if (metaDescription) {
-      const metaDescriptionTag = document.querySelector(
-          'head > meta[name="description"]'
-      );
-      if (metaDescriptionTag) {
-        metaDescriptionTag.content = metaDescription;
-      }
-    }
-  }, [pathname]);
+  }, [location]);
 
   return (
-      <Routes>
-        <Route path="/" element={<Main />} />
-      </Routes>
+    <div>
+      <Header />  {/* 모든 페이지에 공통으로 나타날 Header */}
+      <div className="content-container">  {/* 내용 컨테이너 */}
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/join" element={<Join />} />
+        </Routes>
+      </div>
+    </div>
   );
 }
 

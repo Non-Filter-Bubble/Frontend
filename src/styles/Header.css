@@ -1,32 +1,66 @@
-.bubble-pop {
+.div-header {
+    background-color: #ffffff;
+    height: 100px;
     position: relative;
-}
-.logo-div {
-    position: absolute;
-    top: 1rem;
-    left: 3.688rem;
-    display: flex;
-    flex-direction: row;
+    width: 1920px;
+  }
+  
+  .div-header .div-logo {
     align-items: center;
+    display: inline-flex;
+    gap: 10px;
     justify-content: center;
-    padding: 0.625rem;
-    cursor: pointer;
-}
-.logout {
+    left: 59px;
+    padding: 10px;
     position: absolute;
-    top: calc(50% - 12px);
-    right: 0rem;
-}
-.logout-div {
+    top: 16px;
+  }
+  
+  .div-header .logo{
+    color: #000000;
+    font-family: "Pretendard-Bold", Helvetica;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .div-header .div-logout {
+    height: 24px;
+    left: 1763px;
     position: absolute;
-    top: calc(50% - 12px);
-    right: 6.25rem;
-    width: 3.563rem;
-    height: 1.5rem;
-    cursor: pointer;
-    font-size: 1.25rem;
-}
-.search-input {
+    top: 38px;
+    width: 59px;
+  }
+  
+  .div-header .logout {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .div-header .div-search{
+    border: 1px solid;
+    border-color: #000000;
+    height: 40px;
+    left: 760px;
+    position: absolute;
+    top: 30px;
+    width: 400px;
+  }
+
+  .div-header .search-input {
     position: absolute;
     top: calc(50% - 20px); /* 20px 대신에 rem 단위 사용 */
     left: 0rem;
@@ -40,45 +74,37 @@
     color: #333; /* 입력 텍스트 색상 */
 }
 
-/* input 포커스 시 아웃라인 제거 및 기타 스타일 */
-.search-input:focus {
+  /* input 포커스 시 아웃라인 제거 및 기타 스타일 */
+  .div-header .search-input:focus {
     outline: none;
     border-color: #555; /* 포커스 시 보더 색상 변경 */
 }
-.search-icon {
-    position: absolute;
-    top: 0.688rem;
-    left: 22.875rem;
-    width: 1.25rem;
-    height: 1.063rem;
+  .div-header .icon-search {
+    height: 17px;
+    left: 365px;
     object-fit: cover;
-    cursor: pointer;
-}
-.search-div {
     position: absolute;
-    top: calc(50% - 20px);
-    left: 47.5rem;
-    width: 25rem;
-    height: 2.5rem;
-}
-.user-icon {
-    position: absolute;
-    top: 2.313rem;
-    left: 105.188rem;
-    width: 1.875rem;
-    height: 1.875rem;
+    top: 10px;
+    width: 20px;
+    cursor:pointer;
+  }
+  
+  .div-header .icon-user {
+    height: 30px;
+    left: 1683px;
     object-fit: cover;
-    cursor: pointer;
-}
-.header-div {
-    width: 100%;
-    position: relative;
-    background-color: #fff;
-    height: 6.25rem;
-    overflow: hidden;
-    text-align: left;
-    font-size: 2.5rem;
-    color: #000;
-    font-family: Pretendard;
-}
-
+    position: absolute;
+    top: 37px;
+    width: 30px;
+    cursor:pointer;
+  }
+  
+  .div-header .line-header {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 99px;
+    width: 1920px;
+  }
+  
