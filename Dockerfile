@@ -15,20 +15,17 @@ COPY . .
 # 애플리케이션 빌드
 RUN npm run build
 
-# 두 번째 단계: Express.js 기반의 웹 서버 이미지 사용하여 애플리케이션 실행
-FROM node:14 AS production
+# 두 번째 단계: nginx를 사용하여 웹 서버 설정
+FROM nginx:latest AS production
 
-# 작업 디렉토리 설정
-WORKDIR /app
+# Nginx 설정 파일 복사
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# 첫 번째 단계에서 생성된 빌드 파일을 노드 기반의 Express.js 웹 서버로 복사
-COPY --from=build /app/build /app
+# 첫 번째 단계에서 생성된 빌드 파일을 nginx의 정적 파일 디렉토리로 복사
+COPY --from=build /app/build /usr/share/nginx/html
 
-# Express.js 서버 설정
-COPY server.js ./
-
-# Express.js 애플리케이션의 포트 설정
+# 포트 설정
 EXPOSE 80
 
-# Express.js 애플리케이션 실행
-CMD ["node", "server.js"]
+# nginx 서버 실행
+CMD ["nginx", "-g", "daemon off;"]
