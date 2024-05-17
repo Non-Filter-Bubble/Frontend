@@ -1,31 +1,24 @@
-# 첫 번째 단계: Node.js 환경에서 애플리케이션 빌드
-FROM node:14 AS build
+FROM nginx
 
-# 작업 디렉토리 설정
+# root 에 app 폴더를 생성
+RUN mkdir /app
+
+# work dir 고정
 WORKDIR /app
 
-# package.json 및 package-lock.json 복사하여 종속성 설치
-COPY package*.json ./
+# work dir 에 build 폴더 생성 /app/build
+RUN mkdir ./build
 
-RUN npm install
+# host pc의 현재경로의 build 폴더를 workdir 의 build 폴더로 복사
+ADD ./build ./build
 
-# 애플리케이션 소스코드 복사
-COPY . .
+# nginx 의 default.conf 를 삭제
+RUN rm /etc/nginx/conf.d/default.conf
 
-# 애플리케이션 빌드
-RUN npm run build
+# host pc 의 nginx.conf 를 아래 경로에 복사
+COPY ./nginx.conf /etc/nginx/conf.d
 
-# 두 번째 단계: nginx를 사용하여 웹 서버 설정
-FROM nginx:latest AS production
-
-# Nginx 설정 파일 복사
-COPY nginx.conf /etc/nginx/nginx.conf
-
-# 첫 번째 단계에서 생성된 빌드 파일을 nginx의 정적 파일 디렉토리로 복사
-COPY --from=build /app/build /usr/share/nginx/html
-
-# 포트 설정
+# 80 포트 오픈
 EXPOSE 80
 
-# nginx 서버 실행
-CMD ["nginx", "-g", "daemon off;"]
+# container 실행 시 자동으로 실행할 comm
