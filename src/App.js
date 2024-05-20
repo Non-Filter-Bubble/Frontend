@@ -4,6 +4,9 @@ import Header from './components/Header'; // Header 컴포넌트의 정확한 �
 import Main from './pages/Main';
 import Join from './pages/Join';
 
+
+import "./styles/App.css"
+
 function App() {
   const location = useLocation();
 
@@ -36,8 +39,10 @@ function App() {
   }, [location]);
 
   return (
-    <div>
+    <div className='App'>
+      <div className='header'>
       <Header />  {/* 모든 페이지에 공통으로 나타날 Header */}
+      </div>
       <div className="content-container">  {/* 내용 컨테이너 */}
         <Routes>
           <Route path="/" element={<Main />} />
