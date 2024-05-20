@@ -43,11 +43,13 @@ const Slide = () => {
   
     return (
       <div className="slideshow">
-        <div className="slide-container" style={slideStyle}>
-          <div className="slide"><Slide01 goToNextSlide={goToNextSlide}/></div>
-          <div className="slide"><Slide02 goToPrevSlide={goToPrevSlide}/></div>
-        </div>
+      <div className="slide-container" style={slideStyle}>
+        <div className="slide"><Slide01 /></div>
+        <div className="slide"><Slide02 /></div>
       </div>
+      <img className="btn-left" alt="Previous" src="vector/slide-btn-left.svg" onClick={goToPrevSlide} />
+      <img className="btn-right" alt="Next" src="vector/slide-btn-right.svg" onClick={goToNextSlide} />
+    </div>
     );
   };
   

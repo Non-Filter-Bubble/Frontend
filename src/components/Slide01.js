@@ -16,9 +16,7 @@ const Slide01 = ({ goToNextSlide }) => {
           <img className="slide-background" alt="" src="images/slide01-background.png" />
           
           <div className="slide-01-btn-lr"></div>
-          <img className="btn-left" alt="" src="vector/slide-btn-left.svg"/>
-          <img className="btn-right" alt="" src="vector/slide-btn-right.svg" onClick={goToNextSlide}/>
-    
+          
           <div class="slide01-ment1">
             <p class="ment">BUBBLE POP은 </p>
             <p class="ment">여러분의 독서 세계를 넓혀드립니다</p>

@@ -13,9 +13,7 @@ const Slide02 = ({goToPrevSlide}) => {
     return (
         <div className="slide-02">
           <img className="img-drawer" alt="" src="images/drawer.png" />
-          <img className="btn-left" alt="" src="vector/slide-btn-left.svg" onClick={goToPrevSlide}/>
-          <img className="btn-right" alt="" src="vector/slide-btn-right.svg" onClick={goToPrevSlide}/>
-    
+          
           <div className="slide02-ment1">
             북서랍을 채워나가며 책을 기록해보세요
           </div>
