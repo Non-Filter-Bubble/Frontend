@@ -1,6 +1,10 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Header.css";
 
 const Header = () => {
+
+  const navigate = useNavigate();
 
   const logoClick = () => {
     // container 클릭 시 실행할 코드
@@ -16,8 +20,9 @@ const Header = () => {
   };
 
   const userIconClick = () => {
-    // icon 클릭 시 실행할 코드
+     navigate('/user'); 
   };
+  
 
     
   return (

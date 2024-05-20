@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header'; // Header 컴포넌트의 정확한 경로를 확인해주세요.
 import Main from './pages/Main';
 import Join from './pages/Join';
+import Mypage from './pages/Mypage';
 
 
 import "./styles/App.css"
@@ -47,6 +48,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/join" element={<Join />} />
+          <Route path="/user" element={<Mypage />} />
         </Routes>
       </div>
     </div>
