@@ -216,6 +216,7 @@
     position: absolute;
     top: 50px;
     width: 1072px;
+    z-index: 1; /* 낮은 값으로 설정 */
   }
   
   .div-my .book-drawer {
@@ -431,6 +432,8 @@
     position: absolute;
     width: 22px;
     height: 82px;
+    cursor: pointer;
+    z-index: 10;
   }
   
   .div-my .btn-left-1 {
@@ -439,6 +442,8 @@
     position: absolute;
     width: 22px;
     height: 82px;
+    cursor: pointer;
+    z-index: 10;
   }
 
   .div-my .btn-right-2 {
@@ -447,6 +452,8 @@
     position: absolute;
     width: 22px;
     height: 82px;
+    cursor: pointer;
+    z-index: 10;
   }
   
   .div-my .btn-left-2 {
@@ -455,6 +462,8 @@
     position: absolute;
     width: 22px;
     height: 82px;
+    cursor: pointer;
+    z-index: 10;
   }
 
   .div-my .btn-right-3 {
@@ -463,6 +472,8 @@
     height: 82px;
     top: 42px;
     left: 528px;
+    cursor: pointer;
+    z-index: 10;
   }
   
   .div-my .btn-left-3 {
@@ -471,6 +482,8 @@
     position: absolute;
     width: 22px;
     height: 82px;
+    cursor: pointer;
+    z-index: 10;
   }
 
   .div-my .btn-right-4 {
@@ -479,6 +492,8 @@
     position: absolute;
     width: 22px;
     height: 82px;
+    cursor: pointer;
+    z-index: 10;
   }
   
   .div-my .btn-left-4 {
@@ -487,6 +502,8 @@
     position: absolute;
     width: 22px;
     height: 82px;
+    cursor: pointer;
+    z-index: 10;
   }
   .div-my .btn-right-5 {
     top: 40px;
@@ -494,4 +511,6 @@
     position: absolute;
     width: 22px;
     height: 82px;
+    cursor: pointer;
+    z-index: 10;
   }
