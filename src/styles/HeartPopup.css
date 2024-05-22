@@ -94,6 +94,7 @@
   position: absolute;
   top: 95px;
   width: 35px;
+  cursor: pointer;
 }
 
 .screen .group-2 {
@@ -130,6 +131,7 @@
   position: absolute;
   top: 95px;
   width: 35px;
+  cursor: pointer;
 }
 
 .screen .group-4 {
