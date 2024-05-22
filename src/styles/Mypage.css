@@ -1,11 +1,11 @@
-.screen {
+.div-my {
     background-color: #ffffff;
     height: 1540px;
     position: relative;
     width: 1920px;
   }
   
-  .screen .overlap {
+  .div-my .div-book-drawer {
     background-color: #f5f5f5;
     height: 1200px;
     left: 0;
@@ -14,20 +14,7 @@
     width: 1920px;
   }
   
-  .screen .text-wrapper {
-    color: #666666;
-    font-family: "Pretendard-SemiBold", Helvetica;
-    font-size: 20px;
-    font-weight: 600;
-    left: 1040px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 131px;
-    white-space: nowrap;
-  }
-  
-  .screen .group {
+  .div-my .group {
     height: 834px;
     left: 380px;
     position: absolute;
@@ -35,12 +22,12 @@
     width: 1161px;
   }
   
-  .screen .div {
+  .div-my .div {
     height: 834px;
     position: relative;
   }
   
-  .screen .group-2 {
+  .div-my .group-right {
     height: 834px;
     left: 609px;
     position: absolute;
@@ -48,7 +35,7 @@
     width: 552px;
   }
   
-  .screen .group-3 {
+  .div-my .group-science {
     height: 189px;
     left: 1px;
     position: absolute;
@@ -56,7 +43,7 @@
     width: 550px;
   }
   
-  .screen .line {
+  .div-my .line {
     height: 2px;
     left: -1px;
     position: absolute;
@@ -64,7 +51,7 @@
     width: 552px;
   }
   
-  .screen .overlap-group {
+  .div-my .overlap-group {
     height: 165px;
     left: 0;
     position: absolute;
@@ -72,7 +59,7 @@
     width: 551px;
   }
   
-  .screen .group-4 {
+  .div-my .group-4 {
     height: 165px;
     left: 50px;
     position: absolute;
@@ -80,8 +67,8 @@
     width: 450px;
   }
   
-  .screen .XL {
-    height: 164px;
+  .div-my .book-1 {
+    height: 165px;
     left: 0;
     object-fit: cover;
     position: absolute;
@@ -89,7 +76,7 @@
     width: 120px;
   }
   
-  .screen .img {
+  .div-my .book-2 {
     height: 165px;
     left: 165px;
     object-fit: cover;
@@ -98,7 +85,7 @@
     width: 120px;
   }
   
-  .screen .XL-2 {
+  .div-my .book-3 {
     height: 165px;
     left: 330px;
     object-fit: cover;
@@ -107,15 +94,7 @@
     width: 120px;
   }
   
-  .screen .group-5 {
-    height: 82px;
-    left: 0;
-    position: absolute;
-    top: 42px;
-    width: 551px;
-  }
-  
-  .screen .group-6 {
+  .div-my .group-poem {
     height: 188px;
     left: 0;
     position: absolute;
@@ -123,7 +102,7 @@
     width: 551px;
   }
   
-  .screen .line-2 {
+  .div-my .line-2 {
     height: 2px;
     left: -1px;
     position: absolute;
@@ -131,7 +110,7 @@
     width: 552px;
   }
   
-  .screen .overlap-2 {
+  .div-my .overlap-2 {
     height: 165px;
     left: 1px;
     position: absolute;
@@ -139,7 +118,7 @@
     width: 551px;
   }
   
-  .screen .group-7 {
+  .div-my .group-7 {
     height: 165px;
     left: 49px;
     position: absolute;
@@ -147,7 +126,7 @@
     width: 450px;
   }
   
-  .screen .group-8 {
+  .div-my .group-economy {
     height: 187px;
     left: 2px;
     position: absolute;
@@ -155,7 +134,7 @@
     width: 550px;
   }
   
-  .screen .line-3 {
+  .div-my .line-3 {
     height: 2px;
     left: -1px;
     position: absolute;
@@ -163,7 +142,7 @@
     width: 552px;
   }
   
-  .screen .overlap-3 {
+  .div-my .overlap-3 {
     height: 165px;
     left: -1px;
     position: absolute;
@@ -171,7 +150,7 @@
     width: 551px;
   }
   
-  .screen .group-9 {
+  .div-my .group-left {
     height: 834px;
     left: 0;
     position: absolute;
@@ -179,7 +158,7 @@
     width: 551px;
   }
   
-  .screen .group-10 {
+  .div-my .group-novel {
     height: 189px;
     left: 0;
     position: absolute;
@@ -187,7 +166,7 @@
     width: 550px;
   }
   
-  .screen .overlap-group-2 {
+  .div-my .overlap-group-2 {
     height: 165px;
     left: 0;
     position: absolute;
@@ -195,7 +174,7 @@
     width: 550px;
   }
   
-  .screen .group-11 {
+  .div-my .group-11 {
     height: 165px;
     left: 51px;
     position: absolute;
@@ -203,15 +182,9 @@
     width: 450px;
   }
   
-  .screen .group-12 {
-    height: 82px;
-    left: 0;
-    position: absolute;
-    top: 41px;
-    width: 550px;
-  }
+ 
   
-  .screen .group-13 {
+  .div-my .group-self {
     height: 187px;
     left: 0;
     position: absolute;
@@ -219,7 +192,7 @@
     width: 550px;
   }
   
-  .screen .group-14 {
+  .div-my .group-liberal {
     height: 188px;
     left: 1px;
     position: absolute;
@@ -227,7 +200,7 @@
     width: 550px;
   }
   
-  .screen .overlap-4 {
+  .div-my .overlap-4 {
     height: 165px;
     left: -1px;
     position: absolute;
@@ -235,15 +208,9 @@
     width: 550px;
   }
   
-  .screen .group-15 {
-    height: 84px;
-    left: 0;
-    position: absolute;
-    top: 40px;
-    width: 550px;
-  }
   
-  .screen .group-16 {
+  
+  .div-my .group-16 {
     height: 753px;
     left: 429px;
     position: absolute;
@@ -251,7 +218,7 @@
     width: 1072px;
   }
   
-  .screen .text-wrapper-2 {
+  .div-my .book-drawer {
     color: #000000;
     font-family: "Pretendard-SemiBold", Helvetica;
     font-size: 30px;
@@ -264,7 +231,7 @@
     white-space: nowrap;
   }
   
-  .screen .text-wrapper-3 {
+  .div-my .genre1 {
     color: #666666;
     font-family: "Pretendard-SemiBold", Helvetica;
     font-size: 20px;
@@ -277,7 +244,7 @@
     white-space: nowrap;
   }
   
-  .screen .text-wrapper-4 {
+  .div-my .genre2 {
     color: #666666;
     font-family: "Pretendard-SemiBold", Helvetica;
     font-size: 20px;
@@ -290,7 +257,7 @@
     white-space: nowrap;
   }
   
-  .screen .text-wrapper-5 {
+  .div-my .genre3 {
     color: #666666;
     font-family: "Pretendard-SemiBold", Helvetica;
     font-size: 20px;
@@ -303,7 +270,7 @@
     white-space: nowrap;
   }
   
-  .screen .text-wrapper-6 {
+  .div-my .genre4 {
     color: #666666;
     font-family: "Pretendard-SemiBold", Helvetica;
     font-size: 20px;
@@ -316,7 +283,7 @@
     white-space: nowrap;
   }
   
-  .screen .text-wrapper-7 {
+  .div-my .genre5 {
     color: #666666;
     font-family: "Pretendard-SemiBold", Helvetica;
     font-size: 20px;
@@ -328,16 +295,28 @@
     top: 406px;
     white-space: nowrap;
   }
+  .div-my .genre6 {
+    color: #666666;
+    font-family: "Pretendard-SemiBold", Helvetica;
+    font-size: 20px;
+    font-weight: 600;
+    left: 610px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 82px;
+    white-space: nowrap;
+  }
   
-  .screen .group-17 {
+  .div-my .btn-plus-book {
     height: 53px;
-    left: 1008px;
+    left: 1020px;
     position: absolute;
     top: -2px;
     width: 53px;
   }
   
-  .screen .line-4 {
+  .div-my .line-4 {
     height: 1px;
     left: 0;
     object-fit: cover;
@@ -346,7 +325,7 @@
     width: 1920px;
   }
   
-  .screen .line-5 {
+  .div-my .line-5 {
     height: 1px;
     left: 0;
     object-fit: cover;
@@ -355,7 +334,7 @@
     width: 1920px;
   }
   
-  .screen .profile {
+  .div-my .profile {
     height: 200px;
     left: 430px;
     position: absolute;
@@ -363,7 +342,7 @@
     width: 387px;
   }
   
-  .screen .profile-2 {
+  .div-my .profile-2 {
     height: 200px;
     left: 0;
     object-fit: cover;
@@ -372,7 +351,7 @@
     width: 200px;
   }
   
-  .screen .text-wrapper-8 {
+  .div-my .nickname {
     color: #000000;
     font-family: "Pretendard-SemiBold", Helvetica;
     font-size: 25px;
@@ -385,7 +364,7 @@
     white-space: nowrap;
   }
   
-  .screen .overlap-group-wrapper {
+  .div-my .overlap-group-wrapper {
     height: 28px;
     left: 243px;
     position: absolute;
@@ -393,14 +372,15 @@
     width: 80px;
   }
   
-  .screen .overlap-group-3 {
+  .div-my .div-edit-info {
     border-radius: 30px;
     height: 28px;
     position: relative;
     width: 78px;
+    cursor: pointer;;
   }
   
-  .screen .text-wrapper-9 {
+  .div-my .text-edit-info {
     color: #000000;
     font-family: "Pretendard-Regular", Helvetica;
     font-size: 15px;
@@ -414,7 +394,7 @@
     width: 53px;
   }
   
-  .screen .rectangle {
+  .div-my .rect-edit-info {
     border: 1px solid;
     border-color: #000000;
     border-radius: 30px;
@@ -425,15 +405,16 @@
     width: 78px;
   }
   
-  .screen .image-wrapper {
+  .div-my .div-heart {
     height: 35px;
     left: 350px;
     position: absolute;
     top: 136px;
     width: 35px;
+    cursor:pointer;
   }
   
-  .screen .image {
+  .div-my .heart-my {
     height: 35px;
     left: 0;
     object-fit: cover;
@@ -442,3 +423,74 @@
     width: 35px;
   }
   
+  /*왼쪽 오른쪽 북서랍 버튼*/
+  .div-my .btn-right-1 {
+    top: 42px;
+    left: 529px;
+    position: absolute;
+    width: 22px;
+    height: 82px;
+  }
+  
+  .div-my .btn-left-1 {
+    top: 42px;
+    left: 0;
+    position: absolute;
+    width: 22px;
+    height: 82px;
+  }
+
+  .div-my .btn-right-2 {
+    top: 42px;
+    left: 530px;
+    position: absolute;
+    width: 22px;
+    height: 82px;
+  }
+  
+  .div-my .btn-left-2 {
+    top: 42px;
+    left: 1px;
+    position: absolute;
+    width: 22px;
+    height: 82px;
+  }
+
+  .div-my .btn-right-3 {
+    position: absolute;
+    width: 22px;
+    height: 82px;
+    top: 42px;
+    left: 528px;
+  }
+  
+  .div-my .btn-left-3 {
+    top: 42px;
+    left: -1px;
+    position: absolute;
+    width: 22px;
+    height: 82px;
+  }
+
+  .div-my .btn-right-4 {
+    top: 41px;
+    left: 528px;
+    position: absolute;
+    width: 22px;
+    height: 82px;
+  }
+  
+  .div-my .btn-left-4 {
+    top: 41px;
+    left: 0;
+    position: absolute;
+    width: 22px;
+    height: 82px;
+  }
+  .div-my .btn-right-5 {
+    top: 40px;
+    left: 527px;
+    position: absolute;
+    width: 22px;
+    height: 82px;
+  }

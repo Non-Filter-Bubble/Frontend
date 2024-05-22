@@ -4,9 +4,11 @@ import Header from './components/Header'; // Header 컴포넌트의 정확한 �
 import Main from './pages/Main';
 import Join from './pages/Join';
 import Mypage from './pages/Mypage';
+import EditMypage from './pages/EditMypage';
 
 
 import "./styles/App.css"
+import VerifyPass from './pages/VerifyPass';
 
 function App() {
   const location = useLocation();
@@ -49,6 +51,8 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/join" element={<Join />} />
           <Route path="/user" element={<Mypage />} />
+          <Route path="/user/update" element={<EditMypage />} />
+          <Route path="/verify-password" element={<VerifyPass />} />
         </Routes>
       </div>
     </div>
