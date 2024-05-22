@@ -3,9 +3,12 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header'; // Header 컴포넌트의 정확한 경로를 확인해주세요.
 import Main from './pages/Main';
 import Join from './pages/Join';
-
+import Mypage from './pages/Mypage';
+import EditMypage from './pages/EditMypage';
+import BookPost from './pages/BookPost';
 
 import "./styles/App.css"
+import VerifyPass from './pages/VerifyPass';
 
 function App() {
   const location = useLocation();
@@ -47,6 +50,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/join" element={<Join />} />
+          <Route path="/user" element={<Mypage />} />
+          <Route path="/user/update" element={<EditMypage />} />
+          <Route path="/verify-password" element={<VerifyPass />} />
+          <Route path="/user/bookbox/mybook/post" element={<BookPost />} />
         </Routes>
       </div>
     </div>

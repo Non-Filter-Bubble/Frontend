@@ -1,0 +1,171 @@
+.screen {
+  background-color: #ffffff;
+  border-radius: 30px;
+  border: 2px solid #a6a6a6;
+  height: 778px;
+  overflow: hidden;
+  width: 400px;
+  left: 860px;
+  position: absolute;
+  top: 200px;
+  z-index: 30;
+}
+
+.screen .rectangle {
+  height: 778px;
+  position: relative;
+  width: 400px;
+}
+
+.screen .group {
+  height: 130px;
+  left: 42px;
+  position: absolute;
+  top: 58px;
+  width: 286px;
+}
+
+.screen .div {
+  height: 104px;
+  left: 110px;
+  position: absolute;
+  top: 0;
+  width: 182px;
+}
+
+.screen .text-wrapper {
+  color: #000000;
+  font-family: "Pretendard-SemiBold", Helvetica;
+  font-size: 15px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 176px;
+}
+
+.screen .text-wrapper-2 {
+  color: #000000;
+  font-family: "Pretendard-Light", Helvetica;
+  font-size: 13px;
+  font-weight: 300;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 90px;
+  white-space: nowrap;
+  width: 85px;
+}
+
+.screen .text-wrapper-3 {
+  color: #000000;
+  font-family: "Pretendard-Light", Helvetica;
+  font-size: 13px;
+  font-weight: 300;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 56px;
+  white-space: nowrap;
+  width: 72px;
+}
+
+.screen .image-wrapper {
+  /*background-image: url(./rectangle-59.png);*/
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 130px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 90px;
+}
+
+.screen .image {
+  height: 35px;
+  left: 53px;
+  object-fit: cover;
+  position: absolute;
+  top: 95px;
+  width: 35px;
+}
+
+.screen .group-2 {
+  height: 130px;
+  left: 41px;
+  position: absolute;
+  top: 238px;
+  width: 287px;
+}
+
+.screen .group-3 {
+  height: 104px;
+  left: 111px;
+  position: absolute;
+  top: 0;
+  width: 182px;
+}
+
+.screen .img-wrapper {
+  /*background-image: url(./rectangle-59.png);*/
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 130px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 90px;
+}
+
+.screen .img {
+  height: 35px;
+  left: 54px;
+  object-fit: cover;
+  position: absolute;
+  top: 95px;
+  width: 35px;
+}
+
+.screen .group-4 {
+  height: 130px;
+  left: 41px;
+  position: absolute;
+  top: 418px;
+  width: 287px;
+}
+
+.screen .group-5 {
+  /*background-image: url(./rectangle-59.png);*/
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 130px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 90px;
+}
+
+.screen .group-6 {
+  height: 130px;
+  left: 41px;
+  position: absolute;
+  top: 598px;
+  width: 287px;
+}
+
+.screen .group-7 {
+  /*background-image: url(./rectangle-59.png);*/
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 130px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 90px;
+}
