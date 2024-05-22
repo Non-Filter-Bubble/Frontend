@@ -14,6 +14,11 @@ const Mypage = () => {
     navigate('/verify-password'); 
   };
 
+  const btnPlusClick = () => {
+    navigate('/user/bookbox/mybook/post'); 
+  };
+
+
   const togglePopup = () => {
     setPopupVisible(!isPopupVisible);
   };
@@ -111,7 +116,7 @@ const Mypage = () => {
               <div className="genre4">경제/경영</div>
               <div className="genre5">시/에세이</div>
               <div className="genre6">과학</div>
-              <img className="btn-plus-book" alt="Group" src="images/plus-book-my.png" />
+              <img className="btn-plus-book" alt="Group" src="images/plus-book-my.png" onClick={btnPlusClick}/>
             </div>
           </div>
           <div className="profile">

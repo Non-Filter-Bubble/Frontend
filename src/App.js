@@ -5,7 +5,7 @@ import Main from './pages/Main';
 import Join from './pages/Join';
 import Mypage from './pages/Mypage';
 import EditMypage from './pages/EditMypage';
-
+import BookPost from './pages/BookPost';
 
 import "./styles/App.css"
 import VerifyPass from './pages/VerifyPass';
@@ -53,6 +53,7 @@ function App() {
           <Route path="/user" element={<Mypage />} />
           <Route path="/user/update" element={<EditMypage />} />
           <Route path="/verify-password" element={<VerifyPass />} />
+          <Route path="/user/bookbox/mybook/post" element={<BookPost />} />
         </Routes>
       </div>
     </div>
