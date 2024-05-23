@@ -1,0 +1,211 @@
+.div-search-popup {
+    height: 500px;
+    position: relative;
+    width: 500px;
+    top:420px; 
+    left: 728px;
+  }
+  
+  .div-search-popup .group {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 5px;
+    height: 500px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 500px;
+  }
+  
+  .div-search-popup .line-div-search-book {
+    height: 1px;
+    left: 48px;
+    object-fit: cover;
+    position: absolute;
+    top: 287px;
+    width: 400px;
+  }
+  
+  .div-search-popup .div-search {
+    height: 62px;
+    left: -2px;
+    position: absolute;
+    top: 6px;
+    width: 502px;
+  }
+  
+  .div-search-popup .line-div-search {
+    height: 2px;
+    left: 2px;
+    position: absolute;
+    top: 60px;
+    width: 500px;
+  }
+  
+  .div-search-popup .btn-close {
+    height: 34px;
+    left: 450px;
+    object-fit: cover;
+    position: absolute;
+    top: 8px;
+    width: 30px;
+    cursor: pointer;
+  }
+  
+  .div-search-popup .btn-search {
+    height: 42px;
+    left: 405px;
+    position: absolute;
+    top: 5px;
+    width: 30px;
+    cursor: pointer;
+  }
+  
+  .div-search-popup .search-input {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 200;
+    left: 30px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 13px;
+    width: 350px;
+    border:none;
+  }
+  .div-search-popup .search-input:focus {
+    outline: none;
+    border-color: #555; /* 포커스 시 보더 색상 변경 */
+}
+
+
+.div-search-popup .div-search-result {
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 400px;
+    max-height:382px;
+
+}
+  
+  .div-search-popup .group-2 {
+    height: 160px;
+    left: 48px;
+    position: absolute;
+    top: 315px;
+    width: 334px;
+  }
+  
+  .div-search-popup .img-2 {
+    height: 160px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 100px;
+  }
+  
+  .div-search-popup .group-3 {
+    height: 96px;
+    left: 131px;
+    position: absolute;
+    top: 16px;
+    width: 209px;
+  }
+  
+  .div-search-popup .text-wrapper-2 {
+    color: #000000;
+    font-family: "Pretendard-Medium", Helvetica;
+    font-size: 20px;
+    font-weight: 500;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    width: 203px;
+  }
+  
+  .div-search-popup .text-wrapper-3 {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 44px;
+    width: 203px;
+  }
+  
+  .div-search-popup .text-wrapper-4 {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 75px;
+    width: 203px;
+  }
+  
+  .div-search-popup .group-4 {
+    height: 160px;
+    left: 48px;
+    position: absolute;
+    top: 93px;
+    width: 263px;
+  }
+  
+  .div-search-popup .group-5 {
+    height: 96px;
+    left: 131px;
+    position: absolute;
+    top: 18px;
+    width: 138px;
+  }
+  
+  .div-search-popup .text-wrapper-5 {
+    color: #000000;
+    font-family: "Pretendard-Medium", Helvetica;
+    font-size: 20px;
+    font-weight: 500;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    width: 132px;
+  }
+  
+  .div-search-popup .text-wrapper-6 {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 44px;
+    width: 132px;
+  }
+  
+  .div-search-popup .text-wrapper-7 {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 75px;
+    width: 132px;
+  }
+  

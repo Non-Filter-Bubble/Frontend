@@ -1,0 +1,361 @@
+.div-bookpost {
+  background-color: #ffffff;
+  height: 1403px;
+  position: relative;
+  width: 1920px;
+}
+
+
+.div-bookpost .div-bookpost-title {
+  height: 40px;
+  left: 360px;
+  position: absolute;
+  top: 204px;
+  width: 198px;
+}
+
+.div-bookpost .bookpost-title {
+  color: #000000;
+  font-family: "Pretendard-SemiBold", Helvetica;
+  font-size: 30px;
+  font-weight: 600;
+  left: 59px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.div-bookpost .back-book {
+  height: 44px;
+  left: -3px;
+  position: absolute;
+  top: -2px;
+  width: 25px;
+  cursor: pointer;
+}
+
+.div-bookpost .line-bookpost{
+    height: 1px;
+    left: 370px;
+    object-fit: cover;
+    position: absolute;
+    top: 270px;
+    width: 1160px;
+  }
+
+
+.div-bookpost .group-author {
+  height: 35px;
+  left: 744px;
+  position: absolute;
+  top: 420px;
+  width: 368px;
+}
+
+.div-bookpost .rect-author {
+  height: 35px;
+  left: 66px;
+  position: absolute;
+  top: 0;
+  width: 300px;
+  background-color: #f5f5f5;
+  border: 1px solid;
+  border-color: #8e8e8e;
+  height: 35px;
+}
+
+.div-bookpost .title-author {
+  color: transparent;
+  font-family: "Pretendard-Medium", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -20px;
+  width: 46px;
+}
+
+.div-bookpost .subtitle {
+  color: #000000;
+  
+}
+
+.div-bookpost .star {
+  color: #2599ed;
+}
+
+.div-bookpost .group-company {
+  height: 35px;
+  left: 728px;
+  position: absolute;
+  top: 480px;
+  width: 384px;
+}
+
+.div-bookpost .rect-company {
+  height: 35px;
+  left: 82px;
+  position: absolute;
+  top: 0;
+  width: 300px;
+  background-color: #f5f5f5;
+  border: 1px solid;
+  border-color: #8e8e8e;
+}
+
+.div-bookpost .title-company {
+  color: transparent;
+  font-family: "Pretendard-Medium", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -18px;
+  width: 65px;
+}
+
+.div-bookpost .group-bookname {
+  height: 35px;
+  left: 728px;
+  position: absolute;
+  top: 360px;
+  width: 384px;
+}
+
+.div-bookpost .title-bookname {
+  color: transparent;
+  font-family: "Pretendard-Medium", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -20px;
+  white-space: nowrap;
+}
+
+.div-bookpost .rect-bookname {
+  background-color: #f5f5f5;
+  border: 1px solid;
+  border-color: #8e8e8e;
+  height: 35px;
+  left: 82px;
+  position: absolute;
+  top: 0;
+  width: 300px;
+}
+
+.div-bookpost .div-review {
+  height: 400px;
+  left: 716px;
+  position: absolute;
+  top: 680px;
+  width: 396px;
+}
+
+
+
+.div-bookpost .rect-review {
+  height: 380px;
+  left: 94px;
+  position: absolute;
+  top: 0;
+  width: 280px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #8e8e8e;
+  padding : 10px;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 15px;
+}
+
+.div-bookpost .subtitle-review {
+  color: #000000;
+  font-family: "Pretendard-Medium", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 99px;
+}
+
+.div-bookpost .div-searchbook-btn {
+  height: 37px;
+  left: 1130px;
+  position: absolute;
+  top: 360px;
+  width: 101px;
+  cursor: pointer;
+}
+
+.div-bookpost .searchbook-btn {
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 30px;
+  height: 37px;
+  position: relative;
+  width: 99px;
+}
+
+.div-bookpost .searchbook {
+  color: #000000;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  left: 15px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 8px;
+  white-space: nowrap;
+}
+
+.div-bookpost .div-submit {
+  height: 59px;
+  left: 908px;
+  position: absolute;
+  top: 1250px;
+  width: 106px;
+  cursor: pointer;
+}
+
+.div-bookpost .subit-btn {
+  background-color: #000000;
+  border-radius: 30px;
+  height: 59px;
+  position: relative;
+  width: 104px;
+}
+
+.div-bookpost .submit {
+  color: #ffffff;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 25px;
+  font-weight: 400;
+  left: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 15px;
+  width: 58px;
+}
+
+.div-bookpost .div-good {
+  background-color: #ffffff;
+  border-radius: 35px;
+  height: 70px;
+  left: 850px;
+  position: absolute;
+  top: 1098px;
+  width: 70px;
+  cursor: pointer;
+}
+
+.div-bookpost .btn-good {
+  height: 49px;
+  left: 11px;
+  object-fit: cover;
+  position: absolute;
+  top: 7px;
+  width: 49px;
+}
+
+.div-bookpost .div-bad {
+  background-color: #ffffff;
+  border-radius: 35px;
+  height: 70px;
+  left: 1000px;
+  position: absolute;
+  top: 1098px;
+  width: 70px;
+  cursor: pointer;;
+}
+
+.div-bookpost .btn-bad {
+  height: 49px;
+  left: 8px;
+  object-fit: cover;
+  position: absolute;
+  top: 7px;
+  width: 49px;
+}
+
+.div-bookpost .div-one-line {
+  height: 116px;
+  left: 728px;
+  position: absolute;
+  top: 530px;
+  width: 386px;
+}
+
+.div-bookpost .one-line-notice {
+  color: #858585;
+  font-family: "Pretendard-Medium", Helvetica;
+  font-size: 12px;
+  font-weight: 500;
+  left: 333px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.div-bookpost .overlap-4 {
+  height: 100px;
+  left: 0;
+  position: absolute;
+  top: 16px;
+  width: 384px;
+}
+
+.div-bookpost .rect-one-line {
+  height: 80px;
+  left: 82px;
+  position: absolute;
+  top: 0;
+  width: 280px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #8e8e8e;
+  padding: 10px;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 15px;
+}
+
+.div-bookpost .title-one-line {
+  color: transparent;
+  font-family: "Pretendard-Medium", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: -20px;
+  width: 71px;
+}
+
+
+
+
+
+.div-bookpost .line-division {
+  height: 1px;
+  left: 380px;
+  object-fit: cover;
+  position: absolute;
+  top: 270px;
+  width: 1160px;
+}
+

@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import Header from './components/Header'; // Header 컴포넌트의 정확한 경로를 확인해주세요.
+import Header from './components/Header'; 
 import Main from './pages/Main';
 import Join from './pages/Join';
 import Mypage from './pages/Mypage';
 import EditMypage from './pages/EditMypage';
 import BookPost from './pages/BookPost';
-
 import "./styles/App.css"
 import VerifyPass from './pages/VerifyPass';
 
@@ -14,9 +13,8 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0); // 페이지 전환 시 화면 상단으로 스크롤
+    window.scrollTo(0, 0); 
 
-    // 페이지 별 메타 태그 설정
     let title;
     let metaDescription;
     switch (location.pathname) {
@@ -27,6 +25,22 @@ function App() {
       case "/join":
         title = "Join Page";
         metaDescription = "Join us and enjoy our service!";
+        break;
+      case "/user":
+        title = "User Page";
+        metaDescription = "Manage your user profile here.";
+        break;
+      case "/user/update":
+        title = "Update User Page";
+        metaDescription = "Update your user profile here.";
+        break;
+      case "/verify-password":
+        title = "Verify Password";
+        metaDescription = "Verify your password.";
+        break;
+      case "/user/bookbox/mybook/post":
+        title = "Book Post";
+        metaDescription = "Post a new book.";
         break;
       default:
         title = "Page Not Found";
@@ -44,9 +58,9 @@ function App() {
   return (
     <div className='App'>
       <div className='header'>
-      <Header />  {/* 모든 페이지에 공통으로 나타날 Header */}
+        <Header />
       </div>
-      <div className="content-container">  {/* 내용 컨테이너 */}
+      <div className="content-container">
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/join" element={<Join />} />
