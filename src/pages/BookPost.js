@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/BookPost.css'; 
 
+import SearchPopup from '../components/SearchPopup';
+
 
 const BookPost = () => {
 
@@ -23,7 +25,12 @@ const toggleBadBtn = () => {
   setSelectedButton(selectedButton === 'bad' ? null : 'bad');
 };
 
-    
+ // SearchPopup 상태 관리
+ const [isPopupVisible, setPopupVisible] = useState(false);
+  
+ const togglePopup = () => {
+   setPopupVisible(!isPopupVisible);
+ };
 
   return (
     <div className="div-bookpost">
@@ -57,7 +64,7 @@ const toggleBadBtn = () => {
               <textarea className="rect-review" type="text" placeholder="" />
               <div className="subtitle-review">독서 후기</div>
           </div>
-          <div className="div-searchbook-btn">
+          <div className="div-searchbook-btn" onClick={togglePopup}>
             <div className="searchbook-btn">
               <div className="searchbook">도서 검색</div>
             </div>
@@ -94,6 +101,7 @@ const toggleBadBtn = () => {
             </div>
           </div>
           <img className="line-division" alt="" src="vector/line-book.svg" />
+          {isPopupVisible && <SearchPopup onClose={togglePopup} />}
         </div>
   );
 };
