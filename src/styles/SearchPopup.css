@@ -1,51 +1,24 @@
-.screen {
-    background-color: #ffffff;
-    height: 500px;
-    overflow: hidden;
-    width: 500px;
-  }
-  
-  .screen .group {
-    height: 500px;
-    width: 502px;
-  }
-  
-  .screen .overlap-group {
-    background-color: #ffffff;
-    border: 2px solid;
-    border-color: #000000;
-    border-radius: 5px;
+.div-search-popup {
     height: 500px;
     position: relative;
     width: 500px;
+    top:420px; 
+    left: 728px;
   }
   
-  .screen .line {
-    height: 2px;
-    left: -2px;
+  .div-search-popup .group {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 5px;
+    height: 500px;
+    left: 0;
     position: absolute;
-    top: 66px;
+    top: 0;
     width: 500px;
   }
   
-  .screen .rectangle {
-    height: 40px;
-    left: 448px;
-    object-fit: cover;
-    position: absolute;
-    top: 13px;
-    width: 40px;
-  }
-  
-  .screen .image {
-    height: 56px;
-    left: 398px;
-    position: absolute;
-    top: 6px;
-    width: 40px;
-  }
-  
-  .screen .img {
+  .div-search-popup .line-div-search-book {
     height: 1px;
     left: 48px;
     object-fit: cover;
@@ -54,20 +27,70 @@
     width: 400px;
   }
   
-  .screen .text-wrapper {
+  .div-search-popup .div-search {
+    height: 62px;
+    left: -2px;
+    position: absolute;
+    top: 6px;
+    width: 502px;
+  }
+  
+  .div-search-popup .line-div-search {
+    height: 2px;
+    left: 2px;
+    position: absolute;
+    top: 60px;
+    width: 500px;
+  }
+  
+  .div-search-popup .btn-close {
+    height: 34px;
+    left: 450px;
+    object-fit: cover;
+    position: absolute;
+    top: 8px;
+    width: 30px;
+    cursor: pointer;
+  }
+  
+  .div-search-popup .btn-search {
+    height: 42px;
+    left: 405px;
+    position: absolute;
+    top: 5px;
+    width: 30px;
+    cursor: pointer;
+  }
+  
+  .div-search-popup .search-input {
     color: #000000;
     font-family: "Pretendard-Regular", Helvetica;
-    font-size: 25px;
-    font-weight: 400;
-    left: 28px;
+    font-size: 20px;
+    font-weight: 200;
+    left: 30px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 19px;
-    width: 132px;
+    top: 13px;
+    width: 350px;
+    border:none;
   }
+  .div-search-popup .search-input:focus {
+    outline: none;
+    border-color: #555; /* 포커스 시 보더 색상 변경 */
+}
+
+
+.div-search-popup .div-search-result {
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 400px;
+    max-height:382px;
+
+}
   
-  .screen .div {
+  .div-search-popup .group-2 {
     height: 160px;
     left: 48px;
     position: absolute;
@@ -75,7 +98,7 @@
     width: 334px;
   }
   
-  .screen .img-2 {
+  .div-search-popup .img-2 {
     height: 160px;
     left: 0;
     object-fit: cover;
@@ -84,7 +107,7 @@
     width: 100px;
   }
   
-  .screen .group-2 {
+  .div-search-popup .group-3 {
     height: 96px;
     left: 131px;
     position: absolute;
@@ -92,7 +115,7 @@
     width: 209px;
   }
   
-  .screen .text-wrapper-2 {
+  .div-search-popup .text-wrapper-2 {
     color: #000000;
     font-family: "Pretendard-Medium", Helvetica;
     font-size: 20px;
@@ -105,7 +128,7 @@
     width: 203px;
   }
   
-  .screen .text-wrapper-3 {
+  .div-search-popup .text-wrapper-3 {
     color: #000000;
     font-family: "Pretendard-Regular", Helvetica;
     font-size: 18px;
@@ -118,7 +141,7 @@
     width: 203px;
   }
   
-  .screen .text-wrapper-4 {
+  .div-search-popup .text-wrapper-4 {
     color: #000000;
     font-family: "Pretendard-Regular", Helvetica;
     font-size: 18px;
@@ -131,7 +154,7 @@
     width: 203px;
   }
   
-  .screen .group-3 {
+  .div-search-popup .group-4 {
     height: 160px;
     left: 48px;
     position: absolute;
@@ -139,7 +162,7 @@
     width: 263px;
   }
   
-  .screen .group-4 {
+  .div-search-popup .group-5 {
     height: 96px;
     left: 131px;
     position: absolute;
@@ -147,7 +170,7 @@
     width: 138px;
   }
   
-  .screen .text-wrapper-5 {
+  .div-search-popup .text-wrapper-5 {
     color: #000000;
     font-family: "Pretendard-Medium", Helvetica;
     font-size: 20px;
@@ -160,7 +183,7 @@
     width: 132px;
   }
   
-  .screen .text-wrapper-6 {
+  .div-search-popup .text-wrapper-6 {
     color: #000000;
     font-family: "Pretendard-Regular", Helvetica;
     font-size: 18px;
@@ -173,7 +196,7 @@
     width: 132px;
   }
   
-  .screen .text-wrapper-7 {
+  .div-search-popup .text-wrapper-7 {
     color: #000000;
     font-family: "Pretendard-Regular", Helvetica;
     font-size: 18px;
