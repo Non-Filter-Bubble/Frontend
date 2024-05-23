@@ -12,17 +12,16 @@ const BookPost = () => {
   };
 
   // good, bad 버튼
-  const [isGoodFilled, setGoodFilled] = useState(false);
-  const [isBadFilled, setBadFilled] = useState(false);
+  const [selectedButton, setSelectedButton] = useState(null);
 
-  // good, bad 클릭 시 상태를 토글
-  const toggleGoodBtn = () => {
-    setGoodFilled(!isGoodFilled);
-  };
+ // good, bad 클릭 시 상태를 토글
+ const toggleGoodBtn = () => {
+  setSelectedButton(selectedButton === 'good' ? null : 'good');
+};
 
-  const toggleBadBtn = () => {
-    setBadFilled(!isBadFilled);
-  };
+const toggleBadBtn = () => {
+  setSelectedButton(selectedButton === 'bad' ? null : 'bad');
+};
 
     
 
@@ -70,19 +69,19 @@ const BookPost = () => {
           </div>
           <div className="div-good">
             <img 
-            className="btn-good" 
-            alt="" 
-            src={isGoodFilled ? "/images/filled-good-btn.png" : "/images/empty-good-btn.png"} 
-            onClick={toggleGoodBtn} 
-          />
+              className="btn-good" 
+              alt="" 
+              src={selectedButton === 'good' ? "/images/filled-good-btn.png" : "/images/empty-good-btn.png"} 
+              onClick={toggleGoodBtn} 
+            />
           </div>
           <div className="div-bad">
             <img 
-            className="btn-bad" 
-            alt="" 
-            src={isBadFilled ? "/images/filled-bad-btn.png" : "/images/empty-bad-btn.png"} 
-            onClick={toggleBadBtn} 
-          />
+              className="btn-bad" 
+              alt="" 
+              src={selectedButton === 'bad' ? "/images/filled-bad-btn.png" : "/images/empty-bad-btn.png"} 
+              onClick={toggleBadBtn} 
+            />
           </div>
           <div className="div-one-line">
             <div className="one-line-notice">50자 이내</div>
