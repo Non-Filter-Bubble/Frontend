@@ -4,11 +4,11 @@ import Header from './components/Header';
 import Main from './pages/Main';
 import Join from './pages/Join';
 import Mypage from './pages/Mypage';
-import EditMypage from './pages/EditMypage';
 import BookPost from './pages/BookPost';
-import "./styles/App.css"
 import VerifyPass from './pages/VerifyPass';
+import UserInfo from './pages/UserInfo';
 
+import "./styles/App.css"
 function App() {
   const location = useLocation();
 
@@ -31,16 +31,16 @@ function App() {
         metaDescription = "Manage your user profile here.";
         break;
       case "/user/update":
-        title = "Update User Page";
-        metaDescription = "Update your user profile here.";
-        break;
-      case "/verify-password":
-        title = "Verify Password";
-        metaDescription = "Verify your password.";
+        title = "User Info Edit";
+        metaDescription = "Update your user information including nickname and password.";
         break;
       case "/user/bookbox/mybook/post":
         title = "Book Post";
         metaDescription = "Post a new book.";
+        break;
+      case "/verify-password":
+        title = "Verify Password";
+        metaDescription = "Verify your password.";
         break;
       default:
         title = "Page Not Found";
@@ -65,9 +65,9 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/join" element={<Join />} />
           <Route path="/user" element={<Mypage />} />
-          <Route path="/user/update" element={<EditMypage />} />
           <Route path="/verify-password" element={<VerifyPass />} />
           <Route path="/user/bookbox/mybook/post" element={<BookPost />} />
+          <Route path="/user/update" element={<UserInfo />} />
         </Routes>
       </div>
     </div>

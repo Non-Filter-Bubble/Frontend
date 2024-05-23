@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/VerifyPass.css'; // Screen 컴포넌트의 스타일을 포함합니다.
+import '../styles/VerifyPass.css'; 
 
 const VerifyPass = () => {
   const navigate = useNavigate();
@@ -12,9 +12,9 @@ const VerifyPass = () => {
   return (
     <div className="div-verify">
       <div className="group-verify">
-        <img className="rect-edit-info" src="/vector/rect-edit-info.svg"/>
+        <img className="rect-edit-info" alt="" src="/vector/rect-verify-pass.svg"/>
         <div className="div-pass">
-          <input className="rect-pass" type="password" src="/vector/rect-verify-password.svg" />
+          <input className="rect-pass" type="password" src="/vector/rect-user-input.svg" />
           <div className="password-confirm">비밀번호 확인</div>
         </div>
         <div className="div-btn-submit">
