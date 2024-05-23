@@ -9,6 +9,7 @@ const BookPost = () => {
             <div className="text-wrapper">북서랍 등록</div>
             <img className="back-book" alt="" src="/vector/back.svg" />
           </div>
+          <img className="line-bookpost" alt="" src="/vector/line-book.svg" />
           <div className="group-2">
             <img className="rectangle" alt="" src="rectangle-82.svg" />
             <p className="p">

@@ -35,6 +35,16 @@
   width: 25px;
 }
 
+.div-bookpost .line-bookpost{
+    height: 1px;
+    left: 370px;
+    object-fit: cover;
+    position: absolute;
+    top: 270px;
+    width: 1160px;
+  }
+
+
 .div-bookpost .group-2 {
   height: 35px;
   left: 744px;
