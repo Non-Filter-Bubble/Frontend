@@ -85,7 +85,9 @@ const BookPost = () => {
       <div className="div-one-line">
         <div className="one-line-notice">50자 이내</div>
         <div className="overlap-4">
-          <textarea className="rect-one-line" type="text" placeholder="다른 사람에게 책을 소개해주세요" />
+          <textarea className="rect-one-line" type="text" 
+          placeholder="다른 사람에게 책을 소개해주세요" 
+          maxLength="50"/>
           <p className="title-one-line">
             <span className="subtitle">한줄평</span>
             <span className="star">*</span>
