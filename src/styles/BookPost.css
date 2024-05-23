@@ -163,14 +163,17 @@
 
 
 .div-bookpost .rect-review {
-  height: 400px;
+  height: 380px;
   left: 94px;
   position: absolute;
   top: 0;
-  width: 300px;
+  width: 280px;
   background-color: #ffffff;
   border: 1px solid;
   border-color: #8e8e8e;
+  padding : 10px;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 15px;
 }
 
 .div-bookpost .subtitle-review {
@@ -188,9 +191,9 @@
 
 .div-bookpost .div-searchbook-btn {
   height: 37px;
-  left: 1123px;
+  left: 1130px;
   position: absolute;
-  top: 341px;
+  top: 360px;
   width: 101px;
   cursor: pointer;
 }
@@ -317,14 +320,17 @@
 }
 
 .div-bookpost .rect-one-line {
-  height: 100px;
+  height: 80px;
   left: 82px;
   position: absolute;
   top: 0;
-  width: 300px;
+  width: 280px;
   background-color: #ffffff;
   border: 1px solid;
   border-color: #8e8e8e;
+  padding: 10px;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 15px;
 }
 
 .div-bookpost .title-one-line {
@@ -340,17 +346,7 @@
   width: 71px;
 }
 
-.div-bookpost .one-line-notice-2 {
-  color: #858585;
-  font-family: "DM Sans-Regular", Helvetica;
-  font-size: 15px;
-  font-weight: 400;
-  left: 92px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 13px;
-}
+
 
 
 
