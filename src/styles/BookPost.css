@@ -33,6 +33,7 @@
   position: absolute;
   top: -2px;
   width: 25px;
+  cursor: pointer;
 }
 
 .div-bookpost .line-bookpost{
@@ -49,7 +50,7 @@
   height: 35px;
   left: 744px;
   position: absolute;
-  top: 408px;
+  top: 420px;
   width: 368px;
 }
 
@@ -74,12 +75,13 @@
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 3px;
+  top: -20px;
   width: 46px;
 }
 
 .div-bookpost .subtitle {
   color: #000000;
+  
 }
 
 .div-bookpost .star {
@@ -90,7 +92,7 @@
   height: 35px;
   left: 728px;
   position: absolute;
-  top: 472px;
+  top: 480px;
   width: 384px;
 }
 
@@ -114,7 +116,7 @@
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 2px;
+  top: -18px;
   width: 65px;
 }
 
@@ -122,7 +124,7 @@
   height: 35px;
   left: 728px;
   position: absolute;
-  top: 343px;
+  top: 360px;
   width: 384px;
 }
 
@@ -135,7 +137,7 @@
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 4px;
+  top: -20px;
   white-space: nowrap;
 }
 
@@ -154,7 +156,7 @@
   height: 400px;
   left: 716px;
   position: absolute;
-  top: 666px;
+  top: 680px;
   width: 396px;
 }
 
@@ -190,6 +192,7 @@
   position: absolute;
   top: 341px;
   width: 101px;
+  cursor: pointer;
 }
 
 .div-bookpost .searchbook-btn {
@@ -220,6 +223,7 @@
   position: absolute;
   top: 1250px;
   width: 106px;
+  cursor: pointer;
 }
 
 .div-bookpost .subit-btn {
@@ -251,6 +255,7 @@
   position: absolute;
   top: 1098px;
   width: 70px;
+  cursor: pointer;
 }
 
 .div-bookpost .btn-good {
@@ -270,6 +275,7 @@
   position: absolute;
   top: 1098px;
   width: 70px;
+  cursor: pointer;;
 }
 
 .div-bookpost .btn-bad {
@@ -285,7 +291,7 @@
   height: 116px;
   left: 728px;
   position: absolute;
-  top: 520px;
+  top: 530px;
   width: 386px;
 }
 
@@ -330,7 +336,7 @@
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 0;
+  top: -20px;
   width: 71px;
 }
 

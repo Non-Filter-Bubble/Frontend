@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/BookPost.css'; 
 
 
 const BookPost = () => {
+
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1); // 이전 페이지로 이동
+  };
+
+  // good, bad 버튼
+  const [isGoodFilled, setGoodFilled] = useState(false);
+  const [isBadFilled, setBadFilled] = useState(false);
+
+  // good, bad 클릭 시 상태를 토글
+  const toggleGoodBtn = () => {
+    setGoodFilled(!isGoodFilled);
+  };
+
+  const toggleBadBtn = () => {
+    setBadFilled(!isBadFilled);
+  };
+
+    
+
   return (
     <div className="div-bookpost">
           <div className="div-bookpost-title">
             <div className="bookpost-title">북서랍 등록</div>
-            <img className="back-book" alt="" src="/vector/back.svg" />
+            <img className="back-book" alt="" src="/vector/back.svg" onClick={handleBack} />
           </div>
           <img className="line-bookpost" alt="" src="/vector/line-book.svg" />
           <div className="group-author">
@@ -46,10 +69,20 @@ const BookPost = () => {
             </div>
           </div>
           <div className="div-good">
-            <img className="btn-good" alt="" src="/images/empty-good-btn.png" />
+            <img 
+            className="btn-good" 
+            alt="" 
+            src={isGoodFilled ? "/images/filled-good-btn.png" : "/images/empty-good-btn.png"} 
+            onClick={toggleGoodBtn} 
+          />
           </div>
           <div className="div-bad">
-            <img className="btn-bad" alt="" src="/images/empty-bad-btn.png" />
+            <img 
+            className="btn-bad" 
+            alt="" 
+            src={isBadFilled ? "/images/filled-bad-btn.png" : "/images/empty-bad-btn.png"} 
+            onClick={toggleBadBtn} 
+          />
           </div>
           <div className="div-one-line">
             <div className="one-line-notice">50자 이내</div>
