@@ -10,10 +10,9 @@ const UserInfo = () => {
     }
 
     const withdrawalClick = () => {
-        //navigate('/verify-password');  회원탈퇴 경로
+        navigate('/user/withdraw');  //회원탈퇴 경로
       };
-      
-
+    
 
     return (
         <div className="div-user-info">

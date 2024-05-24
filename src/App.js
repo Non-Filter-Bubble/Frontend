@@ -7,6 +7,7 @@ import Mypage from './pages/Mypage';
 import BookPost from './pages/BookPost';
 import VerifyPass from './pages/VerifyPass';
 import UserInfo from './pages/UserInfo';
+import UserWithdraw from './pages/UserWithdraw';
 
 import "./styles/App.css"
 function App() {
@@ -68,6 +69,7 @@ function App() {
           <Route path="/verify-password" element={<VerifyPass />} />
           <Route path="/user/bookbox/mybook/post" element={<BookPost />} />
           <Route path="/user/update" element={<UserInfo />} />
+          <Route path="/user/withdraw" element={<UserWithdraw />} />
         </Routes>
       </div>
     </div>
