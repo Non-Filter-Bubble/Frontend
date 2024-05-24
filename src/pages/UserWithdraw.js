@@ -9,13 +9,11 @@ const UserWithdraw = () => {
     navigate(-1); // 이전 페이지로 이동
     }
 
-    const withdrawalClick = () => {
+    //const withdrawalClick = () => {
         //navigate('/verify-password');  회원탈퇴 경로
-      };
+     // };
 
-    const okClick = () => {
-    //navigate('/verify-password');  회원탈퇴 경로
-    };
+   
       
 
 
@@ -23,7 +21,7 @@ const UserWithdraw = () => {
         <div className="div-withdraw">
           <div className="group-title">
             <div className="title">회원 탈퇴</div>
-            <img className="back-with" alt="" src="/vector/back.svg" />
+            <img className="back-with" alt="" src="/vector/back.svg" onClick={handleBack}/>
           </div>
           <p className="notice-with">
             탈퇴하면 기존의 정보가 전부 사라집니다.

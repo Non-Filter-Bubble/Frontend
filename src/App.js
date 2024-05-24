@@ -35,14 +35,18 @@ function App() {
         title = "User Info Edit";
         metaDescription = "Update your user information including nickname and password.";
         break;
-      case "/user/bookbox/mybook/post":
+      case "/user/bookpost":
         title = "Book Post";
         metaDescription = "Post a new book.";
         break;
-      case "/verify-password":
+      case "/user/verify":
         title = "Verify Password";
         metaDescription = "Verify your password.";
         break;
+        case "/user/withdraw":
+          title = "Withdraw";
+          metaDescription = "Withdraw";
+          break;
       default:
         title = "Page Not Found";
         metaDescription = "This page is not available.";
@@ -66,8 +70,8 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/join" element={<Join />} />
           <Route path="/user" element={<Mypage />} />
-          <Route path="/verify-password" element={<VerifyPass />} />
-          <Route path="/user/bookbox/mybook/post" element={<BookPost />} />
+          <Route path="/user/verify" element={<VerifyPass />} />
+          <Route path="/user/bookpost" element={<BookPost />} />
           <Route path="/user/update" element={<UserInfo />} />
           <Route path="/user/withdraw" element={<UserWithdraw />} />
         </Routes>
