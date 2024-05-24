@@ -4,11 +4,12 @@ import Header from './components/Header';
 import Main from './pages/Main';
 import Join from './pages/Join';
 import Mypage from './pages/Mypage';
-import EditMypage from './pages/EditMypage';
 import BookPost from './pages/BookPost';
-import "./styles/App.css"
 import VerifyPass from './pages/VerifyPass';
+import UserInfo from './pages/UserInfo';
+import UserWithdraw from './pages/UserWithdraw';
 
+import "./styles/App.css"
 function App() {
   const location = useLocation();
 
@@ -31,17 +32,21 @@ function App() {
         metaDescription = "Manage your user profile here.";
         break;
       case "/user/update":
-        title = "Update User Page";
-        metaDescription = "Update your user profile here.";
+        title = "User Info Edit";
+        metaDescription = "Update your user information including nickname and password.";
         break;
-      case "/verify-password":
-        title = "Verify Password";
-        metaDescription = "Verify your password.";
-        break;
-      case "/user/bookbox/mybook/post":
+      case "/user/bookpost":
         title = "Book Post";
         metaDescription = "Post a new book.";
         break;
+      case "/user/verify":
+        title = "Verify Password";
+        metaDescription = "Verify your password.";
+        break;
+        case "/user/withdraw":
+          title = "Withdraw";
+          metaDescription = "Withdraw";
+          break;
       default:
         title = "Page Not Found";
         metaDescription = "This page is not available.";
@@ -65,9 +70,10 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/join" element={<Join />} />
           <Route path="/user" element={<Mypage />} />
-          <Route path="/user/update" element={<EditMypage />} />
-          <Route path="/verify-password" element={<VerifyPass />} />
-          <Route path="/user/bookbox/mybook/post" element={<BookPost />} />
+          <Route path="/user/verify" element={<VerifyPass />} />
+          <Route path="/user/bookpost" element={<BookPost />} />
+          <Route path="/user/update" element={<UserInfo />} />
+          <Route path="/user/withdraw" element={<UserWithdraw />} />
         </Routes>
       </div>
     </div>

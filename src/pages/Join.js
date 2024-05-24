@@ -20,7 +20,7 @@ const Join = () => {
         <div className="div-form">
             <div className="form-join">
             <img className="img-profile" alt="" src="images/profile.png" />
-            <img className="rect-form" alt="" src="vector/rect-join.svg" />
+            <img className="rect-form" alt="" src="/vector/rect-join.svg" />
             <div className="div-password">
                 <input className="rect-input1" type="password" placeholder=" " />
                 <p className="title-password">

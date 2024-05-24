@@ -11,11 +11,11 @@ const Mypage = () => {
   const navigate = useNavigate();
 
   const editInfoClick = () => {
-    navigate('/verify-password'); 
+    navigate('/user/verify'); 
   };
 
   const btnPlusClick = () => {
-    navigate('/user/bookbox/mybook/post'); 
+    navigate('/user/bookpost'); 
   };
 
 
