@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import '../styles/Join.css'; // Screen 컴포넌트의 스타일을 포함합니다.
-import axiosInstance from '../api/axios';
+import axios from 'axios';
 
 const Join = () => {
     const [formData, setFormData] = useState({
@@ -21,10 +21,9 @@ const Join = () => {
     const navigate = useNavigate();
 
     const handleBack = () => {
-    navigate(-1); // 이전 페이지로 이동
+        navigate(-1); // 이전 페이지로 이동
     };
 
-    // 값이 바뀔 때 마다 실행되는 함수
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -32,91 +31,62 @@ const Join = () => {
             [name]: value
         });
         
-        // 아이디에 입력된 값이 변경되면 중복 확인 메시지를 초기화
         if (name === 'username') {
             setIdMsg('');
             setIsIdChecked(false);
         }
-        // 닉네임에 입력된 값이 변경되면 중복 확인 메시지를 초기화
         if (name === 'nickname') {
             setNickMsg('');
             setIsNickChecked(false);
         }
     };
 
-    //아이디 중복 체크
     const CheckId = async (e) => {
         e.preventDefault();
-        console.log('아이디 중복 버튼 누름');
 
-        // 아이디 입력 여부 확인
         if (!formData.username) {
             alert("아이디를 입력해주세요.");
             return;
         }
 
-        await axiosInstance.get(`/user/check-username`, {
-            params: {
-                username: formData.username
-            }}
-        )
-            .then((res) => {
-                console.log(res.data);
-                setIdMsg("사용 가능한 아이디 입니다.");
-                setIdMsgClass('success-message');
-                setIsIdChecked(true);
-            }).catch((error) => { // 400 error
-                console.log(error);
-                setIdMsg("존재하는 아이디 입니다.");
-                setIdMsgClass('error-message');
-                setIsIdChecked(false);
-                // 적혀있는 값 삭제
-                setFormData({
-                    ...formData,
-                    username: ''
-                });
-            })
+        await axios.get(`${process.env.REACT_APP_DB_HOST}/user/check-username`, {
+            params: { username: formData.username }
+        })
+        .then((res) => {
+            setIdMsg("사용 가능한 아이디 입니다.");
+            setIdMsgClass('success-message');
+            setIsIdChecked(true);
+        }).catch((error) => {
+            setIdMsg("존재하는 아이디 입니다.");
+            setIdMsgClass('error-message');
+            setIsIdChecked(false);
+            setFormData({ ...formData, username: '' });
+        });
     };
 
-    //닉네임 중복 체크
     const CheckNickname = async (e) => {
         e.preventDefault();
-        console.log('닉네임 중복 버튼 누름');
 
-        // 닉네임 입력 여부 확인
         if (!formData.nickname) {
             alert("닉네임을 입력해주세요.");
             return;
         }
 
-        await axiosInstance.get(`/user/check-nickname`, {
-            params: {
-                nickname: formData.nickname
-            }}
-        )
+        await axios.get(`${process.env.REACT_APP_DB_HOST}/user/check-nickname`, {
+            params: { nickname: formData.nickname }
+        })
         .then((res) => {
-            console.log(res.data);
             setNickMsg("사용 가능한 닉네임 입니다.");
             setNickMsgClass('success-message');
             setIsNickChecked(true);
-        }).catch((error) => { // 400 error
-            console.log(error);
+        }).catch((error) => {
             setNickMsg("존재하는 닉네임 입니다.");
             setNickMsgClass('error-message');
             setIsNickChecked(false);
-            // 적혀있는 값 삭제
-            setFormData({
-                ...formData,
-                nickname: ''
-            });
-        })};
+            setFormData({ ...formData, nickname: '' });
+        });
+    };
 
-    // 비밀번호 확인
-    // 정규 표현식 - 영어와 숫자가 한번 이상 포함되어야하고, 8~16자리
-    const password_REG = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/ 
-
-
-    // 비밀번호 일치 확인
     const passwordCheckValidation = () => {
         if (formData.password === formData.passwordCheck) {
             return <span style={{ color: 'green'}}>비밀번호가 일치합니다.</span>;
@@ -125,54 +95,40 @@ const Join = () => {
         }
     };
 
-    // 가입하기 버튼을 눌렀을 때 실행되는 함수
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // 아이디와 닉네임 중복 확인이 완료되었는지 확인
         if (!isIdChecked || !isNickChecked) {
             alert("아이디와 닉네임 중복 확인을 해주세요.");
             return;
         }
 
-        // 비밀번호 정규 표현식 확인
+        const password_REG = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/;
+
         if (!password_REG.test(formData.password)) {
             alert("비밀번호는 영어와 숫자를 포함한 8~16자리여야 합니다.");
             return;
         }
 
-        // 비밀번호 일치 확인
         if (formData.password !== formData.passwordCheck) {
             alert("비밀번호가 일치하지 않습니다.");
-            setFormData({
-                ...formData,
-                passwordCheck: ''
-            });
+            setFormData({ ...formData, passwordCheck: '' });
             return;
         }
 
         const formDataToSend = { ...formData };
-        delete formDataToSend.passwordCheck; // 비밀번호 확인 삭제
+        delete formDataToSend.passwordCheck;
 
         try {
-            const response = await axiosInstance.post('/join', formDataToSend, {
-                headers: {
-                  'Content-Type': 'application/json',
-                }}
-            );
-            console.log(response.data); // 회원가입 성공 시 서버 응답 출력
-
-            // 토큰을 로컬 스토리지에 저장
+            const response = await axios.post(`${process.env.REACT_APP_DB_HOST}/join`, formDataToSend, {
+                headers: { 'Content-Type': 'application/json' }
+            });
             localStorage.setItem('token', response.headers.authorization);
-
-            // 페이지 이동
             navigate("/booktype");
-
         } catch (error) {
             console.error('회원가입 실패:', error); 
         }
     };
-
 
     return (
         <div className="div-join">
@@ -227,4 +183,4 @@ const Join = () => {
         </div>
     );
 };
-export default Join
+export default Join;
