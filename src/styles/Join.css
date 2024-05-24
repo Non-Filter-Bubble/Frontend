@@ -163,6 +163,16 @@
   white-space: nowrap;
 }
 
+.div-join .notice-password2{
+  position: absolute;
+  left:139px;
+  top : 27px;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 14px;
+}
+
+
+
 .div-join .div-button-ok {
   height: 40px;
   left: 530px;
@@ -280,4 +290,11 @@
   position: absolute;
   top: 4px;
   width: 92px;
+}
+.div-join .success-message {
+  color: green;
+}
+
+.div-join .error-message {
+  color: red;
 }

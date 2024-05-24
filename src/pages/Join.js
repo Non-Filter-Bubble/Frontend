@@ -13,6 +13,8 @@ const Join = () => {
 
     const [idMsg, setIdMsg] = useState('');
     const [nickMsg, setNickMsg] = useState('');
+    const [idMsgClass, setIdMsgClass] = useState('');
+    const [nickMsgClass, setNickMsgClass] = useState('');
     const [isIdChecked, setIsIdChecked] = useState(false);
     const [isNickChecked, setIsNickChecked] = useState(false);
 
@@ -61,10 +63,12 @@ const Join = () => {
             .then((res) => {
                 console.log(res.data);
                 setIdMsg("사용 가능한 아이디 입니다.");
+                setIdMsgClass('success-message');
                 setIsIdChecked(true);
             }).catch((error) => { // 400 error
                 console.log(error);
-                setIdMsg("중복되는 아이디 입니다.");
+                setIdMsg("존재하는 아이디 입니다.");
+                setIdMsgClass('error-message');
                 setIsIdChecked(false);
                 // 적혀있는 값 삭제
                 setFormData({
@@ -93,10 +97,12 @@ const Join = () => {
         .then((res) => {
             console.log(res.data);
             setNickMsg("사용 가능한 닉네임 입니다.");
+            setNickMsgClass('success-message');
             setIsNickChecked(true);
         }).catch((error) => { // 400 error
             console.log(error);
-            setNickMsg("중복되는 닉네임 입니다.");
+            setNickMsg("존재하는 닉네임 입니다.");
+            setNickMsgClass('error-message');
             setIsNickChecked(false);
             // 적혀있는 값 삭제
             setFormData({
@@ -113,9 +119,9 @@ const Join = () => {
     // 비밀번호 일치 확인
     const passwordCheckValidation = () => {
         if (formData.password === formData.passwordCheck) {
-            return <span style={{ color: 'blue', fontSize : '12px' }}>비밀번호가 일치합니다.</span>;
+            return <span style={{ color: 'green'}}>비밀번호가 일치합니다.</span>;
         } else {
-            return <span style={{ color: 'red', fontSize : '12px' }}>비밀번호가 일치하지 않습니다.</span>;
+            return <span style={{ color: 'red'}}>비밀번호가 일치하지 않습니다.</span>;
         }
     };
 
@@ -189,7 +195,7 @@ const Join = () => {
             <div className="div-password2">
                 <input className="rect-input2" type="password" placeholder=" " name="passwordCheck" value={formData.passwordCheck} onChange={handleChange} required/>
                 <div className="title-password2">비밀번호 확인</div>
-                <p>{passwordCheckValidation()}</p>
+                <p className="notice-password2">{passwordCheckValidation()}</p>
             </div>
             <div className="div-button-ok">
                 <button type='submit' className="button-ok">확인</button>
@@ -203,7 +209,7 @@ const Join = () => {
                 <div className="div-wrapper">
                     <button className="button-dupli" onClick={CheckId}>중복확인</button>
                 </div>
-                <div className="notice-id">{idMsg}</div>
+                <div className={`notice-id ${idMsgClass}`}>{idMsg}</div>
             </div>
             <div className="div-nickname">
                 <input className="rect-input4" type="text" placeholder=" " name="nickname" value={formData.nickname} onChange={handleChange} required/>
@@ -214,11 +220,11 @@ const Join = () => {
                 <div className="div-button-dupli2">
                     <button className="button-dupli" onClick={CheckNickname}>중복확인</button>
                 </div>
-                <div className="notice-nickname">{nickMsg}</div>
+                <div className={`notice-nickname ${nickMsgClass}`}>{nickMsg}</div>
             </div>
             </div>
         </form>
         </div>
     );
-    };
-    export default Join;
+};
+export default Join
