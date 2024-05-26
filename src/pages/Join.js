@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import '../styles/Join.css'; // Screen 컴포넌트의 스타일을 포함합니다.
-import axios from 'axios';
+import axiosInstance from '../api/axios';
 
 const Join = () => {
     const [formData, setFormData] = useState({
@@ -49,7 +49,7 @@ const Join = () => {
             return;
         }
 
-        await axios.get(`${process.env.REACT_APP_DB_HOST}/user/check-username`, {
+        await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/user/check-username`, {
             params: { username: formData.username }
         })
         .then((res) => {
@@ -57,6 +57,7 @@ const Join = () => {
             setIdMsgClass('success-message');
             setIsIdChecked(true);
         }).catch((error) => {
+            console.error(error)
             setIdMsg("존재하는 아이디 입니다.");
             setIdMsgClass('error-message');
             setIsIdChecked(false);
@@ -72,7 +73,7 @@ const Join = () => {
             return;
         }
 
-        await axios.get(`${process.env.REACT_APP_DB_HOST}/user/check-nickname`, {
+        await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/user/check-nickname`, {
             params: { nickname: formData.nickname }
         })
         .then((res) => {
@@ -120,7 +121,7 @@ const Join = () => {
         delete formDataToSend.passwordCheck;
 
         try {
-            const response = await axios.post(`${process.env.REACT_APP_DB_HOST}/join`, formDataToSend, {
+            const response = await axiosInstance.post(`${process.env.REACT_APP_DB_HOST}/join`, formDataToSend, {
                 headers: { 'Content-Type': 'application/json' }
             });
             localStorage.setItem('token', response.headers.authorization);
