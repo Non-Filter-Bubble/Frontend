@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import '../styles/Join.css'; // Screen 컴포넌트의 스타일을 포함합니다.
-import axios from 'axios';
+import axiosInstance from '../api/axios';
 
 const Join = () => {
     const [formData, setFormData] = useState({
@@ -20,10 +20,12 @@ const Join = () => {
 
     const navigate = useNavigate();
 
+    // 이전 페이지로 이동
     const handleBack = () => {
-        navigate(-1); // 이전 페이지로 이동
+        navigate(-1); 
     };
 
+    // 값이 바뀔 때 마다 실행되는 함수
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -31,25 +33,30 @@ const Join = () => {
             [name]: value
         });
         
+        // 아이디에 입력된 값이 변경되면 중복 확인 메시지를 초기화
         if (name === 'username') {
             setIdMsg('');
             setIsIdChecked(false);
         }
+        // 닉네임에 입력된 값이 변경되면 중복 확인 메시지를 초기화
         if (name === 'nickname') {
             setNickMsg('');
             setIsNickChecked(false);
         }
     };
 
+    // 아이디 중복 체크
     const CheckId = async (e) => {
         e.preventDefault();
 
+        // 아이디 입력 여부 확인
         if (!formData.username) {
             alert("아이디를 입력해주세요.");
             return;
         }
 
-        await axios.get(`${process.env.REACT_APP_DB_HOST}/user/check-username`, {
+        // 아이디 중복 확인 요청
+        await axiosInstance.get(`/user/check-username`, {
             params: { username: formData.username }
         })
         .then((res) => {
@@ -64,15 +71,18 @@ const Join = () => {
         });
     };
 
+    // 닉네임 중복 체크
     const CheckNickname = async (e) => {
         e.preventDefault();
 
+        // 닉네임 입력 여부 확인
         if (!formData.nickname) {
             alert("닉네임을 입력해주세요.");
             return;
         }
 
-        await axios.get(`${process.env.REACT_APP_DB_HOST}/user/check-nickname`, {
+        // 닉네임 중복 확인 요청
+        await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/user/check-nickname`, {
             params: { nickname: formData.nickname }
         })
         .then((res) => {
@@ -87,6 +97,7 @@ const Join = () => {
         });
     };
 
+    // 비밀번호와 비밀번호 확인에 입력된 값의 일치 확인
     const passwordCheckValidation = () => {
         if (formData.password === formData.passwordCheck) {
             return <span style={{ color: 'green'}}>비밀번호가 일치합니다.</span>;
@@ -95,21 +106,24 @@ const Join = () => {
         }
     };
 
+    // 가입하기 버튼을 눌렀을 때 실행되는 함수
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // 아이디와 닉네임 중복 확인이 완료되었는지 확인
         if (!isIdChecked || !isNickChecked) {
             alert("아이디와 닉네임 중복 확인을 해주세요.");
             return;
         }
 
+        // 비밀번호 정규 표현식 확인
         const password_REG = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/;
-
         if (!password_REG.test(formData.password)) {
             alert("비밀번호는 영어와 숫자를 포함한 8~16자리여야 합니다.");
             return;
         }
 
+        // 비밀번호와 비밀번호 확인이 일치하는지 확인
         if (formData.password !== formData.passwordCheck) {
             alert("비밀번호가 일치하지 않습니다.");
             setFormData({ ...formData, passwordCheck: '' });
@@ -119,8 +133,9 @@ const Join = () => {
         const formDataToSend = { ...formData };
         delete formDataToSend.passwordCheck;
 
+        // 회원가입 요청
         try {
-            const response = await axios.post(`${process.env.REACT_APP_DB_HOST}/join`, formDataToSend, {
+            const response = await axiosInstance.post(`${process.env.REACT_APP_DB_HOST}/join`, formDataToSend, {
                 headers: { 'Content-Type': 'application/json' }
             });
             localStorage.setItem('token', response.headers.authorization);
