@@ -2,12 +2,7 @@
 import axios from 'axios';
 
 // Axios 인스턴스를 생성
-const axiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_DB_HOST,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+const axiosInstance = axios.create();
 
 // 응답 인터셉터 추가
 axiosInstance.interceptors.response.use(

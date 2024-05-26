@@ -24,26 +24,6 @@ const Join = () => {
     navigate(-1);
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-
-    const [idMsg, setIdMsg] = useState('');
-    const [nickMsg, setNickMsg] = useState('');
-    const [idMsgClass, setIdMsgClass] = useState('');
-    const [nickMsgClass, setNickMsgClass] = useState('');
-    const [isIdChecked, setIsIdChecked] = useState(false);
-    const [isNickChecked, setIsNickChecked] = useState(false);
-
-    const navigate = useNavigate();
-
-    const handleBack = () => {
-        navigate(-1); // 이전 페이지로 이동
-    };
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
