@@ -157,6 +157,7 @@
     position: absolute;
     top: 6px;
     width: 29px;
+    cursor:pointer;
   }
   
   .div-search .icon-cart {
