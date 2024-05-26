@@ -18,8 +18,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "cross-env REACT_APP_DB_HOST=http://localhost react-scripts start",
+    "build": "cross-env REACT_APP_DB_HOST=http://43.203.38.124 react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
