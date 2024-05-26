@@ -1,135 +1,133 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import '../styles/Join.css'; // Screen 컴포넌트의 스타일을 포함합니다.
-import axios from 'axios';
+import '../styles/Join.css'; 
+import axiosInstance from '../api/axios';
 
 const Join = () => {
-    const [formData, setFormData] = useState({
-        username: '',
-        nickname: '',        
-        password: '', 
-        passwordCheck: ''
+  const [formData, setFormData] = useState({
+    username: '',
+    nickname: '',        
+    password: '', 
+    passwordCheck: ''
+  });
+
+  const [idMsg, setIdMsg] = useState('');
+  const [nickMsg, setNickMsg] = useState('');
+  const [idMsgClass, setIdMsgClass] = useState('');
+  const [nickMsgClass, setNickMsgClass] = useState('');
+  const [isIdChecked, setIsIdChecked] = useState(false);
+  const [isNickChecked, setIsNickChecked] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
     });
 
-    const [idMsg, setIdMsg] = useState('');
-    const [nickMsg, setNickMsg] = useState('');
-    const [idMsgClass, setIdMsgClass] = useState('');
-    const [nickMsgClass, setNickMsgClass] = useState('');
-    const [isIdChecked, setIsIdChecked] = useState(false);
-    const [isNickChecked, setIsNickChecked] = useState(false);
+    if (name === 'username') {
+      setIdMsg('');
+      setIsIdChecked(false);
+    }
+    if (name === 'nickname') {
+      setNickMsg('');
+      setIsNickChecked(false);
+    }
+  };
 
-    const navigate = useNavigate();
+  const CheckId = async (e) => {
+    e.preventDefault();
 
-    const handleBack = () => {
-        navigate(-1); // 이전 페이지로 이동
-    };
+    if (!formData.username) {
+      alert("아이디를 입력해주세요.");
+      return;
+    }
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
-        
-        if (name === 'username') {
-            setIdMsg('');
-            setIsIdChecked(false);
-        }
-        if (name === 'nickname') {
-            setNickMsg('');
-            setIsNickChecked(false);
-        }
-    };
+    await axiosInstance.get('/user/check-username', {
+      params: { username: formData.username }
+    })
+    .then((res) => {
+      setIdMsg("사용 가능한 아이디 입니다.");
+      setIdMsgClass('success-message');
+      setIsIdChecked(true);
+    }).catch((error) => {
+      setIdMsg("존재하는 아이디 입니다.");
+      setIdMsgClass('error-message');
+      setIsIdChecked(false);
+      setFormData({ ...formData, username: '' });
+    })
+  };
 
-    const CheckId = async (e) => {
-        e.preventDefault();
+  const CheckNickname = async (e) => {
+    e.preventDefault();
 
-        if (!formData.username) {
-            alert("아이디를 입력해주세요.");
-            return;
-        }
+    if (!formData.nickname) {
+      alert("닉네임을 입력해주세요.");
+      return;
+    }
 
-        await axios.get(`${process.env.REACT_APP_DB_HOST}/user/check-username`, {
-            params: { username: formData.username }
-        })
-        .then((res) => {
-            setIdMsg("사용 가능한 아이디 입니다.");
-            setIdMsgClass('success-message');
-            setIsIdChecked(true);
-        }).catch((error) => {
-            setIdMsg("존재하는 아이디 입니다.");
-            setIdMsgClass('error-message');
-            setIsIdChecked(false);
-            setFormData({ ...formData, username: '' });
-        });
-    };
+    await axiosInstance.get('/user/check-nickname', {
+      params: { nickname: formData.nickname }
+    })
+    .then((res) => {
+      setNickMsg("사용 가능한 닉네임 입니다.");
+      setNickMsgClass('success-message');
+      setIsNickChecked(true);
+    }).catch((error) => {
+      setNickMsg("존재하는 닉네임 입니다.");
+      setNickMsgClass('error-message');
+      setIsNickChecked(false);
+      setFormData({ ...formData, nickname: '' });
+    });
+  };
 
-    const CheckNickname = async (e) => {
-        e.preventDefault();
+  const passwordCheckValidation = () => {
+    if (formData.password === formData.passwordCheck) {
+      return <span style={{ color: 'green'}}>비밀번호가 일치합니다.</span>;
+    } else {
+      return <span style={{ color: 'red'}}>비밀번호가 일치하지 않습니다.</span>;
+    }
+  };
 
-        if (!formData.nickname) {
-            alert("닉네임을 입력해주세요.");
-            return;
-        }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        await axios.get(`${process.env.REACT_APP_DB_HOST}/user/check-nickname`, {
-            params: { nickname: formData.nickname }
-        })
-        .then((res) => {
-            setNickMsg("사용 가능한 닉네임 입니다.");
-            setNickMsgClass('success-message');
-            setIsNickChecked(true);
-        }).catch((error) => {
-            setNickMsg("존재하는 닉네임 입니다.");
-            setNickMsgClass('error-message');
-            setIsNickChecked(false);
-            setFormData({ ...formData, nickname: '' });
-        });
-    };
+    if (!isIdChecked || !isNickChecked) {
+      alert("아이디와 닉네임 중복 확인을 해주세요.");
+      return;
+    }
 
-    const passwordCheckValidation = () => {
-        if (formData.password === formData.passwordCheck) {
-            return <span style={{ color: 'green'}}>비밀번호가 일치합니다.</span>;
-        } else {
-            return <span style={{ color: 'red'}}>비밀번호가 일치하지 않습니다.</span>;
-        }
-    };
+    const password_REG = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/;
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    if (!password_REG.test(formData.password)) {
+      alert("비밀번호는 영어와 숫자를 포함한 8~16자리여야 합니다.");
+      return;
+    }
 
-        if (!isIdChecked || !isNickChecked) {
-            alert("아이디와 닉네임 중복 확인을 해주세요.");
-            return;
-        }
+    if (formData.password !== formData.passwordCheck) {
+      alert("비밀번호가 일치하지 않습니다.");
+      setFormData({ ...formData, passwordCheck: '' });
+      return;
+    }
 
-        const password_REG = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/;
+    const formDataToSend = { ...formData };
+    delete formDataToSend.passwordCheck;
 
-        if (!password_REG.test(formData.password)) {
-            alert("비밀번호는 영어와 숫자를 포함한 8~16자리여야 합니다.");
-            return;
-        }
-
-        if (formData.password !== formData.passwordCheck) {
-            alert("비밀번호가 일치하지 않습니다.");
-            setFormData({ ...formData, passwordCheck: '' });
-            return;
-        }
-
-        const formDataToSend = { ...formData };
-        delete formDataToSend.passwordCheck;
-
-        try {
-            const response = await axios.post(`${process.env.REACT_APP_DB_HOST}/join`, formDataToSend, {
-                headers: { 'Content-Type': 'application/json' }
-            });
-            localStorage.setItem('token', response.headers.authorization);
-            navigate("/booktype");
-        } catch (error) {
-            console.error('회원가입 실패:', error); 
-        }
-    };
-
+    try {
+      const response = await axiosInstance.post('/join', formDataToSend);
+      localStorage.setItem('token', response.headers.authorization);
+      navigate("/booktype");
+    } catch (error) {
+      console.error('회원가입 실패:', error); 
+    }
+  };
+  
     return (
         <div className="div-join">
         <div className="title-join">
