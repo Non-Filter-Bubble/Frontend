@@ -1,0 +1,215 @@
+.div-search {
+    background-color: #ffffff;
+    height: 2098px;
+    position: relative;
+    width: 1920px;
+  }
+  
+  .div-search .title {
+    color: #000000;
+    font-family: "Pretendard-SemiBold", Helvetica;
+    font-size: 30px;
+    font-weight: 600;
+    left: 380px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 99px;
+    white-space: nowrap;
+  }
+
+  .div-search .div-search-box {
+    height: 50px;
+    left: 660px;
+    position: absolute;
+    top: 236px;
+    width: 700px;
+  }
+  
+  .div-search .search-box {
+    border: 2px solid;
+    border-color: #000000;
+    border-radius: 25px;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 600px;
+  }
+  
+  .div-search .div-btn-search {
+    height: 45px;
+    left: 620px;
+    position: absolute;
+    top: 1px;
+    width: 82px;
+  }
+  
+  .div-search .btn-search {
+    background-color: #000000;
+    border-radius: 30px;
+    height: 45px;
+    position: relative;
+    width: 80px;
+  }
+  
+  .div-search .search {
+    color: #ffffff;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 23px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 9px;
+    width: 35px;
+  }
+  
+  .div-search .line-search {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 340px;
+    width: 1920px;
+  }
+  
+  .div-search .book-1 {
+    height: 230px;
+    left: 510px;
+    position: absolute;
+    top: 391px;
+    width: 900px;
+  }
+  
+  .div-search .img-book-1 {
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 200px;
+    left: 70px;
+    position: absolute;
+    top: 0;
+    width: 130px;
+  }
+  
+  .div-search .book-1-info {
+    height: 138px;
+    left: 301px;
+    position: absolute;
+    top: 31px;
+    width: 118px;
+  }
+  
+
+  .div-search .book-title {
+    color: #000000;
+    font-family: "Pretendard-SemiBold", Helvetica;
+    font-size: 25px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .div-search .book-author {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 70px;
+    white-space: nowrap;
+  }
+  
+  .div-search .book-company{
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 114px;
+    white-space: nowrap;
+  }
+  
+  .div-search .book-service {
+    height: 40px;
+    left: 760px;
+    position: absolute;
+    top: 160px;
+    width: 110px;
+  }
+  
+
+  .div-search .icon-heart {
+    height: 29px;
+    left: 70px;
+    object-fit: cover;
+    position: absolute;
+    top: 6px;
+    width: 29px;
+  }
+  
+  .div-search .icon-cart {
+    height: 40px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 40px;
+  }
+  
+  .div-search .line-book {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 229px;
+    width: 900px;
+  }
+  
+  .div-search .book-2 {
+    height: 230px;
+    left: 510px;
+    position: absolute;
+    top: 651px;
+    width: 900px;
+  }
+  
+  .div-search .img-book-2 {
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 200px;
+    left: 70px;
+    position: absolute;
+    top: 0;
+    width: 130px;
+  }
+  
+  .div-search .book-2-info {
+    height: 138px;
+    left: 301px;
+    position: absolute;
+    top: 31px;
+    width: 189px;
+  }
+  
+  .div-search .group-7 {
+    height: 30px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 187px;
+  }
+  
+
+  
