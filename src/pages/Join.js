@@ -1,14 +1,34 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import '../styles/Join.css'; // Screen 컴포넌트의 스타일을 포함합니다.
+import '../styles/Join.css'; 
 import axiosInstance from '../api/axios';
 
 const Join = () => {
-    const [formData, setFormData] = useState({
-        username: '',
-        nickname: '',        
-        password: '', 
-        passwordCheck: ''
+  const [formData, setFormData] = useState({
+    username: '',
+    nickname: '',        
+    password: '', 
+    passwordCheck: ''
+  });
+
+  const [idMsg, setIdMsg] = useState('');
+  const [nickMsg, setNickMsg] = useState('');
+  const [idMsgClass, setIdMsgClass] = useState('');
+  const [nickMsgClass, setNickMsgClass] = useState('');
+  const [isIdChecked, setIsIdChecked] = useState(false);
+  const [isNickChecked, setIsNickChecked] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
     });
 
     const [idMsg, setIdMsg] = useState('');
