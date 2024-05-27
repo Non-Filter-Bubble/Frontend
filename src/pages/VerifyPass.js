@@ -29,7 +29,7 @@ const VerifyPass = () => {
         console.log('비밀번호가 일치합니다.');
         console.log(res);
 
-        navigate("/user");
+        navigate("/user/update");
     })
     .catch((err) => {
         setPassword('');
