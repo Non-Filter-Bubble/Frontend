@@ -50,7 +50,8 @@ const Join = () => {
         }
 
         await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/user/check-username`, {
-            params: { username: formData.username }
+            params: { username: formData.username },
+            headers: { 'Content-Type': 'application/json' }
         })
         .then((res) => {
             setIdMsg("사용 가능한 아이디 입니다.");
@@ -74,7 +75,8 @@ const Join = () => {
         }
 
         await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/user/check-nickname`, {
-            params: { nickname: formData.nickname }
+            params: { nickname: formData.nickname },
+            headers: { 'Content-Type': 'application/json' }
         })
         .then((res) => {
             setNickMsg("사용 가능한 닉네임 입니다.");
