@@ -7,15 +7,15 @@ const Header = () => {
   const [searchInput, setSearchInput] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const token = localStorage.getItem('token');
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    // 로그인 상태 확인 로직 추가 (예: 로컬 스토리지, API 호출 등)
-    const token = localStorage.getItem('token'); // 예시: 토큰 저장 방식
     if (token) {
       setIsLoggedIn(true);
     }
-  });
+  }, [token]);
 
   // 검색 버튼 클릭
   const searchIconClick = async (e) => {
@@ -32,8 +32,7 @@ const Header = () => {
 
     // 제목만 검색
     try {
-      // const response1 = await axios.get(`/search-books`, {
-      const response1 = await axiosInstance.get(`/search-books`, {
+      const response1 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
         params: {
           type: 'title',
           value: searchInput
@@ -48,8 +47,7 @@ const Header = () => {
 
       for (const data of dataList1) {
         try {
-          // const response2 = await axios.get(`/load-books`, {
-          const response2 = await axiosInstance.get(`/load-books`, {
+          const response2 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/load-books`, {
             params: {
               isbn: parseInt(data.EA_ISBN, 10)
             }
