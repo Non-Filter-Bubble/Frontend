@@ -19,31 +19,30 @@ const Main = () => {
     const [genre, setGenre] = useState('소설'); // 초기값을 소설로 설정
 
 
-    // // 사용자가 로그인 했는지 확인
-    // useEffect(() => {
-    //     if (!token) {
-    //         alert('로그인이 필요한 서비스입니다.');
-    //         // 로그인 기능 다 되면 주석 해제
-    //         // window.location.href = '/login';
-    //     } else {
-    //         // 장르 선택 여부 확인
-    //         axiosInstance.get('/verify-genre', {
-    //             headers: {
-    //                 'authorization': `${token}`
-    //             }
-    //         }).then((res) => {
-    //             console.log(res);
-    //             // 메인 페이지로 이동
-    //             // navigate("/");
-    //         }).catch((err) => {
-    //             console.log(err);
-    //             // 장르 선택 페이지로 이동
-    //             navigate("/booktype");
-    //         });
-
-    //         fetchBestSellers('소설');
-    //     }
-    // }, [token]);
+    // 사용자가 로그인 했는지 확인
+    useEffect(() => {
+        if (!token) {
+            alert('로그인이 필요한 서비스입니다.');
+            // 로그인 기능 다 되면 주석 해제
+            // navigate('/login');
+        } else {
+            // 장르 선택 여부 확인
+            axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/verify-genre`, {
+                headers: {
+                    'authorization': `${token}`
+                }
+            }).then((res) => {
+                console.log(res);
+                // 메인 페이지로 이동
+                // navigate("/");
+                fetchBestSellers('소설');
+            }).catch((err) => {
+                console.log(err);
+                // 장르 선택 페이지로 이동
+                navigate("/booktype");
+            }); 
+        }
+    }, [token, navigate]);
 
     useEffect(() => {
         // genre 상태가 변경될 때마다 해당 장르의 베스트 셀러 목록을 가져옴
@@ -55,9 +54,10 @@ const Main = () => {
     // 베스트 셀러 목록을 가져오는 GET 요청
     const fetchBestSellers = async (selectedGenre) => {
         try {
-            const response = await axiosInstance.get(`/bestseller`, {
+            const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/bestseller`, {
                 params: { genre: selectedGenre },
                 headers: {
+                    'Content-Type': 'application/json'
                     // 토큰이 없어도 되네?
                     // 'authorization': `${token}`
                 }
