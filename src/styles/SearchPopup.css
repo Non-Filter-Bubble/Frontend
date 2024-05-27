@@ -29,10 +29,10 @@
   
   .div-search-popup .div-search {
     height: 62px;
-    left: -2px;
+    left: 0px;
     position: absolute;
     top: 6px;
-    width: 502px;
+    width: 490px;
   }
   
   .div-search-popup .line-div-search {
@@ -53,7 +53,7 @@
     cursor: pointer;
   }
   
-  .div-search-popup .btn-search {
+  .div-search-popup .btn-search-popup {
     height: 42px;
     left: 405px;
     position: absolute;

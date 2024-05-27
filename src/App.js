@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header'; 
 import Main from './pages/Main';
 import Join from './pages/Join';
+import Login from './pages/Login';
 import Mypage from './pages/Mypage';
 import BookPost from './pages/BookPost';
 import VerifyPass from './pages/VerifyPass';
@@ -29,6 +30,9 @@ function App() {
         title = "회원가입";
         metaDescription = "Join us and enjoy our service!";
         break;
+      case "/login":
+        title = "로그인";
+        break;
       case "/user":
         title = "마이페이지";
         metaDescription = "Manage your user profile here.";
@@ -51,7 +55,10 @@ function App() {
         break;
       case "/search":
         title = "도서 검색";
-        metaDescription = "Withdraw";
+        break;
+      case "/search/book":
+        title = "도서 검색";
+
         break;
       default:
         title = "Page Not Found";
@@ -75,6 +82,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/join" element={<Join />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/user" element={<Mypage />} />
           <Route path="/user/verify" element={<VerifyPass />} />
           <Route path="/user/bookpost" element={<BookPost />} />

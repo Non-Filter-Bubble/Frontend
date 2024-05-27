@@ -7,8 +7,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const logoClick = () => {
-    // container 클릭 시 실행할 코드
-    console.log('Logo clicked');
+    navigate('/main'); 
   };
 
   const LogoutClick = () => {
