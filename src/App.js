@@ -8,6 +8,8 @@ import BookPost from './pages/BookPost';
 import VerifyPass from './pages/VerifyPass';
 import UserInfo from './pages/UserInfo';
 import UserWithdraw from './pages/UserWithdraw';
+import Search from './pages/Search';
+import BookInfo from './pages/BookInfo';
 
 import "./styles/App.css"
 function App() {
@@ -24,29 +26,33 @@ function App() {
         metaDescription = "Welcome to our website!";
         break;
       case "/join":
-        title = "Join Page";
+        title = "회원가입";
         metaDescription = "Join us and enjoy our service!";
         break;
       case "/user":
-        title = "User Page";
+        title = "마이페이지";
         metaDescription = "Manage your user profile here.";
         break;
       case "/user/update":
-        title = "User Info Edit";
+        title = "회원정보 수정";
         metaDescription = "Update your user information including nickname and password.";
         break;
       case "/user/bookpost":
-        title = "Book Post";
+        title = "북서랍 등록";
         metaDescription = "Post a new book.";
         break;
       case "/user/verify":
-        title = "Verify Password";
+        title = "회원정보 수정";
         metaDescription = "Verify your password.";
         break;
-        case "/user/withdraw":
-          title = "Withdraw";
-          metaDescription = "Withdraw";
-          break;
+      case "/user/withdraw":
+        title = "회원탈퇴";
+        metaDescription = "Withdraw";
+        break;
+      case "/search":
+        title = "도서 검색";
+        metaDescription = "Withdraw";
+        break;
       default:
         title = "Page Not Found";
         metaDescription = "This page is not available.";
@@ -74,6 +80,9 @@ function App() {
           <Route path="/user/bookpost" element={<BookPost />} />
           <Route path="/user/update" element={<UserInfo />} />
           <Route path="/user/withdraw" element={<UserWithdraw />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/search/book" element={<BookInfo />} />
+
         </Routes>
       </div>
     </div>
