@@ -29,7 +29,7 @@ const Search = () => {
     <div className="div-search">
       <p className="title">‘불변의 법칙'에 대한 2건의 검색 결과</p>
       <div className="div-search-box">
-        <div className="search-box" />
+        <input className="search-box" alt="" placeholder="Search"/>
         <div className="div-btn-search">
           <div className="btn-search">
             <div className="search">검색</div>

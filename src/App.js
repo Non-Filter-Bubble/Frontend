@@ -9,6 +9,7 @@ import VerifyPass from './pages/VerifyPass';
 import UserInfo from './pages/UserInfo';
 import UserWithdraw from './pages/UserWithdraw';
 import Search from './pages/Search';
+import BookInfo from './pages/BookInfo';
 
 import "./styles/App.css"
 function App() {
@@ -80,6 +81,7 @@ function App() {
           <Route path="/user/update" element={<UserInfo />} />
           <Route path="/user/withdraw" element={<UserWithdraw />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/search/book" element={<BookInfo />} />
 
         </Routes>
       </div>
