@@ -131,7 +131,7 @@
     cursor: pointer;
   }
   .div-select-booktype .rectangle.selected {
-    background-color: gray; /* 선택된 상태의 색상 */
+    background-color: #b3b3b3; /* 선택된 상태의 색상 */
   }
 
   

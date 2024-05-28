@@ -35,7 +35,7 @@ const SelectBookType = () => {
         <p className="text-1">
           <span className="span">000 님,<br /></span>
           <span className="span">선호하는 책 분야를 <br /></span>
-          <span className="span">선택하세요 </span>
+          <span className="span">2개 선택하세요 </span>
         </p>
         <p className="text-2">
           000님의 취향을 파악하는 데 도움을 드리고자합니다.<br />

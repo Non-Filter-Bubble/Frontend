@@ -35,12 +35,17 @@ function App() {
         metaDescription = "Join us and enjoy our service!";
         break;
 
-        case "/join/booktype":
-          title = "회원가입";
-          metaDescription = "Join us and enjoy our service!";
-          break;
+      case "/join/booktype":
+        title = "회원가입";
+        metaDescription = "Join us and enjoy our service!";
+        break;
 
-          case "/join/booktype/genre":
+      case "/join/booktype/genre":
+        title = "회원가입";
+        metaDescription = "Join us and enjoy our service!";
+        break;
+
+      case "/complete-join":
         title = "회원가입";
         metaDescription = "Join us and enjoy our service!";
         break;
