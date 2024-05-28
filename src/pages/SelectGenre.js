@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import '../styles/SelectGenre.css'; 
 
 const SelectGenre = () => {
+  const navigate = useNavigate();
+
   const [selectedGenres, setSelectedGenres] = useState([]);
 
   const toggleGenreSelection = (genre) => {
@@ -19,7 +22,9 @@ const SelectGenre = () => {
       alert("3개의 장르를 선택해주세요.");
     } else {
       // 다음 페이지로 이동하는 로직을 여기에 추가
+      navigate('/complete-join');
       console.log("Next button clicked");
+
     }
   };
 
