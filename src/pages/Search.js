@@ -21,6 +21,7 @@ const Search = () => {
 
   const [bookmarks, setBookmarks] = useState([]);
 
+  // 찜한 책 목록 가져오기
   useEffect(() => {   
     const fetchBookmarks = async () => {
       try {
@@ -47,7 +48,7 @@ const Search = () => {
     };
 
     fetchBookmarks();
-  }, []);
+  }, [token]);
 
 
   // 구매하기 버튼
