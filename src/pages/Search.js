@@ -15,7 +15,7 @@ const Search = () => {
   const token = localStorage.getItem('token');
 
   const location = useLocation();
-  const dataList = location.state.dataList;
+  const dataList = location.state.dataList;   // 검색 결과 수
   const searchInput = location.state.searchInput;
 
   const [bookmarks, setBookmarks] = useState([]);
@@ -112,7 +112,7 @@ const Search = () => {
 
   return (
     <div className="div-search">
-      <p className="title">'{searchInput}'에 대한 2건의 검색 결과</p>
+      <p className="title">'{searchInput}'에 대한 {dataList.length}건의 검색 결과</p>
       {/* <div className="div-search-box">
         <input className="search-box" alt="" placeholder="Search"/>
         <div className="div-btn-search">
