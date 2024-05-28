@@ -71,20 +71,41 @@
   font-family: "Pretendard-Medium", Helvetica;
   font-size: 14px;
   font-weight: 500;
-  left: 591px;
+  left: 580px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 429px;
+  top: 500px;
 }
 
-.div-user-info .div-new-pass {
+.div-user-info .div-pass {
   height: 40px;
   left: 309px;
   position: absolute;
   top: 459px;
   width: 424px;
   padding:10px;
+}
+
+.div-user-info .rect-pass {
+  height: 20px;
+  left: 122px;
+  position: absolute;
+  top: 0;
+  width: 280px;
+  padding: 10px;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 15px;  
+}
+
+
+.div-user-info .div-new-pass {
+  height: 40px;
+  left: 309px;
+  position: absolute;
+  top: 538px;
+  width: 424px;
+  padding: 10px;
 }
 
 .div-user-info .rect-new-pass {
@@ -130,8 +151,6 @@
   width: 302px;
 }
 
-
-
 .div-user-info .id {
   color: #000000;
   font-family: "Pretendard-Regular", Helvetica;
@@ -145,11 +164,11 @@
   width: 69px;
 }
 
-.div-user-info .group-pass-confirm{
+.div-user-info .div-new-pass-2{
   height: 40px;
   left: 292px;
   position: absolute;
-  top: 538px;
+  top: 619px;
   width: 441px;
 }
 
@@ -251,7 +270,7 @@
   height: 40px;
   left: 531px;
   position: absolute;
-  top: 628px;
+  top: 700px;
   width: 102px;
   cursor: pointer;
 }

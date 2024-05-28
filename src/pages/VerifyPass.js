@@ -1,25 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/VerifyPass.css'; 
+import axiosInstance from '../api/axios';
 
 const VerifyPass = () => {
   const navigate = useNavigate();
 
+  const token = localStorage.getItem('token');
+
+  const [password, setPassword] = useState('');
+
   const handleBack = () => {
   navigate(-1); // 이전 페이지로 이동
   }
+
+  const handleInfoModification = async () => {
+    console.log('확인 버튼 클릭');
+
+    await axiosInstance.post(`${process.env.REACT_APP_DB_HOST}/verify-password`, { 
+        password: password
+    }, {
+        headers: {
+            'authorization': `${token}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then((res) => {
+        console.log('비밀번호가 일치합니다.');
+        console.log(res);
+
+        navigate("/user/update");
+    })
+    .catch((err) => {
+        setPassword('');
+        console.error('비밀번호가 일치하지 않습니다.');
+        console.error(err);
+    });
+};
 
   return (
     <div className="div-verify">
       <div className="group-verify">
         <img className="rect-edit-info" alt="" src="/vector/rect-verify-pass.svg"/>
         <div className="div-pass">
-          <input className="rect-pass" type="password" src="/vector/rect-user-input.svg" />
+          <input className="rect-pass" type="password" src="/vector/rect-user-input.svg" value={password} onChange={(e) => setPassword(e.target.value)} />
           <div className="password-confirm">비밀번호 확인</div>
         </div>
         <div className="div-btn-submit">
           <div className="btn-submit">
-            <div className="submit">확인</div>
+            <div className="submit" onClick={handleInfoModification}>확인</div>
           </div>
         </div>
       </div>
