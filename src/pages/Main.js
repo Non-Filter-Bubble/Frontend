@@ -23,8 +23,7 @@ const Main = () => {
     useEffect(() => {
         if (!token) {
             alert('로그인이 필요한 서비스입니다.');
-            // 로그인 기능 다 되면 주석 해제
-            // navigate('/login');
+            navigate('/login');
         } else {
             // 장르 선택 여부 확인
             axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/verify-genre`, {
