@@ -5,36 +5,9 @@
     width: 1920px;
   }
   
-  .div-select-booktype .view {
-    height: 63px;
-    left: 895px;
-    position: absolute;
-    top: 790px;
-    width: 132px;
-  }
   
-  .div-select-booktype .overlap-group {
-    background-color: #000000;
-    border-radius: 30px;
-    height: 63px;
-    position: relative;
-    width: 130px;
-  }
   
-  .div-select-booktype .text-wrapper {
-    color: #ffffff;
-    font-family: "Pretendard-Regular", Helvetica;
-    font-size: 28px;
-    font-weight: 400;
-    left: 39px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 13px;
-    white-space: nowrap;
-  }
-  
-  .div-select-booktype .group {
+  .div-select-booktype .group-title {
     height: 290px;
     left: 358px;
     position: absolute;
@@ -44,7 +17,7 @@
  
  
   
-  .div-select-booktype .text {
+  .div-select-booktype .text-1 {
     align-self: stretch;
     color: #000000;
     font-family: "Pretendard-Bold", Helvetica;
@@ -65,7 +38,7 @@
     letter-spacing: 0;
   }
   
-  .div-select-booktype .element {
+  .div-select-booktype .text-2 {
     color: #000000;
     font-family: "Pretendard-Regular", Helvetica;
     font-size: 25px;
@@ -79,7 +52,7 @@
   
  
   
-  .div-select-booktype .div {
+  .div-select-booktype .div-select {
     height: 452px;
     left: 1010px;
     position: absolute;
@@ -87,6 +60,51 @@
     width: 480px;
   }
   
+  
+  
+  .div-select-booktype .group-line-1 {
+    height: 198px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 480px;
+  }
+  
+  .div-select-booktype .text-wrapper-4 {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 52px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 180px;
+    white-space: nowrap;
+  }
+  
+  .div-select-booktype .group-7 {
+    height: 197px;
+    left: 350px;
+    position: absolute;
+    top: 0;
+    width: 132px;
+  }
+  
+  .div-select-booktype .text-wrapper-5 {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 52px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 179px;
+    white-space: nowrap;
+  }
+
+
   .div-select-booktype .group-2 {
     height: 198px;
     left: 0;
@@ -110,7 +128,12 @@
     position: absolute;
     top: 0;
     width: 130px;
+    cursor: pointer;
   }
+  .div-select-booktype .rectangle.selected {
+    background-color: gray; /* 선택된 상태의 색상 */
+  }
+
   
   .div-select-booktype .text-wrapper-2 {
     color: #000000;
@@ -153,45 +176,33 @@
     top: 0;
     width: 132px;
   }
-  
-  .div-select-booktype .group-6 {
-    height: 198px;
-    left: 0;
+
+
+  .div-select-booktype .div-btn-next {
+    height: 63px;
+    left: 895px;
     position: absolute;
-    top: 0;
-    width: 480px;
-  }
-  
-  .div-select-booktype .text-wrapper-4 {
-    color: #000000;
-    font-family: "Pretendard-Regular", Helvetica;
-    font-size: 15px;
-    font-weight: 400;
-    left: 52px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 180px;
-    white-space: nowrap;
-  }
-  
-  .div-select-booktype .group-7 {
-    height: 197px;
-    left: 350px;
-    position: absolute;
-    top: 0;
+    top: 790px;
     width: 132px;
   }
   
-  .div-select-booktype .text-wrapper-5 {
-    color: #000000;
+  .div-select-booktype .btn-next {
+    background-color: #000000;
+    border-radius: 30px;
+    height: 63px;
+    position: relative;
+    width: 130px;
+  }
+  
+  .div-select-booktype .next {
+    color: #ffffff;
     font-family: "Pretendard-Regular", Helvetica;
-    font-size: 15px;
+    font-size: 28px;
     font-weight: 400;
-    left: 52px;
+    left: 39px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 179px;
+    top: 13px;
     white-space: nowrap;
   }
