@@ -1,48 +1,51 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import '../styles/BookInfo.css'; 
 
 const BookInfo = () => {
+    // const navigate = useNavigate();
+    // const location = useLocation();
+    // const bookinfo = location.state.bookinfo;
+    // console.log(bookinfo);
 
-    const navigate = useNavigate();
+    // const handleBack = () => {
+    // navigate(-1); // 이전 페이지로 이동
+    // }
 
-    const handleBack = () => {
-    navigate(-1); // 이전 페이지로 이동
-    }
+    // // 하트 아이콘
+    // const [isFavorite, setIsFavorite] = useState(false);
 
-    // 하트 아이콘
-    const [isFavorite, setIsFavorite] = useState(false);
-
-    const toggleFavorite = () => {
-        setIsFavorite(!isFavorite);
-    };
+    // const toggleFavorite = () => {
+    //     setIsFavorite(!isFavorite);
+    // };
    
 
     return (
       <div className="div-bookinfo">
-        <img className="back-bookinfo" alt="" src="/vector/back.svg" onClick={handleBack}/>
-        <div className="book-title">역행자</div>
+        {/* <img className="back-bookinfo" alt="" src="/vector/back.svg" onClick={handleBack}/>
+        <div className="book-title">{bookinfo.TITLE}</div>
         <img className="line" alt="Line" src="/vector/line-book.svg" />
         <img className="line-2" alt="Line" src="/vector/line-book.svg" />
         <div className="div-content">
           <div className="group-7">
             <div className="div-name">
               <div className="text-wrapper-5">도서명</div>
-              <div className="text-wrapper-6">불변의 법칙</div>
+              <div className="text-wrapper-6">{bookinfo.TITLE}</div>
             </div>
             <div className="div-author">
               <div className="author">저자</div>
-              <div className="text-wrapper-6">모건 하우절</div>
+              <div className="text-wrapper-6">{bookinfo.AUTHOR}</div>
               
             </div>
             <div className="div-company">
               <div className="text-wrapper-5">출판사</div>
-              <div className="company">서삼독</div>
+              <div className="company">{bookinfo.PUBLISHER}</div>
             </div>
           </div>
           <div className="div-plot">
             <div className="title-plot">줄거리</div>
             <p className="plot">
+              dlrjdlkfjdsklfjaskldfasdljksdhfjlasdfladshf<br />
               1000년 후에도 유효할 인간의 행동양식과 반복패턴에 대한 <br />
               흥미로운 역사 스토리와 일화들을 들려준다. <br />
               워런 버핏의 스니커즈, 빌 게이츠의 숨겨진 불안, <br />
@@ -60,7 +63,7 @@ const BookInfo = () => {
             alt="" 
             src={isFavorite ? "/images/filled-heart-big.png" : "/images/empty-heart-big.png"} 
             onClick={toggleFavorite} />
-        </div>
+        </div> */}
       </div>
       );
     };

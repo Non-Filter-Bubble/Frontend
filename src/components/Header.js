@@ -76,7 +76,7 @@ const Header = () => {
       console.log(dataList);
       
       // 검색 결과 페이지로 이동
-      navigate("/search", { state: { dataList: dataList } });
+      navigate("/search", { state: { dataList: dataList, searchInput: searchInput } });
 
     } catch (error) {
       console.error('검색 실패:', error); // 오류가 발생한 경우 출력
