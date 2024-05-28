@@ -5,6 +5,7 @@ import Main from './pages/Main';
 import Join from './pages/Join';
 import SelectBookType from './pages/SelectBookType';
 import SelectGenre from './pages/SelectGenre';
+import CompleteJoin from './pages/CompleteJoin';
 import Login from './pages/Login';
 import Mypage from './pages/Mypage';
 import BookPost from './pages/BookPost';
@@ -104,6 +105,7 @@ function App() {
           <Route path="/join" element={<Join />} />
           <Route path="/join/booktype" element={<SelectBookType />} />
           <Route path="/join/booktype/genre" element={<SelectGenre />} />
+          <Route path="/complete-join" element={<CompleteJoin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/user" element={<Mypage />} />
           <Route path="/user/verify" element={<VerifyPass />} />
