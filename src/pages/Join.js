@@ -135,7 +135,7 @@ const Join = () => {
                 headers: { 'Content-Type': 'application/json' }
             });
             localStorage.setItem('token', response.headers.authorization);
-            navigate("/booktype");
+            navigate("/join/booktype");
         } catch (error) {
             console.error('회원가입 실패:', error);
         }

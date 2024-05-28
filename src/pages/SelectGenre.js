@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from "react-router-dom";
+import axiosInstance from '../api/axios';
 import '../styles/SelectGenre.css'; 
 
 const SelectGenre = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const token = localStorage.getItem('token');
+  const booktype = location.state.booktype;
 
   const [selectedGenres, setSelectedGenres] = useState([]);
 
@@ -17,14 +21,32 @@ const SelectGenre = () => {
     }
   };
 
-  const handleNextClick = () => {
+  const handleNextClick = async () => {
+    console.log("Next button clicked");
+
     if (selectedGenres.length !== 3) {
       alert("3개의 장르를 선택해주세요.");
     } else {
-      // 다음 페이지로 이동하는 로직을 여기에 추가
-      navigate('/complete-join');
-      console.log("Next button clicked");
+        try {
+          const response = await axiosInstance.post(`${process.env.REACT_APP_DB_HOST}/genre`, { 
+            favGenre: selectedGenres,
+            favBookType: booktype
+          }, {
+              headers: {
+                'authorization': `${token}`,
+                'Content-Type': 'application/json'
+              }
+          });
+          console.log('분야', booktype, '장르', selectedGenres)
+          console.log('장르 정보가 성공적으로 저장되었습니다.');
+          console.log(response)
 
+          // 성공시 이동
+          navigate('/complete-join');
+
+      } catch (error) {
+        console.error('정보 저장 실패:', error);
+      }   
     }
   };
 

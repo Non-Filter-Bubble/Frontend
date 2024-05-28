@@ -104,7 +104,7 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/join" element={<Join />} />
           <Route path="/join/booktype" element={<SelectBookType />} />
-          <Route path="/join/booktype/genre" element={<SelectGenre />} />
+          <Route path="/join/genre" element={<SelectGenre />} />
           <Route path="/complete-join" element={<CompleteJoin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/user" element={<Mypage />} />

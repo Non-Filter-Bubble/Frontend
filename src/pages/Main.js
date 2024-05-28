@@ -38,7 +38,7 @@ const Main = () => {
             }).catch((err) => {
                 console.log(err);
                 // 장르 선택 페이지로 이동
-                navigate("/booktype");
+                navigate("/join/booktype");
             }); 
         }
     }, [token, navigate]);

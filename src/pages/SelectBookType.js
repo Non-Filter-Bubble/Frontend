@@ -3,10 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/SelectBookType.css'; 
 
 const SelectBookType = () => {
-
-  const navigate = useNavigate();
-
-  
+  const navigate = useNavigate();  
 
   const [selectedTypes, setSelectedTypes] = useState([]);
 
@@ -21,12 +18,14 @@ const SelectBookType = () => {
   };
 
   const handleNextClick = () => {
+    console.log("Next button clicked");
+    console.log('선택한 분야는', selectedTypes)
+
     if (selectedTypes.length !== 2) {
       alert("2개의 분야를 선택해주세요.");
     } else {
       // 다음 페이지로 이동
-      navigate('/join/booktype/genre');
-      console.log("Next button clicked");
+      navigate('/join/genre', { state: { booktype: selectedTypes } });
     }
   };
 
