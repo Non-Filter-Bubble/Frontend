@@ -1,4 +1,3 @@
-// 상세 페이지로 넘어간 다음에 구매 하는거 옮겨야함
 // 책 정보가 2권 이상일 때 디자인 바꿔야함
 
 import React, { useState, useEffect } from "react";

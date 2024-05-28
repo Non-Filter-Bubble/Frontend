@@ -109,7 +109,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/user" element={<Mypage />} />
           <Route path="/user/verify" element={<VerifyPass />} />
-          <Route path="/user/bookpost" element={<BookPost />} />
+          <Route path="/bookpost" element={<BookPost />} />
           <Route path="/user/update" element={<UserInfo />} />
           <Route path="/user/withdraw" element={<UserWithdraw />} />
           <Route path="/search" element={<Search />} />
