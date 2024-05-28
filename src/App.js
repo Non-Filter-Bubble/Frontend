@@ -3,6 +3,10 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header'; 
 import Main from './pages/Main';
 import Join from './pages/Join';
+import SelectBookType from './pages/SelectBookType';
+import SelectGenre from './pages/SelectGenre';
+import CompleteJoin from './pages/CompleteJoin';
+import Login from './pages/Login';
 import Mypage from './pages/Mypage';
 import BookPost from './pages/BookPost';
 import VerifyPass from './pages/VerifyPass';
@@ -25,22 +29,41 @@ function App() {
         title = "Home Page";
         metaDescription = "Welcome to our website!";
         break;
+
       case "/join":
         title = "회원가입";
         metaDescription = "Join us and enjoy our service!";
         break;
+
+        case "/join/booktype":
+          title = "회원가입";
+          metaDescription = "Join us and enjoy our service!";
+          break;
+
+          case "/join/booktype/genre":
+        title = "회원가입";
+        metaDescription = "Join us and enjoy our service!";
+        break;
+
+      case "/login":
+        title = "로그인";
+        break;
+
       case "/user":
         title = "마이페이지";
         metaDescription = "Manage your user profile here.";
         break;
+
       case "/user/update":
         title = "회원정보 수정";
         metaDescription = "Update your user information including nickname and password.";
         break;
+
       case "/user/bookpost":
         title = "북서랍 등록";
         metaDescription = "Post a new book.";
         break;
+
       case "/user/verify":
         title = "회원정보 수정";
         metaDescription = "Verify your password.";
@@ -49,9 +72,14 @@ function App() {
         title = "회원탈퇴";
         metaDescription = "Withdraw";
         break;
+
       case "/search":
         title = "도서 검색";
-        metaDescription = "Withdraw";
+        break;
+
+      case "/search/book":
+        title = "도서 검색";
+
         break;
       default:
         title = "Page Not Found";
@@ -75,6 +103,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/join" element={<Join />} />
+          <Route path="/join/booktype" element={<SelectBookType />} />
+          <Route path="/join/booktype/genre" element={<SelectGenre />} />
+          <Route path="/complete-join" element={<CompleteJoin />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/user" element={<Mypage />} />
           <Route path="/user/verify" element={<VerifyPass />} />
           <Route path="/user/bookpost" element={<BookPost />} />

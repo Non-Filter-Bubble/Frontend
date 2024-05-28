@@ -8,7 +8,7 @@ const SearchPopup = ({ onClose }) => {
         <div className="div-search">
           <img className="line-div-search" alt="" src="/vector/line-div-search-popup.svg" />
           <img className="btn-close" alt=" " src="/images/btn-close-popup.png" onClick={onClose} />
-          <img className="btn-search" alt=" " src="/images/btn-search-popup.png" />
+          <img className="btn-search-popup" alt=" " src="/images/btn-search-popup.png" />
           <input className="search-input" type="text" placeholder="검색어를 입력하세요" />  
         </div>
         <div className="div-search-result">

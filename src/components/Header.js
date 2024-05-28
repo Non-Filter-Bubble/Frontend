@@ -11,11 +11,16 @@ const Header = () => {
 
   const navigate = useNavigate();
 
+  const logoClick = () => {
+    navigate('/main'); 
+  };
+
   useEffect(() => {
     if (token) {
       setIsLoggedIn(true);
     }
   }, [token]);
+
 
   // 검색 버튼 클릭
   const searchIconClick = async (e) => {
