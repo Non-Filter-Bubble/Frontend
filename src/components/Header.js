@@ -11,9 +11,7 @@ const Header = () => {
 
   const navigate = useNavigate();
 
-  const logoClick = () => {
-    navigate('/main'); 
-  };
+ 
 
   useEffect(() => {
     if (token) {
