@@ -1,0 +1,301 @@
+.div-genre {
+    background-color: #ffffff;
+    height: 1619px;
+    position: relative;
+    width: 1920px;
+  }
+  
+  .div-genre .content {
+    height: 968px;
+    left: 360px;
+    position: absolute;
+    top: 150px;
+    width: 1179px;
+  }
+  
+  .div-genre .group-title {
+    height: 290px;
+    left: 0;
+    position: absolute;
+    top: 0px;
+    width: 559px;
+  }
+  
+  .div-genre .text {
+    align-self: stretch;
+    color: #000000;
+    font-family: "Pretendard-Bold", Helvetica;
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    left:42px;
+    top: -50px;
+  }
+  
+  .div-genre .text-big {
+    color: #000000;
+    font-family: "Pretendard-Bold", Helvetica;
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+  
+  .div-genre .text-small {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 25px;
+    font-weight: 400;
+    left: 40px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 200px;
+  }
+  
+  
+  
+  .div-genre .div-select {
+    height: 960px;
+    left: 524px;
+    position: absolute;
+    top: 8px;
+    width: 655px;
+  }
+  
+  .div-genre .group-1 {
+    height: 198px;
+    left: 525px;
+    position: absolute;
+    top: 0;
+    width: 132px;
+  }
+  
+  .div-genre .text-wrapper-2 {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 30px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 180px;
+    white-space: nowrap;
+  }
+  
+
+  .div-genre .rectangle {
+    background-color: #d9d9d9;
+    height: 170px;
+    position: absolute;
+    width: 130px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .div-genre .rectangle.selected {
+    background-color: #b3b3b3; /* 선택되었을 때의 색상 */
+  }
+
+
+  .div-genre .group-2 {
+    height: 198px;
+    left: 175px;
+    position: absolute;
+    top: 0;
+    width: 132px;
+  }
+  
+  .div-genre .text-wrapper-3 {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 45px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 180px;
+    white-space: nowrap;
+  }
+  
+  .div-genre .group-3 {
+    height: 198px;
+    left: 350px;
+    position: absolute;
+    top: 0;
+    width: 132px;
+  }
+  
+  .div-genre .group-4 {
+    height: 198px;
+    left: 525px;
+    position: absolute;
+    top: 254px;
+    width: 132px;
+  }
+  
+  .div-genre .text-wrapper-4 {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 39px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 180px;
+    white-space: nowrap;
+  }
+  
+  .div-genre .group-5 {
+    height: 198px;
+    left: 175px;
+    position: absolute;
+    top: 254px;
+    width: 132px;
+  }
+  
+  .div-genre .group-6{
+    height: 198px;
+    left: 350px;
+    position: absolute;
+    top: 254px;
+    width: 132px;
+  }
+  
+  .div-genre .group-7 {
+    height: 198px;
+    left: 175px;
+    position: absolute;
+    top: 508px;
+    width: 132px;
+  }
+  
+  .div-genre .group-8 {
+    height: 198px;
+    left: 0;
+    position: absolute;
+    top: 508px;
+    width: 132px;
+  }
+  
+  .div-genre .group-9 {
+    height: 198px;
+    left: 350px;
+    position: absolute;
+    top: 508px;
+    width: 132px;
+  }
+  
+  .div-genre .text-wrapper-5 {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 52px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 180px;
+    white-space: nowrap;
+  }
+  
+  .div-genre .group-10 {
+    height: 198px;
+    left: 525px;
+    position: absolute;
+    top: 508px;
+    width: 132px;
+  }
+  
+  .div-genre .text-wrapper-6 {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 46px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 180px;
+    white-space: nowrap;
+  }
+  
+  .div-genre .group-11 {
+    height: 198px;
+    left: 175px;
+    position: absolute;
+    top: 762px;
+    width: 132px;
+  }
+  
+  .div-genre .group-12 {
+    height: 198px;
+    left: 0;
+    position: absolute;
+    top: 762px;
+    width: 132px;
+  }
+  
+  .div-genre .text-wrapper-7 {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 26px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 180px;
+    white-space: nowrap;
+  }
+  
+  .div-genre .group-13 {
+    height: 198px;
+    left: 350px;
+    position: absolute;
+    top: 762px;
+    width: 132px;
+  }
+  
+  .div-genre .group-14 {
+    height: 198px;
+    left: 525px;
+    position: absolute;
+    top: 762px;
+    width: 132px;
+  }
+  
+  .div-genre .div-btn-next {
+    height: 63px;
+    left: 895px;
+    position: absolute;
+    top: 1268px;
+    width: 132px;
+    cursor : pointer;
+  }
+  
+  .div-genre .div-btn {
+    background-color: #000000;
+    border-radius: 30px;
+    height: 63px;
+    position: relative;
+    width: 130px;
+  }
+  
+  .div-genre .next {
+    color: #ffffff;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 28px;
+    font-weight: 400;
+    left: 39px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 13px;
+    white-space: nowrap;
+  }
+  
