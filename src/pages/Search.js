@@ -6,7 +6,7 @@ import axiosInstance from '../api/axios';
 import '../styles/Search.css'; 
 
 // 기본 이미지 경로
-const DEFAULT_IMAGE_URL = '../../bookImage.jpg';
+const DEFAULT_IMAGE_URL = '../images/bookImage.jpg';
 
 const Search = () => {
 
@@ -23,6 +23,12 @@ const Search = () => {
  // 마지막 책의 위치
   const lastBookRef = useRef(null);
   const paginationRef = useRef(null);
+
+
+  // 검색어가 변경될 때마다 currentPage를 1로 초기화
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchInput]);
 
 
   // 찜한 책 목록 가져오기
