@@ -37,8 +37,9 @@ jobs:
           docker build -t ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest .
           docker push ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
 
-      - name: Delete Docker image
-        run: docker rmi -f ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
+      - name: Delete untagged Docker images
+        run: docker images -f "dangling=true" -q | xargs docker rmi -f
+
 
       - name: Deploy to AWS EC2
         uses: appleboy/ssh-action@master
