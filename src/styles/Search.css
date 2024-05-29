@@ -1,8 +1,9 @@
 .div-search {
     background-color: #ffffff;
-    height: 2098px;
     position: relative;
-    width: 1920px;
+    width: 100%;
+    padding: 20px;
+    height: 2098px;
   }
   
   .div-search .title {
@@ -24,6 +25,7 @@
     position: absolute;
     top: 236px;
     width: 700px;
+    display: flex;
   }
   
   .div-search .search-box {
@@ -89,7 +91,10 @@
     width: 900px;
   }
   
-  .div-search .img-book-1 {
+  .div-search .img-book-1,
+  .div-search .img-book-2,
+  .div-search .img-book-3,
+  .div-search .img-book-4 {
     background-position: 50% 50%;
     background-size: cover;
     height: 200px;
@@ -97,14 +102,19 @@
     position: absolute;
     top: 0;
     width: 130px;
+    cursor: pointer;
   }
   
-  .div-search .book-1-info {
+  .div-search .book-1-info,
+  .div-search .book-2-info,
+  .div-search .book-3-info,
+  .div-search .book-4-info {
     height: 138px;
     left: 301px;
     position: absolute;
     top: 31px;
     width: 118px;
+    cursor: pointer;
   }
   
 
@@ -193,23 +203,39 @@
     width: 900px;
   }
   
-  .div-search .img-book-2 {
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 200px;
-    left: 70px;
-    position: absolute;
-    top: 0;
-    width: 130px;
-  }
-  
-  .div-search .book-2-info {
-    height: 138px;
-    left: 301px;
-    position: absolute;
-    top: 31px;
-    width: 189px;
-  }
-  
 
-  
+  .div-search .book-3 {
+    height: 230px;
+    left: 510px;
+    position: absolute;
+    top: 911px;
+    width: 900px;
+  }
+
+  .div-search .book-4 {
+    height: 230px;
+    left: 510px;
+    position: absolute;
+    top: 1171px;
+    width: 900px;
+  }
+
+  .pagination {
+    position: absolute;
+    top : 1500px;
+    left : -10px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%
+}
+
+.pagination button {
+    
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 20px;
+}

@@ -1,6 +1,6 @@
 // 책 정보가 2권 이상일 때 디자인 바꿔야함
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axiosInstance from '../api/axios';
 import '../styles/Search.css'; 
@@ -11,14 +11,19 @@ const DEFAULT_IMAGE_URL = '../../bookImage.jpg';
 const Search = () => {
 
   const navigate = useNavigate();
-
   const token = localStorage.getItem('token');
-
   const location = useLocation();
   const dataList = location.state.dataList;   // 검색 결과 수
   const searchInput = location.state.searchInput;
 
   const [bookmarks, setBookmarks] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;  // 한페이지에 최대 4개의 검색 결과
+
+ // 마지막 책의 위치
+  const lastBookRef = useRef(null);
+  const paginationRef = useRef(null);
+
 
   // 찜한 책 목록 가져오기
   useEffect(() => {   
@@ -104,11 +109,33 @@ const Search = () => {
     }
   };
 
-  useEffect(() => {
-    console.log('Updated bookmarks:', bookmarks);
-  }, [bookmarks]);
-
   const isBookmarked = (book) => bookmarks.some(b => parseInt(b.isbn, 10) === parseInt(book.EA_ISBN, 10));
+
+  const handleNextPage = () => {
+    if (currentPage * itemsPerPage < dataList.length) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const currentData = dataList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  useEffect(() => {
+    if (lastBookRef.current && paginationRef.current) {
+      const lastBookPosition = lastBookRef.current.getBoundingClientRect();
+      paginationRef.current.style.top = `${lastBookPosition.bottom + 20}px`;
+    }
+  }, [currentData]);
+
+
+
+
+
 
   return (
     <div className="div-search">
@@ -122,7 +149,7 @@ const Search = () => {
         </div>
       </div> */}
       <img className="line-search" alt="Line" src="/vector/line-search.svg" />
-      {dataList.map((book, index) => (
+      {currentData.map((book, index) => (
         <div key={index} className={`book-${index + 1}`} onClick={() => navigate("/search/book", { state: { bookinfo: book } }) }>
           <img className="img-book-1" alt={book.TITLE} src={book.BOOK_COVER_URL !== "" ? book.BOOK_COVER_URL : DEFAULT_IMAGE_URL} />
           <div className={`book-${index + 1}-info`}>
@@ -135,13 +162,17 @@ const Search = () => {
               className="icon-heart"
               alt=""
               src={isBookmarked(book) ? "/images/filled-heart-search.png" : "/images/empty-heart-search.png"}
-              onClick={() => toggleFavorite(book)}
+              onClick={(e) => { e.stopPropagation(); toggleFavorite(book); }}
             />
             <img className="icon-cart" alt="" src="/images/icon-cart.png" onClick={() => handlePurchase(book)} />
           </div>
           <img className="line-book" alt=" " src="/vector/line-search-division.svg" />
         </div>
       ))}
+      <div className="pagination">
+        {currentPage > 1 && <button onClick={handlePreviousPage}>이전</button>}
+        {currentPage * itemsPerPage < dataList.length && <button onClick={handleNextPage}>다음</button>}
+      </div>
     </div>
   );
 };

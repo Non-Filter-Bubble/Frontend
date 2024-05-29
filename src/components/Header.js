@@ -100,7 +100,7 @@ const Header = () => {
         <div className="logo">BUBBLE POP</div>
       </div>
       
-      <div className="div-search">
+      <div className="div-search-small">
       <input type="text" className="search-input" placeholder="책 제목을 입력하세요." value={searchInput} onChange={handleChange}/>
         <img className="icon-search" alt="" src="/images/search-icon.png" onClick={searchIconClick} />
       </div>
