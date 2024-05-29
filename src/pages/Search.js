@@ -56,7 +56,7 @@ const Search = () => {
 
 
   // 구매하기 버튼
-  const handlePurchase = (book) => {
+  const cartClick = (book) => {
     window.open(`https://search.shopping.naver.com/book/search?bookTabType=ALL&pageIndex=1&pageSize=40&query=${book.TITLE}&sort=REL`, '_blank');
   };
 
@@ -111,15 +111,20 @@ const Search = () => {
 
   const isBookmarked = (book) => bookmarks.some(b => parseInt(b.isbn, 10) === parseInt(book.EA_ISBN, 10));
 
-  const handleNextPage = () => {
+  // 페이지네이션
+  //다음 버튼 클릭시
+  const nextClick = () => {
     if (currentPage * itemsPerPage < dataList.length) {
       setCurrentPage(currentPage + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
-  const handlePreviousPage = () => {
+  // 이전 버튼 클릭시
+  const previousClick = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -164,14 +169,14 @@ const Search = () => {
               src={isBookmarked(book) ? "/images/filled-heart-search.png" : "/images/empty-heart-search.png"}
               onClick={(e) => { e.stopPropagation(); toggleFavorite(book); }}
             />
-            <img className="icon-cart" alt="" src="/images/icon-cart.png" onClick={() => handlePurchase(book)} />
+            <img className="icon-cart" alt="" src="/images/icon-cart.png" onClick={() => cartClick(book)} />
           </div>
           <img className="line-book" alt=" " src="/vector/line-search-division.svg" />
         </div>
       ))}
       <div className="pagination">
-        {currentPage > 1 && <button onClick={handlePreviousPage}>이전</button>}
-        {currentPage * itemsPerPage < dataList.length && <button onClick={handleNextPage}>다음</button>}
+        {currentPage > 1 && <button onClick={previousClick}>이전</button>}
+        {currentPage * itemsPerPage < dataList.length && <button onClick={nextClick}>다음</button>}
       </div>
     </div>
   );
