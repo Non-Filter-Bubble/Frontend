@@ -10,8 +10,6 @@ const Header = () => {
   const token = localStorage.getItem('token');
   const navigate = useNavigate();
 
- 
-
   useEffect(() => {
     if (token) {
       setIsLoggedIn(true);
@@ -19,14 +17,14 @@ const Header = () => {
   }, [token]);
 
  
-    const handleSearch = async () => {
-      console.log('검색어:', searchInput);
+  const handleSearch = async () => {
+    console.log('검색어:', searchInput);
   
-      // 검색어 입력 여부 확인
-      if (!searchInput) {
-        alert('제목을 입력해주세요.');
-        return;
-      }
+    // 검색어 입력 여부 확인
+    if (!searchInput) {
+      alert('제목을 입력해주세요.');
+      return;
+    }
 
     // 제목만 검색
     try {
@@ -60,7 +58,6 @@ const Header = () => {
 
       console.log('최종 dataList2의 값은', dataList2)
 
-
       // 두 데이터 합치기
       const dataList = dataList1.map(data1 => {
         console.log('data1의 값은', data1)
@@ -73,22 +70,23 @@ const Header = () => {
       // 검색 결과 페이지로 이동
       navigate("/search", { state: { dataList: dataList, searchInput: searchInput } });
 
+      setSearchInput('');
+
     } catch (error) {
       console.error('검색 실패:', error); // 오류가 발생한 경우 출력
     }
   };
 
- // 검색 버튼 클릭
- const searchIconClick = async (e) => {
-  e.preventDefault();
-  console.log('검색 버튼 클릭');
-  handleSearch();
-}
+  // 검색 버튼 클릭
+  const searchIconClick = async (e) => {
+    e.preventDefault();
+    console.log('검색 버튼 클릭');
+    handleSearch();
+  }
 
   const handleChange = (e) => {
     setSearchInput(e.target.value);
   };
-
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {

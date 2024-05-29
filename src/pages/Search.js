@@ -17,19 +17,18 @@ const Search = () => {
   const searchInput = location.state.searchInput;
 
   const [bookmarks, setBookmarks] = useState([]);
+  const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;  // 한페이지에 최대 4개의 검색 결과
 
- // 마지막 책의 위치
+  // 마지막 책의 위치
   const lastBookRef = useRef(null);
   const paginationRef = useRef(null);
-
 
   // 검색어가 변경될 때마다 currentPage를 1로 초기화
   useEffect(() => {
     setCurrentPage(1);
   }, [searchInput]);
-
 
   // 찜한 책 목록 가져오기
   useEffect(() => {   
@@ -143,22 +142,75 @@ const Search = () => {
     }
   }, [currentData]);
 
+  const handleSearch = async () => {
+    console.log('검색어:', search);
 
+    // 검색어 입력 여부 확인
+    if (!search) {
+      alert('제목을 입력해주세요.');
+      return;
+    }
 
+  // 제목만 검색
+    try {
+      const response1 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
+        params: {
+          type: 'title',
+          value: search
+        }
+      });
 
+      const dataList1 = response1.data.docs;   
 
+      const dataList2 = [];
+
+      for (const data of dataList1) {
+        try {
+          const response2 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/load-books`, {
+            params: {
+              isbn: parseInt(data.EA_ISBN, 10)
+            }
+          });
+          dataList2.push(response2.data);
+        } catch (error) {
+          dataList2.push({ ISBN_THIRTEEN_NO: parseInt(data.EA_ISBN, 10), GENRE_LV1: "", GENRE_LV2: "", INFO_TEXT: "", BOOK_COVER_URL: ""});
+        }
+      }
+
+      // 두 데이터 합치기
+      const dataList = dataList1.map(data1 => {
+        const data2 = dataList2.find(data2 => parseInt(data1.EA_ISBN, 10) === data2.ISBN_THIRTEEN_NO);
+        return { ...data1, ...data2 };
+      });
+
+      console.log(dataList);
+      
+      // 검색 결과 페이지로 이동
+      navigate("/search", { state: { dataList: dataList, searchInput: search } });
+
+    } catch (error) {
+      console.error('검색 실패:', error); // 오류가 발생한 경우 출력
+    }
+  };
+
+  // 검색 버튼 클릭
+  const searchClick = async (e) => {
+    e.preventDefault();
+    console.log('검색 버튼 클릭');
+    handleSearch();
+  }
 
   return (
     <div className="div-search">
       <p className="title">'{searchInput}'에 대한 {dataList.length}건의 검색 결과</p>
-      {/* <div className="div-search-box">
-        <input className="search-box" alt="" placeholder="Search"/>
-        <div className="div-btn-search">
+      <div className="div-search-box">
+        <input className="search-box" alt="" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)}/>
+        <div className="div-btn-search" onClick={searchClick}>
           <div className="btn-search">
             <div className="search">검색</div>
           </div>
         </div>
-      </div> */}
+      </div>
       <img className="line-search" alt="Line" src="/vector/line-search.svg" />
       {currentData.map((book, index) => (
         <div key={index} className={`book-${index + 1}`} onClick={() => navigate("/search/book", { state: { bookinfo: book } }) }>
