@@ -9,7 +9,7 @@ import '../styles/BookInfo.css';
 import { Button } from 'react-bootstrap';
 
 // 기본 이미지 경로
-const DEFAULT_IMAGE_URL = '../../bookImage.jpg';
+const DEFAULT_IMAGE_URL = '../images/bookImage.jpg';
 
 const BookInfo = () => {
   const token = localStorage.getItem('token');

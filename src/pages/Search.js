@@ -1,24 +1,35 @@
 // 책 정보가 2권 이상일 때 디자인 바꿔야함
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axiosInstance from '../api/axios';
 import '../styles/Search.css'; 
 
 // 기본 이미지 경로
-const DEFAULT_IMAGE_URL = '../../bookImage.jpg';
+const DEFAULT_IMAGE_URL = '../images/bookImage.jpg';
 
 const Search = () => {
 
   const navigate = useNavigate();
-
   const token = localStorage.getItem('token');
-
   const location = useLocation();
-  const dataList = location.state.dataList;
+  const dataList = location.state.dataList;   // 검색 결과 수
   const searchInput = location.state.searchInput;
 
   const [bookmarks, setBookmarks] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;  // 한페이지에 최대 4개의 검색 결과
+
+ // 마지막 책의 위치
+  const lastBookRef = useRef(null);
+  const paginationRef = useRef(null);
+
+
+  // 검색어가 변경될 때마다 currentPage를 1로 초기화
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchInput]);
+
 
   // 찜한 책 목록 가져오기
   useEffect(() => {   
@@ -51,7 +62,7 @@ const Search = () => {
 
 
   // 구매하기 버튼
-  const handlePurchase = (book) => {
+  const cartClick = (book) => {
     window.open(`https://search.shopping.naver.com/book/search?bookTabType=ALL&pageIndex=1&pageSize=40&query=${book.TITLE}&sort=REL`, '_blank');
   };
 
@@ -65,7 +76,7 @@ const Search = () => {
 
     try {
       if (!bookmark) { // 찜하지 않은 책을 찜한 경우
-        console.log('찜하지 않은 책을 찜에 대해 찜 버튼을 눌렀습니다.');
+        console.log('찜하지 않은 책의 찜 버튼을 눌렀습니다.');
 
         const response = await axiosInstance.post(`${process.env.REACT_APP_DB_HOST}/user/like`, { 
           isbn: book.EA_ISBN,
@@ -104,15 +115,42 @@ const Search = () => {
     }
   };
 
-  useEffect(() => {
-    console.log('Updated bookmarks:', bookmarks);
-  }, [bookmarks]);
-
   const isBookmarked = (book) => bookmarks.some(b => parseInt(b.isbn, 10) === parseInt(book.EA_ISBN, 10));
+
+  // 페이지네이션
+  //다음 버튼 클릭시
+  const nextClick = () => {
+    if (currentPage * itemsPerPage < dataList.length) {
+      setCurrentPage(currentPage + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  // 이전 버튼 클릭시
+  const previousClick = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const currentData = dataList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  useEffect(() => {
+    if (lastBookRef.current && paginationRef.current) {
+      const lastBookPosition = lastBookRef.current.getBoundingClientRect();
+      paginationRef.current.style.top = `${lastBookPosition.bottom + 20}px`;
+    }
+  }, [currentData]);
+
+
+
+
+
 
   return (
     <div className="div-search">
-      <p className="title">'{searchInput}'에 대한 2건의 검색 결과</p>
+      <p className="title">'{searchInput}'에 대한 {dataList.length}건의 검색 결과</p>
       {/* <div className="div-search-box">
         <input className="search-box" alt="" placeholder="Search"/>
         <div className="div-btn-search">
@@ -122,7 +160,7 @@ const Search = () => {
         </div>
       </div> */}
       <img className="line-search" alt="Line" src="/vector/line-search.svg" />
-      {dataList.map((book, index) => (
+      {currentData.map((book, index) => (
         <div key={index} className={`book-${index + 1}`} onClick={() => navigate("/search/book", { state: { bookinfo: book } }) }>
           <img className="img-book-1" alt={book.TITLE} src={book.BOOK_COVER_URL !== "" ? book.BOOK_COVER_URL : DEFAULT_IMAGE_URL} />
           <div className={`book-${index + 1}-info`}>
@@ -135,13 +173,19 @@ const Search = () => {
               className="icon-heart"
               alt=""
               src={isBookmarked(book) ? "/images/filled-heart-search.png" : "/images/empty-heart-search.png"}
-              onClick={() => toggleFavorite(book)}
+              onClick={(e) => { e.stopPropagation(); toggleFavorite(book); }}
             />
-            <img className="icon-cart" alt="" src="/images/icon-cart.png" onClick={() => handlePurchase(book)} />
+            <img className="icon-cart" alt="" src="/images/icon-cart.png" onClick={() => cartClick(book)} />
           </div>
           <img className="line-book" alt=" " src="/vector/line-search-division.svg" />
         </div>
       ))}
+      {dataList.length > itemsPerPage && (
+        <div className="pagination" ref={paginationRef}>
+          {currentPage > 1 && <button onClick={previousClick}>이전</button>}
+          {currentPage * itemsPerPage < dataList.length && <button onClick={nextClick}>다음</button>}
+        </div>
+      )}
     </div>
   );
 };
