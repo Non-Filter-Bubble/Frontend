@@ -44,7 +44,8 @@ const Login = () => {
             console.log(response);
 
             // 토큰을 로컬 스토리지에 저장
-            localStorage.setItem('token', response.headers.authorization);
+            localStorage.setItem('token', response.headers['authorization']);
+            // axios.defaults.headers.common['Authorization'] = `Bearer ${response.headers.authorization}`;
 
             // 메인 페이지로 이동
             navigate("/");
