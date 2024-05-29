@@ -8,7 +8,6 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const token = localStorage.getItem('token');
-
   const navigate = useNavigate();
 
  
@@ -19,19 +18,15 @@ const Header = () => {
     }
   }, [token]);
 
-
-  // 검색 버튼 클릭
-  const searchIconClick = async (e) => {
-    e.preventDefault();
-    console.log('검색 버튼 클릭');
-
-    console.log('검색어:', searchInput);
-
-    // 검색어 입력 여부 확인
-    if (!searchInput) {
-      alert('제목을 입력해주세요.');
-      return;
-    }
+ 
+    const handleSearch = async () => {
+      console.log('검색어:', searchInput);
+  
+      // 검색어 입력 여부 확인
+      if (!searchInput) {
+        alert('제목을 입력해주세요.');
+        return;
+      }
 
     // 제목만 검색
     try {
@@ -83,8 +78,22 @@ const Header = () => {
     }
   };
 
+ // 검색 버튼 클릭
+ const searchIconClick = async (e) => {
+  e.preventDefault();
+  console.log('검색 버튼 클릭');
+  handleSearch();
+}
+
   const handleChange = (e) => {
     setSearchInput(e.target.value);
+  };
+
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
   };
 
   const LogoutClick = () => {
@@ -101,7 +110,11 @@ const Header = () => {
       </div>
       
       <div className="div-search-small">
-      <input type="text" className="search-input" placeholder="책 제목을 입력하세요." value={searchInput} onChange={handleChange}/>
+      <input type="text" className="search-input" 
+            placeholder="책 제목을 입력하세요." 
+            value={searchInput} 
+            onChange={handleChange}
+            onKeyPress={handleKeyPress}/>
         <img className="icon-search" alt="" src="/images/search-icon.png" onClick={searchIconClick} />
       </div>
 

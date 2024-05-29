@@ -109,22 +109,15 @@
 .div-header .search-input {
   position: absolute;
   top: calc(50% - 20px);
-  /* 20px 대신에 rem 단위 사용 */
   left: 0rem;
   background-color: transparent;
-  /* rgba(0, 0, 0, 0) 대신에 transparent 사용 */
   border: 0.5px solid #000;
   box-sizing: border-box;
   width: 25rem;
-  /* 400px에 해당 */
   height: 2.5rem;
-  /* 40px에 해당 */
   padding: 0.375rem 0.75rem;
-  /* 적절한 내부 패딩 추가 */
   font-size: 1rem;
-  /* 적절한 폰트 크기 설정 */
   color: #333;
-  /* 입력 텍스트 색상 */
 }
 
 /* input 포커스 시 아웃라인 제거 및 기타 스타일 */
