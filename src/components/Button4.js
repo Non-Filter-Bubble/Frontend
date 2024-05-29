@@ -1,9 +1,15 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Button4.css";
 
 
 const Button4 = () => {
+  const navigate = useNavigate();
 
-
+  const handleMypage = () => {
+    console.log('마이페이지 버튼 클릭');
+    navigate("/user");
+  }
 
     return (
         <div className="button4">
@@ -33,7 +39,7 @@ const Button4 = () => {
                 <img className="icon" alt="" src="images/heart.png" />
               </div>
             </div>
-            <div className="mypage-div">
+            <div className="mypage-div" onClick={handleMypage}>
               <div className="btn-border"></div>
               <div className="group-container">
                 <div className="container">

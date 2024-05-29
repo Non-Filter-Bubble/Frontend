@@ -74,14 +74,6 @@ const Main = () => {
         }
     };
 
-    // 책 등록 페이지로 이동
-    const handleBookRegister = (book) => {
-        console.log('책 등록 페이지로 이동');
-        console.log(book);
-
-        navigate('/bookpost', { state: { bookinfoMain: book } });
-    };
-
     return (
         <div className="div-main">
             <Slide />
@@ -89,7 +81,7 @@ const Main = () => {
             <NonFilter />
             <Filter />
 
-            <div>
+            <div className="genre-buttons">
                 <Button variant="outline-dark" onClick={() => setGenre('소설')}>소설</Button>
                 <Button variant="outline-dark" onClick={() => setGenre('자연과학')}>자연과학</Button>
                 <Button variant="outline-dark" onClick={() => setGenre('인문')}>인문</Button>
@@ -109,10 +101,8 @@ const Main = () => {
                         <Col xs={12} md={9}>
                             <div className="book-details">
                                 <h3>{book.title}</h3>
-                                <p>저자: {book.author}</p>
-                                <p>출판사: {book.publisher}</p>
-                                <p>ISBN: {book.isbn}</p>
-                                <Button variant="outline-dark" onClick={() => handleBookRegister(book)}>책 등록</Button>
+                                <div>저자: {book.author}</div>
+                                <div>출판사: {book.publisher}</div>
                             </div>
                         </Col>
                     </Row>
