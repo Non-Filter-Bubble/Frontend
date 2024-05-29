@@ -70,7 +70,7 @@ const Search = () => {
 
     try {
       if (!bookmark) { // 찜하지 않은 책을 찜한 경우
-        console.log('찜하지 않은 책을 찜에 대해 찜 버튼을 눌렀습니다.');
+        console.log('찜하지 않은 책의 찜 버튼을 눌렀습니다.');
 
         const response = await axiosInstance.post(`${process.env.REACT_APP_DB_HOST}/user/like`, { 
           isbn: book.EA_ISBN,
@@ -174,10 +174,12 @@ const Search = () => {
           <img className="line-book" alt=" " src="/vector/line-search-division.svg" />
         </div>
       ))}
-      <div className="pagination">
-        {currentPage > 1 && <button onClick={previousClick}>이전</button>}
-        {currentPage * itemsPerPage < dataList.length && <button onClick={nextClick}>다음</button>}
-      </div>
+      {dataList.length > itemsPerPage && (
+        <div className="pagination" ref={paginationRef}>
+          {currentPage > 1 && <button onClick={previousClick}>이전</button>}
+          {currentPage * itemsPerPage < dataList.length && <button onClick={nextClick}>다음</button>}
+        </div>
+      )}
     </div>
   );
 };
