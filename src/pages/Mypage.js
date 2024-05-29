@@ -15,7 +15,7 @@ const Mypage = () => {
   };
 
   const btnPlusClick = () => {
-    navigate('/user/bookpost'); 
+    navigate('/bookpost'); 
   };
 
 

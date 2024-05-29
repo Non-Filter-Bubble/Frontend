@@ -5,6 +5,14 @@
   width: 1920px;
 }
 
+.div-bookpost .book-cover {
+  height: auto;
+  width: 200px; 
+  position: absolute;
+  top: 340px; 
+  left: 450px; 
+  z-index: 1; 
+}S
 
 .div-bookpost .div-bookpost-title {
   height: 40px;
