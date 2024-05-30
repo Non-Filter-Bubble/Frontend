@@ -8,6 +8,8 @@
     font-size: 0.938rem;
     color: #fff;
     font-family: Pretendard;
+    left: 50%; /* 부모로부터 위치 */
+    transform: translateX(-50%); /* 가로 중앙 정렬 */
 }
 
 .book-img{
@@ -145,6 +147,7 @@
     left: 25.625rem;
     font-size: 2.5rem;
     color: #000;
+    white-space: nowrap;
 }
 .nonfilter-ment2 {
     position: absolute;
@@ -156,6 +159,7 @@
     text-align: left;
     display: inline-block;
     width: 77.125rem;
+    white-space: nowrap;
 }
 .btn-reset {
     position: absolute;
