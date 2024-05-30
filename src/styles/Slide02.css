@@ -27,9 +27,11 @@
     top: 5.75rem;
     left: 26rem;
     font-weight: 300;
+    white-space: nowrap;
 }
 .ment {
     margin: 0;
+    white-space: nowrap;
 }
 .slide02-ment2 {
     position: absolute;

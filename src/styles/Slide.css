@@ -27,6 +27,8 @@
     left:5%; /* 부모로부터 위치 */
     transform: translateX(-50%); /* 가로 중앙 정렬 */
 }
+
+
 .btn-right {
   position: absolute;
   top: 17rem;

@@ -46,6 +46,7 @@
 
 .ment {
     margin: 0;
+    white-space: nowrap;
 }
 .slide01-ment1 {
     position: absolute;
