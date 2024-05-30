@@ -12,17 +12,13 @@
 }
 
 .button-div{
-    width: 100%; /* 전체 너비를 사용하도록 설정 */
     height: 100%; /* 전체 높이를 사용하도록 설정 */
     top: 3.125rem;
-    display: flex;
-    justify-content: space-around; /* 내부 아이템을 균등하게 배치 */
-    align-items: center; /* 수직 중앙 정렬 */
-    width: 100%; /* 부모 너비의 100% 사용 */
-    max-width: 80rem; /* 최대 너비 설정 (필요에 따라 조정) */
     cursor: pointer;
-    left: 21rem;
     position: absolute;
+    left: 19%; /* 부모로부터 위치 */
+    transform: translateX(-50%); /* 가로 중앙 정렬 */
+
 }
 
 .btn-name1 {
