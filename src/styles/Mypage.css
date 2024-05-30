@@ -2,7 +2,7 @@
     background-color: #ffffff;
     height: 1540px;
     position: relative;
-    width: 1920px;
+    width: 100%;
   }
   
   .div-my .div-book-drawer {
@@ -11,7 +11,7 @@
     left: 0;
     position: absolute;
     top: 340px;
-    width: 1920px;
+    width: 100%;
   }
   
   .div-my .group {
