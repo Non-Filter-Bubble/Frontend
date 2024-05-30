@@ -2,7 +2,7 @@
     position: absolute;
     top: 0rem;
     left: 0rem;
-    width: 120rem;
+    width: 100vw;
     height: 37.5rem;
     object-fit: cover;
 }

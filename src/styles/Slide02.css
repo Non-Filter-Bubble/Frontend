@@ -7,23 +7,8 @@
     height: 15.625rem;
     object-fit: cover;
 }
-.btn-right {
-    position: absolute;
-    top: 17rem;
-    left: 115rem;
-    width: 1.875rem;
-    height: 3.5rem;
-    object-fit: contain;
-    cursor: pointer;
-}
-.btn-left {
-    position: absolute;
-    top: 17rem;
-    left: 3.125rem;
-    width: 1.875rem;
-    height: 3.5rem;
-    cursor: pointer;
-}
+
+
 .slide02-ment1 {
     position: absolute;
     top: 5.75rem;
