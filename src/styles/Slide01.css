@@ -1,3 +1,15 @@
+.slide-01 {
+    width: 100%;
+    position: relative;
+    background-color: #000;
+    height: 37.5rem;
+    overflow: hidden;
+    text-align: left;
+    font-size: 3.125rem;
+    color: #fff;
+    font-family: Pretendard;
+}
+
 .slide-background {
     position: absolute;
     top: 0rem;
@@ -83,15 +95,5 @@
     left: 93.813rem;
     font-size: 1.25rem;
 }
-.slide-01 {
-    width: 100%;
-    position: relative;
-    background-color: #000;
-    height: 37.5rem;
-    overflow: hidden;
-    text-align: left;
-    font-size: 3.125rem;
-    color: #fff;
-    font-family: Pretendard;
-}
+
 

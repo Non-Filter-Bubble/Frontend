@@ -1,3 +1,16 @@
+.slide-02 {
+    width: 100%;
+    position: relative;
+    background-color: #aa6565;
+    height: 37.5rem;
+    overflow: hidden;
+    text-align: left;
+    font-size: 3.125rem;
+    color: #fff;
+    font-family: Pretendard;
+}
+
+
 .img-drawer {
     position: absolute;
     top: 15.625rem;
@@ -61,15 +74,5 @@
     left: 95.813rem;
     font-size: 1.25rem;
 }
-.slide-02 {
-    width: 100%;
-    position: relative;
-    background-color: #aa6565;
-    height: 37.5rem;
-    overflow: hidden;
-    text-align: left;
-    font-size: 3.125rem;
-    color: #fff;
-    font-family: Pretendard;
-}
+
 

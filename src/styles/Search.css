@@ -2,8 +2,8 @@
     background-color: #ffffff;
     position: relative;
     width: 100%;
-    padding: 20px;
     height: 1600px;
+    
     
   }
   
@@ -12,21 +12,23 @@
     font-family: "Pretendard-SemiBold", Helvetica;
     font-size: 30px;
     font-weight: 600;
-    left: 380px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
     top: 99px;
     white-space: nowrap;
+    left: 30%; /* 부모의 50% 위치 */
+    transform: translateX(-50%); /* 가로 중앙 정렬 */
   }
 
   .div-search .div-search-box {
     height: 50px;
-    left: 630px;
     position: absolute;
     top: 236px;
     width: 700px;
     display: flex;
+    left: 50%; /* 부모의 50% 위치 */
+    transform: translateX(-50%); /* 가로 중앙 정렬 */
   }
   
   .div-search .search-box {
@@ -43,6 +45,7 @@
     color: #000000;
     font-family: "Pretendard-Regular", Helvetica;
     font-size: 20px;
+    
   }
   
   .div-search .div-btn-search {
@@ -70,7 +73,7 @@
     left: 23px;
     letter-spacing: 0;
     line-height: normal;
-    position: absolute;
+    position: relative;
     top: 9px;
     width: 35px;
   }
@@ -79,17 +82,18 @@
     height: 1px;
     left: 0;
     object-fit: cover;
-    position: absolute;
+    position: relative;
     top: 340px;
     width: 100%;
   }
   
   .div-search .book-1 {
     height: 230px;
-    left: 510px;
+    width: 900px;
     position: absolute;
     top: 391px;
-    width: 900px;
+    left: 50%; /* 부모의 50% 위치 */
+    transform: translateX(-50%); /* 가로 중앙 정렬 */
   }
   
   .div-search .img-book-1,
@@ -198,27 +202,30 @@
   
   .div-search .book-2 {
     height: 230px;
-    left: 510px;
     position: absolute;
     top: 651px;
     width: 900px;
+    left: 50%; /* 부모의 50% 위치 */
+    transform: translateX(-50%); /* 가로 중앙 정렬 */
   }
   
 
   .div-search .book-3 {
     height: 230px;
-    left: 510px;
     position: absolute;
     top: 911px;
     width: 900px;
+    left: 50%; /* 부모의 50% 위치 */
+    transform: translateX(-50%); /* 가로 중앙 정렬 */
   }
 
   .div-search .book-4 {
     height: 230px;
-    left: 510px;
     position: absolute;
     top: 1171px;
     width: 900px;
+    left: 50%; /* 부모의 50% 위치 */
+    transform: translateX(-50%); /* 가로 중앙 정렬 */
   }
 
   .pagination {

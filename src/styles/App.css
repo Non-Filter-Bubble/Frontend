@@ -2,17 +2,24 @@
   --scale-factor: 1;  /* 기본 스케일 팩터 */
 }
 
+/* 전역 설정 */
+body {
+  width:100%;
+}
+
 .header {
   width: 100%;
+  overflow-x: hidden; /* 가로 스크롤 없애기 */
 }
 
 .App {
-  width: 100vw; /* 기본 너비 설정 */
+  width: 100%; /* 기본 너비 설정 */
   max-width: 1920px; /* 최대 너비 설정 */
   margin: 0 auto; /* 가운데 정렬 */
   transform-origin: top center; /* 변환 원점 설정 */
   transform: scale(var(--scale-factor)); /* 스케일 적용 */
   transition: transform 0.3s ease; /* 부드러운 변환 적용 */
+  overflow-x: hidden; /* 가로 스크롤 없애기 */
 }
 
 /* 너비가 1920px 이하일 때 스케일 동적 조정 */
