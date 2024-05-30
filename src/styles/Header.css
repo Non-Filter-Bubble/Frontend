@@ -2,7 +2,10 @@
   background-color: #ffffff;
   height: 6.25rem; /* 100px */
   width: 100%;
+  justify-content: center; /* 자식 요소를 중앙으로 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
 }
+
 
 .div-header .div-logo {
   align-items: center;
@@ -99,10 +102,10 @@
   border: 0.03125rem solid; /* 0.5px */
   border-color: #000000;
   height: 2.5rem; /* 40px */
-  left: 47.5rem; /* 760px */
-  position: absolute;
+  position: relative;
   top: 1.875rem; /* 30px */
   width: 25rem; /* 400px */
+  margin: 0 auto; /* 좌우 여백을 자동으로 설정하여 중앙 정렬 */
 }
 
 .div-header .search-input {
