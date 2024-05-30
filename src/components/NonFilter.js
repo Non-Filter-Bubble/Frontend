@@ -1,41 +1,121 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import "../styles/NonFilter.css";
 
 
 const NonFilter = () => {
-    const [books] = useState([{}]); // 빈 객체를 포함하는 배열로 초기화
-  
-    useEffect(() => {
-        // API 요청 코드 (나중에 구현)
-    }, []);
-  
-    return (
-        <div className="nonfilter">
-            {books.map((book, index) => (
-                <div key={index} className={`card-${index + 1}`} id={`card${index + 1}Container`}>
-                    <div className="card-img">
-                        <img className="book-img" alt="" src={book.IMAGE || 'images/default-book.png'} />
-                        <img className="book-blur" alt="Cover" src="vector/blur.svg" />
-                    </div>
-                    <div className="card-resource">
-                        <div className="wrapper">
-                            <div className="div">
-                                {book.INFO_TEXT ? book.INFO_TEXT.split('\n').map((line, idx) => (
-                                    <p key={idx} className="p">{line}</p>
-                                )) : <p className="p">No description available.</p>}
-                            </div>
-                        </div>
-                        <img className="card-line" alt="" src="vector/line.svg" />
-                        <div className="click">click!</div>
-                    </div>
-                </div>
-            ))}
-            <div className="nonfilter-ment1">취향을 넓힐 시간, 이 책을 추천합니다!</div>
-            <div className="nonfilter-ment2">선입견 없는 한줄평이 새로운 취향을 탐험하게 해줍니다. 미지의 책 속 숨은 메시지를 발견해보세요</div>
-            <img className="btn-reset" alt="" src="images/btn-reset.png" />
+    
+    
+  return (
+    <div className="non-filter">
+    <div className="div-nonfilter">
+      <p className="ment-1">취향을 넓힐 시간, 이 책을 추천합니다!</p>
+      <p className="ment-2">
+        선입견 없는 한줄평이 새로운 취향을 탐험하게 해줍니다. 미지의 책 속 숨은 메시지를 발견해보세요
+      </p>
+      <img className="btn-reset" alt="" src="images/btn-reset.png" />
+
+      <div className="div-card">
+        {/*카드 - 1 */}
+        <div className="card-1">
+          <div className="card-blur">
+            <img className="card-img" alt="" src="rectangle-28-4.svg" />
+          </div>
+            <div className="div-card-content">
+                <p className="card-text">
+                  도전과 모험,
+                  <br />
+                  새로운 시작을 하는 <br />
+                  사람은 누구나 추락을 <br />
+                  경험할 수 있다
+                </p>
+                <img className="line-division" alt="" src="/vector/line-filter.svg" />
+              <div className="text-click">click!</div>
+            </div>
+            
         </div>
-    );
-  };
+        {/*카드 -2 */}
+        <div className="card-2">
+          <div className="card-blur">
+            <img className="card-img" alt="" src="rectangle-28-4.svg" />
+          </div>
+            <div className="div-card-content">
+                <p className="card-text">
+                  훌쩍 떠나온 것 나는
+                  <br />
+                  얼마나 기쁜 모른다!
+                  <br />
+                  친구여, 인간의
+                  <br />
+                  마음이란 대체
+                  <br />
+                  어떤 것일까!
+                </p>
+                <img className="line-division" alt="" src="/vector/line-filter.svg" />
+              <div className="text-click">click!</div>
+            </div>
+        </div>
+
+        {/* 카드-3 */}
+        <div className="card-3">
+          <div className="card-blur">
+            <img className="card-img" alt="" src="rectangle-28-4.svg" />
+          </div>
+            <div className="div-card-content">
+                <p className="card-text">
+                  역사는 우리를 <br />
+                  저버렸지만, <br />
+                  그래도 상관없다.
+                </p>
+                <img className="line-division" alt="" src="/vector/line-filter.svg" />
+              <div className="text-click">click!</div>
+            </div>
+        </div>
+
+        {/* 카드-4 */}
+        <div className="card-4">
+          <div className="card-blur">
+            <img className="card-img" alt="" src="rectangle-28-4.svg" />
+          </div>
+            <div className="div-card-content">
+                <p className="card-text">
+                  훌쩍 떠나온 것 나는
+                  <br />
+                  얼마나 기쁜 모른다!
+                  <br /> <br />
+                  마음이란 대체
+                  <br />
+                  어떤 것일까!
+                </p>
+              <img className="line-division" alt="" src="/vector/line-filter.svg" />
+              <div className="text-click">click!</div>
+            </div>
+        </div>
+        {/* 카드-5 */}
+        <div className="card-5">
+          <div className="card-blur">
+            <img className="card-img" alt="" src="rectangle-28-4.svg" />
+          </div>
+           
+            <div className="div-card-content">
+                <p className="card-text">
+                  훌쩍 떠나온 것 나는
+                  <br />
+                  얼마나 기쁜 모른다!
+                  <br /> <br />
+                  마음이란 대체
+                  <br />
+                  어떤 것일까!
+                </p>
+              <img className="line-division" alt="" src="/vector/line-filter.svg" />
+              <div className="text-click">click!</div>
+            </div>
+        </div>
+        
+      </div>
+      </div>
+    </div>
+  );
+};
   
   export default NonFilter;

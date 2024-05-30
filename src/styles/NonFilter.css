@@ -1,173 +1,192 @@
-.nonfilter {
-    width: 100%;
-    position: relative;
+  .non-filter {
     background-color: #f5f5f5;
-    height: 44.25rem;
-    overflow: hidden;
-    text-align: center;
-    font-size: 0.938rem;
-    color: #fff;
-    font-family: Pretendard;
+    height: 708px;
+    position: relative;
+    width: 100%;
+
     left: 50%; /* 부모로부터 위치 */
     transform: translateX(-50%); /* 가로 중앙 정렬 */
-}
+  }
 
-.book-img{
+  .non-filter .ment-1 {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 40px;
+    font-weight: 400;
+    left: 410px;
+    letter-spacing: 0;
+    line-height: normal;
     position: absolute;
-    top: calc(50% - 150px);
-    left: calc(50% - 90px);
-    border-radius: 25px;
-    width: 11.25rem;
-    height: 18.75rem;
-    object-fit: cover;
-}
-.book-blur {
-    position: absolute;
-    top: 0rem;
-    left: 0rem;
-    border-radius: 25px;
-    width: 11.25rem;
-    height: 18.75rem;
-}
-.card-img {
-    position: absolute;
-    top: calc(50% - 150px);
-    left: calc(50% - 90px);
-    width: 11.25rem;
-    height: 18.75rem;
-}
-.p {
-    margin: 0;
-}
-.div {
-    width: 8.75rem;
-    position: relative;
-    font-weight: 600;
-    display: inline-block;
-    height: 5.625rem;
-    flex-shrink: 0;
-}
-.wrapper {
-    position: absolute;
-    top: 0rem;
-    left: 0rem;
-    width: 8.75rem;
-    height: 5.625rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-.card-line {
-    position: absolute;
-    top: calc(50% + 25px);
-    left: calc(50% - 70px);
-    max-height: 100%;
-    width: 8.75rem;
-}
-.click {
-    position: absolute;
-    top: 11.875rem;
-    left: 2.625rem;
-    font-size: 1.25rem;
-    font-weight: 900;
-    display: inline-block;
-    width: 3.5rem;
-    height: 1.25rem;
-}
-.card-resource {
-    position: absolute;
-    top: 2.5rem;
-    left: 1.25rem;
-    width: 8.75rem;
-    height: 13.125rem;
-}
-.card-5 {
-    position: absolute;
-    top: calc(50% - 150px);
-    left: calc(50% + 370px);
-    width: 11.25rem;
-    height: 18.75rem;
-    cursor: pointer;
-}
-.card-4 {
-    position: absolute;
-    top: calc(50% - 150px);
-    left: calc(50% + 140px);
-    width: 11.25rem;
-    height: 18.75rem;
-    cursor: pointer;
-}
-.card-3-text {
-    position: absolute;
-    top: 0rem;
-    left: 0rem;
-    width: 8.75rem;
-    height: 5.625rem;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-.card-3 {
-    position: absolute;
-    top: calc(50% - 150px);
-    left: calc(50% - 90px);
-    width: 11.25rem;
-    height: 18.75rem;
-    cursor: pointer;
-}
-.card-2 {
-    position: absolute;
-    top: calc(50% - 150px);
-    left: calc(50% - 320px);
-    width: 11.25rem;
-    height: 18.75rem;
-    cursor: pointer;
-}
-.card-1 {
-    position: absolute;
-    top: calc(50% - 150px);
-    left: calc(50% - 550px);
-    width: 11.25rem;
-    height: 18.75rem;
-    cursor: pointer;
-}
-.card {
-    position: absolute;
-    top: calc(50% - 46px);
-    left: calc(50% - 550px);
-    width: 68.75rem;
-    height: 18.75rem;
-}
-.nonfilter-ment1 {
-    position: absolute;
-    top: 6.25rem;
-    left: 25.625rem;
-    font-size: 2.5rem;
-    color: #000;
+    text-align: center;
+    top: 99px;
     white-space: nowrap;
-}
-.nonfilter-ment2 {
+    
+  }
+
+  .non-filter .div-nonfilter{
     position: absolute;
-    top: 11.125rem;
-    left: 25.625rem;
-    font-size: 1.563rem;
+    height: 100%;
+  }
+
+
+  .non-filter .ment-2 {
+    color: #666666;
+    font-family: "Pretendard-Light", Helvetica;
+    font-size: 25px;
     font-weight: 300;
-    color: #666;
-    text-align: left;
-    display: inline-block;
-    width: 77.125rem;
-    white-space: nowrap;
-}
-.btn-reset {
+    left: 410px;
+    letter-spacing: 0;
+    line-height: normal;
     position: absolute;
-    top: 14.563rem;
-    left: 90.5rem;
-    width: 3.125rem;
-    height: 3.125rem;
+    top: 177px;
+    width: 1234px;
+  }
+  
+  .non-filter .btn-reset {
+    height: 50px;
+    left: 1448px;
     object-fit: cover;
-}
+    position: absolute;
+    top: 233px;
+    width: 50px;
+    cursor:pointer;
+  }
+  
 
 
+  .non-filter .div-card {
+    height: 300px;
+    left: 410px;
+    position: absolute;
+    top: 308px;
+    width: 1100px;
+  }
+  
+
+
+  .non-filter .card-1 {
+    height: 300px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 180px;
+    cursor: pointer;
+  }
+
+  .non-filter .card-blur {
+    background-image: url(./card-blur-nonfilter.svg);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 300px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 180px;
+  }
+
+  .non-filter .card-img {
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 300px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 180px;
+  }
+  
+  .non-filter .div-card-content {
+    height: 210px;
+    left: 20px;
+    position: absolute;
+    top: 40px;
+    width: 142px;
+  }
+
+
+  
+  .non-filter .card-text {
+    color: #ffffff;
+    font-family: "Pretendard-SemiBold", Helvetica;
+    font-size: 15px;
+    font-weight: 600;
+    height: 90px;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    width: 140px;
+  }
+  
+
+  .non-filter .line-division {
+    height: 2px;
+    left: -1px;
+    position: absolute;
+    top: 129px;
+    width: 142px;
+  }
+  
+  .non-filter .text-click {
+    color: #ffffff;
+    font-family: "Pretendard-Black", Helvetica;
+    font-size: 20px;
+    font-weight: 900;
+    left: 42px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 190px;
+    white-space: nowrap;
+    width: 56px;
+  }
+
+ 
+  .non-filter .card-2 {
+    height: 300px;
+    left: 460px;
+    position: absolute;
+    top: 0;
+    width: 180px;
+    cursor: pointer;
+  }
+
+  .non-filter .card-3 {
+    height: 300px;
+    left: 230px;
+    position: absolute;
+    top: 0;
+    width: 180px;
+    cursor: pointer;
+  }
+  
+  .non-filter .card-4 {
+    height: 300px;
+    left: 690px;
+    position: absolute;
+    top: 0;
+    width: 180px;
+    cursor: pointer;
+  }
+
+  .non-filter .card-5 {
+    height: 300px;
+    left: 920px;
+    position: absolute;
+    top: 0;
+    width: 180px;
+    cursor: pointer;
+  }
+  
+  
+  
+ 
+  
+  
+  
+  
+ 
+  
+  
+  
