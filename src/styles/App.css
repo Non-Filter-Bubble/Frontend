@@ -2,37 +2,17 @@
     --scale-factor: 1;  /* 기본 스케일 팩터 */
   }
 
-
+  .header {
+    width:100%;
+  }
   
   .App {
     width: 100vw; /* 기본 너비 설정 */
     transform-origin: top center; /* 변환 원점 설정 */
     transform: scale(var(--scale-factor)); /* 스케일 적용 */
     margin: 0 auto; /* 가운데 정렬 */
-    transition: transform 0.3s ease; /* 부드러운 변환 적용 */
     transform-origin: top center; /* 확대/축소 기준점 설정 */
   }
   
-  /* 너비가 1920px 이하일 때 스케일 동적 조정 */
-  @media (max-width: 1920px) {
-    :root {
-      --scale-factor: calc(100vw / 1920); /* 뷰포트 너비에 따른 스케일 계산 */
-    }
-  }
-  
-  /* 최소 너비(예: 1200px) 이하일 때 스케일 중지 및 레이아웃 조정 */
-  @media (max-width: 1200px) { 
-    :root {
-      --scale-factor: calc(100vw / 1200); /* 최소 너비에 따른 스케일 계산 */
-    }
-  
-    .App {
-      width: 100%; /* 뷰포트 전체 너비 사용 */
-      transform: none; /* 스케일 중지 */
-      /* 소형 화면을 위한 추가 스타일 조정 */
-    }
-  }
 
-.header {
-  width:100%;
-}
+
