@@ -9,11 +9,12 @@
   align-items: center;
   display: inline-flex;
   justify-content: center;
-  left: 3.6875rem; /* 59px */
   padding: 0.625rem; /* 10px */
   position: absolute;
   top: 1rem; /* 16px */
   cursor: pointer;
+  left: 10%; /* 부모의 50% 위치 */
+  transform: translateX(-50%); /* 가로 중앙 정렬 */
 }
 
 .div-header .logo {
@@ -31,11 +32,12 @@
 
 .div-header .div-logout {
   height: 1.5rem; /* 24px */
-  left: 105rem; /* 1763px */
   position: absolute;
   top: 2.375rem; /* 38px */
   width: 3.6875rem; /* 59px */
   cursor: pointer;
+  left: 95%; /* 부모의 50% 위치 */
+  transform: translateX(-50%); /* 가로 중앙 정렬 */
 }
 
 .div-header .logout {
@@ -138,12 +140,13 @@
 
 .div-header .icon-user {
   height: 1.875rem; /* 30px */
-  left: 100rem; /* 1683px */
   object-fit: cover;
   position: absolute;
   top: 2.3125rem; /* 37px */
   width: 1.875rem; /* 30px */
   cursor: pointer;
+  left: 90%; /* 부모의 50% 위치 */
+  transform: translateX(-50%); /* 가로 중앙 정렬 */
 }
 
 .div-header .line-header {
