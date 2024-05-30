@@ -13,8 +13,8 @@ const Search = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
   const location = useLocation();
-  const dataList = location.state.dataList;   // 검색 결과 수
-  const searchInput = location.state.searchInput;
+  const dataList = location.state?.dataList || [];   // 검색 결과 수
+  const searchInput = location.state?.searchInput || '';
 
   const [bookmarks, setBookmarks] = useState([]);
   const [search, setSearch] = useState('');

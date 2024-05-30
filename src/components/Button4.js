@@ -6,7 +6,22 @@ import "../styles/Button4.css";
 const Button4 = () => {
   const navigate = useNavigate();
 
-  const handleMypage = () => {
+  const searchBookClick = () => {
+    console.log('도서 검색 버튼 클릭');
+    navigate("/search");
+  }
+
+  const bookDrawerClick = () => {
+    console.log('북서랍 클릭');
+    navigate("/user");
+  }
+
+  const heartClick = () => {
+    console.log('찜 목록 클릭');
+    navigate("/user?popup=true");
+  }
+
+  const mypageClick = () => {
     console.log('마이페이지 버튼 클릭');
     navigate("/user");
   }
@@ -14,14 +29,14 @@ const Button4 = () => {
     return (
         <div className="button4">
           <div className="button-div">
-            <div className="search-button-div">
+            <div className="search-button-div" onClick={searchBookClick}>
               <div className="btn-border"></div>
               <div className="search-inner">
                 <div className="btn-name1">도서 검색</div>
                 <img className="icon" alt="" src="images/search-icon.png" />
               </div>
             </div>
-            <div className="drawer-div">
+            <div className="drawer-div" onClick={bookDrawerClick}>
               <div className="btn-border"></div>
               <div className="inner">
                 <div className="group">
@@ -30,7 +45,7 @@ const Button4 = () => {
                 </div>
               </div>
             </div>
-            <div className="heart-div">
+            <div className="heart-div" onClick={heartClick}>
               <div className="btn-border"></div>
               <div className="inner">
                 <div className="wrapper">
@@ -39,7 +54,7 @@ const Button4 = () => {
                 <img className="icon" alt="" src="images/heart.png" />
               </div>
             </div>
-            <div className="mypage-div" onClick={handleMypage}>
+            <div className="mypage-div" onClick={mypageClick}>
               <div className="btn-border"></div>
               <div className="group-container">
                 <div className="container">

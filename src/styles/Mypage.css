@@ -4,6 +4,98 @@
     position: relative;
     width: 100%;
   }
+
+
+  .div-my .profile {
+    height: 200px;
+    left: 430px;
+    position: absolute;
+    top: 97px;
+    width: 387px;
+  }
+  
+  .div-my .profile-2 {
+    height: 200px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 200px;
+  }
+  
+  .div-my .nickname {
+    color: #000000;
+    font-family: "Pretendard-SemiBold", Helvetica;
+    font-size: 25px;
+    font-weight: 600;
+    left: 250px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 43px;
+    white-space: nowrap;
+  }
+  
+  .div-my .overlap-group-wrapper {
+    height: 28px;
+    left: 243px;
+    position: absolute;
+    top: 139px;
+    width: 80px;
+  }
+  
+  .div-my .div-edit-info {
+    border-radius: 30px;
+    height: 28px;
+    position: relative;
+    width: 78px;
+    cursor: pointer;;
+  }
+  
+  .div-my .text-edit-info {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 13px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 6px;
+    white-space: nowrap;
+    width: 53px;
+  }
+  
+  .div-my .rect-edit-info {
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 30px;
+    height: 28px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 78px;
+  }
+  
+  .div-my .div-heart {
+    height: 35px;
+    left: 350px;
+    position: absolute;
+    top: 136px;
+    width: 35px;
+    cursor:pointer;
+  }
+  
+  .div-my .heart-my {
+    height: 35px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 35px;
+  }
+
+
   
   .div-my .div-book-drawer {
     background-color: #f5f5f5;
@@ -336,94 +428,7 @@
     width: 1920px;
   }
   
-  .div-my .profile {
-    height: 200px;
-    left: 430px;
-    position: absolute;
-    top: 97px;
-    width: 387px;
-  }
   
-  .div-my .profile-2 {
-    height: 200px;
-    left: 0;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    width: 200px;
-  }
-  
-  .div-my .nickname {
-    color: #000000;
-    font-family: "Pretendard-SemiBold", Helvetica;
-    font-size: 25px;
-    font-weight: 600;
-    left: 250px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 43px;
-    white-space: nowrap;
-  }
-  
-  .div-my .overlap-group-wrapper {
-    height: 28px;
-    left: 243px;
-    position: absolute;
-    top: 139px;
-    width: 80px;
-  }
-  
-  .div-my .div-edit-info {
-    border-radius: 30px;
-    height: 28px;
-    position: relative;
-    width: 78px;
-    cursor: pointer;;
-  }
-  
-  .div-my .text-edit-info {
-    color: #000000;
-    font-family: "Pretendard-Regular", Helvetica;
-    font-size: 15px;
-    font-weight: 400;
-    left: 13px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 6px;
-    white-space: nowrap;
-    width: 53px;
-  }
-  
-  .div-my .rect-edit-info {
-    border: 1px solid;
-    border-color: #000000;
-    border-radius: 30px;
-    height: 28px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 78px;
-  }
-  
-  .div-my .div-heart {
-    height: 35px;
-    left: 350px;
-    position: absolute;
-    top: 136px;
-    width: 35px;
-    cursor:pointer;
-  }
-  
-  .div-my .heart-my {
-    height: 35px;
-    left: 0;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    width: 35px;
-  }
   
   /*왼쪽 오른쪽 북서랍 버튼*/
   .div-my .btn-right-1 {

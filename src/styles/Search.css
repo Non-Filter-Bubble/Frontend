@@ -81,7 +81,7 @@
     object-fit: cover;
     position: absolute;
     top: 340px;
-    width: 1920px;
+    width: 100%;
   }
   
   .div-search .book-1 {

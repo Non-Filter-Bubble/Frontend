@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { useNavigate } from "react-router-dom";
+import React, {useState, useEffect} from 'react';
+import { useNavigate, useLocation } from "react-router-dom";
 import '../styles/Mypage.css'; // Screen 컴포넌트의 스타일을 포함합니다.
 
 import HeartPopup from '../components/HeartPopup'; // Popup 컴포넌트 추가
@@ -9,6 +9,15 @@ const Mypage = () => {
   const [isPopupVisible, setPopupVisible] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get('popup') === 'true') {
+      setPopupVisible(true);
+    }
+  }, [location]);
 
   const editInfoClick = () => {
     navigate('/user/verify'); 
@@ -27,6 +36,21 @@ const Mypage = () => {
 
     return (
         <div className="div-my">
+          <div className="profile">
+            <img className="profile-2" alt="Profile" src="images/profile.png" />
+            <div className="nickname">닉네임</div>
+            <div className="overlap-group-wrapper">
+              <div className="div-edit-info" onClick={editInfoClick}>
+                <div className="text-edit-info">정보수정</div>
+                <div className="rect-edit-info" />
+              </div>
+            </div>
+            <div className="div-heart" onClick={togglePopup}>
+              <img className="heart-my" alt=" " src="images/heart-my.png" />
+            </div>
+          </div>
+
+
           <div className="div-book-drawer">
             <div className="group">
               <div className="div">
@@ -119,19 +143,7 @@ const Mypage = () => {
               <img className="btn-plus-book" alt="Group" src="images/plus-book-my.png" onClick={btnPlusClick}/>
             </div>
           </div>
-          <div className="profile">
-            <img className="profile-2" alt="Profile" src="images/profile.png" />
-            <div className="nickname">닉네임</div>
-            <div className="overlap-group-wrapper">
-              <div className="div-edit-info" onClick={editInfoClick}>
-                <div className="text-edit-info">정보수정</div>
-                <div className="rect-edit-info" />
-              </div>
-            </div>
-            <div className="div-heart" onClick={togglePopup}>
-              <img className="heart-my" alt=" " src="images/heart-my.png" />
-            </div>
-          </div>
+          
          {isPopupVisible && <HeartPopup />}
         </div>
       );
