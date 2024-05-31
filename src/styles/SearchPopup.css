@@ -17,20 +17,11 @@
     position: absolute;
     top: 0;
     width: 500px;
-    max-height: 80vh; /* 최대 높이 설정 */
     overflow-x: hidden; /* 가로 스크롤 비활성화 */
     overflow-y: hidden; /* 가로 스크롤 비활성화 */
     flex-direction: column;
   }
-  
-  .div-search-popup .line-div-search-book {
-    height: 1px;
-    left: 48px;
-    object-fit: cover;
-    top: 287px;
-    width: 400px;
-  }
-  
+
   .div-search-popup .div-search {
     height: 62px;
     left: 0px;
@@ -88,19 +79,19 @@
 .div-search-popup .div-search-result {
     flex:1;
     width: 100%;
-    height: 80vh;
     overflow-y: auto; /* 세로 스크롤 활성화 */
+    max-height: calc(100% - 62px); /* 상단 바와 여백을 고려한 최대 높이 계산 */
     margin-top: 20px;
 }
   
-  .div-search-popup .group-book {
-    height: 160px;
-    left: 48px;
-    position: relative;
-    top: 315px;
-    width: 334px;
-    margin-bottom: 10px;
-  }
+.div-search-popup .group-book {
+  height: 160px;
+  left: 48px;
+  position: relative;
+  width: 334px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
   
   .div-search-popup .book-img {
     height: 140px;
@@ -115,51 +106,69 @@
     height: 96px;
     left: 131px;
     position: absolute;
-    top: 16px;
+    top: 20px;
     width: 209px;
   }
   
   .div-search-popup .title {
     color: #000000;
     font-family: "Pretendard-Medium", Helvetica;
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 400;
     left: 0;
     letter-spacing: 0;
     line-height: normal;
-    position: absolute;
     top: 0;
-    width: 203px;
+    width: 240px;
   }
   
   .div-search-popup .author {
     color: #000000;
     font-family: "Pretendard-Regular", Helvetica;
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 300;
     left: 0;
     letter-spacing: 0;
     line-height: normal;
-    position: absolute;
     top: 44px;
-    width: 203px;
+    width: 240px;
   }
   
   .div-search-popup .company{
     color: #000000;
     font-family: "Pretendard-Regular", Helvetica;
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 300;
     left: 0;
     letter-spacing: 0;
     line-height: normal;
-    position: absolute;
     top: 75px;
-    width: 203px;
+    width: 240px;
   }
 
 
   .div-search-popup .group-book-wrapper {
   display: flex;
   flex-direction: column;
+}
+
+.div-search-popup .line-div-search-book {
+  height: 1px;
+  object-fit: cover;
+  width: 400px; /* 필요에 따라 너비 조정 */
+  background-color: #000; /* 시각적으로 보이게 하기 위한 예 */
+  margin-top: 10px; /* 구분선과 다음 책 사이의 공간 */
+  margin-left: auto; /* 왼쪽 마진 자동 조정 */
+  margin-right: auto; /* 오른쪽 마진 자동 조정 */
+  margin-bottom: 10px;
+}
+
+.div-search-popup .title,
+.div-search-popup .author,
+.div-search-popup .company {
+  margin-bottom: 10px; /* 요소간 간격 */
+}
+
+.div-search-popup .group-book-wrapper:last-child {
+  margin-bottom: 30px; /* 마지막 요소에 추가 마진 부여 */
 }

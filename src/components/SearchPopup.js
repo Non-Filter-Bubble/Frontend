@@ -101,11 +101,12 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
           />  
         </div>
 
+        
         <div className="div-search-result">
           {searchResults.map((book, index) => (
-            <div key={index}>
+            <div key={index} className="group-book-wrapper">
               <div className="group-book" onClick={() => handleSelectBook(book)}>
-                <img className="book-img" alt=" " src={book.BOOK_COVER_URL !== "" ? book.BOOK_COVER_URL : DEFAULT_IMAGE_URL} />
+                <img className="book-img" alt=" " src={book.BOOK_COVER_URL || DEFAULT_IMAGE_URL} />
                 <div className="group-book-info">
                   <div className="title">{book.TITLE}</div>
                   <div className="author">{book.AUTHOR}</div>
