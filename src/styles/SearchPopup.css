@@ -19,6 +19,7 @@
     width: 500px;
     max-height: 80vh; /* 최대 높이 설정 */
     overflow-x: hidden; /* 가로 스크롤 비활성화 */
+    overflow-y: hidden; /* 가로 스크롤 비활성화 */
     flex-direction: column;
   }
   
@@ -26,7 +27,6 @@
     height: 1px;
     left: 48px;
     object-fit: cover;
-    position: absolute;
     top: 287px;
     width: 400px;
   }
@@ -96,9 +96,10 @@
   .div-search-popup .group-book {
     height: 160px;
     left: 48px;
-    position: absolute;
+    position: relative;
     top: 315px;
     width: 334px;
+    margin-bottom: 10px;
   }
   
   .div-search-popup .book-img {
@@ -156,5 +157,9 @@
     top: 75px;
     width: 203px;
   }
-  
-  
+
+
+  .div-search-popup .group-book-wrapper {
+  display: flex;
+  flex-direction: column;
+}

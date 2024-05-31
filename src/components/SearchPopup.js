@@ -76,10 +76,10 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
   // 동적으로 스타일을 적용할 함수
   const getGroupStyle = (index) => {
     return {
-      height: '160px',
+      height: '140px',
       left: '48px',
       position: 'absolute',
-      top: `${120 + index * 160}px`, // 각 그룹마다 상대적으로 위치를 변경합니다.
+      top: `${120 + index * 200}px`, // 각 그룹마다 상대적으로 위치를 변경합니다.
       width: '334px'
     };
   }
@@ -103,19 +103,21 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
 
         <div className="div-search-result">
           {searchResults.map((book, index) => (
-            <div key={index} className="group-book" onClick={() => handleSelectBook(book)} style={getGroupStyle(index)}>
-              <img className="book-img" alt=" " src={book.BOOK_COVER_URL !== "" ? book.BOOK_COVER_URL : DEFAULT_IMAGE_URL} />
-              <div className="group-book-info">
-                <div className="title">{book.TITLE}</div>
-                <div className="author">{book.AUTHOR}</div>
-                <div className="company">{book.PUBLISHER}</div>
+            <div key={index}>
+              <div className="group-book" onClick={() => handleSelectBook(book)}>
+                <img className="book-img" alt=" " src={book.BOOK_COVER_URL !== "" ? book.BOOK_COVER_URL : DEFAULT_IMAGE_URL} />
+                <div className="group-book-info">
+                  <div className="title">{book.TITLE}</div>
+                  <div className="author">{book.AUTHOR}</div>
+                  <div className="company">{book.PUBLISHER}</div>
+                </div>
               </div>
-              <img className="line-div-search-book" alt="Line" src="/vector/line-search-popup.svg" /> 
+              {index < searchResults.length - 1 && (
+                <img className="line-div-search-book" alt="Line" src="/vector/line-search-popup.svg" />
+              )}
             </div>
           ))}
         </div>
-
-        
       </div>
     </div>
   );
