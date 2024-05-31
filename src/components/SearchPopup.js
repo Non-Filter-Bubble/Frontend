@@ -64,6 +64,15 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
     onClose();
   }
 
+
+   // 엔터 키를 눌렀을 때 검색을 실행하는 함수
+   const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  }
+
+
   // 동적으로 스타일을 적용할 함수
   const getGroupStyle = (index) => {
     return {
@@ -82,7 +91,14 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
           <img className="line-div-search" alt="" src="/vector/line-div-search-popup.svg" />
           <img className="btn-close" alt=" " src="/images/btn-close-popup.png" onClick={onClose} />
           <img className="btn-search-popup" alt=" " src="/images/btn-search-popup.png" onClick={handleSearch} />
-          <input className="search-input" type="text" placeholder="검색어를 입력하세요" value={input} onChange={(e) => setInput(e.target.value)}/>  
+          <input
+            className="search-input"
+            type="text"
+            placeholder="검색어를 입력하세요"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyPress={handleKeyPress} // 엔터 키 감지 이벤트 추가
+          />  
         </div>
 
         <div className="div-search-result">
