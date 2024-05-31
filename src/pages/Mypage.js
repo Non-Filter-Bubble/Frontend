@@ -99,7 +99,7 @@ const Mypage = () => {
     };
 
     fetchRegisteredBooks();
-}, []);
+}, [token, registeredBooks]);
 
   // 북박스 정보 가져오기
   useEffect(() => {
