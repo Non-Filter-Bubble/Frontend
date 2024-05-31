@@ -87,56 +87,52 @@ const Header = () => {
   const handleChange = (e) => {
     setSearchInput(e.target.value);
   };
-
+  // 엔터키 입력시
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleSearch();
     }
   };
-
+  // 로그아웃 버튼 클릭
   const LogoutClick = () => {
     localStorage.removeItem('token');
     setIsLoggedIn(false);
     navigate('/login');
   };
+  const handleAuthClick = () => {
+    if (isLoggedIn) {
+      localStorage.removeItem('token');
+      setIsLoggedIn(false);
+      alert('로그아웃 되었습니다.');
+    } else {
+      navigate('/login');
+    }
+  };
     
   return (
     <div className="div-header">
-
-      <div className="div-logo" onClick={() => { navigate('/'); }}>
+      <div className="div-logo" onClick={() => navigate('/')}>
         <div className="logo">BUBBLE POP</div>
       </div>
-      
+
       <div className="div-search-small">
-      <input type="text" className="search-input" 
-            placeholder="책 제목을 입력하세요." 
-            value={searchInput} 
-            onChange={handleChange}
-            onKeyPress={handleKeyPress}/>
-        <img className="icon-search" alt="" src="/images/search-icon.png" onClick={searchIconClick} />
+        <input type="text" className="search-input"
+               placeholder="책 제목을 입력하세요"
+               value={searchInput}
+               onChange={(e) => setSearchInput(e.target.value)}
+               onKeyPress={(e) => e.key === 'Enter' && handleSearch()}/>
+        <img className="icon-search" alt="" src="/images/search-icon.png" onClick={handleSearch} />
       </div>
 
-      {!isLoggedIn ? (
-        <>
-          <div className="div-login" onClick={() => { navigate('/login'); }}>
-            <div className="login">login</div>
-          </div>
-          <div className="div-join" onClick={() => { navigate('/join'); }}>
-            <div className="join">Join</div>
-          </div>
-        </>
-      ) : (
-        <>
-          <img className="icon-user" alt="" src="/images/user-icon.png" id="icon1" onClick={() => { navigate('/user'); }} />
-          <div className="div-logout" onClick={LogoutClick}>
-            <div className="logout">logout</div>
-          </div>
-        </>
-      )}
+      <img className="icon-user" alt="" src="/images/user-icon.png" onClick={() => isLoggedIn && navigate('/user')} />
+
+      <div className="div-auth" onClick={handleAuthClick}>
+        <div className="auth">{isLoggedIn ? 'Logout' : 'Login'}</div>
+      </div>
 
       <img className="line-header" alt="" src="/vector/line-header.svg" />
     </div>
   );
 };
+export default Header; 
 
-export default Header;

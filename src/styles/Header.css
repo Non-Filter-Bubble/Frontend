@@ -75,16 +75,17 @@
   white-space: nowrap;
 }
 
-.div-header .div-login {
+.div-header .div-auth {
   height: 1.5rem; /* 24px */
-  left: 105.1875rem; /* 1683px */
   position: absolute;
   top: 2.375rem; /* 38px */
   width: 3.6875rem; /* 59px */
   cursor: pointer;
+  left: 95%; /* 부모의 50% 위치 */
+  transform: translateX(-50%); /* 가로 중앙 정렬 */
 }
 
-.div-header .lgoin {
+.div-header .auth {
   color: #000000;
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 1.25rem; /* 20px */
