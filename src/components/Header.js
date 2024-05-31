@@ -10,6 +10,22 @@ const Header = () => {
   const token = localStorage.getItem('token');
   const navigate = useNavigate();
 
+
+
+  // 로그인 로그아웃 클릭
+  const handleAuthClick = () => {
+    if (isLoggedIn) {
+      localStorage.removeItem('token');
+      setIsLoggedIn(false);
+      alert('로그아웃 되었습니다.');
+      navigate('/login');
+    } else {
+      navigate('/login');
+    }
+  };
+ 
+
+
   useEffect(() => {
     if (token) {
       setIsLoggedIn(true);
@@ -77,38 +93,7 @@ const Header = () => {
     }
   };
 
-  // 검색 버튼 클릭
-  const searchIconClick = async (e) => {
-    e.preventDefault();
-    console.log('검색 버튼 클릭');
-    handleSearch();
-  }
-
-  const handleChange = (e) => {
-    setSearchInput(e.target.value);
-  };
-  // 엔터키 입력시
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleSearch();
-    }
-  };
-  // 로그아웃 버튼 클릭
-  const LogoutClick = () => {
-    localStorage.removeItem('token');
-    setIsLoggedIn(false);
-    navigate('/login');
-  };
-  const handleAuthClick = () => {
-    if (isLoggedIn) {
-      localStorage.removeItem('token');
-      setIsLoggedIn(false);
-      alert('로그아웃 되었습니다.');
-    } else {
-      navigate('/login');
-    }
-  };
-    
+     
   return (
     <div className="div-header">
       <div className="div-logo" onClick={() => navigate('/')}>
