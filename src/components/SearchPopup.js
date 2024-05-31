@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import axiosInstance from '../api/axios';
 import '../styles/SearchPopup.css'; // Screen 컴포넌트의 스타일을 포함합니다.
 
@@ -8,6 +8,7 @@ const DEFAULT_IMAGE_URL = '../images/bookImage-small.png';
 const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
   const [input, setInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const resultsRef = useRef(null); // 검색 결과 컨테이너를 위한 참조 생성
 
   // 검색 버튼 클릭
   const handleSearch = async () => {  
@@ -50,6 +51,9 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
       console.log('검색한 책의 리스트는', dataList);
       
       setSearchResults(dataList);
+      if (resultsRef.current) {
+        resultsRef.current.scrollTop = 0; // 스크롤을 맨 위로 이동
+      }
   
     } catch (error) {
       console.error('검색 실패:', error); // 오류가 발생한 경우 출력
@@ -72,18 +76,6 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
     }
   }
 
-
-  // 동적으로 스타일을 적용할 함수
-  const getGroupStyle = (index) => {
-    return {
-      height: '140px',
-      left: '48px',
-      position: 'absolute',
-      top: `${120 + index * 200}px`, // 각 그룹마다 상대적으로 위치를 변경합니다.
-      width: '334px'
-    };
-  }
-
   return (
     <div className="div-search-popup">
       <div className="search-popup">
@@ -102,7 +94,7 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
         </div>
 
         
-        <div className="div-search-result">
+        <div className="div-search-result" ref={resultsRef}>
           {searchResults.map((book, index) => (
             <div key={index} className="group-book-wrapper">
               <div className="group-book" onClick={() => handleSelectBook(book)}>
