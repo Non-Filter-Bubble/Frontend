@@ -5,15 +5,6 @@
   width: 100%;
 }
 
-.div-bookpost .book-cover {
-  height: auto;
-  width: 200px; 
-  position: absolute;
-  top: 340px; 
-  left: 450px; 
-  z-index: 1; 
-}S
-
 .div-bookpost .div-bookpost-title {
   height: 40px;
   left: 360px;
@@ -54,84 +45,22 @@
   }
 
 
-.div-bookpost .group-author {
-  height: 35px;
-  left: 744px;
-  position: absolute;
-  top: 420px;
-  width: 368px;
+
+/* 책 커버 */
+.div-bookpost .book-cover {
+  display: block;
+  width: 200px; /* 이미지 크기 조정 */
+  height: auto; /* 비율 유지 */
+  margin: 20px auto; /* 위 아래 20px 마진, 좌우 중앙 */
+  position: relative; /* 상대 위치 */
+  top:340px;
+}
+.div-bookpost .book-info-container {
+  margin-top: 20px; /* 책 커버 이미지 아래와 간격을 추가 */
+  position: relative;
 }
 
-.div-bookpost .rect-author {
-  height: 35px;
-  left: 66px;
-  position: absolute;
-  top: 0;
-  width: 300px;
-  background-color: #f5f5f5;
-  border: 1px solid;
-  border-color: #8e8e8e;
-  height: 35px;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;
-}
-
-.div-bookpost .title-author {
-  color: transparent;
-  font-family: "Pretendard-Medium", Helvetica;
-  font-size: 20px;
-  font-weight: 500;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: -20px;
-  width: 46px;
-}
-
-.div-bookpost .subtitle {
-  color: #000000;
-  
-}
-
-.div-bookpost .star {
-  color: #2599ed;
-}
-
-.div-bookpost .group-company {
-  height: 35px;
-  left: 728px;
-  position: absolute;
-  top: 480px;
-  width: 384px;
-}
-
-.div-bookpost .rect-company {
-  height: 35px;
-  left: 82px;
-  position: absolute;
-  top: 0;
-  width: 300px;
-  background-color: #f5f5f5;
-  border: 1px solid;
-  border-color: #8e8e8e;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;
-}
-
-.div-bookpost .title-company {
-  color: transparent;
-  font-family: "Pretendard-Medium", Helvetica;
-  font-size: 20px;
-  font-weight: 500;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: -18px;
-  width: 65px;
-}
-
+/* 도서명 */
 .div-bookpost .group-bookname {
   height: 35px;
   left: 728px;
@@ -157,50 +86,14 @@
   background-color: #f5f5f5;
   border: 1px solid;
   border-color: #8e8e8e;
-  height: 35px;
+  height: 15px;
   left: 82px;
   position: absolute;
   top: 0;
-  width: 300px;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;
-}
-
-.div-bookpost .div-review {
-  height: 400px;
-  left: 716px;
-  position: absolute;
-  top: 680px;
-  width: 396px;
-}
-
-
-
-.div-bookpost .rect-review {
-  height: 380px;
-  left: 94px;
-  position: absolute;
-  top: 0;
   width: 280px;
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #8e8e8e;
-  padding : 10px;
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 15px;
-}
-
-.div-bookpost .subtitle-review {
-  color: #000000;
-  font-family: "Pretendard-Medium", Helvetica;
-  font-size: 20px;
-  font-weight: 500;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 0;
-  width: 99px;
+  padding: 10px;
 }
 
 .div-bookpost .div-searchbook-btn {
@@ -234,76 +127,80 @@
   white-space: nowrap;
 }
 
-.div-bookpost .div-submit {
-  height: 59px;
-  left: 908px;
+/* 저자 */
+.div-bookpost .group-author {
+  height: 35px;
+  left: 744px;
   position: absolute;
-  top: 1250px;
-  width: 106px;
-  cursor: pointer;
+  top: 420px;
+  width: 368px;
 }
 
-.div-bookpost .subit-btn {
-  background-color: #000000;
-  border-radius: 30px;
-  height: 59px;
-  position: relative;
-  width: 104px;
-}
-
-.div-bookpost .submit {
-  color: #ffffff;
+.div-bookpost .rect-author {
+  height: 15px;
+  left: 66px;
+  position: absolute;
+  top: 0;
+  width: 280px;
+  background-color: #f5f5f5;
+  border: 1px solid;
+  border-color: #8e8e8e;
   font-family: "Pretendard-Regular", Helvetica;
-  font-size: 25px;
-  font-weight: 400;
-  left: 30px;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.div-bookpost .title-author {
+  color: transparent;
+  font-family: "Pretendard-Medium", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  left: 0;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 15px;
-  width: 58px;
+  top: -20px;
+  width: 46px;
 }
 
-.div-bookpost .div-good {
-  background-color: #ffffff;
-  border-radius: 35px;
-  height: 70px;
-  left: 850px;
+
+/* 출판사 */
+.div-bookpost .group-company {
+  height: 35px;
+  left: 728px;
   position: absolute;
-  top: 1098px;
-  width: 70px;
-  cursor: pointer;
+  top: 480px;
+  width: 384px;
 }
 
-.div-bookpost .btn-good {
-  height: 49px;
-  left: 11px;
-  object-fit: cover;
+.div-bookpost .rect-company {
+  height: 15px;
+  left: 82px;
   position: absolute;
-  top: 7px;
-  width: 49px;
+  top: 0;
+  width: 280px;
+  background-color: #f5f5f5;
+  border: 1px solid;
+  border-color: #8e8e8e;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 15px;
+  padding: 10px;
 }
 
-.div-bookpost .div-bad {
-  background-color: #ffffff;
-  border-radius: 35px;
-  height: 70px;
-  left: 1000px;
+.div-bookpost .title-company {
+  color: transparent;
+  font-family: "Pretendard-Medium", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
   position: absolute;
-  top: 1098px;
-  width: 70px;
-  cursor: pointer;;
+  top: -18px;
+  width: 65px;
 }
 
-.div-bookpost .btn-bad {
-  height: 49px;
-  left: 8px;
-  object-fit: cover;
-  position: absolute;
-  top: 7px;
-  width: 49px;
-}
-
+/* 한줄평 */
 .div-bookpost .div-one-line {
   height: 116px;
   left: 728px;
@@ -362,6 +259,114 @@
 
 
 
+/* 독서 후기 */
+.div-bookpost .div-review {
+  height: 400px;
+  left: 716px;
+  position: absolute;
+  top: 680px;
+  width: 396px;
+}
+
+
+
+.div-bookpost .rect-review {
+  height: 380px;
+  left: 94px;
+  position: absolute;
+  top: 0;
+  width: 280px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #8e8e8e;
+  padding : 10px;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 15px;
+}
+
+.div-bookpost .subtitle-review {
+  color: #000000;
+  font-family: "Pretendard-Medium", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 99px;
+}
+
+.div-bookpost .div-good {
+  background-color: #ffffff;
+  border-radius: 35px;
+  height: 70px;
+  left: 850px;
+  position: absolute;
+  top: 1098px;
+  width: 70px;
+  cursor: pointer;
+}
+
+.div-bookpost .btn-good {
+  height: 49px;
+  left: 11px;
+  object-fit: cover;
+  position: absolute;
+  top: 7px;
+  width: 49px;
+}
+
+.div-bookpost .div-bad {
+  background-color: #ffffff;
+  border-radius: 35px;
+  height: 70px;
+  left: 1000px;
+  position: absolute;
+  top: 1098px;
+  width: 70px;
+  cursor: pointer;;
+}
+
+.div-bookpost .btn-bad {
+  height: 49px;
+  left: 8px;
+  object-fit: cover;
+  position: absolute;
+  top: 7px;
+  width: 49px;
+}
+
+
+.div-bookpost .div-submit {
+  height: 59px;
+  left: 908px;
+  position: absolute;
+  top: 1250px;
+  width: 106px;
+  cursor: pointer;
+}
+
+.div-bookpost .subit-btn {
+  background-color: #000000;
+  border-radius: 30px;
+  height: 59px;
+  position: relative;
+  width: 104px;
+}
+
+.div-bookpost .submit {
+  color: #ffffff;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 25px;
+  font-weight: 400;
+  left: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 15px;
+  width: 58px;
+}
 
 
 .div-bookpost .line-division {
@@ -373,3 +378,11 @@
   width: 1160px;
 }
 
+.div-bookpost .subtitle {
+  color: #000000;
+  
+}
+
+.div-bookpost .star {
+  color: #2599ed;
+}

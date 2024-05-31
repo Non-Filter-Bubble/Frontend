@@ -150,6 +150,7 @@
   .div-search-popup .group-book-wrapper {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .div-search-popup .line-div-search-book {
@@ -170,5 +171,5 @@
 }
 
 .div-search-popup .group-book-wrapper:last-child {
-  margin-bottom: 30px; /* 마지막 요소에 추가 마진 부여 */
+  margin-bottom: 50px; /* 마지막 요소에 추가 마진 부여 */
 }

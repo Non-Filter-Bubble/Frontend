@@ -98,15 +98,13 @@ const BookPost = () => {
       </div>
 
       <img className="line-bookpost" alt="" src="/vector/line-book.svg" />
-
-      <img className="book-cover" alt="" src={bookinfo.BOOK_COVER_URL !== "" ? bookinfo.BOOK_COVER_URL : DEFAULT_IMAGE_URL} />
-
-      <div className="div-searchbook-btn">
-        <div className="searchbook-btn" onClick={togglePopup}>
-          <div className="searchbook">도서 검색</div>
-        </div>
-      </div>
-
+      
+      
+      {/* 책 커버 이미지 */}
+      <img className="book-cover" alt="" src={bookinfo.BOOK_COVER_URL || DEFAULT_IMAGE_URL} />
+          
+      <div className="book-info-container">
+      {/* 도서명 */}
       <div className="group-bookname">
         <p className="title-bookname">
           <span className="subtitle">도서명</span>
@@ -115,6 +113,14 @@ const BookPost = () => {
         <div className="rect-bookname">{bookinfo.TITLE}</div>
       </div>
 
+      {/* 도서 검색 버튼 */}
+      <div className="div-searchbook-btn">
+        <div className="searchbook-btn" onClick={togglePopup}>
+          <div className="searchbook">도서 검색</div>
+        </div>
+      </div>
+
+      {/* 저자 */}
       <div className="group-author">
         <div className="rect-author">{bookinfo.AUTHOR}</div>
         <p className="title-author">
@@ -123,6 +129,7 @@ const BookPost = () => {
         </p>
       </div>
       
+      {/* 출판사 */}
       <div className="group-company">
         <div className="rect-company">{bookinfo.PUBLISHER}</div>
         <p className="title-company">
@@ -131,6 +138,7 @@ const BookPost = () => {
         </p>
       </div>
 
+      {/* 한줄평 */}
       <div className="div-one-line">
         <div className="one-line-notice">50자 이내</div>
         <div className="overlap-4">
@@ -144,6 +152,7 @@ const BookPost = () => {
         </div>
       </div>      
 
+      {/* 독서 후기 */}
       <div className="div-review">
         <textarea className="rect-review" type="text" placeholder="" value={review} onChange={(e) => setReview(e.target.value)}/>
         <div className="subtitle-review">독서 후기</div>
@@ -172,9 +181,8 @@ const BookPost = () => {
         </div>
       </div>
 
-      <img className="line-division" alt="" src="vector/line-book.svg" />
-
       {isPopupVisible && <SearchPopup onClose={togglePopup} bookinfo={bookinfo} setBookinfo={setBookinfo}/>}
+    </div>
     </div>
   );
 };
