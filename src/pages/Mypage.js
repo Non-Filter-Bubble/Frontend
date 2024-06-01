@@ -77,7 +77,7 @@ const Mypage = () => {
                   isbn: parseInt(book.isbn, 10)
                 }
               });
-              console.log('이미지 불러오기 성공', imageResponse)
+              // console.log('이미지 불러오기 성공', imageResponse)
               return {
                 ...book,
                 imageUrl: imageResponse.data.BOOK_COVER_URL
@@ -99,7 +99,7 @@ const Mypage = () => {
     };
 
     fetchRegisteredBooks();
-}, [token, registeredBooks]);
+}, [token]);
 
   // 북박스 정보 가져오기
   useEffect(() => {
@@ -146,108 +146,7 @@ const Mypage = () => {
 
   console.log(genresAndBooks)
 
-  // const genres = [
-  //   {
-  //     books: [DEFAULT_IMAGE_URL, DEFAULT_IMAGE_URL, DEFAULT_IMAGE_URL],
-  //   },
-  //   {
-  //     books: [DEFAULT_IMAGE_URL, DEFAULT_IMAGE_URL, DEFAULT_IMAGE_URL],
-  //   },
-  //   {
-  //     books: [DEFAULT_IMAGE_URL, DEFAULT_IMAGE_URL, DEFAULT_IMAGE_URL],
-  //   },
-  // ];
-  // const genres = [
-  //   {
-  //     books: registeredBooks.map(book => book.imageUrl || DEFAULT_IMAGE_URL),
-  //   }
-  // ];
-
-  // const sites = [
-  //   { className: "site-left", position: "left" },
-  //   { className: "site-right", position: "right" },
-  // ];
-  
-
-
   return (
-    // <div className="div-my">
-    //   <div className="profile">
-    //     <img className="profile-2" alt="Profile" src="images/profile.png" />
-    //     <div className="nickname">{user && user.nickname}</div>
-    //     <div className="overlap-group-wrapper">
-    //       <div className="div-edit-info" onClick={editInfoClick}>
-    //         <div className="text-edit-info">정보수정</div>
-    //         <div className="rect-edit-info" />
-    //       </div>
-    //     </div>
-    //     <div className="div-heart" onClick={togglePopup}>
-    //       <img className="heart-my" alt=" " src="images/heart-my.png" />
-    //     </div>
-    //   </div>
-
-    //   {/* <div className="profile">
-    //     <img className="profile-img" alt="Profile" src="images/profile.png" />
-    //     <div className="nickname">{user && user.nickname}</div>
-    //     <button className="edit-info-btn" onClick={editInfoClick}>정보수정</button>
-    //     <button className="heart-btn" onClick={togglePopup}>
-    //       <img className="heart-img" alt="Heart" src="images/heart-my.png" />
-    //     </button>
-    //   </div> */}
-
-    //   {/* <div className="div-book-drawer">
-    //     <div className="book-drawer">북서랍</div>
-    //     <div className="group">
-    //       {sites.map((site, siteIndex) => (
-    //         <div className={`site ${site.className}`} key={siteIndex}>
-    //           {genres.map((genre, genreIndex) => (
-    //             <div className="genre" key={genreIndex}>
-    //               <img className="line" alt="Line" src="vector/line-my.svg" />
-    //               <div className="group-4">
-    //                 {genre.books.map((book, bookIndex) => (
-    //                   <img className="book" alt="book cover" src={book} key={bookIndex} />
-    //                 ))}
-    //               </div>
-    //               <img className="btn-right" alt="" src="images/btn-right-my.png" />
-    //               <img className="btn-left" alt="" src="images/btn-left-my.png" />
-    //             </div>
-    //           ))}
-    //         </div>
-    //       ))}
-    //     </div>
-    //     <div className="group-16">
-    //       {genres.map((genres, genreIndex) => (
-    //         <div className={`genrename genre${genreIndex + 1}`} key={genreIndex}>{genres.genre}</div>
-    //       ))}
-    //       <img className="btn-plus-book" alt="Group" src="images/plus-book-my.png" onClick={btnPlusClick}/>
-    //     </div>
-    //   </div> */}
-    //     <div className="book-drawer-container">
-    //     <div className="book-drawer-header">
-    //       <h2>북서랍</h2>
-    //       <button className="plus-book-btn" onClick={btnPlusClick}>
-    //         <img alt="Plus" src="images/plus-book-my.png" />
-    //       </button>
-    //     </div>
-    //     <div className="genres">
-    //       {genres.map((genre, genreIndex) => (
-    //         <div className="genre" key={genreIndex}>
-    //           <h3>{genre.genre}</h3>
-    //           <div className="books">
-    //             {genre.books.length > 0 ? (
-    //               genre.books.map((book, bookIndex) => (
-    //                 <img className="book-img" alt={`Book ${bookIndex}`} src={book.imageUrl || 'DEFAULT_IMAGE_URL'} key={bookIndex} />
-    //               ))
-    //             ) : (
-    //               <div className="no-books">등록된 책이 없습니다.</div>
-    //             )}
-    //           </div>
-    //         </div>
-    //       ))}
-    //     </div>
-    //   </div>
-    //   {isPopupVisible && <HeartPopup />}
-    // </div>
     <div className="div-my">
       <div className="profile-container">
         <img className="profile-img" alt="Profile" src="images/profile.png" />
@@ -264,27 +163,9 @@ const Mypage = () => {
               <img className="profile-heart-img" alt=" " src="images/heart-my.png" />
             </div>
           </div>
-        </div>
-        
+        </div>      
       </div>
-      {/* <div className="profile-container">
-        <div className="profile-img-wrapper">
-          <img className="profile-img" alt="Profile" src="images/profile.png" />
-          <div className="profile-nickname">{user && user.nickname}</div>
-        </div>
-        <div className="profile-details">
-          <div className="profile-overlap-group-wrapper">
-            <div className="profile-edit-info" onClick={editInfoClick}>
-              <div className="profile-text-edit-info">정보수정</div>
-              <div className="profile-rect-edit-info" />
-            </div>
-          </div>
-          <div className="profile-heart" onClick={togglePopup}>
-            <img className="profile-heart-img" alt=" " src="images/heart-my.png" />
-          </div>
-        </div>
-      </div> */}
-
+  
       <div className="book-drawer-container">
         <div className="book-drawer-header">
           <h2>북서랍</h2>

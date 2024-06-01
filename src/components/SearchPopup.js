@@ -92,7 +92,6 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
             onKeyPress={handleKeyPress} // 엔터 키 감지 이벤트 추가
           />  
         </div>
-
         
         <div className="div-search-result" ref={resultsRef}>
           {searchResults.map((book, index) => (

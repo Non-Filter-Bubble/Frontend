@@ -9,6 +9,7 @@
   position: absolute;
   top: 200px;
   z-index: 30;
+  overflow-y: auto; /* 세로 스크롤 활성화 */
 }
 
 .screen .rectangle {
@@ -89,10 +90,10 @@
 
 .screen .image {
   height: 35px;
-  left: 53px;
+  left: 85px;
   object-fit: cover;
   position: absolute;
-  top: 95px;
+  /* top: 95px; */
   width: 35px;
   cursor: pointer;
 }
@@ -171,3 +172,15 @@
   top: 0;
   width: 90px;
 }
+
+.group-book  {
+  padding: 20px;
+}
+
+.group-book .book-img {
+  float: left;
+}
+
+ .group-book-info {
+  padding: 0 0 0 120px;
+} 

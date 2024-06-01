@@ -1,5 +1,3 @@
-// 책 정보가 2권 이상일 때 디자인 바꿔야함
-
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axiosInstance from '../api/axios';
@@ -204,7 +202,7 @@ const Search = () => {
     <div className="div-search">
       <p className="title">'{searchInput}'에 대한 {dataList.length}건의 검색 결과</p>
       <div className="div-search-box">
-        <input className="search-box" alt="" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)}/>
+        <input className="search-box" alt="" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} onKeyPress={(e) => e.key === 'Enter' && handleSearch()}/>
         <div className="div-btn-search" onClick={searchClick}>
           <div className="btn-search">
             <div className="search">검색</div>
@@ -227,7 +225,7 @@ const Search = () => {
               src={isBookmarked(book) ? "/images/filled-heart-search.png" : "/images/empty-heart-search.png"}
               onClick={(e) => { e.stopPropagation(); toggleFavorite(book); }}
             />
-            <img className="icon-cart" alt="" src="/images/icon-cart.png" onClick={() => cartClick(book)} />
+            <img className="icon-cart" alt="" src="/images/icon-cart.png" onClick={(e) => { e.stopPropagation(); cartClick(book); }} />
           </div>
           <img className="line-book" alt=" " src="/vector/line-search-division.svg" />
         </div>

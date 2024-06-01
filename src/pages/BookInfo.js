@@ -1,12 +1,10 @@
 // 다른 사용자의 한줄평을 가지고 와야함
-// 책 등록 버튼 디자인 해야함
 // 줄거리 어떻게 가지고 와야하나.
 
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import axiosInstance from '../api/axios';
-import '../styles/BookInfo.css'; 
-import { Button } from 'react-bootstrap';
+import '../styles/BookInfo.css';
 
 // 기본 이미지 경로
 const DEFAULT_IMAGE_URL = '../images/bookImage.jpg';
@@ -25,14 +23,6 @@ const BookInfo = () => {
   const handleBack = () => {
   navigate(-1); // 이전 페이지로 이동
   }
-
-  // 책 등록 페이지로 이동
-  const handleBookRegister = (bookinfo) => {
-    console.log('책 등록 페이지로 이동');
-    console.log(bookinfo);
-
-    navigate('/bookpost', { state: { bookinfoSearch: bookinfo } });
-  };
 
   useEffect(() => {
     console.log('Updated bookmarks:', bookmarks);
@@ -167,7 +157,6 @@ const BookInfo = () => {
           src={isBookmarked(bookinfo) ? "/images/filled-heart-big.png" : "/images/empty-heart-big.png"} 
           onClick={() => toggleFavorite(bookinfo)} />
       </div>
-      <Button variant="outline-dark" onClick={() => handleBookRegister(bookinfo)}>책 등록</Button>
     </div>
   );
 };
