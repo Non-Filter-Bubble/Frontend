@@ -209,13 +209,13 @@
 
 .div-my .profile-container {
   height: 200px;
-  left: 430px;
   position: absolute;
   top: 97px;
   /* width: 387px; */
   display: flex;
   align-items: center;
   /* flex-direction: column; */
+  padding: 0 200px;
 }
 
 .div-my .flex {
