@@ -98,15 +98,15 @@
     left: 0;
     object-fit: cover;
     position: absolute;
-    top: 0;
+    top: 20px;
     width: 100px;
   }
   
   .div-search-popup .group-book-info {
     height: 96px;
-    left: 131px;
+    left: 10px;
     position: absolute;
-    top: 20px;
+    top: 25px;
     width: 209px;
   }
   
