@@ -1,33 +1,32 @@
 .slideshow {
-    overflow: hidden;
-    width: 100%; /* 슬라이드 쇼의 너비 지정 */
-    position: relative;
-  }
-  
-  .slide-container {
-    display: flex;
-    transition: transform 2s ease-in-out; /* 부드러운 효과를 위한 트랜지션 */
-    width: 200%; /* 슬라이드 2개를 가로로 배열하기 위해 200% 너비 지정 */
-    left: 0%; /* 부모로부터 위치 */
-    transform: translateX(-50%); /* 가로 중앙 정렬 */
-  }
-  
-  .slide {
-    width: 50%; /* 각 슬라이드는 부모의 50% 너비를 가짐 */
-    flex-shrink: 0; /* 슬라이드의 크기가 변하지 않도록 설정 */
-    
-  }
-  
-  .btn-left {
-    position: absolute;
-    top: 17rem;
-    width: 1.875rem;
-    height: 3.5rem;
-    cursor: pointer;
-    left:5%; /* 부모로부터 위치 */
-    transform: translateX(-50%); /* 가로 중앙 정렬 */
+  overflow: hidden;
+  width: 100%; /* 슬라이드 쇼의 너비 지정 */
+  position: relative;
 }
 
+.slide-container {
+  display: flex;
+  transition: transform 2s ease-in-out; /* 부드러운 효과를 위한 트랜지션 */
+  width: 200%; /* 슬라이드 2개를 가로로 배열하기 위해 200% 너비 지정 */
+  left: 0%; /* 부모로부터 위치 */
+  transform: translateX(-50%); /* 가로 중앙 정렬 */
+}
+
+.slide {
+  width: 50%; /* 각 슬라이드는 부모의 50% 너비를 가짐 */
+  flex-shrink: 0; /* 슬라이드의 크기가 변하지 않도록 설정 */
+  
+}
+
+.btn-left {
+  position: absolute;
+  top: 17rem;
+  width: 1.875rem;
+  height: 3.5rem;
+  cursor: pointer;
+  left:5%; /* 부모로부터 위치 */
+  transform: translateX(-50%); /* 가로 중앙 정렬 */
+}
 
 .btn-right {
   position: absolute;

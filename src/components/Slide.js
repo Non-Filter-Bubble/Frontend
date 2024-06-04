@@ -10,39 +10,39 @@ const Slide = () => {
 
   // 자동 슬라이드 전환 설정
   useEffect(() => {
-      startSlideTimer();
-      return () => clearInterval(intervalRef.current); // Cleanup
+    startSlideTimer();
+    return () => clearInterval(intervalRef.current); // Cleanup
   }, []);
 
   const startSlideTimer = () => {
-      if (intervalRef.current) {
-          clearInterval(intervalRef.current); // 기존 타이머 클리어
-      }
-      intervalRef.current = setInterval(() => {
-          setCurrentSlide(prevSlide => (prevSlide + 1) % 2); // 다음 슬라이드로 이동
-      }, 7000); // 7초 간격
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current); // 기존 타이머 클리어
+    }
+    intervalRef.current = setInterval(() => {
+      setCurrentSlide(prevSlide => (prevSlide + 1) % 2); // 다음 슬라이드로 이동
+    }, 7000); // 7초 간격
   };
-  
 
-    const goToNextSlide = () => {
-      setCurrentSlide(1); 
-      startSlideTimer(); // 타이머 다시 시작
+
+  const goToNextSlide = () => {
+    setCurrentSlide(1);
+    startSlideTimer(); // 타이머 다시 시작
   };
 
   const goToPrevSlide = () => {
-    setCurrentSlide(0); 
+    setCurrentSlide(0);
     startSlideTimer(); // 타이머 다시 시작
-};
+  };
 
 
 
-    // 슬라이드 인덱스에 따라 transform 값을 조정
-    const slideStyle = {
-      transform: `translateX(-${currentSlide * 50}%)`
-    };
-  
-    return (
-      <div className="slideshow">
+  // 슬라이드 인덱스에 따라 transform 값을 조정
+  const slideStyle = {
+    transform: `translateX(-${currentSlide * 50}%)`
+  };
+
+  return (
+    <div className="slideshow">
       <div className="slide-container" style={slideStyle}>
         <div className="slide"><Slide01 /></div>
         <div className="slide"><Slide02 /></div>
@@ -50,7 +50,7 @@ const Slide = () => {
       <img className="btn-left" alt="Previous" src="vector/slide-btn-left.svg" onClick={goToPrevSlide} />
       <img className="btn-right" alt="Next" src="vector/slide-btn-right.svg" onClick={goToNextSlide} />
     </div>
-    );
-  };
-  
-  export default Slide;
+  );
+};
+
+export default Slide;
