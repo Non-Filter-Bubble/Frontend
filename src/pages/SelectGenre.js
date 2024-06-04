@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axiosInstance from '../api/axios';
 import '../styles/SelectGenre.css'; 
@@ -6,10 +6,31 @@ import '../styles/SelectGenre.css';
 const SelectGenre = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const token = localStorage.getItem('token');
   const booktype = location.state.booktype;
 
+  const token = localStorage.getItem('token');
+
+  const [user, setUser] = useState(null);
   const [selectedGenres, setSelectedGenres] = useState([]);
+
+  // 사용자 정보 가져오기
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/user`, {
+          headers: {
+            'authorization': `${token}`
+          }
+        });
+        console.log('사용자 정보를 가져오는데 성공했습니다.');
+        setUser(response.data.username);
+      } catch (error) {
+        // console.error('사용자 정보를 가져오는데 실패했습니다.', error);
+      }
+    };
+
+    fetchUserInfo();
+  }, [token]); 
 
   const toggleGenreSelection = (genre) => {
     if (selectedGenres.includes(genre)) {
@@ -51,20 +72,20 @@ const SelectGenre = () => {
   };
 
   const genres = [
-    { name: "공포/스릴러", className: "group-1", textClass: "text-wrapper-2" },
-    { name: "로맨스", className: "group-2", textClass: "text-wrapper-3" },
-    { name: "판타지", className: "group-3", textClass: "text-wrapper-3" },
-    { name: "생명과학", className: "group-4", textClass: "text-wrapper-4" },
-    { name: "비즈니스", className: "group-5", textClass: "text-wrapper-4" },
-    { name: "자연과학", className: "group-6", textClass: "text-wrapper-4" },
+    { name: "공포/스릴러", className: "group-1", textClass: "text-wrapper-2", image: "../images/horror_conjuring.jpg"},
+    { name: "로맨스", className: "group-2", textClass: "text-wrapper-3", image: "../images/romance_abouttime.png" },
+    { name: "판타지", className: "group-3", textClass: "text-wrapper-3", image: "../images/fantasy_harrypotter.jpg"},
+    { name: "생명과학", className: "group-4", textClass: "text-wrapper-4", image: "../images/lifeScience_avata.jpg" },
+    { name: "경제/경영", className: "group-5", textClass: "text-wrapper-2", image: "../images/economic_theBigShort.jpg" },
+    { name: "자연과학", className: "group-6", textClass: "text-wrapper-4", image: "../images/science_core.jpg" },
     { name: "인문학", className: "group-7", textClass: "text-wrapper-3" },
     { name: "자기계발", className: "group-8", textClass: "text-wrapper-4" },
-    { name: "역사", className: "group-9", textClass: "text-wrapper-5" },
+    { name: "역사", className: "group-9", textClass: "text-wrapper-5", image: "../images/history_1987.jpg"},
     { name: "한국시", className: "group-10", textClass: "text-wrapper-6" },
-    { name: "시간관리", className: "group-11", textClass: "text-wrapper-4" },
+    { name: "시간관리", className: "group-11", textClass: "text-wrapper-4", image: "../images/time_inTime.jpg" },
     { name: "커뮤니케이션", className: "group-12", textClass: "text-wrapper-7" },
     { name: "인간관계", className: "group-13", textClass: "text-wrapper-4" },
-    { name: "자전", className: "group-14", textClass: "text-wrapper-5" }
+    { name: "자전", className: "group-14", textClass: "text-wrapper-5", image: "../images/travel_emilyInParis.jpg" }
   ];
 
   return (
@@ -73,14 +94,14 @@ const SelectGenre = () => {
         <div className="group-title">
           <p className="text">
             <span className="text-big">
-              000 님,<br />
+              {user} 님,<br />
               좋아하는 콘텐츠를<br />
               3개 선택하세요.
             </span>
           </p>
         </div>
         <p className="text-small">
-          000님의 취향을 파악하는 데 도움을 드리고자합니다.<br />
+          {user}님의 취향을 파악하는 데 도움을 드리고자합니다.<br />
           마음에 드는 콘텐츠를 골라주세요.
         </p>
 
@@ -96,7 +117,7 @@ const SelectGenre = () => {
               <img
                 className={`rectangle ${selectedGenres.includes(genre.name) ? 'selected' : ''}`}
                 alt=""
-                src="/path/to/rectangle-image.png"
+                src={genre.image}
                 onClick={() => toggleGenreSelection(genre.name)}
               />
             </div>

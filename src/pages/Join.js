@@ -4,6 +4,8 @@ import '../styles/Join.css';
 import axiosInstance from '../api/axios';
 
 const Join = () => {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         username: '',
         nickname: '',
@@ -17,8 +19,6 @@ const Join = () => {
     const [nickMsgClass, setNickMsgClass] = useState('');
     const [isIdChecked, setIsIdChecked] = useState(false);
     const [isNickChecked, setIsNickChecked] = useState(false);
-
-    const navigate = useNavigate();
 
     const handleBack = () => {
         navigate(-1);
@@ -61,7 +61,7 @@ const Join = () => {
                 setIdMsgClass('success-message');
                 setIsIdChecked(true);
             }).catch((error) => {
-                console.error(error)
+                // console.error(error)
                 setIdMsg("존재하는 아이디 입니다.");
                 setIdMsgClass('error-message');
                 setIsIdChecked(false);
@@ -97,6 +97,10 @@ const Join = () => {
 
     // 비밀번호 확인
     const passwordCheckValidation = () => {
+        if (!formData.passwordCheck) {
+            return '';
+        }
+        
         if (formData.password === formData.passwordCheck) {
             return <span style={{ color: 'green' }}>비밀번호가 일치합니다.</span>;
         } else {
@@ -137,7 +141,8 @@ const Join = () => {
             localStorage.setItem('token', response.headers.authorization);
             navigate("/join/booktype");
         } catch (error) {
-            console.error('회원가입 실패:', error);
+            alert('회원가입에 실패했습니다.');
+            // console.error('회원가입 실패:', error);
         }
     };
 
@@ -147,39 +152,23 @@ const Join = () => {
                 <div className="join-title">회원 가입</div>
                 <img className="back-join" alt="" src="vector/back.svg" onClick={handleBack} />
             </div>
-            <form className="div-form" onSubmit={handleSubmit}>
-                <div className="form-join">
+            <div className="div-form">
+                <form className="form-join" onSubmit={handleSubmit}>
                     <img className="img-profile" alt="" src="images/profile.png" />
                     <img className="rect-form" alt="" src="/vector/rect-join.svg" />
-                    <div className="div-password">
-                        <input className="rect-input1" type="password" placeholder=" " name="password" value={formData.password} onChange={handleChange} required />
-                        <p className="title-password">
-                            <span className="span">비밀번호</span>
-                            <span className="star">*</span>
-                        </p>
-                        <p className="notice-password">8-20자 이내 , 숫자 , 영어</p>
-                    </div>
-                    <div className="div-password2">
-                        <input className="rect-input2" type="password" placeholder=" " name="passwordCheck" value={formData.passwordCheck} onChange={handleChange} required />
-                        <div className="title-password2">비밀번호 확인</div>
-                        <p className="notice-password2">{passwordCheckValidation()}</p>
-                    </div>
-                    <div className="div-button-ok">
-                        <button type='submit' className="button-ok">확인</button>
-                    </div>
                     <div className="div-id">
                         <p className="title">
                             <span className="span">아이디</span>
                             <span className="star">*</span>
                         </p>
-                        <input className="rect-input3" type="text" placeholder=" " name="username" value={formData.username} onChange={handleChange} required />
+                        <input className="rect-input3" type="text" name="username" value={formData.username} onChange={handleChange} required />
                         <div className="div-wrapper">
                             <button className="button-dupli" onClick={CheckId}>중복확인</button>
                         </div>
                         <div className={`notice-id ${idMsgClass}`}>{idMsg}</div>
                     </div>
                     <div className="div-nickname">
-                        <input className="rect-input4" type="text" placeholder=" " name="nickname" value={formData.nickname} onChange={handleChange} required />
+                        <input className="rect-input4" type="text" name="nickname" value={formData.nickname} onChange={handleChange} required />
                         <p className="title">
                             <span className="span">닉네임</span>
                             <span className="star">*</span>
@@ -189,8 +178,22 @@ const Join = () => {
                         </div>
                         <div className={`notice-nickname ${nickMsgClass}`}>{nickMsg}</div>
                     </div>
-                </div>
-            </form>
+                    <div className="div-password">
+                        <input className="rect-input1" type="password" name="password" value={formData.password} onChange={handleChange} required />
+                        <p className="title-password">
+                            <span className="span">비밀번호</span>
+                            <span className="star">*</span>
+                        </p>
+                        <p className="notice-password">8-20자 이내 , 숫자 , 영어</p>
+                    </div>
+                    <div className="div-password2">
+                        <input className="rect-input2" type="password" name="passwordCheck" value={formData.passwordCheck} onChange={handleChange} required />
+                        <div className="title-password2">비밀번호 확인</div>
+                        <p className="notice-password2">{passwordCheckValidation()}</p>
+                    </div>
+                    <button type='submit' className="div-button-ok">확인</button>
+                </form>
+            </div>
         </div>
     );
 };

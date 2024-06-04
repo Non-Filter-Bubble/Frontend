@@ -171,35 +171,19 @@
   font-size: 14px;
 }
 
-
-
 .div-join .div-button-ok {
+  color: #ffffff;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
   height: 40px;
   left: 530px;
   position: absolute;
   top: 638px;
   width: 102px;
-}
-
-.div-join .button-ok {
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 20px;
-  font-weight: 400;
-  left: 34px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 8px;
-  width: 50px;
   cursor: pointer;
   background-color: #000000;
   border-radius: 30px;
-  height: 40px;
-  position: relative;
-  width: 100px;
 }
 
 .div-join .div-id {
@@ -291,6 +275,7 @@
   top: 4px;
   width: 92px;
 }
+
 .div-join .success-message {
   color: green;
 }
