@@ -9,7 +9,6 @@ import HeartPopup from '../components/HeartPopup'; // Popup 컴포넌트 추가
 const DEFAULT_IMAGE_URL = '../../images/bookImage.jpg';
 
 const Mypage = () => {
-
   const token = localStorage.getItem('token');
   
   const navigate = useNavigate();
@@ -20,6 +19,7 @@ const Mypage = () => {
   const [bookboxId, setBookboxId] = useState([]);
   const [registeredBooks, setRegisteredBooks] = useState([]);
 
+  // 메인페이지에서 찜 버튼을 누르면 바로 찜 팝업창이 뜨도록 함
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     if (params.get('popup') === 'true') {
@@ -27,10 +27,12 @@ const Mypage = () => {
     }
   }, [location]);
 
+  // 정보수정 페이지로 이동
   const editInfoClick = () => {
     navigate('/user/verify'); 
   };
 
+  // 책 등록 페이지로 이동
   const btnPlusClick = () => {
     navigate('/bookpost'); 
   };
@@ -44,11 +46,9 @@ const Mypage = () => {
             'authorization': `${token}`
           }
         });
-        console.log('사용자 정보를 가져오는데 성공했습니다.');
-        console.log(response);
         setUser(response.data);
       } catch (error) {
-        console.error('사용자 정보를 가져오는데 실패했습니다.', error);
+        // console.error('사용자 정보를 가져오는데 실패했습니다.', error);
       }
     };
 
@@ -70,20 +70,12 @@ const Mypage = () => {
 
           // 이미지 링크 불러오기
           const registeredBooksWithImages = await Promise.all(registeredBooksData.map(async book => {
-            // console.log(book)
             try {
-              const imageResponse = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/load-books`, {
-                params: {
-                  isbn: parseInt(book.isbn, 10)
-                }
-              });
-              // console.log('이미지 불러오기 성공', imageResponse)
               return {
                 ...book,
-                imageUrl: imageResponse.data.BOOK_COVER_URL
+                imageUrl: `https://contents.kyobobook.co.kr/sih/fit-in/100x0/pdt/${book.isbn}.jpg`
               };
             } catch (error) {
-              console.error(`책(${book.title})의 이미지를 불러오는데 실패했습니다.`, error);
               return {
                 ...book,
                 imageUrl: '' // 실패 시 빈 문자열 처리
@@ -92,14 +84,16 @@ const Mypage = () => {
           }));
 
           setRegisteredBooks(registeredBooksWithImages);
-          console.log('최종적으로 저장된 것들', registeredBooks)
+          // console.log('최종적으로 저장된 것들', registeredBooks)
         } catch (error) {
-          console.error('등록한 책 정보를 가져오는데 실패했습니다.', error);
+          // console.error('등록한 책 정보를 가져오는데 실패했습니다.', error);
         }
     };
 
     fetchRegisteredBooks();
-}, [token, registeredBooks]);
+  }, [token]);
+
+  console.log(registeredBooks);
 
   // 북박스 정보 가져오기
   useEffect(() => {
@@ -110,10 +104,7 @@ const Mypage = () => {
             'authorization': `${token}`
           }
         });
-        console.log('북박스 아이디를 가져오는데 성공했습니다.', response);
         setBookboxId(response.data);
-        console.log(response.data[0].genre)
-        console.log(response.data[0].bookboxid)
       } catch (error) {
         console.error('북박스 아이디를 가져오는데 실패했습니다.', error);
       }
@@ -144,7 +135,32 @@ const Mypage = () => {
     books: groupBooks[box.genre] || []
   }));
 
-  console.log(genresAndBooks)
+  // console.log(genresAndBooks)
+
+  const showDetail = (book) => {
+    navigate('/bookpostupdate', { state: { bookinfoshow: book } });
+  }
+
+  const handleDelete = async (mybookid) => {
+    console.log('북포스트 삭제 버튼 클릭');
+    await axiosInstance.delete(`${process.env.REACT_APP_DB_HOST}/user/bookbox/${mybookid}`, {
+      headers: {
+        authorization: `${token}`,
+        'Content-Type': 'application/json'
+      }
+    })
+    .then((response) => {
+      console.log('북포스트 삭제 성공');
+      console.log(response);
+
+      // 책이 삭제된 후 페이지 다시 로드
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.log('북포스트 삭제에 실패했습니다.');
+      console.log(error);
+    });
+  }
 
   return (
     <div className="div-my">
@@ -180,7 +196,16 @@ const Mypage = () => {
               <div className="book-drawer-books">
                 {genreandbook.books.length > 0 ? (
                   genreandbook.books.map((book, bookIndex) => (
-                    <img className="book-drawer-book-img" alt='book cover' src={book.imageUrl || DEFAULT_IMAGE_URL} key={bookIndex} />
+                    <div className="book-drawer-book" key={bookIndex}>
+                      <img className="book-drawer-book-img" alt='book cover' src={book.imageUrl || DEFAULT_IMAGE_URL} />
+                      <div className="book-drawer-book-overlay">
+                        <button className="book-drawer-book-btn" onClick={() => showDetail(book)}>수정</button>
+                        <button className="book-drawer-book-btn" onClick={() => handleDelete(book.mybookid)}>삭제</button>
+                      </div>
+                    </div>
+
+                    // <img className="book-drawer-book-img" alt='book cover' src={book.imageUrl || DEFAULT_IMAGE_URL} key={bookIndex} onClick={() => showDetail(book)} />
+                    
                   ))
                 ) : (
                   <div className="book-drawer-no-books">등록된 책이 없습니다.</div>

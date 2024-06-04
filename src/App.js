@@ -9,6 +9,7 @@ import CompleteJoin from './pages/CompleteJoin';
 import Login from './pages/Login';
 import Mypage from './pages/Mypage';
 import BookPost from './pages/BookPost';
+import BookPostUpdate from './pages/BookPostUpdate';
 import VerifyPass from './pages/VerifyPass';
 import UserInfo from './pages/UserInfo';
 import UserWithdraw from './pages/UserWithdraw';
@@ -115,6 +116,7 @@ function App() {
           <Route path="/user" element={<Mypage />} />
           <Route path="/user/verify" element={<VerifyPass />} />
           <Route path="/bookpost" element={<BookPost />} />
+          <Route path="/bookpostupdate" element={<BookPostUpdate />} />
           <Route path="/user/update" element={<UserInfo />} />
           <Route path="/user/withdraw" element={<UserWithdraw />} />
           <Route path="/search" element={<Search />} />
