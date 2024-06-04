@@ -367,7 +367,7 @@
 }
 
 .div-my .book-drawer-genre {
-  flex: 1 1 calc(33.333% - 20px);
+  flex: 1 1 calc(50% - 20px);
   background: #fff;
   padding: 15px;
   border-radius: 8px;
