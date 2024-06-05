@@ -86,10 +86,10 @@
   background-color: #f5f5f5;
   border: 1px solid;
   border-color: #8e8e8e;
-  height: 15px;
+  height: 35px;
   left: 82px;
   position: absolute;
-  top: 0;
+  top: -20px;
   width: 280px;
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 15px;
@@ -137,10 +137,10 @@
 }
 
 .div-bookpost .rect-author {
-  height: 15px;
+  height: 35px;
   left: 66px;
   position: absolute;
-  top: 0;
+  top: -20px;
   width: 280px;
   background-color: #f5f5f5;
   border: 1px solid;
@@ -174,10 +174,10 @@
 }
 
 .div-bookpost .rect-company {
-  height: 15px;
+  height: 35px;
   left: 82px;
   position: absolute;
-  top: 0;
+  top: -20px;
   width: 280px;
   background-color: #f5f5f5;
   border: 1px solid;
@@ -196,7 +196,7 @@
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: -18px;
+  top: -20px;
   width: 65px;
 }
 
@@ -214,11 +214,11 @@
   font-family: "Pretendard-Medium", Helvetica;
   font-size: 12px;
   font-weight: 500;
-  left: 333px;
+  left: 310px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 0;
+  top: -20px;
   white-space: nowrap;
 }
 
@@ -234,7 +234,7 @@
   height: 80px;
   left: 82px;
   position: absolute;
-  top: 0;
+  top: -20px;
   width: 280px;
   background-color: #ffffff;
   border: 1px solid;
@@ -274,7 +274,7 @@
   height: 380px;
   left: 94px;
   position: absolute;
-  top: 0;
+  top: -30px;
   width: 280px;
   background-color: #ffffff;
   border: 1px solid;
@@ -293,7 +293,7 @@
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 0;
+  top: -30px;
   width: 99px;
 }
 

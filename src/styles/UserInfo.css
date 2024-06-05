@@ -88,7 +88,7 @@
 }
 
 .div-user-info .rect-pass {
-  height: 20px;
+  height: 40px;
   left: 122px;
   position: absolute;
   top: 0;
@@ -109,7 +109,7 @@
 }
 
 .div-user-info .rect-new-pass {
-  height: 20px;
+  height: 40px;
   left: 122px;
   position: absolute;
   top: 0;
@@ -148,7 +148,7 @@
   left: 82px;
   position: absolute;
   top: 0;
-  width: 302px;
+  width: 280px;
 }
 
 .div-user-info .id {
@@ -173,7 +173,7 @@
 }
 
 .div-user-info .rect-new-pass-2 {
-  height: 20px;
+  height: 40px;
   left: 139px;
   position: absolute;
   top: 0;
@@ -215,7 +215,7 @@
 
 
 .div-user-info .rect-nickname {
-  height: 20px;
+  height: 40px;
   left: 82px;
   position: absolute;
   top: 0;

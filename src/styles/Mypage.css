@@ -314,10 +314,11 @@
 .div-my .profile-rect-edit-info {
   border: 1px solid #000000;
   border-radius: 30px;
-  height: 28px;
+  height: 38px;
   width: 78px;
   position: absolute;
   top: 0;
+  text-align: center;
 }
 
 .div-my .profile-heart {
