@@ -1,5 +1,10 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
+import CheckRoute from './CheckRoute';
+
 import Header from './components/Header'; 
 import Main from './pages/Main';
 import Join from './pages/Join';
@@ -107,20 +112,28 @@ function App() {
       </div>
       <div className="content-container">
         <Routes>
+          <Route path="*" element={<CheckRoute />} />
+
           <Route path="/" element={<Main />} />
-          <Route path="/join" element={<Join />} />
-          <Route path="/join/booktype" element={<SelectBookType />} />
-          <Route path="/join/genre" element={<SelectGenre />} />
-          <Route path="/complete-join" element={<CompleteJoin />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/user" element={<Mypage />} />
-          <Route path="/user/verify" element={<VerifyPass />} />
-          <Route path="/bookpost" element={<BookPost />} />
-          <Route path="/bookpostupdate" element={<BookPostUpdate />} />
-          <Route path="/user/update" element={<UserInfo />} />
-          <Route path="/user/withdraw" element={<UserWithdraw />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/search/book" element={<BookInfo />} />
+
+          <Route element={<PublicRoute />}>
+            <Route path="/join" element={<Join />} />
+            <Route path="/login" element={<Login />} />
+          </Route>
+
+          <Route element={<PrivateRoute />}>   
+            <Route path="/join/booktype" element={<SelectBookType />} />
+            <Route path="/join/genre" element={<SelectGenre />} />
+            <Route path="/complete-join" element={<CompleteJoin />} />
+            <Route path="/user" element={<Mypage />} />
+            <Route path="/user/verify" element={<VerifyPass />} />
+            <Route path="/bookpost" element={<BookPost />} />
+            <Route path="/bookpostupdate" element={<BookPostUpdate />} />
+            <Route path="/user/update" element={<UserInfo />} />
+            <Route path="/user/withdraw" element={<UserWithdraw />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/search/book" element={<BookInfo />} />
+          </Route>
 
         </Routes>
       </div>
