@@ -30,7 +30,7 @@ const BookPostUpdate = () => {
     }
 
     try {
-      const response = await axiosInstance.put(`/user/bookbox/${bookinfoshow.mybookid}`, {
+      const response = await axiosInstance.put(`${process.env.REACT_APP_DB_HOST}/user/bookbox/${bookinfoshow.mybookid}`, {
         comment: comment,
         review: review
       }, {
