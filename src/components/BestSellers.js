@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/BestSellers.css";
 import axiosInstance from "../api/axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 
 const BestSellers = () => {
     const token = localStorage.getItem('token');
@@ -53,22 +53,22 @@ const BestSellers = () => {
 
             <h2>{genre}베스트 셀러 목록</h2>
 
-            <Container>
+            <div className="bestsellers-list-container">
                 {bestSellers.map((book, index) => (
                     <Row key={index} className="book-item">
                         <Col xs={12} md={3} className="book-cover-container">
                             <img src={book.cover} alt="book_cover" className="book-cover" />
                         </Col>
-                        <Col xs={12} md={9} className="book-details-container">
+                        <Col xs={12} md={5} className="book-details-container">
                             <div className="book-details">
-                                <h3>{book.title}</h3>
+                                <p>{book.title}</p>
                                 <div>저자: {book.author}</div>
                                 <div>출판사: {book.publisher}</div>
                             </div>
                         </Col>
                     </Row>
                 ))}
-            </Container>
+            </div>
         </div>
 
 
