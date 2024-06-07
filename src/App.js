@@ -121,7 +121,7 @@ function App() {
             <Route path="/login" element={<Login />} />
           </Route>
 
-          <Route element={<PrivateRoute />}>   
+          <Route element={<PrivateRoute />}>            
             <Route path="/join/booktype" element={<SelectBookType />} />
             <Route path="/join/genre" element={<SelectGenre />} />
             <Route path="/complete-join" element={<CompleteJoin />} />
