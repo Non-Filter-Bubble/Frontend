@@ -3,7 +3,9 @@ import React from 'react';
 import "../styles/NonFilter.css";
 
 
-const NonFilter = () => {
+const NonFilter = ( {nonfilterrecommend} ) => {
+  // console.log("메인에서 넘어온 값입니다. 논필터");
+  // console.log(nonfilterrecommend);
     
     
   return (

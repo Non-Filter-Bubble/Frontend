@@ -81,6 +81,12 @@ const BookPost = () => {
         navigate('/');
       } catch (error) {
         console.error('북포스트 등록에 실패했습니다.', error);
+        
+        if (error.response.status === 403) {
+          alert('이미 등록되어있는 책입니다. 북서랍에서 확인해주세요.');
+          navigate('/user');
+        }
+        
       }
     }).catch((error) => {
       console.error('북박스 아이디를 가져오는데 실패했습니다.', error);

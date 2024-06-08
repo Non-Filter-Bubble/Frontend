@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from "react-router-dom";
 import axiosInstance from '../api/axios';
 
 import Slide from "../components/Slide";
@@ -12,6 +12,12 @@ import "../styles/Main.css"
 
 const Main = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const initialRecommendData = location.state?.recommendData || {};
+    console.log('값이 있으면 회원가입하고 바로 메인에 들어온거임', initialRecommendData);
+    const [recommendData, setRecommendData] = useState(initialRecommendData);
+    console.log('recommendData변수에 저장된 값 확인', recommendData);
 
     const token = localStorage.getItem('token');
 
@@ -26,13 +32,29 @@ const Main = () => {
                 headers: {
                     'authorization': `${token}`
                 }
-            }).then((res) => {
-                console.log(res);
-                // 메인 페이지로 이동
-                // navigate("/");
+            }).then( async (res) => {
+                // console.log(res);
+                // 여기서 DB에 저장된 추천 도서 불러오기
+                console.log('장르 선택 완료한 사용자야 디비에서 추천 도서 가져올거임');
+                
+                try {
+                    await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/user/isbn_list`, {
+                        headers: {
+                            'authorization': `${token}`,
+                            'Content-Type': 'application/json',
+                        }}
+                    ).then((res) => {
+                        console.log(res.data);
+                        setRecommendData(res.data);
+                        console.log('디비에서 가져온 정보를 저장한 후에 확인', recommendData);
+
+                    });
+                } catch (error) {
+                    console.error('실패:', error);
+                }
                 
             }).catch((err) => {
-                console.log(err);
+                // console.log(err);
                 // 장르 선택 페이지로 이동
                 navigate("/join/booktype");
             }); 
@@ -43,8 +65,8 @@ const Main = () => {
         <div className="div-main">
             <Slide />
             <Button4 />
-            <NonFilter />
-            <Filter />
+            <NonFilter nonfilterrecommend={recommendData.isbnNonFilter}/>
+            <Filter filterrecommend={recommendData.isbnFilter}/>
             <BestSellers />
         </div>
     );

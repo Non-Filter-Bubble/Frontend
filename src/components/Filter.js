@@ -1,7 +1,12 @@
 import React from 'react';
 import '../styles/Filter.css'; // CSS 파일 경로는 상황에 맞게 조정하세요
 
-const Filter = () => {
+const Filter = ( {filterrecommend} ) => {
+  // console.log("메인에서 넘어온 값입니다. 필터");
+  // console.log(filterrecommend);
+
+
+
   const handleFilterLeftClick = () => {
     // 여기에 클릭 시 실행할 코드
     console.log('Filter Left Container clicked');
