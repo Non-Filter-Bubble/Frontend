@@ -73,36 +73,35 @@ const Login = () => {
 
     return (
         <div className="div-login">
-            {/* <img className="rect-login" alt="" src="/vector/rect-login.svg" /> */}
+            <img className="rect-login" alt="" src="/vector/rect-login.svg" />
 
             <div className="div-title">
                 <div className="login">로그인</div>
                 <img className="back-login" alt="Vector" src="/vector/back.svg" onClick={handleBack}/>
             </div>
-            <form className="rect-login"onSubmit={handleSubmit}>  
-                {/* <form className="div-input" onSubmit={handleSubmit}> */}
-                    <div className="group-input">
-                    <div className="input-login">
-                        <div className="id">아이디</div>
-                        <input className="rect-id" type="text" placeholder="아이디" name="username" value={formData.username} onChange={handleChange} />
+            
+            <form className="div-input" onSubmit={handleSubmit}>
+                <div className="group-input">
+                <div className="input-login">
+                    <div className="id">아이디</div>
+                    <input className="rect-id" type="text" placeholder="아이디" name="username" value={formData.username} onChange={handleChange} />
+                </div>
+                <div className="input-password">
+                    <div className="password">비밀번호</div>
+                    <input className="rect-password" placeholder="비밀번호" type="password" name="password" value={formData.password} onChange={handleChange} />
+                </div>
+                </div>
+                <div className="group-btn">
+                    <div className="div-btn-login">
+                        <button type='submit' className="btn-login">로그인</button>
                     </div>
-                    <div className="input-password">
-                        <div className="password">비밀번호</div>
-                        <input className="rect-password" placeholder="비밀번호" type="password" name="password" value={formData.password} onChange={handleChange} />
+                    <div className="group-join">
+                        <div className="text-wrapper-3">계정이 없으신가요?</div>
+                        <div className="join" onClick={joinClick}>회원가입</div>
                     </div>
-                    </div>
-                    <div className="group-btn">
-                        {/* <div className="div-btn-login"> */}
-                            <button type='submit' className="btn-login">로그인</button>
-                        {/* </div> */}
-                        <div className="group-join">
-                            <div className="text-wrapper-3">계정이 없으신가요?</div>
-                            <div className="join" onClick={joinClick}>회원가입</div>
-                        </div>
-                    </div>
-                {/* </form> */}
+                </div>
             </form>
-        </div>
+      </div>
     );
   };
 

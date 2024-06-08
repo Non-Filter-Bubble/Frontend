@@ -10,6 +10,8 @@ const Header = () => {
   const token = localStorage.getItem('token');
   const navigate = useNavigate();
 
+
+
   // 로그인 로그아웃 클릭
   const handleAuthClick = () => {
     if (isLoggedIn) {
@@ -22,14 +24,18 @@ const Header = () => {
     }
   };
  
+
+
   useEffect(() => {
     if (token) {
       setIsLoggedIn(true);
     }
   }, [token]);
 
+ 
   const handleSearch = async () => {
-
+    console.log('검색어:', searchInput);
+  
     // 검색어 입력 여부 확인
     if (!searchInput) {
       alert('제목을 입력해주세요.');
@@ -45,7 +51,10 @@ const Header = () => {
         }
       });
 
+      console.log(response1.data.docs);
+
       const dataList1 = response1.data.docs;   
+
       const dataList2 = [];
 
       for (const data of dataList1) {
@@ -55,20 +64,28 @@ const Header = () => {
               isbn: parseInt(data.EA_ISBN, 10)
             }
           });
+          console.log('response2의 값은', response2.data)
           dataList2.push(response2.data);
         } catch (error) {
           dataList2.push({ ISBN_THIRTEEN_NO: parseInt(data.EA_ISBN, 10), GENRE_LV1: "", GENRE_LV2: "", INFO_TEXT: "", BOOK_COVER_URL: ""});
+          console.error(`ISBN ${data.EA_ISBN}에 대한 요청 실패:`, error);
         }
       }
 
+      console.log('최종 dataList2의 값은', dataList2)
+
       // 두 데이터 합치기
       const dataList = dataList1.map(data1 => {
+        console.log('data1의 값은', data1)
         const data2 = dataList2.find(data2 => parseInt(data1.EA_ISBN, 10) === data2.ISBN_THIRTEEN_NO);
         return { ...data1, ...data2 };
       });
+
+      console.log(dataList);
       
       // 검색 결과 페이지로 이동
       navigate("/search", { state: { dataList: dataList, searchInput: searchInput } });
+
       setSearchInput('');
 
     } catch (error) {
@@ -76,9 +93,12 @@ const Header = () => {
     }
   };
 
+     
   return (
     <div className="div-header">
-      <div className="div-logo" onClick={() => navigate('/')}>BUBBLE POP</div>
+      <div className="div-logo" onClick={() => navigate('/')}>
+        <div className="logo">BUBBLE POP</div>
+      </div>
 
       <div className="div-search-small">
         <input type="text" className="search-input"
@@ -91,7 +111,9 @@ const Header = () => {
 
       <img className="icon-user" alt="" src="/images/user-icon.png" onClick={() => isLoggedIn && navigate('/user')} />
 
-      <div className="div-auth" onClick={handleAuthClick}>{isLoggedIn ? 'Logout' : 'Login'}</div>
+      <div className="div-auth" onClick={handleAuthClick}>
+        <div className="auth">{isLoggedIn ? 'Logout' : 'Login'}</div>
+      </div>
 
       <img className="line-header" alt="" src="/vector/line-header.svg" />
     </div>

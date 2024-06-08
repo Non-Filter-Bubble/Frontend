@@ -7,6 +7,11 @@ body {
   width:100%;
 }
 
+.header {
+  width: 100%;
+  overflow-x: hidden; /* 가로 스크롤 없애기 */
+}
+
 .App {
   width: 100%; /* 기본 너비 설정 */
   max-width: 1920px; /* 최대 너비 설정 */
@@ -14,10 +19,7 @@ body {
   transform-origin: top center; /* 변환 원점 설정 */
   transform: scale(var(--scale-factor)); /* 스케일 적용 */
   transition: transform 0.3s ease; /* 부드러운 변환 적용 */
-}
-
-.content-container {
-  height: 100vh;
+  overflow-x: hidden; /* 가로 스크롤 없애기 */
 }
 
 /* 너비가 1920px 이하일 때 스케일 동적 조정 */
@@ -43,5 +45,6 @@ body {
       max-width: 1200px; /* 최대 너비 설정 */
       transform: none; /* 스케일 중지 */
       margin: 0 auto; /* 가운데 정렬 유지 */
+      /* 소형 화면을 위한 추가 스타일 조정 */
   }
 }
