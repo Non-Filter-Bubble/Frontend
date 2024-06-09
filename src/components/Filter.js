@@ -3,35 +3,36 @@ import '../styles/Filter.css'; // CSS 파일 경로는 상황에 맞게 조정�
 import axiosInstance from '../api/axios';
 
 const Filter = ( {filterrecommend} ) => {
-  console.log("메인에서 넘어온 값입니다. 필터");
-  console.log(filterrecommend);
+  const token = localStorage.getItem('token');
 
-  // const [randomIsbn, setRandomIsbn] = useState();
-  const [bookinfo, setBookinfo] = useState();
+  const [bookcomment, setBookcomment] = useState();
+  const [bookcover, setBookcover] = useState();
 
-  const getBookInfo = async (isbn) => {
+  const getBookComment = async (isbn) => {
     try {
-      const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/load-books`, {
+      const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/comment`, {
         params: {
           isbn: isbn
-        }
+        }, 
+        headers: { 'authorization': `${token}` }
       });
-      console.log('response의 값은', response.data);
-      setBookinfo(response.data);
+      // console.log('response의 값은', response.data);
+
+      setBookcomment(response.data);
     } catch (error) {
-      // 근데 이건 AI에서 보내주는거라서 요청 실패하면 안되는거임
       console.error(`ISBN ${isbn}에 대한 요청 실패:`, error);
+      setBookcomment();
     }
   }
 
   // 랜덤으로 책 정보 추출
   const getRandom = useCallback((list) => {
     const randomIndex = Math.floor(Math.random() * list.length);
-    console.log('랜덤으로 추출된 인덱스:', randomIndex);
-    console.log('랜덤으로 추출된 책의 ISBN:', list[randomIndex]);
-    // setRandomIsbn(list[randomIndex]);
-    getBookInfo(list[randomIndex]);
-    // return list[randomIndex];
+    // console.log('랜덤으로 추출된 인덱스:', randomIndex);
+    // console.log('랜덤으로 추출된 책의 ISBN:', list[randomIndex]);
+    setBookcover(`https://contents.kyobobook.co.kr/sih/fit-in/230x0/pdt/${list[randomIndex]}.jpg`);
+    getBookComment(list[randomIndex]);
+    // getBookComment(9791190174756);
   }, []);
 
   // 랜덤으로 추출된 책 정보를 저장
@@ -41,37 +42,30 @@ const Filter = ( {filterrecommend} ) => {
     }
   }, [filterrecommend, getRandom]);
 
-  console.log('랜덤으로 추출된 책 정보:', bookinfo);
-
-//   setRandomIsbn(getRandom(filterrecommend));
-
-// useEffect(() => {
-//   console.log('useEffecdt에서 실행된 값입니다.')
-//   if (filterrecommend && filterrecommend.length > 0) {
-//     // setRandomIsbn(getRandomIsbn(filterrecommend));
-//     getRandom(filterrecommend)
-//   }
-//   console.log('randomIsbn의 값이 변경되었습니다.',randomIsbn);
-// }, []);
+  // console.log('랜덤으로 추출된 책의 코멘트:', bookcomment);
 
 
-const handleFilterLeftClick = () => {
-  if (filterrecommend && filterrecommend.length > 0) {
-    getRandom(filterrecommend);
-  }
-//   if (filterrecommend && filterrecommend.length > 0) {
-//     setRandomIsbn(getRandom(filterrecommend));
-//   }  
-};  
+  const handleFilterLeftClick = () => {
+    if (filterrecommend && filterrecommend.length > 0) {
+      getRandom(filterrecommend);
+    }
+  };  
 
-
-
-// useEffect(() => {
-//   if (randomIsbn) {
-//     getBookInfo();
-//   }
-// }, [randomIsbn]);
-
+  // 한줄평이 3개가 아닐 수 있잖아 그걸 해결해야 함
+  // 3개 이상인 경우 어떤 한줄평을 가지고올건지
+  // 3개 미만인 경우 보여지는 걸 1개, 2개만 보여줄 건지? 아님 3개로 보여주고 빈 칸은 없다고 할건지
+  const renderComments = () => {
+    return [0, 1, 2].map((index) => (
+      <div key={index} className={`oneline-${index + 1}`}>
+        <div className="oneline-3-back"></div>
+        <div className="oneline-31">
+          <div className="div2">
+            <p className="filter-ment3">{bookcomment ? bookcomment[index] : "아직 다른 사용자가 한줄 평을 작성하지 않았어요!"}</p>
+          </div>
+        </div>
+      </div>
+    ));
+  };
 
 
   return (
@@ -84,12 +78,12 @@ const handleFilterLeftClick = () => {
       <img className="filter-background" alt="" src="vector/filter-background.svg" />
 
       <div className="filter-right">
-        <div className="oneline-1">
+        {renderComments()}
+        {/* <div className="oneline-1">
           <div className="oneline-3-back"></div>
           <div className="oneline-31">
             <div className="div2">
-              <p className="filter-ment3">도전과 모험, 새로운 시작을 하는 </p>
-              <p className="filter-ment3">사람은 누구나 추락을 경험할 수 있다.</p>
+              <p className="filter-ment3">{bookcomment ? bookcomment["0"] : "로딩 중..."}</p>
             </div>
           </div>
         </div>
@@ -97,8 +91,7 @@ const handleFilterLeftClick = () => {
           <div className="oneline-3-back"></div>
           <div className="oneline-31">
             <div className="div2">
-              <p className="filter-ment3">도전과 모험, 새로운 시작을 하는 </p>
-              <p className="filter-ment3">사람은 누구나 추락을 경험할 수 있다.</p>
+              <p className="filter-ment3">{bookcomment ? bookcomment["1"] : "로딩 중..."}</p>
             </div>
           </div>
         </div>
@@ -106,11 +99,10 @@ const handleFilterLeftClick = () => {
           <div className="oneline-3-back"></div>
           <div className="oneline-31">
             <div className="div2">
-              <p className="filter-ment3">도전과 모험, 새로운 시작을 하는 </p>
-              <p className="filter-ment3">사람은 누구나 추락을 경험할 수 있다.</p>
+              <p className="filter-ment3">{bookcomment ? bookcomment["2"] : "로딩 중..."}</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       
@@ -119,7 +111,7 @@ const handleFilterLeftClick = () => {
           {/* <img className="filter-back-icon" alt="" src="Filter_back.svg" />
           <img className="filter-back-icon" alt="" src="images/filter-blur.svg" /> */}
           <div className="filter-book-wrapper">
-            {bookinfo && <img className="filter-book-icon" alt="" src={bookinfo.BOOK_COVER_URL} />}
+            {bookcover && <img className="filter-book-icon" alt="" src={bookcover} />}
           </div>
         </div>
         {/* 다시 버튼을 불렀을 때 */}

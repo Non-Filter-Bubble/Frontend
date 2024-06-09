@@ -143,23 +143,29 @@ const Mypage = () => {
 
   const handleDelete = async (mybookid) => {
     console.log('북포스트 삭제 버튼 클릭');
-    await axiosInstance.delete(`${process.env.REACT_APP_DB_HOST}/user/bookbox/${mybookid}`, {
-      headers: {
-        authorization: `${token}`,
-        'Content-Type': 'application/json'
-      }
-    })
-    .then((response) => {
-      console.log('북포스트 삭제 성공');
-      console.log(response);
+    const isConfirmed = window.confirm('정말로 이 책을 삭제하시겠습니까?');
 
-      // 책이 삭제된 후 페이지 다시 로드
-      window.location.reload();
-    })
-    .catch((error) => {
-      console.log('북포스트 삭제에 실패했습니다.');
-      console.log(error);
-    });
+    if (isConfirmed) {
+      await axiosInstance.delete(`${process.env.REACT_APP_DB_HOST}/user/bookbox/${mybookid}`, {
+        headers: {
+          authorization: `${token}`,
+          'Content-Type': 'application/json'
+        }
+      })  
+      .then((response) => {
+        console.log('북포스트 삭제 성공');
+        console.log(response);
+
+        // 책이 삭제된 후 페이지 다시 로드
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log('북포스트 삭제에 실패했습니다.');
+        console.log(error);
+      });
+    } else {
+      console.log('북포스트 삭제 취소');
+    }
   }
 
   return (
