@@ -8,7 +8,7 @@ const Filter = ( {filterrecommend} ) => {
   const [bookcomment, setBookcomment] = useState();
   const [bookcover, setBookcover] = useState();
 
-  const getBookComment = async (isbn) => {
+  const getBookComment = useCallback(async (isbn) => {
     try {
       const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/comment`, {
         params: {
@@ -23,7 +23,7 @@ const Filter = ( {filterrecommend} ) => {
       console.error(`ISBN ${isbn}에 대한 요청 실패:`, error);
       setBookcomment();
     }
-  }
+  }, [token]);
 
   // 랜덤으로 책 정보 추출
   const getRandom = useCallback((list) => {
@@ -33,7 +33,7 @@ const Filter = ( {filterrecommend} ) => {
     setBookcover(`https://contents.kyobobook.co.kr/sih/fit-in/230x0/pdt/${list[randomIndex]}.jpg`);
     getBookComment(list[randomIndex]);
     // getBookComment(9791190174756);
-  }, []);
+  }, [getBookComment]);
 
   // 랜덤으로 추출된 책 정보를 저장
   useEffect(() => {
