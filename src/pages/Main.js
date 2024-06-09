@@ -15,9 +15,9 @@ const Main = () => {
     const location = useLocation();
 
     const initialRecommendData = location.state?.recommendData || {};
-    console.log('값이 있으면 회원가입하고 바로 메인에 들어온거임', initialRecommendData);
+    // console.log('값이 있으면 회원가입하고 바로 메인에 들어온거임', initialRecommendData);
     const [recommendData, setRecommendData] = useState(initialRecommendData);
-    console.log('recommendData변수에 저장된 값 확인', recommendData);
+    // console.log('recommendData변수에 저장된 값 확인', recommendData);
 
     const token = localStorage.getItem('token');
     const initialLoad = useRef(true);
@@ -39,19 +39,20 @@ const Main = () => {
                     
                     try {
                         // DB에 저장된 추천 도서 불러오기
-                        console.log('장르 선택 완료한 사용자야 디비에서 추천 도서 가져올거임');
+                        // console.log('장르 선택 완료한 사용자야 디비에서 추천 도서 가져올거임');
                         const res = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/user/isbn_list`, {
                             headers: {
                                 'authorization': `${token}`,
                                 'Content-Type': 'application/json',
                             }
                         });
-                        console.log(res.data);
+                        // console.log(res.data);
                         setRecommendData(res.data);
-                        console.log('디비에서 가져온 정보를 저장한 후에 확인', res.data);
+                        // console.log('디비에서 가져온 정보를 저장한 후에 확인', res.data);
     
                     } catch (error) {
                         console.error('실패:', error);
+                        navigate('/complete-join');
                     }
                 } catch (error) {
                     console.error('실패:', error);

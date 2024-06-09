@@ -1,11 +1,16 @@
 import React, { useState, useRef } from 'react';
 import axiosInstance from '../api/axios';
+import { useNavigate } from 'react-router-dom';
 import '../styles/SearchPopup.css'; // Screen 컴포넌트의 스타일을 포함합니다.
 
 // 기본 이미지 경로
 const DEFAULT_IMAGE_URL = '../images/bookImage-small.png';
 
 const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
+  const token = localStorage.getItem('token');
+
+  const navigate = useNavigate();
+
   const [input, setInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const resultsRef = useRef(null); // 검색 결과 컨테이너를 위한 참조 생성
@@ -48,7 +53,7 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
         return { ...data1, ...data2 };
       });
 
-      console.log('검색한 책의 리스트는', dataList);
+      // console.log('검색한 책의 리스트는', dataList);
       
       setSearchResults(dataList);
       if (resultsRef.current) {
@@ -61,7 +66,22 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
   }
 
   const handleSelectBook = async (book) => {
-    console.log('책 선택:', book)
+    // console.log('책 선택:', book)
+
+    // 선택한 책이 이미 등록되어있는지 확인
+    const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/user/bookbox/mybook`, {
+      headers: {
+        authorization: `${token}`,
+      },
+    });
+    
+    const isbnList = response.data.map(book => book.isbn);
+    // console.log('등록한 책의 ISBN 목록:', isbnList);
+
+    if (isbnList.includes(parseInt(book.EA_ISBN, 10))) {
+      alert('이미 등록된 책입니다. 북 서랍에서 확인해주세요.');
+      navigate('/user')
+    }
 
     setBookinfo(book);
 
