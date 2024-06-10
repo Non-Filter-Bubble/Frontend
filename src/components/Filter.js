@@ -20,7 +20,7 @@ const Filter = ( {filterrecommend} ) => {
 
       setBookcomment(response.data);
     } catch (error) {
-      console.error(`ISBN ${isbn}에 대한 요청 실패:`, error);
+      // console.error(`ISBN ${isbn}에 대한 요청 실패:`, error);
       setBookcomment();
     }
   }, [token]);
@@ -106,7 +106,7 @@ const Filter = ( {filterrecommend} ) => {
       </div>
 
       
-      <div className="filterleft" id="filterLeftContainer" onClick={handleFilterLeftClick}>
+      <div className="filterleft" id="filterLeftContainer" >
         <div className="filter-left">
           {/* <img className="filter-back-icon" alt="" src="Filter_back.svg" />
           <img className="filter-back-icon" alt="" src="images/filter-blur.svg" /> */}
@@ -115,7 +115,7 @@ const Filter = ( {filterrecommend} ) => {
           </div>
         </div>
         {/* 다시 버튼을 불렀을 때 */}
-        <img className="btn-reset-icon" alt="" src="images/btn-reset.png" />
+        <img className="btn-reset-icon" alt="" src="images/btn-reset.png" onClick={handleFilterLeftClick} />
       </div>
     </div>
   );
