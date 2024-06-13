@@ -78,13 +78,13 @@ const SelectGenre = () => {
     { name: "생명과학", className: "group-4", textClass: "text-wrapper-4", image: "../images/lifeScience_avata.jpg" },
     { name: "경제/경영", className: "group-5", textClass: "text-wrapper-2", image: "../images/economic_theBigShort.jpg" },
     { name: "자연과학", className: "group-6", textClass: "text-wrapper-4", image: "../images/science_core.jpg" },
-    { name: "인문학", className: "group-7", textClass: "text-wrapper-3" },
-    { name: "자기계발", className: "group-8", textClass: "text-wrapper-4" },
+    { name: "인문학", className: "group-7", textClass: "text-wrapper-3" , image: "../images/genre-human.png"},
+    { name: "자기계발", className: "group-8", textClass: "text-wrapper-4" ,image: "../images/genre-self.png"},
     { name: "역사", className: "group-9", textClass: "text-wrapper-5", image: "../images/history_1987.jpg"},
-    { name: "한국시", className: "group-10", textClass: "text-wrapper-6" },
+    { name: "한국시", className: "group-10", textClass: "text-wrapper-6" ,image: "../images/genre-poem.png"},
     { name: "시간관리", className: "group-11", textClass: "text-wrapper-4", image: "../images/time_inTime.jpg" },
-    { name: "커뮤니케이션", className: "group-12", textClass: "text-wrapper-7" },
-    { name: "인간관계", className: "group-13", textClass: "text-wrapper-4" },
+    { name: "커뮤니케이션", className: "group-12", textClass: "text-wrapper-7", image: "../images/genre-commu.png" },
+    { name: "인간관계", className: "group-13", textClass: "text-wrapper-4", image: "../images/genre-person.png" },
     { name: "자전", className: "group-14", textClass: "text-wrapper-5", image: "../images/travel_emilyInParis.jpg" }
   ];
 
@@ -92,18 +92,17 @@ const SelectGenre = () => {
     <div className="div-genre">
       <div className="content">
         <div className="group-title">
-          <p className="text">
-            <span className="text-big">
+          <p className="text-big">
               {user} 님,<br />
               좋아하는 콘텐츠를<br />
               3개 선택하세요.
-            </span>
           </p>
-        </div>
-        <p className="text-small">
+          <p className="text-small">
           {user}님의 취향을 파악하는 데 도움을 드리고자합니다.<br />
           마음에 드는 콘텐츠를 골라주세요.
         </p>
+        </div>
+        
 
         <div className="div-select">
           {genres.map((genre, index) => (

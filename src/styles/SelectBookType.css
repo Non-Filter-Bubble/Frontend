@@ -121,15 +121,18 @@
   top: 0;
   width: 130px;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   color: #000000;
   text-align: center;
   padding: 10px;
 }
 
+.div-select-booktype .rectangle:hover{
+  box-shadow: 0 5px 20px rgba(0, 123, 255, 1);
+}
+
 .div-select-booktype .rectangle.selected {
-  opacity: 1;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 20px rgba(0, 123, 255, 1);
 }
 
 .text-korean {
