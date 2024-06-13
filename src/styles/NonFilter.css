@@ -1,198 +1,122 @@
-  .non-filter {
-    background-color: #f5f5f5;
-    height: 708px;
-    position: relative;
-    width: 100%;
+.non-filter {
+  background-color: #f5f5f5;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+  flex-direction: column; /* 세로로 요소를 배치 */
+}
 
-    left: 50%; /* 부모로부터 위치 */
-    transform: translateX(-50%); /* 가로 중앙 정렬 */
-  }
+.div-nonfilter {
+  width: 80%; /* 필요에 따라 조정 */
+  max-width: 1200px; /* 필요에 따라 조정 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .non-filter .ment-1 {
-    color: #000000;
-    font-family: "Pretendard-Regular", Helvetica;
-    font-size: 40px;
-    font-weight: 400;
-    left: 410px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 99px;
-    white-space: nowrap;
-    
-  }
+.ment-1 {
+  color: #000000;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  white-space: nowrap;
+}
 
-  .non-filter .div-nonfilter{
-    position: absolute;
-    height: 100%;
-  }
+.ment-2 {
+  color: #666666;
+  font-family: "Pretendard-Light", Helvetica;
+  font-size: 25px;
+  font-weight: 300;
+  margin-bottom: 30px;
+  width: 100%;
+}
 
+.btn-reset {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  align-self: flex-end;
+  margin-right: 30px
+}
 
-  .non-filter .ment-2 {
-    color: #666666;
-    font-family: "Pretendard-Light", Helvetica;
-    font-size: 25px;
-    font-weight: 300;
-    left: 410px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 177px;
-    width: 1234px;
-  }
-  
-  .non-filter .btn-reset {
-    height: 50px;
-    left: 1448px;
-    object-fit: cover;
-    position: absolute;
-    top: 233px;
-    width: 50px;
-    cursor:pointer;
-  }
-  
+.div-card {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
 
+.card-1, .card-2, .card-3, .card-4, .card-5 {
+  height: 300px;
+  width: 180px;
+  cursor: pointer;
+  position: relative;
+}
 
-  .non-filter .div-card {
-    height: 300px;
-    left: 410px;
-    position: absolute;
-    top: 308px;
-    width: 1100px;
-  }
-  
+.card-blur {
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+}
 
+.card-img {
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 30px;
+  object-fit: cover;
+  filter: blur(10px);
+}
 
-  .non-filter .card-1 {
-    height: 300px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 180px;
-    cursor: pointer;
-  }
+.card-blur::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.4); /* 어두운 오버레이 */
+}
 
-  .non-filter .card-blur {
-    /* background-image: url(./card-blur-nonfilter.svg); */
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 300px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 180px;
-    border-radius: 30px;
-    overflow: hidden;
-  }
+.div-card-content {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  width: 142px;
+  height: 210px;
+}
 
-  .non-filter .card-img {
-    background-position: 50% 50%;
-    background-size: cover;
-    height: 300px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 180px;
-    object-fit: cover;
-    filter: blur(17px);
-    /* backdrop-filter: blur(10px);
-    box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3); */
-  }
-  
-  .non-filter .div-card-content {
-    height: 210px;
-    left: 20px;
-    position: absolute;
-    top: 40px;
-    width: 142px;
-  }
+.card-text {
+  color: #ffffff;
+  font-family: "Pretendard-SemiBold", Helvetica;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+  overflow: hidden; /* 넘치는 텍스트를 숨김 */
+  text-overflow: ellipsis; /* 넘치는 부분을 "..."으로 표시 */
+}
 
+.line-division {
+  width: 142px;
+  height: 2px;
+  margin: 10px 0;
+}
 
-  
-  .non-filter .card-text {
-    color: #ffffff;
-    font-family: "Pretendard-SemiBold", Helvetica;
-    font-size: 15px;
-    font-weight: 600;
-    height: 90px;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    text-align: center;
-    width: 140px;
-  }
-  
-
-  .non-filter .line-division {
-    height: 2px;
-    left: -1px;
-    position: absolute;
-    top: 129px;
-    width: 142px;
-  }
-  
-  .non-filter .text-click {
-    color: #ffffff;
-    font-family: "Pretendard-Black", Helvetica;
-    font-size: 20px;
-    font-weight: 900;
-    left: 42px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 190px;
-    white-space: nowrap;
-    width: 56px;
-  }
-
- 
-  .non-filter .card-2 {
-    height: 300px;
-    left: 460px;
-    position: absolute;
-    top: 0;
-    width: 180px;
-    cursor: pointer;
-  }
-
-  .non-filter .card-3 {
-    height: 300px;
-    left: 230px;
-    position: absolute;
-    top: 0;
-    width: 180px;
-    cursor: pointer;
-  }
-  
-  .non-filter .card-4 {
-    height: 300px;
-    left: 690px;
-    position: absolute;
-    top: 0;
-    width: 180px;
-    cursor: pointer;
-  }
-
-  .non-filter .card-5 {
-    height: 300px;
-    left: 920px;
-    position: absolute;
-    top: 0;
-    width: 180px;
-    cursor: pointer;
-  }
-  
-  
-  
- 
-  
-  
-  
-  
- 
-  
-  
-  
+.text-click {
+  color: #ffffff;
+  font-family: "Pretendard-Black", Helvetica;
+  font-size: 20px;
+  font-weight: 900;
+  text-align: center;
+  white-space: nowrap;
+}

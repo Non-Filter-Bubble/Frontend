@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import '../styles/Filter.css'; // CSS 파일 경로는 상황에 맞게 조정하세요
+import '../styles/Filter.css'; 
 import axiosInstance from '../api/axios';
 
 const Filter = ( {filterrecommend} ) => {

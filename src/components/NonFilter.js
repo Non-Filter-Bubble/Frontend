@@ -60,6 +60,13 @@ const NonFilter = ( {nonfilterrecommend} ) => {
 
   console.log('랜덤으로 추출된 책의 정보:', bookinfo);
 
+  const truncateText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    }
+    return text;
+  };
+
     
   return (
     <div className="non-filter">
@@ -74,25 +81,24 @@ const NonFilter = ( {nonfilterrecommend} ) => {
           {bookinfo.slice(0, 5).map((book, index) => (
             <div key={index} className={`card-${index + 1}`}>
               <div className="card-blur">
-                {/* <img className="card-img" alt="" src="rectangle-28-4.svg" /> */}
                 <img className="card-img" alt="" src={book.BOOK_COVER_URL} />
               </div>
               <div className="div-card-content">
                 <p className="card-text">
-                  {book.INFO_TEXT_BOLD}
+                {truncateText(book.INFO_TEXT_BOLD, 50)}
                 </p>
                 <img className="line-division" alt="" src="/vector/line-filter.svg" />
                 <div className="text-click">click!</div>
               </div>
             </div>
           ))}
-        </div>        
+        </div>
       </div>
     </div>
   );
 };
-  
-  export default NonFilter;
+
+export default NonFilter;
 
 
 

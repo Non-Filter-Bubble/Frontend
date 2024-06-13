@@ -33,6 +33,7 @@
     height: auto;
     object-fit: cover;
     top: 21.125rem;
+    width: 100;
 }
 .oneline-3-back {
     position: absolute;
