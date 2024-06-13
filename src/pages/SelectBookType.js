@@ -91,73 +91,62 @@ const SelectBookType = () => {
           <span className="span">2개 선택하세요 </span>
         </p>
         <p className="text-2">
-          000님의 취향을 파악하는 데 도움을 드리고자합니다.<br />
+        {user}님의 취향을 파악하는 데 도움을 드리고자합니다.<br />
           마음에 드는 콘텐츠를 골라주세요.
         </p>
       </div>
       <div className="div-select">
         <div className="group-line-1">
           <div className="group-3">
-            <img
+          <div
               className={`rectangle ${selectedTypes.includes("소설") ? "selected" : ""}`}
-              alt=""
-              // src={bestSellerImages.find((image) => image.type === "소설")?.cover}
-              src="/path/to/rectangle-image.png"
-              onClick={() => toggleTypeSelection("소설")}
-            />
-            <div className="text-wrapper-4">소설</div>
+              onClick={() => toggleTypeSelection("소설")}>
+              <span className="text-korean">소설</span><br/>
+              <span className="text-english">novel</span>
+            </div>
           </div>
           <div className="group-4">
-            <img
+          <div
               className={`rectangle ${selectedTypes.includes("자연과학") ? "selected" : ""}`}
-              alt=""
-              // src={bestSellerImages.find((image) => image.type === "자연과학")?.cover}
-              src="/path/to/rectangle-image.png"
-              onClick={() => toggleTypeSelection("자연과학")}
-            />
-            <div className="text-wrapper-3">자연과학</div>
+              onClick={() => toggleTypeSelection("자연과학")}>
+              <span className="text-korean">자연과학</span><br/>
+              <span className="text-english">science</span>
+            </div>
           </div>
           <div className="group-7">
-            <img
+          <div
               className={`rectangle ${selectedTypes.includes("인문") ? "selected" : ""}`}
-              alt=""
-              // src={bestSellerImages.find((image) => image.type === "인문")?.cover}
-              src="/path/to/rectangle-image.png"
-              onClick={() => toggleTypeSelection("인문")}
-            />
-            <div className="text-wrapper-5">인문</div>
+              onClick={() => toggleTypeSelection("인문")}>
+              <span className="text-korean">인문</span><br/>
+              <span className="text-english">humanities</span>
+            </div>
           </div>
         </div>
         <div className="group-2">
           <div className="group-3">
-            <img
+          <div
               className={`rectangle ${selectedTypes.includes("시/에세이") ? "selected" : ""}`}
-              alt=""
-              // src={bestSellerImages.find((image) => image.type === "시/에세이")?.cover}
-              src="/path/to/rectangle-image.png"
-              onClick={() => toggleTypeSelection("시/에세이")}
-            />
-            <div className="text-wrapper-2">시/에세이</div>
+              onClick={() => toggleTypeSelection("시/에세이")}>
+              <span className="text-korean">시/에세이</span><br/>
+              <span className="text-english">poem/essay</span>
+            </div>
           </div>
           <div className="group-4">
-            <img
+          <div
               className={`rectangle ${selectedTypes.includes("자기계발") ? "selected" : ""}`}
-              alt=""
-              // src={bestSellerImages.find((image) => image.type === "자기계발")?.cover}
-              src="/path/to/rectangle-image.png"
-              onClick={() => toggleTypeSelection("자기계발")}
-            />
-            <div className="text-wrapper-3">자기계발</div>
+              onClick={() => toggleTypeSelection("자기계발")}>
+              <span className="text-korean">자기계발</span><br/>
+              <span className="text-english">self improvement</span>
+            </div>
           </div>
           <div className="group-5">
-            <img
+          <div
               className={`rectangle ${selectedTypes.includes("경제/경영") ? "selected" : ""}`}
-              alt=""
-              // src={bestSellerImages.find((image) => image.type === "경제/경영")?.cover}
-              src="/path/to/rectangle-image.png"
-              onClick={() => toggleTypeSelection("경제/경영")}
-            />
-            <div className="text-wrapper-2">경제/경영</div>
+              onClick={() => toggleTypeSelection("경제/경영")}>
+              <span className="text-korean">경제/경영</span><br/>
+              <span className="text-english">economy
+              administration</span>
+            </div>
           </div>
         </div>
       </div>
