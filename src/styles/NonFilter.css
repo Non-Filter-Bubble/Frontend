@@ -104,6 +104,10 @@
   margin-bottom: 10px;
   overflow: hidden; /* 넘치는 텍스트를 숨김 */
   text-overflow: ellipsis; /* 넘치는 부분을 "..."으로 표시 */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* 필요한 줄 수 */
+  -webkit-box-orient: vertical;
+  height: 4.5rem; /* 고정된 높이 */
 }
 
 .line-division {
@@ -119,4 +123,10 @@
   font-weight: 900;
   text-align: center;
   white-space: nowrap;
+  position: absolute; /* 위치 고정 */
+  left: 50%; /* 가로 중앙 정렬 */
+  transform: translate(-50%, -50%); /* 정 중앙으로 이동 */
+  margin-top: 50px;
+  
+
 }
