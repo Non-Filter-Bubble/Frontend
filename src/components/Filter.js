@@ -71,10 +71,9 @@ const Filter = ( {filterrecommend} ) => {
   return (
     <div className="filter">
       <div className="filter-ment1">이 책과 함께라면, 독서가 더욱 즐거워질 거예요!</div>
-      <div className="filter-ment2">
         <p className="filter-ment3">마음을 사로잡을 책을 준비했습니다! 다른 독자들의 한줄평을 통해 이 책의 매력을 미리 엿보세요.</p>
         <p className="filter-ment3">이야기의 깊이와 감동이 여러분을 기다립니다. 여러분의 새로운 독서 여정을 시작해보실래요?</p>
-      </div>
+     
       <img className="filter-background" alt="" src="vector/filter-background.svg" />
 
       <div className="filter-right">
