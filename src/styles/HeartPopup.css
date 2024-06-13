@@ -1,4 +1,4 @@
-.screen {
+.div-heart-popup {
   background-color: #ffffff;
   border-radius: 30px;
   border: 2px solid #a6a6a6;
@@ -12,13 +12,13 @@
   overflow-y: auto; /* 세로 스크롤 활성화 */
 }
 
-.screen .rectangle {
+.div-heart-popup .rectangle {
   height: 778px;
   position: relative;
   width: 400px;
 }
 
-.screen .group {
+.div-heart-popup .group {
   height: 130px;
   left: 42px;
   position: absolute;
@@ -26,7 +26,7 @@
   width: 286px;
 }
 
-.screen .div {
+.div-heart-popup .div {
   height: 104px;
   left: 110px;
   position: absolute;
@@ -34,7 +34,7 @@
   width: 182px;
 }
 
-.screen .text-wrapper {
+.div-heart-popup .text-wrapper {
   color: #000000;
   font-family: "Pretendard-SemiBold", Helvetica;
   font-size: 15px;
@@ -47,7 +47,7 @@
   width: 176px;
 }
 
-.screen .text-wrapper-2 {
+.div-heart-popup .text-wrapper-2 {
   color: #000000;
   font-family: "Pretendard-Light", Helvetica;
   font-size: 13px;
@@ -62,7 +62,7 @@
   width: 85px;
 }
 
-.screen .text-wrapper-3 {
+.div-heart-popup .text-wrapper-3 {
   color: #000000;
   font-family: "Pretendard-Light", Helvetica;
   font-size: 13px;
@@ -77,7 +77,7 @@
   width: 72px;
 }
 
-.screen .image-wrapper {
+.div-heart-popup .image-wrapper {
   /*background-image: url(./rectangle-59.png);*/
   background-position: 50% 50%;
   background-size: cover;
@@ -88,7 +88,7 @@
   width: 90px;
 }
 
-.screen .image {
+.div-heart-popup .image {
   height: 35px;
   left: 85px;
   object-fit: cover;
@@ -98,7 +98,7 @@
   cursor: pointer;
 }
 
-.screen .group-2 {
+.div-heart-popup .group-2 {
   height: 130px;
   left: 41px;
   position: absolute;
@@ -106,7 +106,7 @@
   width: 287px;
 }
 
-.screen .group-3 {
+.div-heart-popup .group-3 {
   height: 104px;
   left: 111px;
   position: absolute;
@@ -114,7 +114,7 @@
   width: 182px;
 }
 
-.screen .img-wrapper {
+.div-heart-popup .img-wrapper {
   /*background-image: url(./rectangle-59.png);*/
   background-position: 50% 50%;
   background-size: cover;
@@ -125,7 +125,7 @@
   width: 90px;
 }
 
-.screen .img {
+.div-heart-popup .img {
   height: 35px;
   left: 54px;
   object-fit: cover;
@@ -135,7 +135,7 @@
   cursor: pointer;
 }
 
-.screen .group-4 {
+.div-heart-popup .group-4 {
   height: 130px;
   left: 41px;
   position: absolute;
@@ -143,7 +143,7 @@
   width: 287px;
 }
 
-.screen .group-5 {
+.div-heart-popup .group-5 {
   /*background-image: url(./rectangle-59.png);*/
   background-position: 50% 50%;
   background-size: cover;
@@ -154,7 +154,7 @@
   width: 90px;
 }
 
-.screen .group-6 {
+.div-heart-popup .group-6 {
   height: 130px;
   left: 41px;
   position: absolute;
@@ -162,7 +162,7 @@
   width: 287px;
 }
 
-.screen .group-7 {
+.div-heart-popup .group-7 {
   /*background-image: url(./rectangle-59.png);*/
   background-position: 50% 50%;
   background-size: cover;

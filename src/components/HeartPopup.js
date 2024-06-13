@@ -100,7 +100,7 @@ const HeartPopup = () => {
   };
 
   return (
-    <div className="screen" ref={resultsRef}>
+    <div className="div-heart-popup" ref={resultsRef}>
         {showBookmarks.map((book, index) => (
           <div key={index} className="group-book-wrapper">
             <div className="group-book">

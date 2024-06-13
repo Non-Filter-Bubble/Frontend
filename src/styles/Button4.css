@@ -26,6 +26,7 @@
     top: 0rem;
     left: 1.875rem;
     font-weight: 500;
+    white-space: nowrap;
 }
 
 .btn-name2 {
@@ -33,6 +34,7 @@
     top: 0rem;
     left: 0rem;
     font-weight: 500;
+    white-space: nowrap;
 }
 
 .icon {
