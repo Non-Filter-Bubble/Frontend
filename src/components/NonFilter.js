@@ -1,4 +1,5 @@
 import React, {useEffect, useState, useCallback} from 'react';
+import { useNavigate } from "react-router-dom";
 import axiosInstance from '../api/axios';
 
 import "../styles/NonFilter.css";
@@ -9,6 +10,8 @@ const NonFilter = ( {nonfilterrecommend} ) => {
   // console.log(nonfilterrecommend);
 
   const token = localStorage.getItem('token');
+
+  const navigate = useNavigate();
 
   const [bookinfo, setBookinfo] = useState([]);
 
@@ -27,8 +30,8 @@ const NonFilter = ( {nonfilterrecommend} ) => {
     }
   }, [token]);
 
-  // 랜덤으로 책 정보 5개 추출
-  const getRandom = useCallback((list) => {
+  // 랜덤으로 책 정보 5개 추출 - 이건 물어보고 중복 처리해야함
+  const getRandom = useCallback((list) => {    
     const randomIndexs = []
     while (randomIndexs.length < 5) {
       const randomIndex = Math.floor(Math.random() * list.length);
@@ -67,6 +70,31 @@ const NonFilter = ( {nonfilterrecommend} ) => {
     return text;
   };
 
+  // 클릭 시
+  const showDetail = async (index) => {
+    // console.log('책 상세정보:', bookinfo[index]);
+
+    try {
+      const res = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
+        params : {
+          type: 'isbn',
+          value: bookinfo[index].ISBN_THIRTEEN_NO
+        }
+      });
+      // console.log('책 상세정보 요청 성공');
+      // console.log(res.data.docs[0]);
+
+      // 두 데이터 합치기
+      const bookdata = { ...res.data.docs[0], ...bookinfo[index] };
+      // console.log('두 데이터 합친 책 정보:', bookdata);
+
+      navigate('/search/book', { state: { bookinfo: bookdata } });
+
+    } catch (error) {
+      console.error('책 상세정보 요청 실패:', error);
+    }
+  }
+
     
   return (
     <div className="non-filter">
@@ -79,7 +107,7 @@ const NonFilter = ( {nonfilterrecommend} ) => {
 
         <div className="div-card">
           {bookinfo.slice(0, 5).map((book, index) => (
-            <div key={index} className={`card-${index + 1}`}>
+            <div key={index} className={`card-${index + 1}`} onClick={() => showDetail(index)}>
               <div className="card-blur">
                 <img className="card-img" alt="" src={book.BOOK_COVER_URL} />
               </div>

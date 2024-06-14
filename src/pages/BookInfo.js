@@ -1,7 +1,6 @@
-// 다른 사용자의 한줄평을 가지고 와야함
-// 줄거리 어떻게 가지고 와야하나.
+// 도서관 정보 가지고 와야 함
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import axiosInstance from '../api/axios';
 import '../styles/BookInfo.css';
@@ -15,10 +14,17 @@ const BookInfo = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const bookinfo = location.state.bookinfo;
-  console.log(bookinfo);
+  // const [img, setImg] = useState('');
+  // const [description, setDescription] = useState(''); 
+  const [info, setInfo] = useState([]);;
+  console.log('넘어온 값', bookinfo);
+  console.log('네이버로 가져온 값', info);
 
   const [bookmarks, setBookmarks] = useState([]);
   console.log(bookmarks);
+
+  const plotRef = useRef(null);
+  const line2Ref = useRef(null);
 
   const handleBack = () => {
   navigate(-1); // 이전 페이지로 이동
@@ -113,12 +119,60 @@ const BookInfo = () => {
    
   const isBookmarked = (bookinfo) => bookmarks.some(b => parseInt(b.isbn, 10) === parseInt(bookinfo.EA_ISBN, 10));
 
+  useEffect(() => {
+    // 줄거리 가져오기
+    const getPlot = async () => {
+      const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/book/summary/${bookinfo.ISBN_THIRTEEN_NO}`, {
+        headers: {
+          'authorization': `${token}`,
+          'Content-Type': 'application/json'
+        }
+        
+      });
+      console.log(response.data.items[0]);
+      // setDescription(response.data.items[0].description);
+      // setImg(response.data.items[0].image);
+      setInfo(response.data.items[0]);
+    }
+    getPlot();
+  }, [bookinfo, token]);
+
+  useEffect(() => {
+    const adjustLine2Position = () => {
+      if (plotRef.current && line2Ref.current) {
+        const plotHeight = plotRef.current.offsetHeight;
+        const plotTop = plotRef.current.offsetTop;
+        const line2Top = plotTop + plotHeight + 550;
+        line2Ref.current.style.top = `${line2Top}px`;
+      }
+    };
+
+    adjustLine2Position();
+    window.addEventListener('resize', adjustLine2Position);
+
+    return () => {
+      window.removeEventListener('resize', adjustLine2Position);
+    };
+  }, [info]);
+
+
   return (
     <div className="div-bookinfo">
+
       <img className="back-bookinfo" alt="" src="/vector/back.svg" onClick={handleBack}/>
       <div className="book-title">{bookinfo.TITLE}</div>
       <img className="line" alt="Line" src="/vector/line-book.svg" />
-      <img className="line-2" alt="Line" src="/vector/line-book.svg" />
+      
+      <div className="book">
+        <img className="book-img" alt={bookinfo.TITLE} src={bookinfo.BOOK_COVER_URL !== "" ? bookinfo.BOOK_COVER_URL : DEFAULT_IMAGE_URL}/>
+        {/* <img className="book-img" alt={bookinfo.TITLE} src={bookinfo.BOOK_COVER_URL !== "" ? info.image : DEFAULT_IMAGE_URL}/> */}
+        <img className="icon-cart" alt="Shopping cart" src="/images/icon-cart-white.png" onClick={() => handlePurchase(bookinfo)} />
+        <img className="icon-heart" 
+          alt="" 
+          src={isBookmarked(bookinfo) ? "/images/filled-heart-big.png" : "/images/empty-heart-big.png"} 
+          onClick={() => toggleFavorite(bookinfo)} />
+      </div>
+      
       <div className="div-content">
         <div className="group-7">
           <div className="div-name">
@@ -128,35 +182,23 @@ const BookInfo = () => {
           <div className="div-author">
             <div className="author">저자</div>
             <div className="text-wrapper-6">{bookinfo.AUTHOR}</div>
-            
+            {/* <div className="text-wrapper-6">{info.author}</div> */}
           </div>
           <div className="div-company">
             <div className="text-wrapper-5">출판사</div>
             <div className="company">{bookinfo.PUBLISHER}</div>
+            {/* <div className="company">{info.publisher}</div> */}
           </div>
         </div>
         <div className="div-plot">
           <div className="title-plot">줄거리</div>
-          <p className="plot">
-            dlrjdlkfjdsklfjaskldfasdljksdhfjlasdfladshf<br />
-            1000년 후에도 유효할 인간의 행동양식과 반복패턴에 대한 <br />
-            흥미로운 역사 스토리와 일화들을 들려준다. <br />
-            워런 버핏의 스니커즈, 빌 게이츠의 숨겨진 불안, <br />
-            유발 하라리가 받은 뜻밖의 비난, 게임스탑 사태의 보이지 않는 변수,&nbsp;&nbsp;
-            <br />
-            벌지 전투의 최후, 마술사 후디니의 죽음 등, 한 편 한 편의 이야기가 <br />
-            마치 다큐소설처럼 펼쳐진다.
-          </p>
+          {/* <p className="plot">{description}</p> */}
+          <p className="plot" ref={plotRef}>{info.description}</p>
         </div>
       </div>
-      <div className="book">
-      <img className="book-img" alt={bookinfo.TITLE} src={bookinfo.BOOK_COVER_URL !== "" ? bookinfo.BOOK_COVER_URL : DEFAULT_IMAGE_URL}/>
-        <img className="icon-cart" alt="Shopping cart" src="/images/icon-cart-white.png" onClick={() => handlePurchase(bookinfo)} />
-        <img className="icon-heart" 
-          alt="" 
-          src={isBookmarked(bookinfo) ? "/images/filled-heart-big.png" : "/images/empty-heart-big.png"} 
-          onClick={() => toggleFavorite(bookinfo)} />
-      </div>
+
+      <img className="line-2" alt="Line" src="/vector/line-book.svg" ref={line2Ref}/>
+      
     </div>
   );
 };
