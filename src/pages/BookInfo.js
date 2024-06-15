@@ -122,7 +122,11 @@ const BookInfo = () => {
   useEffect(() => {
     // 줄거리 가져오기
     const getPlot = async () => {
-      const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/book/summary/${bookinfo.ISBN_THIRTEEN_NO}`, {
+      const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-NaverBooks`, {
+        params: { 
+          type: 'isbn',
+          value: bookinfo.ISBN_THIRTEEN_NO 
+        },
         headers: {
           'authorization': `${token}`,
           'Content-Type': 'application/json'

@@ -1,9 +1,7 @@
 import React, {useEffect, useState, useCallback} from 'react';
 import { useNavigate } from "react-router-dom";
 import axiosInstance from '../api/axios';
-
 import "../styles/NonFilter.css";
-
 
 const NonFilter = ( {nonfilterrecommend} ) => {
   // console.log("메인에서 넘어온 값입니다. 논필터");
@@ -24,13 +22,13 @@ const NonFilter = ( {nonfilterrecommend} ) => {
       });
       setBookinfo(prevBookinfo => [...prevBookinfo, response.data]);
     } catch (error) {
-      // 이건 절대 실패할 수 없는거임
+      // 이건 절대 실패할 수 없는거임 - 왜냐 AI에서 보내는거니까
       console.error(`ISBN ${isbn}에 대한 요청 실패:`, error);
       // setBookinfo();
     }
   }, [token]);
 
-  // 랜덤으로 책 정보 5개 추출 - 이건 물어보고 중복 처리해야함
+  // 랜덤으로 책 정보 5개 추출
   const getRandom = useCallback((list) => {    
     const randomIndexs = []
     while (randomIndexs.length < 5) {
@@ -93,8 +91,7 @@ const NonFilter = ( {nonfilterrecommend} ) => {
     } catch (error) {
       console.error('책 상세정보 요청 실패:', error);
     }
-  }
-
+  };
     
   return (
     <div className="non-filter">
