@@ -57,14 +57,7 @@
   position: relative;
 }
 
-.card-blur {
-  background-position: 50% 50%;
-  background-size: cover;
-  height: 100%;
-  width: 100%;
-  border-radius: 30px;
-  overflow: hidden;
-}
+
 
 .card-img {
   background-position: 50% 50%;
@@ -74,6 +67,15 @@
   border-radius: 30px;
   object-fit: cover;
   filter: blur(10px);
+}
+
+.card-blur {
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 30px;
+  overflow: hidden;
 }
 
 .card-blur::after {
