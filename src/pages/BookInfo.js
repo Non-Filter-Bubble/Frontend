@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import axiosInstance from '../api/axios';
 import '../styles/BookInfo.css';
+import commentSample from '../data/comment.json';
 
 // 기본 이미지 경로
 const DEFAULT_IMAGE_URL = '../images/bookImage.jpg';
@@ -25,6 +26,7 @@ const BookInfo = () => {
 
   const plotRef = useRef(null);
   const line2Ref = useRef(null);
+  const commentRef = useRef(null);
 
   const handleBack = () => {
   navigate(-1); // 이전 페이지로 이동
@@ -143,11 +145,15 @@ const BookInfo = () => {
 
   useEffect(() => {
     const adjustLine2Position = () => {
-      if (plotRef.current && line2Ref.current) {
+      if (plotRef.current && line2Ref.current && commentRef.current) {
         const plotHeight = plotRef.current.offsetHeight;
         const plotTop = plotRef.current.offsetTop;
         const line2Top = plotTop + plotHeight + 550;
         line2Ref.current.style.top = `${line2Top}px`;
+
+        const commentTop = line2Top + 50;
+        commentRef.current.style.top = `${commentTop}px`;
+
       }
     };
 
@@ -202,6 +208,17 @@ const BookInfo = () => {
       </div>
 
       <img className="line-2" alt="Line" src="/vector/line-book.svg" ref={line2Ref}/>
+
+      <div className="div-comment" ref={commentRef}>
+        <div className="title-comment">한줄평</div>
+        <div className="div-comment-box">
+          {commentSample[bookinfo.ISBN_THIRTEEN_NO].map((comment, index) => (
+            <div key={index} className="comment-box">
+              <p className="comment">{comment}</p>
+            </div>
+          ))}
+        </div>
+      </div>
       
     </div>
   );
