@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+// import { useNavigate } from "react-router-dom";
 import '../styles/Filter.css'; 
 // import axiosInstance from '../api/axios';
 import commentSample from '../data/comment.json';
@@ -6,6 +7,9 @@ import commentSample from '../data/comment.json';
 const Filter = ( {filterrecommend} ) => {
   // const token = localStorage.getItem('token');
 
+  // const navigate = useNavigate();
+
+  // const [isbn, setIsbn] = useState();
   const [bookcomment, setBookcomment] = useState();
   const [bookcover, setBookcover] = useState();
 
@@ -39,6 +43,7 @@ const Filter = ( {filterrecommend} ) => {
     // console.log('랜덤으로 추출된 책의 ISBN:', list[randomIndex]);
     setBookcover(`https://contents.kyobobook.co.kr/sih/fit-in/230x0/pdt/${list[randomIndex]}.jpg`);
     getBookComment(list[randomIndex]);
+    // setIsbn(list[randomIndex]);
     // getBookComment(9791190174756);
   }, [getBookComment]);
 
@@ -50,7 +55,6 @@ const Filter = ( {filterrecommend} ) => {
   }, [filterrecommend, getRandom]);
 
   // console.log('랜덤으로 추출된 책의 코멘트:', bookcomment);
-
 
   const handleFilterLeftClick = () => {
     console.log('다시 추천 버튼 클릭');
@@ -70,6 +74,32 @@ const Filter = ( {filterrecommend} ) => {
     ));
   };
 
+  const showDetail = async () => {
+    // // console.log('책 상세정보');
+    // // console.log(isbn);
+    // try {
+    //   const response1 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/load-books`, {
+    //     params: { isbn: isbn }
+    //   });
+
+    //   const response2 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
+    //     params : { type: 'isbn', value: isbn }
+    //   });
+
+    //   console.log('로드 북:', response1.data);
+    //   console.log('설치 북:', response2.data.docs[0]);
+
+    //   // 두 데이터 합치기
+    //   const bookinfo = {...response1.data, ...response2.data.docs[0]};
+      
+    //   console.log(bookinfo);
+
+    //   navigate('/search/book', { state: { bookinfo: bookinfo } });
+
+    // } catch (error) {
+    //   console.error(`ISBN ${isbn}에 대한 요청 실패:`, error);
+    // }
+  }
 
   return (
     <div className="filter">
@@ -81,8 +111,9 @@ const Filter = ( {filterrecommend} ) => {
         <div className="filter-background">
           <div className="filter-left" style={{ backgroundImage: `url(${bookcover})` }}>
             <div className="filter-book-wrapper">
-              {bookcover && <img className="filter-book-icon" alt="" src={bookcover} />}
+              {bookcover && <img className="filter-book-icon" alt="" src={bookcover} onClick={showDetail}/>}
               <img className="btn-reset-icon" alt="" src="images/btn-reset.png" onClick={handleFilterLeftClick} />
+              {/* <div className="click-filter">click!</div> */}
             </div>
           </div>
 

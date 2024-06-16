@@ -141,5 +141,16 @@
     cursor: pointer;
 }
 
-
+.filter .click-filter {
+    color: #000000;
+    font-family: "Pretendard-Black", Helvetica;
+    font-size: 20px;
+    font-weight: 900;
+    text-align: center;
+    white-space: nowrap;
+    position: absolute; /* 위치 고정 */
+    left: 50%; /* 가로 중앙 정렬 */
+    transform: translate(-50%, -50%); /* 정 중앙으로 이동 */
+    /* margin-top: 50px; */
+}
 

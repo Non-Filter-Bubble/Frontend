@@ -195,7 +195,8 @@ const UserInfo = () => {
               <div className="subtitle">닉네임</div>
               <div className="div-dupli">
                 <div className="div-btn">
-                  <div className="text-btn" onClick={handleNicknameChange}>중복확인</div>
+                  {/* <div className="text-btn" onClick={handleNicknameChange}>중복확인</div> */}
+                  <div className="text-btn" onClick={handleNicknameChange}>닉네임 변경</div>
                 </div>
               </div>
             </div>
