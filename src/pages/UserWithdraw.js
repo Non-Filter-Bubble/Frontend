@@ -16,34 +16,40 @@ const UserWithdraw = () => {
 
   const handleUserDelete = async () => {
     // 비밀번호 확인 및 회원 탈퇴 요청
-    console.log('회원 탈퇴 버튼 클릭')
+    // console.log('회원 탈퇴 버튼 클릭')
+
+    if (password === '') {
+      alert('비밀번호를 입력해주세요.');
+      return;
+    }
 
     await axiosInstance.post(`${process.env.REACT_APP_DB_HOST}/verify-password`, { 
       password: password
     }, {
-        headers: {
-          'authorization': `${token}`,
-          'Content-Type': 'application/json'
-        }
+      headers: {
+        'authorization': `${token}`,
+        'Content-Type': 'application/json'
+      }
     })
     .then(async (res) => {
-      console.log(res);
+      // console.log(res);
 
       if (res.data.message === "Password is valid") {
-        console.log('비밀번호 확인 성공')
+        // console.log('비밀번호 확인 성공')
 
         await axiosInstance.delete(`${process.env.REACT_APP_DB_HOST}/user`, {
-            headers: {
-              'authorization': `${token}`,
-              'Content-Type': 'application/json'
-            },
-            params: {
-              username: res.data.username
-            }
+          headers: {
+            'authorization': `${token}`,
+            'Content-Type': 'application/json'
+          },
+          params: {
+            username: res.data.username
+          }
         })
         .then((response) => {
-          console.log('회원 탈퇴 성공');
-          console.log(response)
+          alert('회원 탈퇴가 완료되었습니다.');
+          // console.log('회원 탈퇴 성공');
+          console.log(response);
 
           // 토큰 삭제
           localStorage.removeItem('token');
@@ -51,13 +57,14 @@ const UserWithdraw = () => {
           // 회원가입 페이지 이동
           navigate('/join');
         }).catch((error) => {
-          console.log('비밀번호는 맞지만, 회원 탈퇴에 실패했습니다.');
+          // console.log('비밀번호는 맞지만, 회원 탈퇴에 실패했습니다.');
           console.log(error);
         })
       } 
     })
     .catch((error) => {
       setPassword('');
+      alert('비밀번호가 일치하지 않습니다.');
       console.log(error);
       console.log('비밀번호가 다릅니다.')
     })

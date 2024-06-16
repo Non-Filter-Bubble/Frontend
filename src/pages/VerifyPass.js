@@ -17,26 +17,32 @@ const VerifyPass = () => {
   const handleInfoModification = async () => {
     console.log('확인 버튼 클릭');
 
+    if (password === '') {
+        alert('비밀번호를 입력해주세요.');
+        return;
+    }
+
     await axiosInstance.post(`${process.env.REACT_APP_DB_HOST}/verify-password`, { 
-        password: password
+      password: password
     }, {
-        headers: {
-            'authorization': `${token}`,
-            'Content-Type': 'application/json'
-        }
+      headers: {
+        'authorization': `${token}`,
+        'Content-Type': 'application/json'
+      }
     })
     .then((res) => {
-        console.log('비밀번호가 일치합니다.');
-        console.log(res);
+      console.log('비밀번호가 일치합니다.');
+      console.log(res);
 
-        navigate("/user/update");
+      navigate("/user/update");
     })
     .catch((err) => {
-        setPassword('');
-        console.error('비밀번호가 일치하지 않습니다.');
-        console.error(err);
+      setPassword('');
+      alert('비밀번호가 일치하지 않습니다.');
+      console.error('비밀번호가 일치하지 않습니다.');
+      console.error(err);
     });
-};
+  };
 
   return (
     <div className="div-verify">
@@ -59,4 +65,5 @@ const VerifyPass = () => {
     </div>
   );
 };
-    export default VerifyPass;
+
+export default VerifyPass;

@@ -186,6 +186,8 @@ const Search = () => {
       // 검색 결과 페이지로 이동
       navigate("/search", { state: { dataList: dataList, searchInput: search } });
 
+      setSearch('');
+
     } catch (error) {
       console.error('검색 실패:', error); // 오류가 발생한 경우 출력
     }

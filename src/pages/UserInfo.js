@@ -43,7 +43,7 @@ const UserInfo = () => {
     fetchUserInfo();
   }, [token]);
 
-  const password_REG = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/ 
+  const password_REG = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,20}$/ 
 
   const handlePasswordChange = async (e) => {
     e.preventDefault();
@@ -63,7 +63,7 @@ const UserInfo = () => {
 
     // 비밀번호 정규 표현식 확인
     if (!password_REG.test(newPassword)) {
-      alert("비밀번호는 영어와 숫자를 포함한 8~16자리여야 합니다.");
+      alert("비밀번호는 영어와 숫자를 포함한 8~20자리여야 합니다.");
       return;
     }
 

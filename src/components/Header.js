@@ -10,8 +10,6 @@ const Header = () => {
   const token = localStorage.getItem('token');
   const navigate = useNavigate();
 
-
-
   // 로그인 로그아웃 클릭
   const handleAuthClick = () => {
     if (isLoggedIn) {
@@ -24,11 +22,11 @@ const Header = () => {
     }
   };
  
-
-
   useEffect(() => {
     if (token) {
       setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
     }
   }, [token]);
 
@@ -51,10 +49,9 @@ const Header = () => {
         }
       });
 
-      console.log(response1.data.docs);
+      // console.log(response1.data.docs);
 
       const dataList1 = response1.data.docs;   
-
       const dataList2 = [];
 
       for (const data of dataList1) {
@@ -64,24 +61,24 @@ const Header = () => {
               isbn: parseInt(data.EA_ISBN, 10)
             }
           });
-          console.log('response2의 값은', response2.data)
+          // console.log('response2의 값은', response2.data)
           dataList2.push(response2.data);
         } catch (error) {
           dataList2.push({ ISBN_THIRTEEN_NO: parseInt(data.EA_ISBN, 10), GENRE_LV1: "", GENRE_LV2: "", INFO_TEXT: "", BOOK_COVER_URL: `https://contents.kyobobook.co.kr/sih/fit-in/100x0/pdt/${data.EA_ISBN}.jpg`});
-          console.error(`ISBN ${data.EA_ISBN}에 대한 요청 실패:`, error);
+          // console.error(`ISBN ${data.EA_ISBN}에 대한 요청 실패:`, error);
         }
       }
 
-      console.log('최종 dataList2의 값은', dataList2)
+      // console.log('최종 dataList2의 값은', dataList2)
 
       // 두 데이터 합치기
       const dataList = dataList1.map(data1 => {
-        console.log('data1의 값은', data1)
+        // console.log('data1의 값은', data1)
         const data2 = dataList2.find(data2 => parseInt(data1.EA_ISBN, 10) === data2.ISBN_THIRTEEN_NO);
         return { ...data1, ...data2 };
       });
 
-      console.log(dataList);
+      // console.log(dataList);
       
       // 검색 결과 페이지로 이동
       navigate("/search", { state: { dataList: dataList, searchInput: searchInput } });

@@ -117,10 +117,10 @@ const Join = () => {
             return;
         }
 
-        const password_REG = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,16}$/;
+        const password_REG = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,20}$/;
 
         if (!password_REG.test(formData.password)) {
-            alert("비밀번호는 영어와 숫자를 포함한 8~16자리여야 합니다.");
+            alert("비밀번호는 영어와 숫자를 포함한 8~20자리여야 합니다.");
             return;
         }
 
