@@ -144,27 +144,27 @@ const BookInfo = () => {
   }, [bookinfo, token]);
 
   useEffect(() => {
-    const adjustLine2Position = () => {
-      if (plotRef.current && line2Ref.current && commentRef.current) {
+    const dynamicPosition = () => {
+      if (plotRef.current && line2Ref.current) {
         const plotHeight = plotRef.current.offsetHeight;
         const plotTop = plotRef.current.offsetTop;
         const line2Top = plotTop + plotHeight + 550;
         line2Ref.current.style.top = `${line2Top}px`;
 
-        const commentTop = line2Top + 50;
-        commentRef.current.style.top = `${commentTop}px`;
-
+        if (commentRef.current) {
+          const commentTop = line2Top + 50;
+          commentRef.current.style.top = `${commentTop}px`;
+        }
       }
     };
 
-    adjustLine2Position();
-    window.addEventListener('resize', adjustLine2Position);
+    dynamicPosition();
+    window.addEventListener('resize', dynamicPosition);
 
     return () => {
-      window.removeEventListener('resize', adjustLine2Position);
+      window.removeEventListener('resize', dynamicPosition);
     };
   }, [info]);
-
 
   return (
     <div className="div-bookinfo">
@@ -209,7 +209,8 @@ const BookInfo = () => {
 
       <img className="line-2" alt="Line" src="/vector/line-book.svg" ref={line2Ref}/>
 
-      <div className="div-comment" ref={commentRef}>
+      {/* 한줄평이 있는 경우만 보여줌 - 여기도 나중에 3개가 아닐 때를 고려해야함 */}
+      {commentSample[bookinfo.ISBN_THIRTEEN_NO] && <div className="div-comment" ref={commentRef}>
         <div className="title-comment">한줄평</div>
         <div className="div-comment-box">
           {commentSample[bookinfo.ISBN_THIRTEEN_NO].map((comment, index) => (
@@ -218,7 +219,7 @@ const BookInfo = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div>}
       
     </div>
   );
