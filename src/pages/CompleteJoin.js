@@ -1,31 +1,33 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import '../styles/CompleteJoin.css'; 
-import axiosInstance from "../api/axios";
+// import axiosInstance from "../api/axios";
 
 const CompleteJoin = () => {
 
   const navigate = useNavigate();
-  const token = localStorage.getItem('token');
+  // const token = localStorage.getItem('token');
 
   const okClick = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/recommend`, {
-        headers: {
-          'authorization': `${token}`,
-          'Content-Type': 'application/json',
-        }}
-      );
+    // try {
+    //   const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/recommend`, {
+    //     headers: {
+    //       'authorization': `${token}`,
+    //       'Content-Type': 'application/json',
+    //     }}
+    //   );
 
-      const recommendData = response.data;
+    //   const recommendData = response.data;
 
-      navigate('/', { state: { recommendData } })
+    //   navigate('/', { state: { recommendData } })
 
-    } catch (error) {
-      console.error('실패:', error);
-    }
+    // } catch (error) {
+    //   console.error('실패:', error);
+    // }
+
+    navigate('/');
 
   };
 
