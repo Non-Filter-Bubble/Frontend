@@ -76,6 +76,7 @@
   position:absolute;
   top: 40px;
   left: 94px;
+  white-space: nowrap;
 }
 
 
@@ -97,6 +98,7 @@
   position: absolute;
   top: 46px;
   left:94px;
+  white-space: nowrap;
 }
 
 
@@ -121,6 +123,7 @@
   text-align: center;
   top: -20px;
   margin-left: 268px;
+  white-space: nowrap;
 }
 
 
@@ -141,6 +144,7 @@
   position: absolute;
   top: 46px;
   left: 140px;
+  white-space: nowrap;
 }
 
 
@@ -150,7 +154,7 @@
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 10px; /* 아래 여백 설정 */
-  text-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .div-join .star{
