@@ -112,7 +112,7 @@ const Header = () => {
         <div className="auth">{isLoggedIn ? 'Logout' : 'Login'}</div>
       </div>
 
-      <img className="line-header" alt="" src="/vector/line-header.svg" />
+      
     </div>
   );
 };
