@@ -43,7 +43,7 @@
     left: 450px;
     object-fit: cover;
     position: absolute;
-    top: 8px;
+    top: 5px;
     width: 30px;
     cursor: pointer;
   }
@@ -62,11 +62,10 @@
     font-family: "Pretendard-Regular", Helvetica;
     font-size: 20px;
     font-weight: 200;
-    left: 30px;
+    left: 20px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 13px;
     width: 350px;
     border:none;
   }
