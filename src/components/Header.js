@@ -111,7 +111,7 @@ const Header = () => {
       <div className="div-auth" onClick={handleAuthClick}>
         <div className="auth">{isLoggedIn ? 'Logout' : 'Login'}</div>
       </div>
-
+      <div className="header-bottom-line"></div> 
       
     </div>
   );
