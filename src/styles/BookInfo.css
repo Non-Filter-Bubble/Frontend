@@ -157,7 +157,7 @@
   left: 821px;
   position: absolute;
   top: 280px;
-  width: 533px;
+  width: 700px;
 }
 
 .div-bookinfo .group-7 {
@@ -189,7 +189,7 @@
   position: absolute;
   top: 0;
   white-space: nowrap;
-  width: 100% 
+  width: 100% ;
 }
 
 .div-bookinfo .text-wrapper-6 {
@@ -202,17 +202,24 @@
   line-height: normal;
   position: absolute;
   top: 5px;
-  width: 700px;
+  width: 100%;
   white-space: nowrap;
+  overflow-wrap: break-word;
+}
+.div-bookinfo .div-author,
+.div-bookinfo .div-company {
+  display: block;
+  margin-top: 20px; /* 요소 간의 간격 조절 */
 }
 
 .div-bookinfo .div-author {
   height: 48px;
   left: 0;
-  position: absolute;
+  position: relative; /* position을 relative로 설정 */
   top: 67px;
-  width: 352px;
+  width: 550px;
   white-space: nowrap;
+  
 }
 
 .div-bookinfo .author {
@@ -223,9 +230,11 @@
   left: 0;
   letter-spacing: 23.25px;
   line-height: normal;
-  position: absolute;
+  position: relative; /* position을 relative로 설정 */
   top: 0;
-  width: 111px;
+  display: inline-block; /* inline-block으로 변경 */
+  margin-right: 10px; /* 간격 조절 */
+  
 }
 
 .div-bookinfo .div-company {
@@ -233,7 +242,7 @@
   left: 0;
   position: absolute;
   top: 134px;
-  width: 267px;
+  width: 700px;
 }
 
 .div-bookinfo .company {
@@ -248,13 +257,14 @@
   top: 5px;
   width: 111px;
   white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 .div-bookinfo .div-plot {
   height: 184px;
   left: 0;
   position: absolute;
-  top: 211px;
+  top: 231px;
   /* width: 537px; */
   width: 700px;
 }
