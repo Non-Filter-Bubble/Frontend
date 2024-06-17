@@ -93,8 +93,6 @@ function App() {
 
         break;
       default:
-        title = "Page Not Found";
-        metaDescription = "This page is not available.";
         break;
     }
 
