@@ -25,6 +25,7 @@
   position: absolute;
   top: 126px;
   white-space: nowrap;
+  text-wrap: nowrap;
 }
 
 .div-bookinfo .line {
@@ -187,7 +188,8 @@
   line-height: normal;
   position: absolute;
   top: 0;
-  width: 111px;
+  white-space: nowrap;
+  width: 100% 
 }
 
 .div-bookinfo .text-wrapper-6 {
@@ -200,8 +202,8 @@
   line-height: normal;
   position: absolute;
   top: 5px;
-  /* width: 196px; */
   width: 700px;
+  white-space: nowrap;
 }
 
 .div-bookinfo .div-author {
@@ -210,6 +212,7 @@
   position: absolute;
   top: 67px;
   width: 352px;
+  white-space: nowrap;
 }
 
 .div-bookinfo .author {
@@ -244,6 +247,7 @@
   position: absolute;
   top: 5px;
   width: 111px;
+  white-space: nowrap;
 }
 
 .div-bookinfo .div-plot {
