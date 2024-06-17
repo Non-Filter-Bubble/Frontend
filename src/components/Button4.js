@@ -26,46 +26,35 @@ const Button4 = () => {
     navigate("/user");
   }
 
-    return (
-        <div className="button4">
-          <div className="button-div">
-            <div className="search-button-div" onClick={searchBookClick}>
-              <div className="btn-border"></div>
-              <div className="search-inner">
-                <div className="btn-name1">도서 검색</div>
-                <img className="icon" alt="" src="images/search-icon.png" />
-              </div>
-            </div>
-            <div className="drawer-div" onClick={bookDrawerClick}>
-              <div className="btn-border"></div>
-              <div className="inner">
-                <div className="group">
-                  <div className="btn-name1">북서랍</div>
-                  <img className="icon" alt="" src="images/drawer-icon.png" />
-                </div>
-              </div>
-            </div>
-            <div className="heart-div" onClick={heartClick}>
-              <div className="btn-border"></div>
-              <div className="inner">
-                <div className="wrapper">
-                  <div className="btn-name2">찜목록</div>
-                </div>
-                <img className="icon" alt="" src="images/heart.png" />
-              </div>
-            </div>
-            <div className="mypage-div" onClick={mypageClick}>
-              <div className="btn-border"></div>
-              <div className="group-container">
-                <div className="container">
-                  <div className="btn-name2">마이페이지</div>
-                </div>
-                <img className="icon" alt="" src="images/person.png" />
-              </div>
-            </div>
+  return (
+    <div className="button4">
+      <div className="button-container">
+        <div className="button-div" onClick={searchBookClick}>
+          <div className="inner">
+            <div className="btn-name">도서 검색</div>
+            <img className="icon" alt="" src="images/search-icon.png" />
           </div>
         </div>
-      );
-    };
-
-export default Button4
+        <div className="button-div" onClick={bookDrawerClick}>
+          <div className="inner">
+              <div className="btn-name">북서랍</div>
+              <img className="icon" alt="" src="images/drawer-icon.png" />
+          </div>
+        </div>
+        <div className="button-div" onClick={heartClick}>
+          <div className="inner">
+              <div className="btn-name">찜목록</div>
+            <img className="icon" alt="" src="images/heart.png" />
+          </div>
+        </div>
+        <div className="button-div" onClick={mypageClick}>
+          <div className="inner">
+              <div className="btn-name">마이페이지</div>
+            <img className="icon" alt="" src="images/person.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+  export default Button4;

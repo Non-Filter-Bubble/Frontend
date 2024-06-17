@@ -1,5 +1,4 @@
-.button4{
-    position:relative;
+.button4 {
     width: 100%;
     text-align: center;
     align-items: center; /* 세로 중앙 정렬 */
@@ -9,134 +8,51 @@
     font-size: 1.25rem;
     color: #000;
     font-family: Pretendard;
-}
-
-.button-div{
-    height: 100%; /* 전체 높이를 사용하도록 설정 */
-    top: 3.125rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between; /* 버튼들 사이에 공간을 균등하게 배분 */
+    align-items: center;
+    width: 70%;
+    height: 45%;
+    border: 1px solid #000; /* 큰 직사각형의 테두리 */
+    overflow: hidden;
+  }
+  
+  .button-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%; /* 각 버튼의 너비를 4개로 나눔 */
+    height: 100%;
     cursor: pointer;
-    position: absolute;
-    left: 19%; /* 부모로부터 위치 */
-    transform: translateX(-50%); /* 가로 중앙 정렬 */
-
-}
-
-.btn-name1 {
-    position: absolute;
-    top: 0rem;
-    left: 1.875rem;
+    background-color: #fff;
+    border-right: 1px solid #000;
+  }
+  
+  .button-div:last-child {
+    border-right: none; /* 마지막 버튼의 오른쪽 테두리 제거 */
+  }
+  
+  .btn-name {
     font-weight: 500;
     white-space: nowrap;
-}
-
-.btn-name2 {
-    position: absolute;
-    top: 0rem;
-    left: 0rem;
-    font-weight: 500;
-    white-space: nowrap;
-}
-
-.icon {
-    position: absolute;
-    top: 0.125rem;
-    left: 0rem;
+    margin-left: 1.875rem;
+    margin-right:10px;
+  }
+  
+  .icon {
     width: 1.25rem;
     height: 1.25rem;
-    object-fit: contain ;
-    overflow: hidden;
-}
-
-.search-inner {
-    position: absolute;
-    top: 2.375rem;
-    left: 5.438rem;
-    width: 6.563rem;
-    height: 1.5rem;
-}
-
-.search-button-div {
-    position: absolute;
-    top: 0rem;
-    left: 0rem;
-    width: 18.125rem;
-    height: 6.25rem;
-    cursor: pointer;
-}
-
-.group {
-    position: absolute;
-    top: 0rem;
-    left: 0rem;
-    width: 5.125rem;
-    height: 1.5rem;
-}
-
-.inner {
-    position: absolute;
-    top: 2.375rem;
-    left: 6.5rem;
-    width: 5.125rem;
-    height: 1.5rem;
-}
-
-.drawer-div {
-    position: absolute;
-    top: 0rem;
-    left: 18.063rem;
-    width: 18.125rem;
-    height: 6.25rem;
-}
-
-.wrapper {
-    position: absolute;
-    top: 0rem;
-    left: 1.875rem;
-    width: 3.25rem;
-    height: 1.5rem;
-}
-
-.heart-div  {
-    position: absolute;
-    top: 0rem;
-    left: 36.125rem;
-    width: 18.125rem;
-    height: 6.25rem;
-    cursor: pointer;
-}
-
-.btn-border {
-    position: absolute;
-    top: 0rem;
-    left: 0rem;
-    background-color: #fff;
-    border: 1px solid #000;
-    box-sizing: border-box;
-    width: 18.125rem;
-    height: 6.25rem;
-}
-
-.button4 .container {
-    position: absolute;
-    top: 0rem;
-    left: 1.875rem;
-    width: 5.438rem;
-    height: 1.5rem;
-}
-
-.group-container {
-    position: absolute;
-    top: 2.375rem;
-    left: 5.313rem;
-    width: 7.313rem;
-    height: 1.5rem;
-}
-
-.mypage-div {
-    position: absolute;
-    top: 0rem;
-    left: 54.188rem;
-    width: 18.125rem;
-    height: 6.25rem;
-    cursor: pointer;
-}
+    object-fit: contain;
+  }
+  
+  .inner{
+    display: flex;
+    align-items: center;
+  }
+  
