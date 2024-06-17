@@ -1,8 +1,10 @@
 .div-bookpost {
   background-color: #ffffff;
   height: 1403px;
+  margin: auto;
   position: relative;
   width: 100%;
+  
 }
 
 .div-bookpost .div-bookpost-title {
@@ -53,6 +55,7 @@
   height: auto; /* 비율 유지 */
   margin: 20px auto; /* 위 아래 20px 마진, 좌우 중앙 */
   position: relative; /* 상대 위치 */
+  left:60px;
   top:340px;
 }
 .div-bookpost .book-info-container {
