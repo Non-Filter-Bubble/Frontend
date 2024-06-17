@@ -67,7 +67,7 @@
   height: 30px;
   object-fit: cover;
   cursor: pointer;
-  margin-right: 70px; /* 오른쪽 여백 추가 */
+  margin-right: 60px; /* 오른쪽 여백 추가 */
 }
 
 .div-auth {
@@ -80,4 +80,5 @@
   font-size: 20px; 
   font-weight: 400;
   white-space: nowrap;
+  margin-right:40px;
 }
