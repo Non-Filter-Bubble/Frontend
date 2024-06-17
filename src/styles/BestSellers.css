@@ -1,30 +1,58 @@
-.bestsellers-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    width: 80%;
-    margin: 0 auto;
-}
-
-.bestsellers-container .genre-buttons {
+.div-bestsellers {
+    background-color: #f5f5f5;
+    height: 100vh;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    flex-direction: column; /* 세로로 요소를 배치 */
 }
 
-.bestsellers-container .genre-buttons button {
-    flex: 1;
-    margin: 0 5px;
+.div-bestsellers .title {
+    color: #000000;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 40px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    white-space: nowrap;
+}
+
+.bestsellers-container {
+    padding: 50px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    align-items: center; /* 세로 중앙 정렬 */
+    border-radius: 40px;
+    width: 80%;
+    max-width: 1200px; /* 최대 너비 설정 */
+    min-width: 1100px; /* 최소 너비 설정 */
+}
+
+.div-bestsellers .genre-buttons {
+    display: flex;
+    margin-bottom: 50px;
+    justify-content: center; /* 가로 중앙 정렬 */
+}
+
+.div-bestsellers .genre-buttons button {
     cursor: pointer;
+    border-radius: 40px;
+    border-color: #aa6565;
+    padding: 5px 15px;
+    margin-left: 10px;
 }
 
-.bestsellers-container h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-    font-family: "Pretendard-Light", Helvetica;
+.div-bestsellers .genre-buttons button:hover {
+    background-color: #aa6565;
+    color: #ffffff;
+}
+.div-bestsellers .genre-buttons button.selected {
+    background-color: #aa6565;
+    color: #ffffff;
 }
 
-.bestsellers-container .book-item {
+.div-bestsellers .book-item {
     margin-bottom: 20px;
     padding: 10px;
     background-color: #fff;
@@ -36,32 +64,34 @@
     flex-basis: calc(50% - 20px);
 }
 
-.bestsellers-container .book-cover {
+.div-bestsellers .book-cover {
     width: 100%;
     height: auto;
     border-radius: 4px;
     object-fit: cover;
 }
 
-.bestsellers-container .book-details {
+.div-bestsellers .book-details {
     padding: 10px;
+    text-align: left; /* 기본 텍스트 정렬 */
 }
 
-.bestsellers-container .book-details p {
+.div-bestsellers .book-details p {
     margin-bottom: 10px;
     color: #000;
     font-family: "Pretendard-Light", Helvetica;
     font-size: large;
     font-weight: bold;
+    text-align: right; /* 오른쪽 정렬 */
 }
 
-.bestsellers-container .book-details div {
+.div-bestsellers .book-details div {
     margin-bottom: 5px;
     color: #666;
     font-family: "Pretendard-Light", Helvetica;
 }
 
-.bestsellers-container .bestsellers-list-container {
+.div-bestsellers .bestsellers-list-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
