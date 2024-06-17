@@ -1,26 +1,30 @@
 .div-login {
   background-color: #ffffff;
-  height: 1403px;
-  position: relative;
+  min-height: 90vh; /* 최소 높이를 화면 전체로 설정 */
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 세로 중앙 정렬 */
+  align-items: center; /* 가로 중앙 정렬 */
+  padding: 20px; /* 내부 여백 설정 */
+  box-sizing: border-box;
 }
 
-.div-login .rect-login {
-  height: 470px;
-  position: absolute;
-  top: 192px;
-  width: 1160px;
-  left: 379px;
-  position: absolute;
-  top: 300px
-}
 
 .div-login .div-title {
-  height: 44px;
-  left: 360px;
-  position: absolute;
-  top: 200px;
-  width: 139px;
+  display: flex;
+  align-items: center;
+  justify-content: left; /* 양 끝에 요소 배치 */
+  width: 70%;
+  max-width: 1160px;
+  margin-bottom: 20px;
+}
+
+.div-login .back-login {
+  height: 34px;
+  width: 14px;
+  cursor: pointer;
+  margin-right: 30px;
 }
 
 .div-login .login {
@@ -28,46 +32,41 @@
   font-family: "Pretendard-SemiBold", Helvetica;
   font-size: 30px;
   font-weight: 600;
-  left: 59px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 0;
-  white-space: nowrap;
 }
 
-.div-login .back-login {
-  height: 34px;
-  left: -3px;
-  position: absolute;
-  top: 2px;
-  width: 14px;
-  cursor: pointer;
+.div-login .rect-login {
+  width: 70%;
+  max-width: 1160px;
+  height: 470px; /* 이미지 비율에 맞게 높이 설정 */
+  border-radius: 50px;
+  border: 1px solid #a6a6a6;
+  display: flex;
+  margin-bottom: 100px;
 }
 
 .div-login .div-input {
-  background-size: 100% 100%;
-  height: 470px;
-  left: 379px;
-  position: absolute;
-  top: 300px;
-  width: 1160px;
+  width: 100%;
+  max-width: 1160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 가로 중앙 정렬 */
+  justify-content: center; /* 세로 중앙 정렬 */
+  margin-top:50px;
 }
 
 .div-login .group-input {
-  height: 110px;
-  left: 350px;
-  position: absolute;
-  top: 122px;
-  width: 381px;
+  width: 100%;
+  max-width: 381px;
+  margin-bottom: 20px;
 }
 
-.div-login .input-login {
-  height: 40px;
-  left: 18px;
-  position: absolute;
-  top: 0;
-  width: 365px;
+.div-login .input-login,
+.div-login .input-password {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 25px;
+  width: 100%;
+  align-items: center; /* 가로 중앙 정렬 */
 }
 
 .div-login .id {
@@ -75,34 +74,7 @@
   font-family: "Pretendard-Medium", Helvetica;
   font-size: 20px;
   font-weight: 500;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 8px;
-  white-space: nowrap;
-}
-
-.div-login .rect-id {
-  border: 1px solid;
-  border-color: #8e8e8e;
-  height: 40px;
-  left: 70px;
-  position: absolute;
-  top: 0;
-  width: 280px;
-  padding: 0 10px;
-  color: #000000;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 14px;
-}
-
-.div-login .input-password {
-  height: 40px;
-  left: 0;
-  position: absolute;
-  top: 70px;
-  width: 383px;
+  margin-right:17px;
 }
 
 .div-login .password {
@@ -110,63 +82,54 @@
   font-family: "Pretendard-Medium", Helvetica;
   font-size: 20px;
   font-weight: 500;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 8px;
-  white-space: nowrap;
+  margin-right: 19px;
+  margin-left: -18px;
 }
 
+.div-login .rect-id,
 .div-login .rect-password {
-  border: 1px solid;
-  border-color: #8e8e8e;
+  border: 1px solid #8e8e8e;
   height: 40px;
-  left: 88px;
-  position: absolute;
-  top: 0;
-  width: 280px;
   padding: 0 10px;
   color: #000000;
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 14px;
+  width: 70%; /* 입력 필드의 너비를 조정 */
+  box-sizing: border-box;
+  align-items: center;
 }
 
 .div-login .group-btn {
-  height: 110px;
-  left: 450px;
-  position: absolute;
-  top: 288px;
-  width: 244px;
+  width: 100%;
+  max-width: 244px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 가로 중앙 정렬 */
+  margin-top: 20px;
 }
 
 .div-login .div-btn-login {
-  height: 44px;
-  left: 66px;
-  position: absolute;
-  top: 0;
-  width: 132px;
+  margin-bottom: 20px;
 }
 
 .div-login .btn-login {
   background-color: #000000;
   border-radius: 30px;
   height: 44px;
-  position: relative;
   width: 130px;
   cursor: pointer;
   color: #ffffff;
   font-family: "Pretendard-SemiBold", Helvetica;
   font-size: 20px;
   font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* 가로 중앙 정렬 */
 }
 
 .div-login .group-join {
-  height: 27px;
-  left: 0;
-  position: absolute;
-  top: 83px;
-  width: 248px;
+  display: flex;
+  align-items: center; /* 가로 중앙 정렬 */
 }
 
 .div-login .text-wrapper-3 {
@@ -174,13 +137,7 @@
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 20px;
   font-weight: 400;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 0;
-  width: 155px;
-  white-space: nowrap;
+  margin-right: 20px; /* 오른쪽 여백 설정 */
 }
 
 .div-login .join {
@@ -188,13 +145,6 @@
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 20px;
   font-weight: 400;
-  left: 173px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 0;
-  width: 71px;
   cursor: pointer;
   text-decoration: underline;
-  white-space: nowrap;
 }

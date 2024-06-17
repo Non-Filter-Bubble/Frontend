@@ -73,23 +73,22 @@ const Login = () => {
 
     return (
         <div className="div-login">
-            <img className="rect-login" alt="" src="/vector/rect-login.svg" />
-
             <div className="div-title">
+                <img className="back-login" alt="Vector" src="/vector/back.svg" onClick={handleBack} />
                 <div className="login">로그인</div>
-                <img className="back-login" alt="Vector" src="/vector/back.svg" onClick={handleBack}/>
             </div>
-            
+
+            <div className="rect-login" >
             <form className="div-input" onSubmit={handleSubmit}>
                 <div className="group-input">
-                <div className="input-login">
-                    <div className="id">아이디</div>
-                    <input className="rect-id" type="text" placeholder="아이디" name="username" value={formData.username} onChange={handleChange} />
-                </div>
-                <div className="input-password">
-                    <div className="password">비밀번호</div>
-                    <input className="rect-password" placeholder="비밀번호" type="password" name="password" value={formData.password} onChange={handleChange} />
-                </div>
+                    <div className="input-login">
+                        <div className="id">아이디</div>
+                        <input className="rect-id" type="text" placeholder="아이디" name="username" value={formData.username} onChange={handleChange} />
+                    </div>
+                    <div className="input-password">
+                        <div className="password">비밀번호</div>
+                        <input className="rect-password" placeholder="비밀번호" type="password" name="password" value={formData.password} onChange={handleChange} />
+                    </div>
                 </div>
                 <div className="group-btn">
                     <div className="div-btn-login">
@@ -101,8 +100,9 @@ const Login = () => {
                     </div>
                 </div>
             </form>
-      </div>
+            </div>
+        </div>
     );
-  };
+};
 
 export default Login;
