@@ -5,6 +5,7 @@
 /* 전역 설정 */
 body {
   width:100%;
+  min-width: 1290px;
 }
 
 .header {
