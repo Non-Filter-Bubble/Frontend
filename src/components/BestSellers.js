@@ -28,8 +28,8 @@ const BestSellers = () => {
             });
             console.log(`${selectedGenre} 베스트 셀러 목록:`, response.data);
 
-            // 1o개만 저장
-            const bestSellersWithGenre = response.data.slice(0, 10).map(item => ({
+            // 8개만 저장
+            const bestSellersWithGenre = response.data.slice(0, 8).map(item => ({
                 ...item,
                 GENRE_LV1: selectedGenre
             }));
