@@ -1,10 +1,11 @@
 import "../styles/Slide01.css";
 
-const Slide01 = ({ goToNextSlide }) => {
+const Slide01 = ({ scrollToNonFilter }) => {
 
   const detailClick = () => {
     // container 클릭 시 실행할 코드
     console.log('detail clicked');
+    scrollToNonFilter();
   };
 
   

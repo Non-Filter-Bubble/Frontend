@@ -21,6 +21,8 @@ const Main = () => {
 
     const token = localStorage.getItem('token');
     const initialLoad = useRef(true);
+    const nonFilterRef = useRef(null); // NonFilter 참조 설정
+
 
     // 사용자가 로그인 했는지 확인
     useEffect(() => {
@@ -69,12 +71,20 @@ const Main = () => {
         }
     }, [token, navigate]);
 
+    const scrollToNonFilter = () => {
+        if (nonFilterRef.current) {
+          nonFilterRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+
     return (
         <div className="div-main">
-            <Slide />
+            <Slide scrollToNonFilter={scrollToNonFilter} />
             <Button4 />
-            <NonFilter nonfilterrecommend={recommendData.isbnNonFilter}/>
-            <Filter filterrecommend={recommendData.isbnFilter}/>
+            <div ref={nonFilterRef}>
+                <NonFilter nonfilterrecommend={recommendData.isbnNonFilter} />
+            </div>
+            <Filter filterrecommend={recommendData.isbnFilter} />
             <BestSellers />
         </div>
     );

@@ -4,7 +4,7 @@ import Slide02 from './Slide02';
 import "../styles/Slide.css";
 
 
-const Slide = () => {
+const Slide = ({ scrollToNonFilter }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const intervalRef = useRef(null); // interval을 관리할 ref
 
@@ -44,8 +44,9 @@ const Slide = () => {
   return (
     <div className="slideshow">
       <div className="slide-container" style={slideStyle}>
-        <div className="slide"><Slide01 /></div>
+        <div className="slide"><Slide01 scrollToNonFilter={scrollToNonFilter} /></div>
         <div className="slide"><Slide02 /></div>
+        
       </div>
       <img className="btn-left" alt="Previous" src="vector/slide-btn-left.svg" onClick={goToPrevSlide} />
       <img className="btn-right" alt="Next" src="vector/slide-btn-right.svg" onClick={goToNextSlide} />
