@@ -98,6 +98,7 @@
   width: 70%; /* 입력 필드의 너비를 조정 */
   box-sizing: border-box;
   align-items: center;
+  white-space: nowrap;
 }
 
 .div-login .group-btn {
@@ -126,6 +127,7 @@
   display: flex;
   justify-content: center;
   align-items: center; /* 가로 중앙 정렬 */
+  white-space: nowrap;
 }
 
 .div-login .group-join {
@@ -139,6 +141,7 @@
   font-size: 20px;
   font-weight: 400;
   margin-right: 20px; /* 오른쪽 여백 설정 */
+  white-space: nowrap;
 }
 
 .div-login .join {
@@ -148,4 +151,5 @@
   font-weight: 400;
   cursor: pointer;
   text-decoration: underline;
+  white-space: nowrap;
 }
