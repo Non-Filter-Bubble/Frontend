@@ -14,7 +14,7 @@ const NonFilter = ( {nonfilterrecommend} ) => {
   const [bookinfo, setBookinfo] = useState([]);
 
   const getBookInfo = useCallback(async (isbn) => {
-    console.log('책 정보 요청:', isbn)
+    // console.log('책 정보 요청:', isbn)
     try {
       const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/load-books`, {
         params: { isbn: isbn }, 
@@ -37,8 +37,8 @@ const NonFilter = ( {nonfilterrecommend} ) => {
         randomIndexs.push(randomIndex);
       }
     }
-    console.log('랜덤으로 추출된 인덱스:', randomIndexs);
-    console.log('랜덤으로 추출된 책의 ISBN:', randomIndexs.map(index => list[index]));
+    // console.log('랜덤으로 추출된 인덱스:', randomIndexs);
+    // console.log('랜덤으로 추출된 책의 ISBN:', randomIndexs.map(index => list[index]));
     randomIndexs.forEach(index => getBookInfo(list[index]));
     
   }, [getBookInfo]);
@@ -59,7 +59,7 @@ const NonFilter = ( {nonfilterrecommend} ) => {
     }
   }; 
 
-  console.log('랜덤으로 추출된 책의 정보:', bookinfo);
+  // console.log('랜덤으로 추출된 책의 정보:', bookinfo);
 
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
@@ -124,11 +124,6 @@ const NonFilter = ( {nonfilterrecommend} ) => {
 };
 
 export default NonFilter;
-
-
-
-
-
 
 
 // <div className="div-card">

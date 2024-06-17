@@ -77,8 +77,10 @@ const BookPost = () => {
           }
       });
         console.log('북포스트가 성공적으로 등록되었습니다.', response);
-        // 등록 후 메인 페이지로 이동
-        navigate('/');
+
+        // 등록 후 마이 페이지로 이동
+        navigate('/user');
+        
       } catch (error) {
         console.error('북포스트 등록에 실패했습니다.', error);
         

@@ -281,7 +281,8 @@
   border-radius: 30px;
   height: 40px;
   position: relative;
-  width: 100px;
+  /* width: 100px; */
+  width: 150px;
 }
 
 .div-user-info .submit {
@@ -289,10 +290,11 @@
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 20px;
   font-weight: 400;
-  left: 34px;
+  /* left: 34px; */
+  left: 14px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
   top: 8px;
-  width: 50px;
+  /* width: 50px; */
 }

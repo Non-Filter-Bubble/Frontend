@@ -139,6 +139,12 @@ const UserInfo = () => {
       return;
     }
 
+    // 지금과 같은 닉네임이면 변경하지 않음
+    if (nickname === user.nickname) {
+      alert('현재 사용중인 닉네임입니다.');
+      return;
+    }
+
     try {
       await axiosInstance.put(`${process.env.REACT_APP_DB_HOST}/user/update`, {
         nickname: nickname
@@ -148,7 +154,8 @@ const UserInfo = () => {
             'Content-Type': 'application/json'
           }
       });
-      console.log('닉네임 변경에 성공했습니다.');
+      alert('닉네임 변경에 성공했습니다.');
+      // console.log('닉네임 변경에 성공했습니다.');
       setNickname('');
 
       // 닉네임 변경 후 사용자 정보 다시 가져오기
@@ -189,7 +196,7 @@ const UserInfo = () => {
           </div>
           
           <div className="group-nickname">
-            <div className="notice-ok-nickname">사용 가능한 닉네임입니다.</div>
+            {/* <div className="notice-ok-nickname">사용 가능한 닉네임입니다.</div> */}
             <div className="group-6">
               <input className="rect-nickname" type="text" src="/vector/rect-user-input.svg" value={nickname} onChange={(e) => setNickname(e.target.value)}/>
               <div className="subtitle">닉네임</div>
@@ -225,7 +232,8 @@ const UserInfo = () => {
 
           <div className="div-submit">
             <div className="btn-submit">
-              <div className="submit" onClick={handlePasswordChange}>확인</div>
+              {/* <div className="submit" onClick={handlePasswordChange}>확인</div> */}
+              <div className="submit" onClick={handlePasswordChange}>비밀번호 변경</div>
             </div>
           </div>
 

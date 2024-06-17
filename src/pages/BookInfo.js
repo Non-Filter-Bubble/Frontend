@@ -19,10 +19,10 @@ const BookInfo = () => {
   // const [description, setDescription] = useState(''); 
   const [info, setInfo] = useState([]);;
   console.log('넘어온 값', bookinfo);
-  console.log('네이버로 가져온 값', info);
+  // console.log('네이버로 가져온 값', info);
 
   const [bookmarks, setBookmarks] = useState([]);
-  console.log(bookmarks);
+  // console.log(bookmarks);
 
   const plotRef = useRef(null);
   const line2Ref = useRef(null);
@@ -52,14 +52,14 @@ const BookInfo = () => {
           }
         });
         if (response.status === 200) {
-          console.log('찜한 책을 가져오는데 성공했습니다.');
+          // console.log('찜한 책을 가져오는데 성공했습니다.');
 
           const bookmarks = response.data.map(bookmark => ({
             bookmarkId: bookmark.bookmarkid,
             isbn: bookmark.isbn
           }));
-          console.log('찜한 책 목록입니다.');
-          console.log(bookmarks);
+          // console.log('찜한 책 목록입니다.');
+          // console.log(bookmarks);
           setBookmarks(bookmarks);
         }
       } catch (error) {
@@ -72,15 +72,15 @@ const BookInfo = () => {
 
   // 찜하기
   const toggleFavorite = async (bookinfo) => {
-    console.log(`찜하기 클릭`);
-    console.log(bookinfo);
+    // console.log(`찜하기 클릭`);
+    // console.log(bookinfo);
 
     let bookmark = bookmarks.find(b => parseInt(b.isbn, 10) === parseInt(bookinfo.EA_ISBN, 10));
-    console.log(bookmark);
+    // console.log(bookmark);
 
     try {
       if (!bookmark) { // 찜하지 않은 책을 찜한 경우
-        console.log('찜하지 않은 책을 찜에 대해 찜 버튼을 눌렀습니다.');
+        // console.log('찜하지 않은 책을 찜에 대해 찜 버튼을 눌렀습니다.');
 
         const response = await axiosInstance.post(`${process.env.REACT_APP_DB_HOST}/user/like`, { 
           isbn: bookinfo.EA_ISBN,
@@ -104,7 +104,7 @@ const BookInfo = () => {
         }
 
       } else { // 이미 찜한 책을 또 누른 경우
-          console.log('이미 찜이 되어있는 책의 찜 삭제 버튼을 눌렀습니다.')
+          // console.log('이미 찜이 되어있는 책의 찜 삭제 버튼을 눌렀습니다.')
           const response = await axiosInstance.delete(`${process.env.REACT_APP_DB_HOST}/user/like/${bookmark.bookmarkId}`, {
             headers: {
               'authorization': `${token}`,
@@ -135,7 +135,7 @@ const BookInfo = () => {
         }
         
       });
-      console.log(response.data.items[0]);
+      // console.log(response.data.items[0]);
       // setDescription(response.data.items[0].description);
       // setImg(response.data.items[0].image);
       setInfo(response.data.items[0]);
