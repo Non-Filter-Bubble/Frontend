@@ -149,46 +149,50 @@ const Join = () => {
     return (
         <div className="div-join">
             <div className="title-join">
+            <img className="back-join" alt="" src="vector/back.svg" onClick={handleBack} />
                 <div className="join-title">회원 가입</div>
-                <img className="back-join" alt="" src="vector/back.svg" onClick={handleBack} />
             </div>
-            <div className="div-form">
+            <div className="rect-join">
                 <form className="form-join" onSubmit={handleSubmit}>
                     <img className="img-profile" alt="" src="images/profile.png" />
-                    <img className="rect-form" alt="" src="/vector/rect-join.svg" />
+                    
+                    
                     <div className="div-id">
                         <p className="title">
                             <span className="span">아이디</span>
                             <span className="star">*</span>
                         </p>
-                        <input className="rect-input3" type="text" name="username" value={formData.username} onChange={handleChange} required />
-                        <div className="div-wrapper">
-                            <button className="button-dupli" onClick={CheckId}>중복확인</button>
-                        </div>
-                        <div className={`notice-id ${idMsgClass}`}>{idMsg}</div>
+                        <input className="rect-input" type="text" name="username" value={formData.username} onChange={handleChange} required />
+                        <button className="button-dupli" onClick={CheckId}>중복확인</button>
+                        
+                        <div className={`notice-id ${idMsgClass}`} style={{ color: idMsgClass === 'success-message' ? 'green' : 'red' }}>{idMsg}</div>
                     </div>
+
+
                     <div className="div-nickname">
-                        <input className="rect-input4" type="text" name="nickname" value={formData.nickname} onChange={handleChange} required />
                         <p className="title">
                             <span className="span">닉네임</span>
                             <span className="star">*</span>
                         </p>
-                        <div className="div-button-dupli2">
-                            <button className="button-dupli" onClick={CheckNickname}>중복확인</button>
-                        </div>
-                        <div className={`notice-nickname ${nickMsgClass}`}>{nickMsg}</div>
+                        <input className="rect-input" type="text" name="nickname" value={formData.nickname} onChange={handleChange} required />
+                        <button className="button-dupli" onClick={CheckNickname}>중복확인</button>
+                        <div className={`notice-nickname ${nickMsgClass}`} style={{ color: nickMsgClass === 'success-message' ? 'green' : 'red' }}>{nickMsg}</div>
                     </div>
+
+                    
                     <div className="div-password">
-                        <input className="rect-input1" type="password" name="password" value={formData.password} onChange={handleChange} required />
-                        <p className="title-password">
+                        <p className="notice-password">8-20자 이내 , 숫자 , 영어</p>
+                        <p className="title">
                             <span className="span">비밀번호</span>
                             <span className="star">*</span>
                         </p>
-                        <p className="notice-password">8-20자 이내 , 숫자 , 영어</p>
+                        <input className="rect-input" type="password" name="password" value={formData.password} onChange={handleChange} required />
                     </div>
+
+
                     <div className="div-password2">
-                        <input className="rect-input2" type="password" name="passwordCheck" value={formData.passwordCheck} onChange={handleChange} required />
-                        <div className="title-password2">비밀번호 확인</div>
+                        <div className="title">비밀번호 확인</div>
+                        <input className="rect-input" type="password" name="passwordCheck" value={formData.passwordCheck} onChange={handleChange} required />
                         <p className="notice-password2">{passwordCheckValidation()}</p>
                     </div>
                     <button type='submit' className="div-button-ok">확인</button>
