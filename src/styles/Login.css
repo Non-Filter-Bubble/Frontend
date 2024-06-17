@@ -38,7 +38,7 @@
   width: 70%;
   max-width: 1160px;
   height: 470px; /* 이미지 비율에 맞게 높이 설정 */
-  border-radius: 50px;
+  border-radius: 30px;
   border: 1px solid #a6a6a6;
   display: flex;
   margin-bottom: 100px;
