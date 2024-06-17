@@ -180,6 +180,7 @@
   position: absolute;
   top: 0;
   width: 155px;
+  white-space: nowrap;
 }
 
 .div-login .join {
@@ -195,4 +196,5 @@
   width: 71px;
   cursor: pointer;
   text-decoration: underline;
+  white-space: nowrap;
 }
