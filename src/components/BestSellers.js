@@ -52,8 +52,6 @@ const BestSellers = () => {
             <Button variant="outline-dark" className={genre === '시/에세이' ? 'selected' : ''} onClick={() => setGenre('시/에세이')}>시/에세이</Button>
          </div>
     
-            
-    
             <div className="bestsellers-list-container">
               {bestSellers.map((book, index) => (
                 <Row key={index} className="book-item">
@@ -75,5 +73,4 @@ const BestSellers = () => {
         </div>
       );
     };
-    
     export default BestSellers;

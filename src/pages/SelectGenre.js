@@ -23,7 +23,7 @@ const SelectGenre = () => {
           }
         });
         console.log('사용자 정보를 가져오는데 성공했습니다.');
-        setUser(response.data.username);
+        setUser(response.data.nickname);
       } catch (error) {
         // console.error('사용자 정보를 가져오는데 실패했습니다.', error);
       }
