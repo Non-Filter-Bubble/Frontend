@@ -41,7 +41,6 @@ const BestSellers = () => {
 
     return (
         <div className="bestsellers-container">
-            <p>도서 DB 제공 : 알라딘 인터넷 서점(www.aladin.co.kr)</p>
             <div className="genre-buttons">
                 <Button variant="outline-dark" onClick={() => setGenre('소설')}>소설</Button>
                 <Button variant="outline-dark" onClick={() => setGenre('자연과학')}>자연과학</Button>
@@ -69,6 +68,7 @@ const BestSellers = () => {
                     </Row>
                 ))}
             </div>
+            <p>도서 DB 제공 : 알라딘 인터넷 서점(www.aladin.co.kr)</p>
         </div>
 
 
