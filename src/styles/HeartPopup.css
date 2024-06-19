@@ -5,7 +5,7 @@
   height: 778px;
   overflow: hidden;
   width: 400px;
-  left: 860px;
+  left: calc(40% - 50px);
   position: absolute;
   top: 200px;
   z-index: 30;
