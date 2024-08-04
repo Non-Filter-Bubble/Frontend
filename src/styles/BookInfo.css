@@ -30,7 +30,7 @@
 
 .div-bookinfo .line {
   height: 1px;
-  left: 381px;
+  left: 380px;
   object-fit: cover;
   position: absolute;
   top: 210px;
@@ -374,4 +374,63 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
+}
+
+.div-bookinfo .div-library {
+  position: absolute;
+  left: 380px;
+  width: 1160px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.div-bookinfo .title-library {
+  color: #000000;
+  font-family: "Pretendard-SemiBold", Helvetica;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.div-bookinfo .div-library-box {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.div-bookinfo .library-box {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  width: calc(33.33% - 20px); /* 3개의 도서관 정보를 가로로 나란히 배치 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.div-bookinfo .library-box img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.div-bookinfo .library {
+  color: #333333;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.prev-button, .next-button {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
 }

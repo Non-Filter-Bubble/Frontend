@@ -24,9 +24,14 @@ const BookInfo = () => {
   const [bookmarks, setBookmarks] = useState([]);
   // console.log(bookmarks);
 
+  const [library, setLibrary] = useState([]);
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const plotRef = useRef(null);
   const line2Ref = useRef(null);
   const commentRef = useRef(null);
+  const libraryRef = useRef(null);
 
   const handleBack = () => {
   navigate(-1); // 이전 페이지로 이동
@@ -148,12 +153,25 @@ const BookInfo = () => {
       if (plotRef.current && line2Ref.current) {
         const plotHeight = plotRef.current.offsetHeight;
         const plotTop = plotRef.current.offsetTop;
+
         const line2Top = plotTop + plotHeight + 550;
         line2Ref.current.style.top = `${line2Top}px`;
 
         if (commentRef.current) {
           const commentTop = line2Top + 50;
           commentRef.current.style.top = `${commentTop}px`;
+        }
+
+        if (libraryRef.current && commentRef.current) {
+          const commentTop = line2Top + 50;
+          const commentBoxHeight = commentRef.current.offsetHeight;
+          const libraryTop = commentTop + commentBoxHeight + 50;
+          libraryRef.current.style.top = `${libraryTop}px`;
+        }
+
+        if (!commentRef.current && libraryRef.current) {
+          const libraryTop = line2Top + 50;
+          libraryRef.current.style.top = `${libraryTop}px`;
         }
       }
     };
@@ -165,6 +183,46 @@ const BookInfo = () => {
       window.removeEventListener('resize', dynamicPosition);
     };
   }, [info]);
+
+  // 도서관 정보 가져오기 - 일단 서울로 함
+  useEffect(() => {
+    const handleLibrary = async () => {
+      try {
+        const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/searchLibraryByBook`, {
+          params: { 
+            isbn: bookinfo.ISBN_THIRTEEN_NO,
+            region: 11 
+        },
+          headers: {
+            // 'authorization': `${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        // console.log(response.data.libs.lib);
+        setLibrary(response.data.libs.lib);
+
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    handleLibrary();
+  }, [bookinfo.ISBN_THIRTEEN_NO]);
+
+  // console.log('도서관 정보', library);
+
+  const nextSlide = () => {
+    if (currentSlide < Math.ceil(library.length / 3) - 1) {
+      setCurrentSlide(currentSlide + 1);
+    }
+  };
+
+  const prevSlide = () => {
+    if (currentSlide > 0) {
+      setCurrentSlide(currentSlide - 1);
+    }
+  };
+
 
   return (
     <div className="div-bookinfo">
@@ -220,6 +278,21 @@ const BookInfo = () => {
           ))}
         </div>
       </div>}
+
+      <div className="div-library" ref={libraryRef}>
+        <div className="title-library">도서관 정보</div>
+        <div className="div-library-box">
+          <button className="prev-button" onClick={prevSlide}>&lt;</button>
+          {library.slice(currentSlide * 3, (currentSlide + 1) * 3).map((lib, index) => (
+            <div key={index} className="library-box">
+              <img src='../images/library.png' alt="도서관 이미지" />
+              <div className="library">{lib.libName}</div>              
+            </div>
+          ))}
+          <button className="next-button" onClick={nextSlide}>&gt;</button>
+        </div>
+      </div>
+
       
     </div>
   );
