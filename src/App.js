@@ -6,6 +6,8 @@ import PublicRoute from './PublicRoute';
 import CheckRoute from './CheckRoute';
 
 import Header from './components/Header'; 
+import StickyNavbar from './components/StickyNavbar';
+
 import Main from './pages/Main';
 import Join from './pages/Join';
 import SelectBookType from './pages/SelectBookType';
@@ -107,6 +109,7 @@ function App() {
     <div className='App'>
       <div className='header'>
         <Header />
+        <StickyNavbar />
       </div>
       <div className="content-container">
         <Routes>

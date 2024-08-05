@@ -1,0 +1,75 @@
+/* styles.css */
+.sticky-navbar {
+    position: fixed;
+    width: 50px;
+    height: 400px;
+    border-radius: 40px;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 10px;
+    z-index: 1000;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    transition: width 0.3s ease-in-out; /* 애니메이션 효과 */
+  }
+  
+  .sticky-navbar:hover {
+    width: 150px; /* 확장된 너비 */
+  }
+  
+  .sticky-navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .sticky-navbar li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sticky-navbar a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #555;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sticky-navbar a:hover {
+    background-color: #777;
+  }
+  
+  .sticky-navbar .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  .sticky-navbar span {
+    margin-left: 10px;
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .sticky-navbar:hover span {
+    opacity: 1;
+  }
