@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import axiosInstance from '../api/axios';
-import '../styles/Mypage.css'; // Screen 컴포넌트의 스타일을 포함합니다.
+import '../styles/Mypage.css'; 
 
-import HeartPopup from '../components/HeartPopup'; // Popup 컴포넌트 추가
+import HeartPopup from '../components/HeartPopup'; 
 
 // 기본 이미지 경로
 const DEFAULT_IMAGE_URL = '../../images/bookImage.jpg';

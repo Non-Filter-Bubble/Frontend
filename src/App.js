@@ -25,6 +25,7 @@ import BookInfo from './pages/BookInfo';
 
 import "./styles/App.css"
 function App() {
+  const token = localStorage.getItem('token');
   const location = useLocation();
 
   useEffect(() => {
@@ -109,7 +110,7 @@ function App() {
     <div className='App'>
       <div className='header'>
         <Header />
-        <StickyNavbar />
+        {token && <StickyNavbar />} {/* 로그인된 경우에만 StickyNavbar 렌더링 */}
       </div>
       <div className="content-container">
         <Routes>
