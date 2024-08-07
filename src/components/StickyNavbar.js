@@ -15,12 +15,12 @@ const StickyNavbar = () => {
   return (
     <nav className="sticky-navbar">
       <ul>
-        <li><a href="#mypage"><FaCircleUser size="22"/></a></li>
-        <li><a href="#home"><IoHome /></a></li>
-        <li><a href="#search"><IoSearch size="22"/></a></li>
-        <li><a href="#heart"><GoHeart strokeWidth= '1px' /></a></li>
-        <li><a href="#bookPost"><PiNotePencilBold /></a></li>
-        <li><a href="#bookPost"><IoMdHelpCircleOutline size="22"/></a></li>
+        <li><a href="#mypage"><FaCircleUser size="22"/><span>Home</span></a></li>
+        <li><a href="#home"><IoHome /><span>Home</span></a></li>
+        <li><a href="#search"><IoSearch size="22"/><span>Search</span></a></li>
+        <li><a href="#heart"><GoHeart strokeWidth= '1px' /><span>Favorite</span></a></li>
+        <li><a href="#bookPost"><PiNotePencilBold /><span>Post</span></a></li>
+        <li><a href="#bookPost"><IoMdHelpCircleOutline size="22"/><span>Help</span></a></li>
       </ul>
     </nav>
   );
