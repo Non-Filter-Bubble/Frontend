@@ -4,7 +4,7 @@
     height: 340px;
     border-radius: 40px;
     top: 50%;
-    right: 40px;
+    right: 60px;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
@@ -17,7 +17,7 @@
   }
   
   .sticky-navbar:hover {
-    width: 150px; /* 확장된 너비 */
+    width: 125px; /* 확장된 너비 */
   }
   
   .sticky-navbar ul {
@@ -44,7 +44,7 @@
     font-size: 20px;
     transition: background-color 0.3s ease;
     border-radius: 50%;
-    margin-left: 5px;
+    margin-left: 4px;
   }
 
   
@@ -71,6 +71,7 @@
     margin-left: 10px;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    font-size: 16px;
   }
 
   .sticky-navbar:hover span {
