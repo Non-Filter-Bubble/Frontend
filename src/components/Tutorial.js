@@ -11,8 +11,8 @@ const Tutorial = ({ onClose }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    nextArrow: <NextButton />,
+    prevArrow: <PrevButton />
   };
 
   return (
@@ -34,7 +34,6 @@ const Tutorial = ({ onClose }) => {
               <img src="path_to_your_image_5" alt="추천 책 5" />
             </div>
           </div>
-          {/* 슬라이드 추가 */}
           {[...Array(6)].map((_, index) => (
             <div className="slide" key={index}>
               <h1>슬라이드 {index + 3}</h1>
@@ -51,26 +50,61 @@ const Tutorial = ({ onClose }) => {
   );
 };
 
-const SampleNextArrow = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: 'block', background: 'gray', right: '10px' }}
-      onClick={onClick}
-    />
-  );
-};
 
-const SamplePrevArrow = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: 'block', background: 'gray', left: '10px', zIndex: 1 }}
-      onClick={onClick}
-    />
-  );
-};
 
+
+/*이전 버튼*/
+const PrevButton = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={`${className} prev-button`} // custom-prev 클래스 추가
+        style={{ 
+            ...style,
+            display: 'block',
+            position: 'absolute',
+            left: '10px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            zIndex: '100',
+            width: '30px',
+            height: '30px',
+            backgroundImage: 'url(vector/slide-btn-left.svg)',
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            cursor: 'pointer',
+        }}
+        onClick={onClick}
+      />
+    );
+  };
+
+  /*다음 버튼*/
+const NextButton = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, 
+          display: 'block', 
+          position: 'absolute', 
+          right: '10px', 
+          top: '50%',
+          transform: 'translateY(-50%)',
+          zIndex: '100',
+          width: '30px',  // 추가: 버튼 크기 설정
+          height: '30px', // 추가: 버튼 크기 설정
+          backgroundImage: 'url(vector/slide-btn-right.svg)',
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        cursor: 'pointer',
+          }}
+        onClick={onClick}
+      />
+    );
+  };
+  
+  
 export default Tutorial;

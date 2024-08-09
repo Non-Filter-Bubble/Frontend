@@ -1,3 +1,4 @@
+/* Tutorial.css */
 .tutorial-overlay {
     position: fixed;
     top: 0;
@@ -12,14 +13,16 @@
   }
   
   .tutorial-content {
-    background: #3b5998;
-    padding: 20px;
-    border-radius: 8px;
+    position: relative;
+    background: #E9853C;
     width: 80%;
     max-width: 800px;
+    height: 600px;  /* 높이를 px 단위로 설정 */
+    display: flex;  /* Flex 컨테이너로 설정 */
+    flex-direction: column;  /* Flex 항목들을 세로 방향으로 배치 */
+    justify-content: space-between;  /* 항목들 간의 공간을 동일하게 분배 */
     text-align: center;
     color: #fff;
-    position: relative;
   }
   
   .tutorial-controls {
@@ -31,9 +34,9 @@
   .tutorial-controls button {
     background: #fff;
     color: #3b5998;
-    border: none;
+    border: 0.5px solid #8e8e8e;
+    width: 100%;
     padding: 10px 20px;
-    border-radius: 4px;
     cursor: pointer;
   }
   
@@ -56,5 +59,25 @@
     width: 100px;
     height: 150px;
     object-fit: cover;
+  }
+  
+  .slick-prev::before,
+  .slick-next::before {
+    opacity: 0;
+    display: none;
+  }
+
+  .prev-button{
+    background-color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url('/public/vector/slide-btn-left.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    transform: 'translateY(-50%)',
   }
   
