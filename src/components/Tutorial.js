@@ -20,7 +20,7 @@ const Tutorial = ({ onClose }) => {
       <div className="tutorial-content">
         <Slider {...settings}>
           <div className="slide">
-            <h1>BUBBLE POP은 여러분의 독서 세계를 넓혀드립니다</h1>
+            <p>BUBBLE POP은 여러분의 독서 세계를 넓혀드립니다</p>
             <p>평소 읽지 않는 새로운 장르의 책을 발견해보세요. 호기심을 자극하는 한줄평을 클릭하면 그 숨겨진 이야기의 세계가 펼쳐집니다.</p>
           </div>
           <div className="slide">

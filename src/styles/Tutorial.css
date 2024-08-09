@@ -45,7 +45,8 @@
   }
   
   .slide {
-    padding: 20px;
+    padding: 60px;
+    font-family: Pretendard;
   }
   
   .slide-image-container {
@@ -78,7 +79,7 @@
     display: block !important;
     justify-content: center;
     color: #ffffff !important;
-    top: 160% !important;
+    top: 130% !important;
 }
   
   .slick-dots li {
