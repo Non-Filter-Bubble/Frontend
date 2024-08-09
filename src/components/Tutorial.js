@@ -58,17 +58,17 @@ const PrevButton = (props) => {
     const { className, style, onClick } = props;
     return (
       <div
-        className={`${className} prev-button`} // custom-prev 클래스 추가
+        className={`${className} prev-button`} // prev-button 클래스 추가
         style={{ 
             ...style,
             display: 'block',
             position: 'absolute',
             left: '10px',
-            top: '50%',
+            top: '90%',
             transform: 'translateY(-50%)',
             zIndex: '100',
-            width: '30px',
-            height: '30px',
+            width: '20px',
+            height: '50px',
             backgroundImage: 'url(vector/slide-btn-left.svg)',
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
@@ -80,31 +80,31 @@ const PrevButton = (props) => {
     );
   };
 
-  /*다음 버튼*/
+/*다음 버튼*/
 const NextButton = (props) => {
     const { className, style, onClick } = props;
     return (
       <div
-        className={className}
-        style={{ ...style, 
+        className={`${className} next-button`} // next-button 클래스 추가
+        style={{ 
+          ...style, 
           display: 'block', 
           position: 'absolute', 
           right: '10px', 
-          top: '50%',
+          top: '90%',
           transform: 'translateY(-50%)',
           zIndex: '100',
-          width: '30px',  // 추가: 버튼 크기 설정
-          height: '30px', // 추가: 버튼 크기 설정
+          width: '20px',  
+          height: '50px', 
           backgroundImage: 'url(vector/slide-btn-right.svg)',
-        backgroundSize: 'contain',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        cursor: 'pointer',
-          }}
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          cursor: 'pointer',
+        }}
         onClick={onClick}
       />
     );
   };
-  
-  
+
 export default Tutorial;
