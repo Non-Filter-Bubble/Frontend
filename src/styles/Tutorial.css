@@ -69,4 +69,33 @@
 
 
  
-   
+/* slick-dots 기본 스타일 조정 */
+.slick-dots {
+    position: absolute; /* 튜토리얼 컨테이너 내부에 절대 위치로 배치 */
+    bottom: 10px; /* 튜토리얼 하단에서의 간격 조정 */
+    left: 0;
+    width: 100%; /* 너비를 100%로 설정하여 중앙 정렬 */
+    display: block !important;
+    justify-content: center;
+    color: #ffffff !important;
+    top: 160% !important;
+}
+  
+  .slick-dots li {
+    margin: 0 5px; 
+    
+  }
+  
+   /* 기본 dot */
+  .slick-dots li button:before {
+    font-size: 12px; 
+    color: #fff !important;
+    opacity: 0.75; 
+    
+  }
+
+  /* 활성화된 dot */
+  .slick-dots li.slick-active button:before {
+    color: #E9853C; 
+    opacity: 1; 
+  }
