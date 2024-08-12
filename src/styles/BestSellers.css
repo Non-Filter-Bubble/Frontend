@@ -34,18 +34,18 @@
 .div-bestsellers .genre-buttons button {
     cursor: pointer;
     border-radius: 40px;
-    border-color:#aa6565;
+    border-color:#E9853C;
     padding: 5px 15px;
     margin-left: 10px;
 }
 
 .div-bestsellers .genre-buttons button:hover {
-    background-color: #aa6565;
+    background-color: #E9853C;
     color: #ffffff;
 }
 
 .div-bestsellers .genre-buttons button.selected {
-    background-color: #aa6565;
+    background-color: #E9853C;
     color: #ffffff;
 }
 
