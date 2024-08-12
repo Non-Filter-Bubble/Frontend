@@ -66,17 +66,23 @@ const Tutorial = ({ onClose }) => {
 
           {/*슬라이드-6*/}
           <div className="slide-6">
-            <p className="ment-big">북서랍 도서 검색 서비스</p>
+            <p className="ment-big">북서랍 도서 등록 서비스</p>
             <p className="ment-small">북서랍에 도서를 등록할 때 검색 기능을 통해 정확한 도서를 쉽게 찾고 등록할 수 있게 해주며, <br/>
                                       독서 기록을 작성하고 다른 사용자와 공유할 수 있는 기능을 제공합니다.</p>
 
-            <img className="booksearch-img" alt ="" src="/images/tutorial-booksearch.png"/>
+            <img className="drawer-search-img" alt ="" src="/images/tutorial-drawer-search.png"/>
             <p className="ment-small">지금 바로 도서를 검색하여 정확한 정보로 북서랍에 등록하고, 여러분의 독서 기록을 관리해보세요!</p>
           </div>
 
           {/*슬라이드-7*/}
           <div className="slide-7">
-            
+            <p className="ment-big">궁금한 도서를 검색해보세요!</p>
+            <p className="ment-small">도서 검색 기능을 통해 원하는 책을 빠르고 쉽게 찾을 수 있습니다. <br/>
+                                      검색한 도서를 찜 목록에 추가하거나, 구매 연결 사이트로 바로 이동할 수 있습니다. <br/>
+                                      다양한 책을 탐색하고, 읽고 싶은 책을 찜해두거나 구매하여 독서 목록을 채워보세요! <br/></p>
+
+            <img className="booksearch-img" alt ="" src="/images/tutorial-booksearch.png"/>
+            <p className="ment-small">지금 도서 검색을 통해 다양한 책을 찾아보세요! 독서의 즐거움이 한층 더 커질 것입니다.</p>
           </div>
 
 
