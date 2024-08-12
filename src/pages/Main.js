@@ -9,6 +9,8 @@ import Filter from "../components/Filter";
 import BestSellers from "../components/BestSellers";
 import BookDrawer from "../components/BookDrawer";
 
+import Tutorial from '../components/Tutorial';
+
 import "../styles/Main.css"
 
 const Main = () => {
@@ -25,6 +27,23 @@ const Main = () => {
     const filterRef = useRef(null);
     const bestSellersRef = useRef(null);
     const bookDrawerRef = useRef(null);
+
+    const [showTutorial, setShowTutorial] = useState(false);
+
+    useEffect(() => {
+        const dontShowTutorial = localStorage.getItem('dontShowTutorial');
+        if (dontShowTutorial !== 'true') {
+          setShowTutorial(true);
+        }
+    }, []);
+    
+    const handleTutorialClose = (dontShowAgain) => {
+        if (dontShowAgain) {
+            localStorage.setItem('dontShowTutorial', 'true');
+            setShowTutorial(false);
+        }
+        setShowTutorial(false);
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -72,6 +91,7 @@ const Main = () => {
 
     return (
         <div className="div-main">
+            {showTutorial && <Tutorial onClose={handleTutorialClose} />}
             <Slide />
             <MainHeader 
                 scrollToNonFilter={() => scrollToSection(nonFilterRef)}

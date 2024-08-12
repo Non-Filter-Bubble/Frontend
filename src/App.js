@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
 import PrivateRoute from './PrivateRoute';
@@ -7,7 +7,6 @@ import CheckRoute from './CheckRoute';
 
 import Header from './components/Header'; 
 import StickyNavbar from './components/StickyNavbar';
-import Tutorial from './components/Tutorial';
 
 import Main from './pages/Main';
 import Join from './pages/Join';
@@ -29,21 +28,6 @@ import "./styles/App.css"
 function App() {
   const token = localStorage.getItem('token');
   const location = useLocation();
-  const [showTutorial, setShowTutorial] = useState(false);
-
-  useEffect(() => {
-    const dontShowTutorial = localStorage.getItem('dontShowTutorial');
-    if (dontShowTutorial !== 'true') {
-      setShowTutorial(true);
-    }
-  }, []);
-
-  const handleTutorialClose = (dontShowAgain) => {
-    if (dontShowAgain) {
-      localStorage.setItem('dontShowTutorial', 'true');
-    }
-    setShowTutorial(false);
-  };
 
   useEffect(() => {
     window.scrollTo(0, 0); 
@@ -129,7 +113,6 @@ function App() {
         <Header />
         {token && <StickyNavbar />} {/* 로그인된 경우에만 StickyNavbar 렌더링 */}
       </div>
-      {showTutorial && <Tutorial onClose={handleTutorialClose} />}
       <div className="content-container">
         <Routes>
           <Route path="*" element={<CheckRoute />} />
