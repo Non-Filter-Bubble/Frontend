@@ -3,56 +3,36 @@
     text-align: center;
     align-items: center; /* 세로 중앙 정렬 */
     background-color: #fff;
-    height: 12.5rem;
+    height: 100px;
     overflow: hidden;
-    font-size: 1.25rem;
+    font-size: 20px;
+    font-family: Pretendard-;
     color: #000;
-    font-family: Pretendard;
     display: flex;
     justify-content: center;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
   }
   
-  .button-container {
-    display: flex;
-    justify-content: space-between; /* 버튼들 사이에 공간을 균등하게 배분 */
-    align-items: center;
-    width: 70%;
-    height: 45%;
-    border: 1px solid #000; /* 큰 직사각형의 테두리 */
-    overflow: hidden;
-  }
-  
-  .button-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .main-header .nav-list {
+    display: inline-flex;
     justify-content: center;
-    width: 25%; /* 각 버튼의 너비를 4개로 나눔 */
-    height: 100%;
-    cursor: pointer;
-    background-color: #fff;
-    border-right: 1px solid #000;
-  }
-  
-  .button-div:last-child {
-    border-right: none; /* 마지막 버튼의 오른쪽 테두리 제거 */
-  }
-  
-  .btn-name {
-    font-weight: 500;
-    white-space: nowrap;
-    margin-left: 1.875rem;
-    margin-right:10px;
-  }
-  
-  .icon {
-    width: 1.25rem;
-    height: 1.25rem;
-    object-fit: contain;
-  }
-  
-  .inner{
-    display: flex;
-    align-items: center;
-  }
-  
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-header .nav-list li {
+    margin: 0 50px;
+}
+
+.main-header .nav-list .list-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    font-size: 18px;
+    font-family: 'Apple SD Gothic Neo', sans-serif;
+}
+
+.main-header .nav-list .list-link:hover {
+    color: #E9853C;
+}
