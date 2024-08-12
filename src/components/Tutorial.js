@@ -55,7 +55,13 @@ const Tutorial = ({ onClose }) => {
 
           {/*슬라이드-5*/}
           <div className="slide-5">
-            
+            <p className="ment-big">나만의 북서랍 꾸미기</p>
+            <p className="ment-small">'북서랍' 기능을 통해 읽은 책들을 장르별로 정리하여 독서 기록을 관리할 수 있습니다. <br/>
+                                      소설, 과학, 인문, 시/에세이, 자기개발, 경제/경영 등 다양한 장르별로 책을 분류하고, <br/>
+                                      북서랍에 책을 등록하면 책 표지가 나타나 쉽게 찾고 관리할 수 있습니다. <br/></p>
+
+            <p className="ment-small">다양한 책을 등록하여 자신만의 개인 서재를 만들어보세요!</p>
+            <img className="drawer-img" alt ="" src="/images/tutorial-drawer.png"/>
           </div>
 
           {/*슬라이드-6*/}
