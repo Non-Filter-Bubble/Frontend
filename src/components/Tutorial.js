@@ -88,7 +88,22 @@ const Tutorial = ({ onClose }) => {
 
           {/*슬라이드-8*/}
           <div className="slide-8">
+            <p className="ment-big">BUBBLE POP을 잘 활용하는 법</p>
+            <img className="navbar-img" alt ="" src="/images/tutorial-navbar.png"/>
+            <p className="ment-small-1">프로필: 사용자의 프로필 정보를 확인하고 수정할 수 있습니다. <br/>
+
+                                      홈: BUBBLE POP의 메인 페이지로 이동하여 다양한 서비스를 이용할 수 있습니다. <br/>
+
+                                      검색: 도서 검색 페이지로 바로 이동하여 원하는 책을 빠르게 찾을 수 있습니다. <br/>
+
+                                      Favorite: 찜목록 페이지로 이동하여 관심 있는 책들을 관리할 수 있습니다. <br/>
+
+                                      Post: 독서록 작성 페이지로 이동하여 독서 기록을 작성하고 공유할 수 있습니다. <br/>
+
+                                      Help: 서비스 이용에 도움이 필요한 경우 도움말 페이지로 이동할 수 있습니다.</p>
+
             
+            <p className="ment-small">각 버튼을 클릭하여 해당 페이지로 쉽게 넘어가서 BUBBLE POP의 다양한 기능을 최대한 활용해보세요!</p>
           </div>
         </Slider>
         <div className="tutorial-controls">

@@ -171,8 +171,29 @@
     
   }
   /* 슬라이드 - 8 --------------------------------------------------------------*/
- 
+  .tutorial-overlay .slide-8 .ment-big {
+    margin-top: 120px;
+    
+  }
   
+  .tutorial-overlay .slide-8 .navbar-img{
+    width: 200px;
+    height: 220px;
+    margin-top: 40px;
+    margin-left: 10px;
+    
+    
+  }
+  .tutorial-overlay .slide-8 .ment-small-1{
+    font-family: Pretendard-Thin;
+    font-size: 13px;
+    text-align: left;
+    margin-left: 230px;
+    margin-top: -200px;
+    line-height: 2.5;
+    margin-bottom: 50px;
+    
+  }
   /* --------------------------------------------------------------*/
   .tutorial-overlay .slide-image-container {
     display: flex;
