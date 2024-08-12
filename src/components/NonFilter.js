@@ -110,7 +110,7 @@ const NonFilter = ( {nonfilterrecommend} ) => {
               </div>
               <div className="div-card-content">
                 <p className="card-text">
-                {truncateText(book.INFO_TEXT_BOLD, 50)}
+                {truncateText(book.INFO_TEXT_BOLD, 80)}
                 </p>
                 <img className="line-division" alt="" src="/vector/line-filter.svg" />
                 <div className="text-click">click!</div>
