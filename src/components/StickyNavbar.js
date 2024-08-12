@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 import '../styles/StickyNavbar.css'; 
 import axiosInstance from '../api/axios';
+import Tutorial from './Tutorial';
 
 import { IoHome } from "react-icons/io5";
 import { FaCircleUser } from "react-icons/fa6";
@@ -17,6 +18,7 @@ const StickyNavbar = () => {
   const token = localStorage.getItem('token');
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const [showTutorial, setShowTutorial] = useState(false);
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -57,20 +59,30 @@ const StickyNavbar = () => {
   }
 
   const helpClick  = () => {
+    setShowTutorial(true); 
   }
+
+  const closeTutorial = () => {
+    setShowTutorial(false); 
+  };
+
 
 
   return (
-    <nav className="sticky-navbar">
-      <ul>
-        <li onClick={userClick}><a href="#mypage"><FaCircleUser size="22"/><span>{user && user.nickname}</span></a></li>
-        <li onClick={homeClick}><a href="#home"><IoHome /><span>Home</span></a></li>
-        <li onClick={searchClick}><a href="#search"><IoSearch size="22"/><span>Search</span></a></li>
-        <li onClick={heartClick}><a href="#heart"><GoHeart strokeWidth= '1px' /><span>Favorite</span></a></li>
-        <li onClick={postClick}><a href="#bookPost"><PiNotePencilBold /><span>Post</span></a></li>
-        <li onClick={helpClick}><a href="#bookPost"><IoMdHelpCircleOutline size="22"/><span>Help</span></a></li>
-      </ul>
-    </nav>
+    <div>
+      <nav className="sticky-navbar">
+        <ul>
+          <li onClick={userClick}><a href="#mypage"><FaCircleUser size="22"/><span>{user && user.nickname}</span></a></li>
+          <li onClick={homeClick}><a href="#home"><IoHome /><span>Home</span></a></li>
+          <li onClick={searchClick}><a href="#search"><IoSearch size="22"/><span>Search</span></a></li>
+          <li onClick={heartClick}><a href="#heart"><GoHeart strokeWidth= '1px' /><span>Favorite</span></a></li>
+          <li onClick={postClick}><a href="#bookPost"><PiNotePencilBold /><span>Post</span></a></li>
+          <li onClick={helpClick}><a href="#bookPost"><IoMdHelpCircleOutline size="22"/><span>Help</span></a></li>
+        </ul>
+      </nav>
+
+      {showTutorial && <Tutorial onClose={closeTutorial} />} {/* showTutorial이 true일 때 Tutorial 표시 */}
+    </div>
   );
 };
 
