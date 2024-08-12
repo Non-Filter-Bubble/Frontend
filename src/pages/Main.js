@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import axiosInstance from '../api/axios';
 
 import Slide from "../components/Slide";
-import Button4 from "../components/Button4";
+import MainHeader from "../components/MainHeader";
 import NonFilter from "../components/NonFilter";
 import Filter from "../components/Filter";
 import BestSellers from "../components/BestSellers";
@@ -81,7 +81,7 @@ const Main = () => {
     return (
         <div className="div-main">
             <Slide scrollToNonFilter={scrollToNonFilter} />
-            <Button4 />
+            <MainHeader />
             <div ref={nonFilterRef}>
                 <NonFilter nonfilterrecommend={recommendData.isbnNonFilter} />
             </div>

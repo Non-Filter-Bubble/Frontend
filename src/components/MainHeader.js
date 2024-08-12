@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Button4.css";
+import "../styles/MainHeader.css";
 
 
-const Button4 = () => {
+const MainHeader = () => {
   const navigate = useNavigate();
 
   const searchBookClick = () => {
@@ -27,7 +27,7 @@ const Button4 = () => {
   }
 
   return (
-    <div className="button4">
+    <div className="main-header">
       <div className="button-container">
         <div className="button-div" onClick={searchBookClick}>
           <div className="inner">
@@ -57,4 +57,4 @@ const Button4 = () => {
     </div>
   );
 };
-  export default Button4;
+  export default MainHeader;
