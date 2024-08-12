@@ -17,7 +17,7 @@
     background: #E9853C;
     width: 80%;
     max-width: 800px;
-    height: 600px;  
+    height: 620px;  
     display: flex;  
     flex-direction: column;  
     justify-content: space-between;  
@@ -57,7 +57,7 @@
     justify-content: center;     
     align-items: center; 
     text-align: center; 
-    padding: 0 80px;
+    padding: 10px 80px;
   }
 
   .tutorial-overlay .ment-big{
@@ -167,12 +167,12 @@
   }
 
   .tutorial-overlay .slide-7 .ment-big {
-    margin-top: 60px;
+    margin-top: 40px;
     
   }
   /* 슬라이드 - 8 --------------------------------------------------------------*/
   .tutorial-overlay .slide-8 .ment-big {
-    margin-top: 120px;
+    margin-top: 100px;
     
   }
   
@@ -225,7 +225,7 @@
     display: block !important;
     justify-content: center;
     color: #ffffff !important;
-    top: 130% !important;
+    top: 96% !important;
 }
   
 .tutorial-overlay .slick-dots li {
@@ -233,7 +233,7 @@
     
   }
   
-   /* 기본 dot */
+   /* 기본 dot ---------------------------------------*/
   .slick-dots li button:before {
     font-size: 12px; 
     color: #fff !important;
@@ -241,7 +241,7 @@
     
   }
 
-  /* 활성화된 dot */
+  /* 활성화된 dot ---------------- */
   .slick-dots li.slick-active button:before {
     color: #E9853C; 
     opacity: 1; 
