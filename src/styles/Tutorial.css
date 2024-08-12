@@ -140,6 +140,16 @@
 
 
   /* 슬라이드 - 6 */
+  .tutorial-overlay .slide-6 .ment-big {
+    margin-top:40px;
+    
+  }
+
+  .tutorial-overlay .slide-6 .booksearch-img{
+    width: 450px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+  }
   /* 슬라이드 - 7 */
   /* 슬라이드 - 8 */
   .tutorial-overlay .slide-image-container {

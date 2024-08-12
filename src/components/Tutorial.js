@@ -66,7 +66,12 @@ const Tutorial = ({ onClose }) => {
 
           {/*슬라이드-6*/}
           <div className="slide-6">
-            
+            <p className="ment-big">북서랍 도서 검색 서비스</p>
+            <p className="ment-small">북서랍에 도서를 등록할 때 검색 기능을 통해 정확한 도서를 쉽게 찾고 등록할 수 있게 해주며, <br/>
+                                      독서 기록을 작성하고 다른 사용자와 공유할 수 있는 기능을 제공합니다.</p>
+
+            <img className="booksearch-img" alt ="" src="/images/tutorial-booksearch.png"/>
+            <p className="ment-small">지금 바로 도서를 검색하여 정확한 정보로 북서랍에 등록하고, 여러분의 독서 기록을 관리해보세요!</p>
           </div>
 
           {/*슬라이드-7*/}
