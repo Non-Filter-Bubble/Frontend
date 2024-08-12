@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef  } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import axiosInstance from '../api/axios';
 
@@ -16,16 +16,16 @@ const Main = () => {
     const location = useLocation();
 
     const initialRecommendData = location.state?.recommendData || {};
-    // console.log('값이 있으면 회원가입하고 바로 메인에 들어온거임', initialRecommendData);
     const [recommendData, setRecommendData] = useState(initialRecommendData);
-    // console.log('recommendData변수에 저장된 값 확인', recommendData);
 
     const token = localStorage.getItem('token');
     const initialLoad = useRef(true);
-    const nonFilterRef = useRef(null); // NonFilter 참조 설정
 
+    const nonFilterRef = useRef(null);
+    const filterRef = useRef(null);
+    const bestSellersRef = useRef(null);
+    const bookDrawerRef = useRef(null);
 
-    // 사용자가 로그인 했는지 확인
     useEffect(() => {
         const fetchData = async () => {
             if (!token) {
@@ -33,7 +33,6 @@ const Main = () => {
                 navigate('/login');
             } else {
                 try {
-                    // 장르 선택 여부 확인
                     await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/verify-genre`, {
                         headers: {
                             'authorization': `${token}`
@@ -41,18 +40,13 @@ const Main = () => {
                     });
                     
                     try {
-                        // DB에 저장된 추천 도서 불러오기
-                        // console.log('장르 선택 완료한 사용자야 디비에서 추천 도서 가져올거임');
                         const res = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/user/isbn_list`, {
                             headers: {
                                 'authorization': `${token}`,
                                 'Content-Type': 'application/json',
                             }
                         });
-                        // console.log(res.data);
                         setRecommendData(res.data);
-                        // console.log('디비에서 가져온 정보를 저장한 후에 확인', res.data);
-    
                     } catch (error) {
                         console.error('실패:', error);
                         navigate('/complete-join');
@@ -61,8 +55,6 @@ const Main = () => {
                     console.error('실패:', error);
                     navigate("/join/booktype");
                 }
-
-                
             }
         };
 
@@ -72,22 +64,33 @@ const Main = () => {
         }
     }, [token, navigate]);
 
-    const scrollToNonFilter = () => {
-        if (nonFilterRef.current) {
-          nonFilterRef.current.scrollIntoView({ behavior: 'smooth' });
+    const scrollToSection = (sectionRef) => {
+        if (sectionRef.current) {
+            sectionRef.current.scrollIntoView({ behavior: 'smooth' });
         }
-      };
+    };
 
     return (
         <div className="div-main">
-            <Slide scrollToNonFilter={scrollToNonFilter} />
-            <MainHeader />
+            <Slide />
+            <MainHeader 
+                scrollToNonFilter={() => scrollToSection(nonFilterRef)}
+                scrollToFilter={() => scrollToSection(filterRef)}
+                scrollToBestSellers={() => scrollToSection(bestSellersRef)}
+                scrollToBookDrawer={() => scrollToSection(bookDrawerRef)}
+            />
             <div ref={nonFilterRef}>
                 <NonFilter nonfilterrecommend={recommendData.isbnNonFilter} />
             </div>
-            <Filter filterrecommend={recommendData.isbnFilter} />
-            <BestSellers />
-            <BookDrawer token={token} navigate={navigate} />
+            <div ref={filterRef}>
+                <Filter filterrecommend={recommendData.isbnFilter} />
+            </div>
+            <div ref={bestSellersRef}>
+                <BestSellers />
+            </div>
+            <div ref={bookDrawerRef}>
+                <BookDrawer token={token} navigate={navigate} />
+            </div>
         </div>
     );
 };
