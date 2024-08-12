@@ -58,7 +58,7 @@
     align-items: center; 
     text-align: center; 
     padding: 60px 80px;
-    font-family: Pretendard-Thin;
+    font-family: Pretendard-light;
   }
 
   .tutorial-overlay .ment-big{
@@ -70,7 +70,7 @@
   .tutorial-overlay .slide-1 {
     text-align: left;
     padding:100px;
-    margin-left: 66px;
+    margin-left: 62px;
   }
   .tutorial-overlay .slide-1 .ment-big {
     margin-top:80px;
