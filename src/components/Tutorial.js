@@ -40,13 +40,17 @@ const Tutorial = ({ onClose }) => {
           <div className="slide-3">
             <p className="ment-big">이 책과 함께라면, 독서가 더욱 즐거워질 거예요!</p>
             <p className="ment-small">마음을 사로잡을 책을 준비했습니다! 다른 독자들의 한줄평을 통해 이 책의 매력을 미리 엿보세요. <br/>
-            이야기의 깊이와 감동이 여러분을 기다립니다. 여러분의 새로운 독서 여정을 시작해보실래요?</p>
+                                      이야기의 깊이와 감동이 여러분을 기다립니다. 여러분의 새로운 독서 여정을 시작해보실래요?</p>
             <img className="filter-img" alt ="" src="/images/tutorial-filter.png"/>
           </div>
 
+
           {/*슬라이드-4*/}
           <div className="slide-4">
-            
+            <p className="ment-big">도서 즐겨찾기</p>
+            <p className="ment-small">마음에 드는 도서를 지금 바로 즐겨찾기 해보세요!<br/>
+                                      더 풍성한 독서 생활을 즐길 수 있습니다.</p>
+            <img className="favorite-img" alt ="" src="/images/tutorial-favorite.png"/>
           </div>
 
           {/*슬라이드-5*/}
