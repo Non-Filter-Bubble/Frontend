@@ -1,10 +1,10 @@
 .book-drawer-container {
     background: #f8f8f8;
-    padding: 70px 200px;
+    height: 100vh;
+    padding: 70px 300px;
     border-radius: 8px;
-    margin-top: 300px;
   }
-  
+ 
  .book-drawer-container .book-drawer-header {
     display: flex;
     align-items: center;

@@ -7,6 +7,7 @@ import Button4 from "../components/Button4";
 import NonFilter from "../components/NonFilter";
 import Filter from "../components/Filter";
 import BestSellers from "../components/BestSellers";
+import BookDrawer from "../components/BookDrawer";
 
 import "../styles/Main.css"
 
@@ -86,6 +87,7 @@ const Main = () => {
             </div>
             <Filter filterrecommend={recommendData.isbnFilter} />
             <BestSellers />
+            <BookDrawer token={token} navigate={navigate} />
         </div>
     );
 };

@@ -69,10 +69,11 @@ const Mypage = () => {
           </div>
         </div>      
       </div>
-  
-      {/* BookDrawer 컴포넌트를 사용하여 북서랍 표시 */}
-      <BookDrawer token={token} navigate={navigate} />
 
+      {/* BookDrawer 컴포넌트를 사용하여 북서랍 표시 */}
+      <div className="book-drawer">
+        <BookDrawer token={token} navigate={navigate} />
+      </div>
       {isPopupVisible && <HeartPopup />}
     </div>
   );
