@@ -43,7 +43,7 @@
   .tutorial-overlay .tutorial-controls button:hover {
     background: #ddd;
   }
-  
+  /* 슬라이드 */
   .tutorial-overlay .slide-1,
   .tutorial-overlay .slide-2,
   .tutorial-overlay .slide-3,
@@ -67,6 +67,13 @@
     margin-bottom: 30px;
   }
 
+  .tutorial-overlay .slide-2 .ment-big,
+  .tutorial-overlay .slide-3 .ment-big {
+    margin-top:50px;
+    
+  }
+
+  /* 슬라이드 - 1 */
   .tutorial-overlay .slide-1 {
     text-align: left;
     padding:100px;
@@ -77,11 +84,8 @@
     
   }
 
-  .tutorial-overlay .slide-2 .ment-big {
-    margin-top:50px;
-    
-  }
-  
+
+  /* 슬라이드 - 2 */
   .tutorial-overlay .slide-2 .nonfilter-img{
     width: 500px;
     margin-left: 70px;
@@ -89,6 +93,18 @@
   }
 
 
+  /* 슬라이드 - 3 */
+  .tutorial-overlay .slide-3 .filter-img{
+    width: 440px;
+    margin-left: 100px;
+    margin-top: 30px;
+  }
+
+  /* 슬라이드 - 4 */
+  /* 슬라이드 - 5 */
+  /* 슬라이드 - 6 */
+  /* 슬라이드 - 7 */
+  /* 슬라이드 - 8 */
   .tutorial-overlay .slide-image-container {
     display: flex;
     justify-content: center;

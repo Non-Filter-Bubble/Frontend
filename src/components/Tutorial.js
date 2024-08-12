@@ -20,7 +20,7 @@ const Tutorial = ({ onClose }) => {
       <div className="tutorial-content">
      {/*슬라이드*/}
         <Slider {...settings}>
-
+          {/*슬라이드-1*/}
           <div className="slide-1">
             <p className="ment-big">BUBBLE POP은 <br />
                                     여러분의 독서 세계를 넓혀드립니다</p>
@@ -28,7 +28,7 @@ const Tutorial = ({ onClose }) => {
                                       호기심을 자극하는 한줄평을 클릭하면 그 숨겨진 이야기의 세계가 펼쳐집니다.</p>
           </div>
 
-
+          {/*슬라이드-2*/}
           <div className="slide-2">
             <p className="ment-big">취향을 넓힐 시간, 이 책을 추천합니다!</p>
             <p className="ment-small">여러분의 독서 취향을 한 단계 넓혀줄 특별한 추천 서비스입니다. <br />
@@ -36,26 +36,36 @@ const Tutorial = ({ onClose }) => {
             <img className="nonfilter-img" alt ="" src="/images/tutorial-nonfilter.png"/>
           </div>
 
+          {/*슬라이드-3*/}
           <div className="slide-3">
-
+            <p className="ment-big">이 책과 함께라면, 독서가 더욱 즐거워질 거예요!</p>
+            <p className="ment-small">마음을 사로잡을 책을 준비했습니다! 다른 독자들의 한줄평을 통해 이 책의 매력을 미리 엿보세요. <br/>
+            이야기의 깊이와 감동이 여러분을 기다립니다. 여러분의 새로운 독서 여정을 시작해보실래요?</p>
+            <img className="filter-img" alt ="" src="/images/tutorial-filter.png"/>
           </div>
 
+          {/*슬라이드-4*/}
           <div className="slide-4">
             
           </div>
 
+          {/*슬라이드-5*/}
           <div className="slide-5">
             
           </div>
 
+          {/*슬라이드-6*/}
           <div className="slide-6">
             
           </div>
 
+          {/*슬라이드-7*/}
           <div className="slide-7">
             
           </div>
 
+
+          {/*슬라이드-8*/}
           <div className="slide-8">
             
           </div>
@@ -83,7 +93,7 @@ const PrevButton = (props) => {
             display: 'block',
             position: 'absolute',
             left: '20px',
-            top: '75%',
+            top: '55%',
             transform: 'translateY(-50%)',
             zIndex: '100',
             width: '20px',
@@ -110,7 +120,7 @@ const NextButton = (props) => {
           display: 'block', 
           position: 'absolute', 
           right: '20px', 
-          top: '75%',
+          top: '55%',
           transform: 'translateY(-50%)',
           zIndex: '100',
           width: '20px',  
