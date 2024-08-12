@@ -85,12 +85,14 @@ const Main = () => {
             <div ref={filterRef}>
                 <Filter filterrecommend={recommendData.isbnFilter} />
             </div>
-            <div ref={bestSellersRef}>
-                <BestSellers />
-            </div>
             <div ref={bookDrawerRef}>
                 <BookDrawer token={token} navigate={navigate} />
             </div>
+            
+            <div ref={bestSellersRef}>
+                <BestSellers />
+            </div>
+            
         </div>
     );
 };
