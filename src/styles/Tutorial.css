@@ -58,19 +58,17 @@
     align-items: center; 
     text-align: center; 
     padding: 60px 80px;
-    font-family: Pretendard-light;
   }
 
   .tutorial-overlay .ment-big{
     font-size: 34px;
     line-height: 1.3;
     margin-bottom: 30px;
+    font-family: Pretendard-light;
   }
-
-  .tutorial-overlay .slide-2 .ment-big,
-  .tutorial-overlay .slide-3 .ment-big {
-    margin-top:50px;
-    
+  .tutorial-overlay .ment-small{
+    font-family: Pretendard-Thin;
+    font-size: 16px;
   }
 
   /* 슬라이드 - 1 */
@@ -86,6 +84,11 @@
 
 
   /* 슬라이드 - 2 */
+  .tutorial-overlay .slide-2 .ment-big {
+    margin-top:50px;
+    
+  }
+  
   .tutorial-overlay .slide-2 .nonfilter-img{
     width: 500px;
     margin-left: 70px;
@@ -94,6 +97,11 @@
 
 
   /* 슬라이드 - 3 */
+  .tutorial-overlay .slide-3 .ment-big {
+    margin-top:50px;
+    
+  }
+
   .tutorial-overlay .slide-3 .filter-img{
     width: 440px;
     margin-left: 100px;
