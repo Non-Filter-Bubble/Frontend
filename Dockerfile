@@ -1,13 +1,18 @@
-# Node.js 환경에서 빌드
-FROM node:14-alpine AS build
+# Stage 1: Build the React application
+FROM node:18 AS build
+
 WORKDIR /app
-COPY package.json ./
+
+COPY package.json package-lock.json ./
 RUN npm install
-COPY . ./
+
+COPY . .
 RUN npm run build
 
-# NGINX를 사용해 정적 파일 제공
+# Stage 2: Serve the React application
 FROM nginx:alpine
+
 COPY --from=build /app/build /usr/share/nginx/html
+
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
