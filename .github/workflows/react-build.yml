@@ -33,7 +33,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to S3
-        uses: jakejarvis/s3-sync-action@v0.5.1
+        uses: jakejarvis/s3-sync-action@v0.5.7
         with:
           args: --acl public-read --delete --max-concurrent-requests 10
         env:
