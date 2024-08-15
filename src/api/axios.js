@@ -2,7 +2,11 @@
 import axios from 'axios';
 
 // Axios 인스턴스를 생성
-const axiosInstance = axios.create();
+const axiosInstance = axios.create({
+  baseURL: 'http://13.209.250.36:8080/',  // Spring 애플리케이션의 URL
+  withCredentials: true  // 자격 증명 허용 (쿠키를 사용할 경우)
+}
+);
 
 // 응답 인터셉터 추가
 axiosInstance.interceptors.response.use(
