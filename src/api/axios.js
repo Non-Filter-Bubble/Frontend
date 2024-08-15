@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
   withCredentials: true  // 자격 증명 허용 (쿠키를 사용할 경우)
 }
 );
-
+    
 // 응답 인터셉터 추가
 axiosInstance.interceptors.response.use(
   (response) => response,
