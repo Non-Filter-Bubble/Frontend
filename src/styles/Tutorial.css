@@ -16,8 +16,9 @@
     position: relative;
     background: #E9853C;
     width: 80%;
+    min-width: 800px;
     max-width: 800px;
-    height: 620px;  
+    min-height: 620px;  
     display: flex;  
     flex-direction: column;  
     justify-content: space-between;  
