@@ -70,7 +70,6 @@
   .tutorial-overlay .ment-small{
     font-family: Pretendard-Thin;
     font-size: 16px;
-    white-space: nowrap;
   }
 
 
@@ -194,7 +193,7 @@
     margin-top: -200px;
     line-height: 2.5;
     margin-bottom: 50px;
-    white-space: nowrap;
+    
   }
   /* --------------------------------------------------------------*/
   .tutorial-overlay .slide-image-container {
