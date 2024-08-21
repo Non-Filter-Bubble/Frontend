@@ -6,10 +6,10 @@ const MainHeader = ({ scrollToNonFilter, scrollToFilter, scrollToBestSellers, sc
     <header className="main-header">
       <nav>
         <ul className="nav-list">
-          <li onClick={scrollToNonFilter} className="list-link">NonFilter</li>
-          <li onClick={scrollToFilter} className="list-link">Filter</li>
+          <li onClick={scrollToNonFilter} className="list-link">For New</li>
+          <li onClick={scrollToFilter} className="list-link">For You</li>
+          <li onClick={scrollToBookDrawer} className="list-link">Diary</li>
           <li onClick={scrollToBestSellers} className="list-link">BestSeller</li>
-          <li onClick={scrollToBookDrawer} className="list-link">BookDrawer</li>
         </ul>
       </nav>
     </header>
