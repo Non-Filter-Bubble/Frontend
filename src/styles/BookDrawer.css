@@ -15,13 +15,13 @@
   .book-drawer-container .book-drawer-title{
     font-family: Pretendard-;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .book-drawer-container .book-drawer-sub{
     font-family: "Pretendard-Light";
     font-weight: 300;
-    font-size: 22px;
+    font-size: 20px;
     color: #666666
   }
   
@@ -60,22 +60,54 @@
     font-weight: 300;
   }
   
-  .book-drawer-container .book-drawer-books {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  
+
+  /*북서랍 slick ----------------------------------------------------*/
+  .book-drawer-container .book-drawer-genre .slick-slide {
+    margin: 0 10px; /* 슬라이드 간격 조정 */
+    width: 200px;
   }
+  .book-drawer-container .book-drawer-genre .slick-track {
+    margin: 0 10px; /* 슬라이드 간격 조정 */
+    width: 500px !important;
+  }
+  .book-drawer-container .book-drawer-genre .slick-current {
+    width:auto
+  }
+  .book-drawer-container .book-drawer-genre .slick-list {
+    overflow: hidden;
+  }
+  
+  .book-drawer-container .book-drawer-genre .slick-prev,
+  .book-drawer-container .book-drawer-genre .slick-next {
+    background: #ccc; /* 버튼 배경색 */
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .book-drawer-container .book-drawer-genre .slick-prev:hover,
+  .book-drawer-container .book-drawer-genre .slick-next:hover {
+    background: #888; /* 버튼 호버 시 배경색 */
+  }
+
+  /*-------------------------------------------------------------------*/
+  .book-drawer-books {
+    gap: 10px;
+}
   
   .book-drawer-container .book-drawer-book {
     position: relative;
     display: inline-block;
   }
   
-  .book-drawer-container .book-drawer-book-img {
+  .book-drawer-container .book-drawer-book .book-drawer-book-img {
     width: 100px;
     height: 150px;
     object-fit: cover;
-    border-radius: 4px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    margin-right: 6px;
+    cursor: pointer;
   }
   
   .book-drawer-container .book-drawer-book-img:hover {
@@ -97,17 +129,11 @@
   }
   
   .book-drawer-container .book-drawer-book-overlay {
-    /* width: 70px;
-    height: 0px; */
-    /* object-fit: cover; */
     border-radius: 4px;
     position: absolute;
     top: 25px;
     left: 20px;
     padding: 5px;
-    /* width: 100px; */
-    /* height: 150px; */
-    /* background-color: rgba(0, 0, 0, 0.6); */
     display: flex;
     flex-direction: column;
     align-items: flex-end;

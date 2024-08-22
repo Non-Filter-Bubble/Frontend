@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axiosInstance from '../api/axios';
+import Slider from "react-slick"; // react-slick 추가
 import '../styles/BookDrawer.css';
 import { BsPlusSquare } from "react-icons/bs";
 
@@ -9,7 +10,6 @@ const BookDrawer = ({ token, navigate }) => {
   const [bookboxId, setBookboxId] = useState([]);
   const [registeredBooks, setRegisteredBooks] = useState([]);
 
-  // 북박스 정보 가져오기
   useEffect(() => {
     const fetchBookboxId = async () => {
       try {
@@ -27,7 +27,6 @@ const BookDrawer = ({ token, navigate }) => {
     fetchBookboxId();
   }, [token]);
 
-  // 등록한 책 정보 가져오기
   useEffect(() => {
     const fetchRegisteredBooks = async () => {
       try {
@@ -40,7 +39,6 @@ const BookDrawer = ({ token, navigate }) => {
           console.log('등록한 책 정보를 가져오는데 성공했습니다.', response);
           const registeredBooksData = response.data;
 
-          // 이미지 링크 불러오기
           const registeredBooksWithImages = await Promise.all(registeredBooksData.map(async book => {
             try {
               return {
@@ -50,7 +48,7 @@ const BookDrawer = ({ token, navigate }) => {
             } catch (error) {
               return {
                 ...book,
-                imageUrl: '' // 실패 시 빈 문자열 처리
+                imageUrl: '' 
               };
             }
           }));
@@ -64,7 +62,6 @@ const BookDrawer = ({ token, navigate }) => {
     fetchRegisteredBooks();
   }, [token]);
 
-  // 책들을 장르별로 그룹화
   const groupBooks = registeredBooks.reduce((groups, book) => {
     const { bookboxid } = book;
     const genre = bookboxId.find(box => box.bookboxid === bookboxid)?.genre;
@@ -76,7 +73,6 @@ const BookDrawer = ({ token, navigate }) => {
     return groups;
   }, {});
 
-  // 모든 장르에 대해 책 정보 등록
   const genresAndBooks = bookboxId.map(box => ({
     genre: box.genre,
     books: groupBooks[box.genre] || []
@@ -87,7 +83,6 @@ const BookDrawer = ({ token, navigate }) => {
   }
 
   const handleDelete = async (mybookid) => {
-    console.log('북포스트 삭제 버튼 클릭');
     const isConfirmed = window.confirm('정말로 이 책을 삭제하시겠습니까?');
 
     if (isConfirmed) {
@@ -99,19 +94,27 @@ const BookDrawer = ({ token, navigate }) => {
       })  
       .then((response) => {
         console.log('북포스트 삭제 성공');
-        console.log(response);
-
-        // 책이 삭제된 후 페이지 다시 로드
         window.location.reload();
       })
       .catch((error) => {
         console.log('북포스트 삭제에 실패했습니다.');
-        console.log(error);
       });
     } else {
       console.log('북포스트 삭제 취소');
     }
   }
+
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    nextArrow: <div>Next</div>,
+    prevArrow: <div>Prev</div>,
+    adaptiveHeight: true, // 슬라이더 높이를 각 슬라이드의 콘텐츠 높이에 맞게 조정
+    variableWidth: false 
+  };
 
   return (
     <div className="book-drawer-container">
@@ -127,7 +130,7 @@ const BookDrawer = ({ token, navigate }) => {
         {genresAndBooks.map((genreandbook, index) => (
           <div className="book-drawer-genre" key={index}>
             <div className='genre-title'>{genreandbook.genre}</div>
-            <div className="book-drawer-books">
+            <Slider {...settings}>
               {genreandbook.books.length > 0 ? (
                 genreandbook.books.map((book, bookIndex) => (
                   <div className="book-drawer-book" key={bookIndex}>
@@ -141,7 +144,7 @@ const BookDrawer = ({ token, navigate }) => {
               ) : (
                 <div className="book-drawer-no-books">등록된 책이 없습니다.</div>
               )}
-            </div>
+            </Slider>
           </div>
         ))}
       </div>

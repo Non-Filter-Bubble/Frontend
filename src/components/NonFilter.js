@@ -1,127 +1,162 @@
-import React, {useEffect, useState, useCallback} from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 import axiosInstance from '../api/axios';
-import "../styles/NonFilter.css";
+import Slider from 'react-slick';
+import '../styles/BookDrawer.css';
+import { BsPlusSquare } from "react-icons/bs";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
-const NonFilter = ( {nonfilterrecommend} ) => {
-  // console.log("메인에서 넘어온 값입니다. 논필터");
-  // console.log(nonfilterrecommend);
+const DEFAULT_IMAGE_URL = '../../images/bookImage.jpg';
 
-  const token = localStorage.getItem('token');
+const BookDrawer = ({ token, navigate }) => {
+  const [bookboxId, setBookboxId] = useState([]);
+  const [registeredBooks, setRegisteredBooks] = useState([]);
 
-  const navigate = useNavigate();
+  // 북박스 정보 가져오기
+  useEffect(() => {
+    const fetchBookboxId = async () => {
+      try {
+        const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/user/bookboxid`, {
+          headers: {
+            'authorization': `${token}`
+          }
+        });
+        setBookboxId(response.data);
+      } catch (error) {
+        console.error('북박스 아이디를 가져오는데 실패했습니다.', error);
+      }
+    };
 
-  const [bookinfo, setBookinfo] = useState([]);
-
-  const getBookInfo = useCallback(async (isbn) => {
-    // console.log('책 정보 요청:', isbn)
-    try {
-      const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/load-books`, {
-        params: { isbn: isbn }, 
-        headers: { 'authorization': `${token}` }
-      });
-      setBookinfo(prevBookinfo => [...prevBookinfo, response.data]);
-    } catch (error) {
-      // 이건 절대 실패할 수 없는거임 - 왜냐 AI에서 보내는거니까
-      console.error(`ISBN ${isbn}에 대한 요청 실패:`, error);
-      // setBookinfo();
-    }
+    fetchBookboxId();
   }, [token]);
 
-  // 랜덤으로 책 정보 5개 추출
-  const getRandom = useCallback((list) => {    
-    const randomIndexs = []
-    while (randomIndexs.length < 5) {
-      const randomIndex = Math.floor(Math.random() * list.length);
-      if (!randomIndexs.includes(randomIndex)) {
-        randomIndexs.push(randomIndex);
-      }
-    }
-    // console.log('랜덤으로 추출된 인덱스:', randomIndexs);
-    // console.log('랜덤으로 추출된 책의 ISBN:', randomIndexs.map(index => list[index]));
-    randomIndexs.forEach(index => getBookInfo(list[index]));
-    
-  }, [getBookInfo]);
-
-  // 처음 로드시 랜덤으로 추출된 책 정보를 저장
+  // 등록한 책 정보 가져오기
   useEffect(() => {
-    setBookinfo([]);
-    if (nonfilterrecommend && nonfilterrecommend.length > 0) {
-      getRandom(nonfilterrecommend);
-    }
-  }, [nonfilterrecommend, getRandom]);
+    const fetchRegisteredBooks = async () => {
+      try {
+          const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/user/bookbox/mybook`, {
+            headers: {
+              authorization: `${token}`,
+            },
+          });
 
-  // 다시 추천 버튼 클릭 시
-  const handleFilterLeftClick = () => {
-    setBookinfo([]);
-    if (nonfilterrecommend && nonfilterrecommend.length > 0) {
-      getRandom(nonfilterrecommend);
-    }
-  }; 
+          console.log('등록한 책 정보를 가져오는데 성공했습니다.', response);
+          const registeredBooksData = response.data;
 
-  // console.log('랜덤으로 추출된 책의 정보:', bookinfo);
+          const registeredBooksWithImages = await Promise.all(registeredBooksData.map(async book => {
+            try {
+              return {
+                ...book,
+                imageUrl: `https://contents.kyobobook.co.kr/sih/fit-in/100x0/pdt/${book.isbn}.jpg`
+              };
+            } catch (error) {
+              return {
+                ...book,
+                imageUrl: '' // 실패 시 빈 문자열 처리
+              };
+            }
+          }));
 
-  const truncateText = (text, maxLength) => {
-    if (text.length > maxLength) {
-      return text.substring(0, maxLength) + '...';
-    }
-    return text;
-  };
-
-  // 클릭 시
-  const showDetail = async (index) => {
-    // console.log('책 상세정보:', bookinfo[index]);
-
-    try {
-      const res = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
-        params : {
-          type: 'isbn',
-          value: bookinfo[index].ISBN_THIRTEEN_NO
+          setRegisteredBooks(registeredBooksWithImages);
+        } catch (error) {
+          console.error('등록한 책 정보를 가져오는데 실패했습니다.', error);
         }
-      });
-      // console.log('책 상세정보 요청 성공');
-      // console.log(res.data.docs[0]);
+    };
 
-      // 두 데이터 합치기
-      const bookdata = { ...res.data.docs[0], ...bookinfo[index] };
-      // console.log('두 데이터 합친 책 정보:', bookdata);
+    fetchRegisteredBooks();
+  }, [token]);
 
-      navigate('/search/book', { state: { bookinfo: bookdata } });
-
-    } catch (error) {
-      console.error('책 상세정보 요청 실패:', error);
+  // 책들을 장르별로 그룹화
+  const groupBooks = registeredBooks.reduce((groups, book) => {
+    const { bookboxid } = book;
+    const genre = bookboxId.find(box => box.bookboxid === bookboxid)?.genre;
+    if (!genre) return groups;
+    if (!groups[genre]) {
+      groups[genre] = [];
     }
-  };
-    
-  return (
-    <div className="non-filter">
-      <div className="div-nonfilter">
-        <p className="ment-1">취향을 넓힐 시간, 이 책을 추천합니다!</p>
-        <p className="ment-2">
-          선입견 없는 한줄평이 새로운 취향을 탐험하게 해줍니다. 미지의 책 속 숨은 메시지를 발견해보세요
-        </p>
-        <img className="btn-reset" alt="" src="images/btn-reset.png" onClick={handleFilterLeftClick} />
+    groups[genre].push(book);
+    return groups;
+  }, {});
 
-        <div className="div-card">
-          {bookinfo.slice(0, 5).map((book, index) => (
-            <div key={index} className={`card-${index + 1}`} onClick={() => showDetail(index)}>
-              <div className="card-blur">
-                <img className="card-img" alt="" src={book.BOOK_COVER_URL} />
-              </div>
-              <div className="div-card-content">
-                <p className="card-text">
-                {truncateText(book.INFO_TEXT_BOLD, 80)}
-                </p>
-                <img className="line-division" alt="" src="/vector/line-filter.svg" />
-                <div className="text-click">click!</div>
-              </div>
-            </div>
-          ))}
-        </div>
+  // 모든 장르에 대해 책 정보 등록
+  const genresAndBooks = bookboxId.map(box => ({
+    genre: box.genre,
+    books: groupBooks[box.genre] || []
+  }));
+
+  const showDetail = (book) => {
+    navigate('/bookpostupdate', { state: { bookinfoshow: book } });
+  }
+
+  const handleDelete = async (mybookid) => {
+    console.log('북포스트 삭제 버튼 클릭');
+    const isConfirmed = window.confirm('정말로 이 책을 삭제하시겠습니까?');
+
+    if (isConfirmed) {
+      await axiosInstance.delete(`${process.env.REACT_APP_DB_HOST}/user/bookbox/${mybookid}`, {
+        headers: {
+          authorization: `${token}`,
+          'Content-Type': 'application/json'
+        }
+      })  
+      .then((response) => {
+        console.log('북포스트 삭제 성공');
+        console.log(response);
+
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log('북포스트 삭제에 실패했습니다.');
+        console.log(error);
+      });
+    } else {
+      console.log('북포스트 삭제 취소');
+    }
+  }
+
+  const sliderSettings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    arrows: true,
+  };
+
+  return (
+    <div className="book-drawer-container">
+      <div className="book-drawer-header">
+        <div className='book-drawer-title'>북서랍</div>
+        <div className='book-drawer-sub'>당신의 독서 여정을 간편하게 기록하세요. 북서랍에 책을 등록하고 성장하는 독서 기록을 확인해보세요!</div>
+        <button className="book-drawer-plus-book-btn" onClick={() => navigate('/bookpost')}>
+          <div ><BsPlusSquare size = "30" /></div>
+        </button>
+      </div>
+      
+      <div className="book-drawer-genres">
+        {genresAndBooks.map((genreandbook, index) => (
+          <div className="book-drawer-genre" key={index}>
+            <div className='genre-title'>{genreandbook.genre}</div>
+            <Slider {...sliderSettings}>
+              {genreandbook.books.length > 0 ? (
+                genreandbook.books.map((book, bookIndex) => (
+                  <div className="book-drawer-book" key={bookIndex}>
+                    <img className="book-drawer-book-img" alt='book cover' src={book.imageUrl || DEFAULT_IMAGE_URL} />
+                    <div className="book-drawer-book-overlay">
+                      <button className="book-drawer-book-btn" onClick={() => showDetail(book)}>수정</button>
+                      <button className="book-drawer-book-btn" onClick={() => handleDelete(book.mybookid)}>삭제</button>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="book-drawer-no-books">등록된 책이 없습니다.</div>
+              )}
+            </Slider>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
-export default NonFilter;
-
+export default BookDrawer;
