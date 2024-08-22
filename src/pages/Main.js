@@ -18,7 +18,9 @@ const Main = () => {
     const location = useLocation();
 
     const initialRecommendData = location.state?.recommendData || {};
+    console.log(initialRecommendData)
     const [recommendData, setRecommendData] = useState(initialRecommendData);
+    console.log(recommendData)
 
     const token = localStorage.getItem('token');
     const initialLoad = useRef(true);

@@ -3,9 +3,12 @@ import "../styles/BestSellers.css";
 import axiosInstance from "../api/axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 
 const BestSellers = () => {
     const token = localStorage.getItem('token');
+
+    const navigate = useNavigate();
 
     const [bestSellers, setBestSellers] = useState([]);
     const [genre, setGenre] = useState('소설'); // 초기값을 소설로 설정
@@ -40,6 +43,31 @@ const BestSellers = () => {
         }
     };
 
+    const showDetail = async(index) => {
+        const book = bestSellers[index];
+        console.log('선택한 책:', book);
+
+        try {
+            const response1 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/load-books`, {
+                params: { isbn: parseInt(book.isbn, 10) },
+            });
+
+            const response2 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
+                params : { type: 'isbn', value: parseInt(book.isbn, 10) }
+            });
+
+            // 두 데이터 합치기
+            const bookinfo = {...response1.data, ...response2.data.docs[0]};
+            
+            console.log(bookinfo);
+
+            navigate('/search/book', { state: { bookinfo: bookinfo } });
+
+            } catch (error) {
+                console.error(`요청 실패:`, error);
+            }
+        }
+
     return (
         <div className="div-bestsellers">
             <p className="title">'{genre}' 베스트 셀러 </p>
@@ -55,7 +83,7 @@ const BestSellers = () => {
             <div className="bestsellers-container">
                 <div className="bestsellers-list-container">
                     {bestSellers.map((book, index) => (
-                        <div key={index} className="book-item">
+                        <div key={index} className="book-item" onClick={() => showDetail(index)}>
                             <div className="book-rank">{book.rank}</div>
                             <div className="book-cover-container">
                                 <img src={book.cover} alt="book_cover" className="book-cover" />

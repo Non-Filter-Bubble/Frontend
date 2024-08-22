@@ -19,7 +19,7 @@ const BookInfo = () => {
   // const [description, setDescription] = useState(''); 
   const [info, setInfo] = useState([]);;
   console.log('넘어온 값', bookinfo);
-  // console.log('네이버로 가져온 값', info);
+  console.log('네이버로 가져온 값', info);
 
   const [bookmarks, setBookmarks] = useState([]);
   // console.log(bookmarks);
@@ -140,10 +140,15 @@ const BookInfo = () => {
         }
         
       });
-      // console.log(response.data.items[0]);
+      if (response.data.items.length === 0) {
+        setInfo({author:"", description : "", discount : "", image : "", isbn : "", link : "", pubdate : "", publisher : "", title : ""});
+      } else {
+        setInfo(response.data.items[0]);
+      }
+      // console.log(response);
       // setDescription(response.data.items[0].description);
       // setImg(response.data.items[0].image);
-      setInfo(response.data.items[0]);
+      // setInfo(response.data.items[0]);
     }
     getPlot();
   }, [bookinfo, token]);
@@ -223,6 +228,7 @@ const BookInfo = () => {
     }
   };
 
+  console.log(bookinfo)
 
   return (
     <div className="div-bookinfo">
