@@ -24,7 +24,7 @@
   width: 1.875rem;
   height: 3.5rem;
   cursor: pointer;
-  left:5%; /* 부모로부터 위치 */
+  left:10%; /* 부모로부터 위치 */
   transform: translateX(-50%); /* 가로 중앙 정렬 */
 }
 
@@ -35,6 +35,6 @@
   height: 3.5rem;
   object-fit: contain;
   cursor: pointer;
-  left: 95%; /* 부모로부터 위치 */
+  left: 90%; /* 부모로부터 위치 */
   transform: translateX(-50%); /* 가로 중앙 정렬 */
 }
