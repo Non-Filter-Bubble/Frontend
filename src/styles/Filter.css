@@ -20,7 +20,7 @@
 .filter-ment1 {
     color: #000000;
     font-family: "Pretendard-Regular", Helvetica;
-    font-size: 40px;
+    font-size: 34px;
     font-weight: 400;
     flex-direction: column;
     align-items: center;
@@ -30,7 +30,7 @@
 .filter-ment3 {
     color: #666666;
     font-family: "Pretendard-Light", Helvetica;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 300;
     white-space: nowrap;
     line-height: 0.7;    
