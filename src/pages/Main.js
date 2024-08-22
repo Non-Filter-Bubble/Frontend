@@ -85,9 +85,16 @@ const Main = () => {
 
     const scrollToSection = (sectionRef) => {
         if (sectionRef.current) {
-            sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+            const elementPosition = sectionRef.current.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - 100;
+    
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         }
     };
+    
 
     return (
         <div className="div-main">
