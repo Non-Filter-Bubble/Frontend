@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Header.css";
 import axiosInstance from '../api/axios';
+import { FaUser } from "react-icons/fa6";
+import { IoSearchSharp } from "react-icons/io5";
 
 const Header = () => {
   const [searchInput, setSearchInput] = useState('');
@@ -103,10 +105,10 @@ const Header = () => {
                value={searchInput}
                onChange={(e) => setSearchInput(e.target.value)}
                onKeyPress={(e) => e.key === 'Enter' && handleSearch()}/>
-        <img className="icon-search" alt="" src="/images/search-icon.png" onClick={handleSearch} />
+        <div className="icon-search" onClick={handleSearch} ><IoSearchSharp size="20"/></div>
       </div>
 
-      <img className="icon-user" alt="" src="/images/user-icon.png" onClick={() => isLoggedIn && navigate('/user')} />
+      <div className="icon-user" onClick={() => isLoggedIn && navigate('/user')} ><FaUser size="20"/></div>
 
       <div className="div-auth" onClick={handleAuthClick}>
         <div className="auth">{isLoggedIn ? 'Logout' : 'Login'}</div>
