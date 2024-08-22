@@ -1,6 +1,6 @@
 .non-filter {
   background-color: #f5f5f5;
-  height: 80vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center; /* 가로 중앙 정렬 */
@@ -20,7 +20,7 @@
 .ment-1 {
   color: #000000;
   font-family: "Pretendard-Regular", Helvetica;
-  font-size: 40px;
+  font-size: 34px;
   font-weight: 400;
   margin-bottom: 20px;
   white-space: nowrap;
@@ -29,7 +29,7 @@
 .ment-2 {
   color: #666666;
   font-family: "Pretendard-Light", Helvetica;
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 300;
   margin-bottom: 30px;
   width: 100%;

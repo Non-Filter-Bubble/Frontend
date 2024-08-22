@@ -5,7 +5,7 @@
     height: 37.5rem;
     overflow: hidden;
     text-align: left;
-    font-size: 3.125rem;
+    font-size: 40px;
     color: #fff;
     font-family: Pretendard;
 }
@@ -50,15 +50,15 @@
 }
 .slide01-ment1 {
     position: absolute;
-    top: 5.75rem;
+    top: 100px;
     left: 26rem;
     font-weight: 300;
 }
 .slide01-ment2 {
     position: absolute;
-    top: 16.563rem;
+    top: 240px;
     left: 26rem;
-    font-size: 1.375rem;
+    font-size: 20px;
     font-weight: 300;
 }
 .detail-box {
@@ -77,7 +77,7 @@
 }
 .btn-detail {
     position: absolute;
-    top: 28.75rem;
+    top: 300px;
     left: 26rem;
     width: 11.25rem;
     height: 2.5rem;

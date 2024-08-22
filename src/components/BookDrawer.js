@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axiosInstance from '../api/axios';
 import '../styles/BookDrawer.css';
+import { BsPlusSquare } from "react-icons/bs";
 
 const DEFAULT_IMAGE_URL = '../../images/bookImage.jpg';
 
@@ -115,15 +116,17 @@ const BookDrawer = ({ token, navigate }) => {
   return (
     <div className="book-drawer-container">
       <div className="book-drawer-header">
-        <h2>북서랍</h2>
+        <div className='book-drawer-title'>북서랍</div>
+        <div className='book-drawer-sub'>당신의 독서 여정을 간편하게 기록하세요. 북서랍에 책을 등록하고 성장하는 독서 기록을 확인해보세요!</div>
         <button className="book-drawer-plus-book-btn" onClick={() => navigate('/bookpost')}>
-          <img alt="Plus" src="images/plus-book-my.png" />
+          <div ><BsPlusSquare size = "30" /></div>
         </button>
       </div>
+      
       <div className="book-drawer-genres">
         {genresAndBooks.map((genreandbook, index) => (
           <div className="book-drawer-genre" key={index}>
-            <h3>{genreandbook.genre}</h3>
+            <div className='genre-title'>{genreandbook.genre}</div>
             <div className="book-drawer-books">
               {genreandbook.books.length > 0 ? (
                 genreandbook.books.map((book, bookIndex) => (

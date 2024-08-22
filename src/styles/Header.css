@@ -2,10 +2,11 @@
   background-color: #ffffff;
   height: 100px;
   width: 100%;
+  min-width: 1120px ;
   display: flex;
   align-items: center;
   justify-content: space-between; /* 요소들 사이에 공간을 균등하게 배분 */
-  padding: 0 20px;
+  padding: 0 50px;
   box-sizing: border-box;
   position: relative;
 }
@@ -20,7 +21,7 @@
 .logo {
   color: #000000;
   font-family: "Pretendard-Bold", Helvetica;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -28,11 +29,12 @@
 .div-search-small {
   display: flex;
   align-items: center;
-  border: 0.5px solid; 
-  border-color: #000000;
+  border: 1px solid; 
+  border-color: #666666;
   height: 40px; 
-  width: 400px;
-  margin: 0 auto; /* 좌우 여백을 자동으로 설정하여 중앙 정렬 */
+  width: 500px;
+  margin: 0 auto; 
+  border-radius: 20px;
 }
 
 .search-input {
@@ -41,9 +43,11 @@
   border: none;
   box-sizing: border-box;
   height: 100%;
-  padding: 10px;
-  font-size: 16px;
+  padding: 20px;
+  font-size: 14px;
   color: #333;
+  display: flex;
+  align-items: center; 
 }
 
 .search-input:focus {
@@ -55,7 +59,10 @@
   height: 20px; 
   object-fit: cover;
   cursor: pointer;
-  margin-right:10px
+  margin-right:10px;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
 }
 
 .header-right {
@@ -69,7 +76,7 @@
   height: 30px;
   object-fit: cover;
   cursor: pointer;
-  margin-right: 60px; /* 오른쪽 여백 추가 */
+  margin-right: 40px; /* 오른쪽 여백 추가 */
 }
 
 .div-auth {
@@ -81,7 +88,7 @@
 .auth {
   color: #000000;
   font-family: "Pretendard-Regular", Helvetica;
-  font-size: 20px; 
+  font-size: 16px; 
   font-weight: 400;
   white-space: nowrap;
 }

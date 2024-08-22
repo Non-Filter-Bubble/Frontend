@@ -12,7 +12,6 @@ const Slide02 = () => {
 
   return (
     <div className="slide-02">
-      <img className="img-drawer" alt="" src="images/drawer.png" />
 
       <div className="slide02-ment1">
         북서랍을 채워나가며 책을 기록해보세요

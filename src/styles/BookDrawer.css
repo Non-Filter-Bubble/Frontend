@@ -1,21 +1,36 @@
 .book-drawer-container {
     background: #f8f8f8;
-    height: 100vh;
+    height: auto;
     padding: 70px 300px;
     border-radius: 8px;
   }
  
  .book-drawer-container .book-drawer-header {
     display: flex;
-    align-items: center;
+    align-items: left;
     justify-content: space-between;
+    flex-direction: column; 
     margin-bottom: 20px;
+  }
+  .book-drawer-container .book-drawer-title{
+    font-family: Pretendard-;
+    font-weight: 400;
+    font-size: 32px;
+  }
+
+  .book-drawer-container .book-drawer-sub{
+    font-family: "Pretendard-Light";
+    font-weight: 300;
+    font-size: 22px;
+    color: #666666
   }
   
   .book-drawer-container .book-drawer-plus-book-btn {
+    margin-left: auto; /* 자동으로 왼쪽 여백을 설정하여 오른쪽으로 이동 */
     background-color: transparent;
     border: none;
     cursor: pointer;
+    
   }
   .book-drawer-container .book-drawer-plus-book-btn img {
     width: 30px;
@@ -35,10 +50,14 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    font-family: "Pretendard-Light";
   }
   
-  .book-drawer-container .book-drawer-genre h3 {
+  .book-drawer-container .book-drawer-genre .genre-title {
     margin-bottom: 10px;
+    font-size: 22px;
+    color: #3f3e3e;
+    font-weight: 300;
   }
   
   .book-drawer-container .book-drawer-books {

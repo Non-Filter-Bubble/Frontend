@@ -1,17 +1,27 @@
 .main-header {
     width: 100%;
     text-align: center;
-    align-items: center; /* 세로 중앙 정렬 */
+    align-items: center;
     background-color: #fff;
     height: 100px;
-    overflow: hidden;
     font-size: 20px;
-    font-family: Pretendard-;
+    font-family: Pretendard, sans-serif;
     color: #000;
     display: flex;
     justify-content: center;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-  }
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    transition: position 0.3s, top 0.3s, box-shadow 0.3s;
+}
+
+.main-header.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+
   
   .main-header .nav-list {
     display: inline-flex;
@@ -30,9 +40,13 @@
     color: #333;
     font-weight: 700;
     font-size: 18px;
-    font-family: 'Apple SD Gothic Neo', sans-serif;
+    font-family: Pretendard-;
+    cursor: pointer;
 }
 
 .main-header .nav-list .list-link:hover {
     color: #E9853C;
 }
+.main-header .list-link.active {
+    color: #E9853C; 
+  }
