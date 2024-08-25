@@ -109,10 +109,10 @@ const Main = () => {
                 scrollToBookDrawer={() => scrollToSection(bookDrawerRef)}
             />
             <div ref={nonFilterRef}>
-                <NonFilter nonfilterrecommend={recommendData.isbnNonFilter} />
+                <NonFilter nonfilterrecommend={recommendData.isbn_nonfilter} />
             </div>
             <div ref={filterRef}>
-                <Filter filterrecommend={recommendData.isbnFilter} />
+                <Filter filterrecommend={recommendData.isbn_filer} />
             </div>
             <div ref={bookDrawerRef}>
                 <BookDrawer token={token} navigate={navigate} />
