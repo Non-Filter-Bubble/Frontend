@@ -110,7 +110,7 @@ const BookDrawer = ({ token, navigate }) => {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <div>Next</div>,
     prevArrow: <div>Prev</div>,

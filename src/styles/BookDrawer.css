@@ -1,7 +1,7 @@
 .book-drawer-container {
     background: #f8f8f8;
     height: auto;
-    padding: 70px 300px;
+    padding: 70px 400px;
     border-radius: 8px;
   }
  
@@ -42,10 +42,10 @@
   .book-drawer-container .book-drawer-genre {
     flex: 1 1 calc(50% - 30px);
     background: #fff;
-    padding: 15px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 0 0 0 20px;
     font-family: "Pretendard-Light";
   }
   
@@ -54,23 +54,21 @@
     font-size: 22px;
     color: #3f3e3e;
     font-weight: 300;
-    margin-left: 20px;
   }
   
   
 
   /*북서랍 slick ----------------------------------------------------*/
   .book-drawer-container .book-drawer-genre .slick-slide {
-    margin: 0 10px; /* 슬라이드 간격 조정 */
-    width: auto !important
+    width: 100% !important;
   }
   .book-drawer-container .book-drawer-genre .slick-track {
-    margin: 0 10px; /* 슬라이드 간격 조정 */
-    width: 500px !important;
+    margin: 0 ; /* 슬라이드 간격 조정 */
+    width: 410px !important;
     display: flex;
   }
   .book-drawer-container .book-drawer-genre .slick-current {
-    width: 530px !important;
+    width: 500px !important;
   }
   .book-drawer-container .book-drawer-genre .slick-list {
     overflow: hidden;
@@ -96,6 +94,7 @@
   
   .book-drawer-container .book-drawer-book {
     position: relative;
+    
   }
   
   .book-drawer-container .book-drawer-book .book-drawer-book-img {
@@ -103,7 +102,7 @@
     height: 150px;
     object-fit: cover;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-    margin-right: 6px;
+    margin-right: 15px;
     cursor: pointer;
   }
   
