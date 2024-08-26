@@ -2,10 +2,10 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import '../styles/Filter.css'; 
 import axiosInstance from '../api/axios';
-import commentSample from '../data/comment.json';
+// import commentSample from '../data/comment.json';
 
 const Filter = ( {filterrecommend} ) => {
-  // const token = localStorage.getItem('token');
+  const token = localStorage.getItem('token');
 
   const navigate = useNavigate();
 
@@ -14,26 +14,26 @@ const Filter = ( {filterrecommend} ) => {
   const [bookcover, setBookcover] = useState();
 
   // 이거는 지우면 안됨
-  // const getBookComment = useCallback(async (isbn) => {
-  //   try {
-  //     const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/comment`, {
-  //       params: {
-  //         isbn: isbn
-  //       }, 
-  //       headers: { 'authorization': `${token}` }
-  //     });
-  //     // console.log('response의 값은', response.data);
-
-  //     setBookcomment(response.data);
-  //   } catch (error) {
-  //     // console.error(`ISBN ${isbn}에 대한 요청 실패:`, error);
-  //     setBookcomment();
-  //   }
-  // }, [token]);
-
   const getBookComment = useCallback(async (isbn) => {
-      setBookcomment(commentSample[isbn]);
-  }, []);
+    try {
+      const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/comment`, {
+        params: {
+          isbn: isbn
+        }, 
+        headers: { 'authorization': `${token}` }
+      });
+      // console.log('response의 값은', response.data);
+
+      setBookcomment(response.data);
+    } catch (error) {
+      // console.error(`ISBN ${isbn}에 대한 요청 실패:`, error);
+      setBookcomment();
+    }
+  }, [token]);
+
+  // const getBookComment = useCallback(async (isbn) => {
+  //     setBookcomment(commentSample[isbn]);
+  // }, []);
 
 
   // 랜덤으로 책 정보 추출
