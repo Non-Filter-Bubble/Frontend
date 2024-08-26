@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axiosInstance from '../api/axios';
-import Slider from "react-slick"; // react-slick 추가
 import '../styles/BookDrawer.css';
 import { BsPlusSquare } from "react-icons/bs";
+import Slider from "react-slick"; // react-slick 추가
+import "../styles/slick.css";
+ import "../styles/slick-theme.css";
 
 const DEFAULT_IMAGE_URL = '../../images/bookImage.jpg';
 
@@ -113,7 +115,8 @@ const BookDrawer = ({ token, navigate }) => {
     nextArrow: <div>Next</div>,
     prevArrow: <div>Prev</div>,
     adaptiveHeight: true, // 슬라이더 높이를 각 슬라이드의 콘텐츠 높이에 맞게 조정
-    variableWidth: false 
+    variableWidth: false,
+    arrows: true,
   };
 
   return (

@@ -32,11 +32,7 @@
     cursor: pointer;
     
   }
-  .book-drawer-container .book-drawer-plus-book-btn img {
-    width: 30px;
-    height: 30px;
-  }
-  
+ 
   .book-drawer-container .book-drawer-genres {
     display: flex;
     flex-wrap: wrap;
@@ -44,7 +40,7 @@
   }
   
   .book-drawer-container .book-drawer-genre {
-    flex: 1 1 calc(50% - 20px);
+    flex: 1 1 calc(50% - 30px);
     background: #fff;
     padding: 15px;
     border-radius: 8px;
@@ -58,6 +54,7 @@
     font-size: 22px;
     color: #3f3e3e;
     font-weight: 300;
+    margin-left: 20px;
   }
   
   
@@ -65,14 +62,15 @@
   /*북서랍 slick ----------------------------------------------------*/
   .book-drawer-container .book-drawer-genre .slick-slide {
     margin: 0 10px; /* 슬라이드 간격 조정 */
-    width: 200px;
+    width: auto !important
   }
   .book-drawer-container .book-drawer-genre .slick-track {
     margin: 0 10px; /* 슬라이드 간격 조정 */
     width: 500px !important;
+    display: flex;
   }
   .book-drawer-container .book-drawer-genre .slick-current {
-    width:auto
+    width: 530px !important;
   }
   .book-drawer-container .book-drawer-genre .slick-list {
     overflow: hidden;
@@ -98,7 +96,6 @@
   
   .book-drawer-container .book-drawer-book {
     position: relative;
-    display: inline-block;
   }
   
   .book-drawer-container .book-drawer-book .book-drawer-book-img {
@@ -115,8 +112,8 @@
   }
   
   .book-drawer-container .book-drawer-no-books {
-    flex: 1;
-    display: flex;
+    flex: 1 ; /* 크기를 부모의 100%로 설정 */
+    display: flex !important;
     align-items: center;
     justify-content: center;
     color: #888;
@@ -126,6 +123,7 @@
     border-radius: 4px;
     padding: 10px;
     text-align: center;
+    width: 100%;
   }
   
   .book-drawer-container .book-drawer-book-overlay {
