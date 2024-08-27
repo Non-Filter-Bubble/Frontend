@@ -3,6 +3,7 @@
     height: auto;
     padding: 70px 400px;
     border-radius: 8px;
+    min-width: 1760px;
   }
  
  .book-drawer-container .book-drawer-header {
@@ -64,7 +65,7 @@
   }
   .book-drawer-container .book-drawer-genre .slick-track {
     margin: 0 ; /* 슬라이드 간격 조정 */
-    width: 410px !important;
+    width: 430px !important;
     display: flex;
   }
   .book-drawer-container .book-drawer-genre .slick-current {
