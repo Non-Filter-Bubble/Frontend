@@ -1,9 +1,9 @@
 .book-drawer-container {
     background: #f8f8f8;
     height: auto;
-    padding: 70px 340px;
+    padding: 70px 360px;
     border-radius: 8px;
-    min-width: 1760px;
+    min-width: 1800px;
   }
  
  .book-drawer-container .book-drawer-header {
@@ -52,7 +52,7 @@
   
   .book-drawer-container .book-drawer-genre .genre-title {
     margin-bottom: 10px;
-    font-size: 22px;
+    font-size: 20px;
     color: #3f3e3e;
     font-weight: 300;
   }

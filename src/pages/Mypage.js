@@ -6,6 +6,8 @@ import '../styles/Mypage.css';
 import HeartPopup from '../components/HeartPopup'; 
 import BookDrawer from '../components/BookDrawer'; // 분리한 BookDrawer 컴포넌트를 가져옵니다.
 
+import { GoHeartFill } from "react-icons/go";
+
 const Mypage = () => {
   const token = localStorage.getItem('token');
   
@@ -57,14 +59,9 @@ const Mypage = () => {
         <div className="flex">
           <div className="profile-nickname">{user && user.nickname}</div>
           <div className="flex2">
-            <div className="profile-overlap-group-wrapper">
-              <div className="profile-edit-info" onClick={editInfoClick}>
-                <div className="profile-text-edit-info">정보수정</div>
-                <div className="profile-rect-edit-info" />
-              </div>
-            </div>
+            <div className="profile-edit-info" onClick={editInfoClick}>정보수정</div>
             <div className="profile-heart" onClick={togglePopup}>
-              <img className="profile-heart-img" alt=" " src="images/heart-my.png" />
+              <div className="profile-heart-img"><GoHeartFill size={35} color='#D7443E'/></div>
             </div>
           </div>
         </div>      
