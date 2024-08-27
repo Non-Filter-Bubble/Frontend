@@ -98,7 +98,7 @@ const NonFilter = ( {nonfilterrecommend} ) => {
       <div className="div-nonfilter">
         <p className="ment-1">취향을 넓힐 시간, 이 책을 추천합니다!</p>
         <p className="ment-2">
-          선입견 없는 한줄평이 새로운 취향을 탐험하게 해줍니다. 미지의 책 속 숨은 메시지를 발견해보세요
+          AI가 만든 한문장이 새로운 취향을 탐험하게 해줍니다. 미지의 책 속 숨은 메시지를 발견해보세요
         </p>
         <img className="btn-reset" alt="" src="images/btn-reset.png" onClick={handleFilterLeftClick} />
 
