@@ -2,11 +2,63 @@ import React, { useState, useEffect } from 'react';
 import axiosInstance from '../api/axios';
 import '../styles/BookDrawer.css';
 import { BsPlusSquare } from "react-icons/bs";
-import Slider from "react-slick"; // react-slick 추가
+import Slider from "react-slick"; 
 import "../styles/slick.css";
- import "../styles/slick-theme.css";
+import "../styles/slick-theme.css";
 
 const DEFAULT_IMAGE_URL = '../../images/bookImage.jpg';
+
+/*이전 버튼*/
+const PrevButton = (props) => {
+  const { onClick } = props;
+  return (
+    <div
+      className="prev-button"
+      style={{ 
+          display: 'block',
+          position: 'absolute',
+          left: '-25px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          zIndex: '100',
+          width: '20px',
+          height: '50px',
+          backgroundImage: 'url(vector/drawer-btn-prev.svg)',
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          cursor: 'pointer',
+      }}
+      onClick={onClick}
+    />
+  );
+};
+
+/*다음 버튼*/
+const NextButton = (props) => {
+  const { onClick } = props;
+  return (
+    <div
+      className="next-button"
+      style={{ 
+        display: 'block', 
+        position: 'absolute', 
+        right: '-25px', 
+        top: '50%',
+        transform: 'translateY(-50%)',
+        zIndex: '100',
+        width: '20px',  
+        height: '50px', 
+        backgroundImage: 'url(vector/drawer-btn-next.svg)',
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        cursor: 'pointer',
+      }}
+      onClick={onClick}
+    />
+  );
+};
 
 const BookDrawer = ({ token, navigate }) => {
   const [bookboxId, setBookboxId] = useState([]);
@@ -106,19 +158,6 @@ const BookDrawer = ({ token, navigate }) => {
     }
   }
 
-  const settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    nextArrow: <div>Next</div>,
-    prevArrow: <div>Prev</div>,
-    adaptiveHeight: true, // 슬라이더 높이를 각 슬라이드의 콘텐츠 높이에 맞게 조정
-    variableWidth: false,
-    arrows: true,
-  };
-
   return (
     <div className="book-drawer-container">
       <div className="book-drawer-header">
@@ -130,26 +169,43 @@ const BookDrawer = ({ token, navigate }) => {
       </div>
       
       <div className="book-drawer-genres">
-        {genresAndBooks.map((genreandbook, index) => (
-          <div className="book-drawer-genre" key={index}>
-            <div className='genre-title'>{genreandbook.genre}</div>
-            <Slider {...settings}>
-              {genreandbook.books.length > 0 ? (
-                genreandbook.books.map((book, bookIndex) => (
-                  <div className="book-drawer-book" key={bookIndex}>
-                    <img className="book-drawer-book-img" alt='book cover' src={book.imageUrl || DEFAULT_IMAGE_URL} />
-                    <div className="book-drawer-book-overlay">
-                      <button className="book-drawer-book-btn" onClick={() => showDetail(book)}>수정</button>
-                      <button className="book-drawer-book-btn" onClick={() => handleDelete(book.mybookid)}>삭제</button>
+        {genresAndBooks.map((genreandbook, index) => {
+          const showArrows = genreandbook.books.length > 0; // 책이 있을 때만 화살표를 표시합니다.
+
+          const settings = {
+            dots: false,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            nextArrow: showArrows ? <NextButton /> : null,  
+            prevArrow: showArrows ? <PrevButton /> : null,  
+            adaptiveHeight: true, 
+            variableWidth: false,
+            arrows: showArrows, 
+          };
+
+          return (
+            <div className="book-drawer-genre" key={index}>
+              <div className='genre-title'>{genreandbook.genre}</div>
+              <Slider {...settings}>
+                {genreandbook.books.length > 0 ? (
+                  genreandbook.books.map((book, bookIndex) => (
+                    <div className="book-drawer-book" key={bookIndex}>
+                      <img className="book-drawer-book-img" alt='book cover' src={book.imageUrl || DEFAULT_IMAGE_URL} />
+                      <div className="book-drawer-book-overlay">
+                        <button className="book-drawer-book-btn" onClick={() => showDetail(book)}>수정</button>
+                        <button className="book-drawer-book-btn" onClick={() => handleDelete(book.mybookid)}>삭제</button>
+                      </div>
                     </div>
-                  </div>
-                ))
-              ) : (
-                <div className="book-drawer-no-books">등록된 책이 없습니다.</div>
-              )}
-            </Slider>
-          </div>
-        ))}
+                  ))
+                ) : (
+                  <div className="book-drawer-no-books">등록된 책이 없습니다.</div>
+                )}
+              </Slider>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

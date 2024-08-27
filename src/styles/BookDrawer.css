@@ -1,7 +1,7 @@
 .book-drawer-container {
     background: #f8f8f8;
     height: auto;
-    padding: 70px 400px;
+    padding: 70px 360px;
     border-radius: 8px;
     min-width: 1760px;
   }
@@ -43,9 +43,9 @@
   .book-drawer-container .book-drawer-genre {
     flex: 1 1 calc(50% - 30px);
     background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px 28px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin-bottom: 0 0 0 20px;
     font-family: "Pretendard-Light";
   }
@@ -65,7 +65,7 @@
   }
   .book-drawer-container .book-drawer-genre .slick-track {
     margin: 0 ; /* 슬라이드 간격 조정 */
-    width: 430px !important;
+    width: 450px !important;
     display: flex;
   }
   .book-drawer-container .book-drawer-genre .slick-current {
@@ -74,18 +74,17 @@
   .book-drawer-container .book-drawer-genre .slick-list {
     overflow: hidden;
   }
-  
-  .book-drawer-container .book-drawer-genre .slick-prev,
-  .book-drawer-container .book-drawer-genre .slick-next {
-    background: #ccc; /* 버튼 배경색 */
-    border-radius: 50%;
-    padding: 5px;
-    cursor: pointer;
-  }
+
   
   .book-drawer-container .book-drawer-genre .slick-prev:hover,
   .book-drawer-container .book-drawer-genre .slick-next:hover {
     background: #888; /* 버튼 호버 시 배경색 */
+  }
+
+  .book-drawer-container .next-button::before
+  .book-drawer-container .prev-button::before {
+    display: none !important;
+
   }
 
   /*-------------------------------------------------------------------*/
@@ -103,7 +102,7 @@
     height: 150px;
     object-fit: cover;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-    margin-right: 15px;
+    margin-right: 20px;
     cursor: pointer;
   }
   
@@ -154,10 +153,11 @@
     cursor: pointer;
     border-radius: 5px;
     font-size: 12px;
-    /* transition: background-color 0.3s ease; */
+    font-family: Pretendard-;
   }
   
   .book-drawer-container .book-drawer-book-btn:hover {
     /* opacity: 1; */
-    background-color: #ffbfa8;
+    background-color: #E9853C;
+    color:#ffffff
   }
