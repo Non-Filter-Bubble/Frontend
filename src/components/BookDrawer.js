@@ -17,7 +17,7 @@ const PrevButton = (props) => {
       style={{ 
           display: 'block',
           position: 'absolute',
-          left: '-25px',
+          left: '-28px',
           top: '50%',
           transform: 'translateY(-50%)',
           zIndex: '100',
@@ -43,7 +43,7 @@ const NextButton = (props) => {
       style={{ 
         display: 'block', 
         position: 'absolute', 
-        right: '-25px', 
+        right: '-26px', 
         top: '50%',
         transform: 'translateY(-50%)',
         zIndex: '100',

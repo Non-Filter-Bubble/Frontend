@@ -1,7 +1,7 @@
 .book-drawer-container {
     background: #f8f8f8;
     height: auto;
-    padding: 70px 360px;
+    padding: 70px 340px;
     border-radius: 8px;
     min-width: 1760px;
   }
@@ -43,7 +43,7 @@
   .book-drawer-container .book-drawer-genre {
     flex: 1 1 calc(50% - 30px);
     background: #fff;
-    padding: 20px 28px;
+    padding: 20px 32px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin-bottom: 0 0 0 20px;
@@ -65,7 +65,7 @@
   }
   .book-drawer-container .book-drawer-genre .slick-track {
     margin: 0 ; /* 슬라이드 간격 조정 */
-    width: 450px !important;
+    width: 466px !important;
     display: flex;
   }
   .book-drawer-container .book-drawer-genre .slick-current {
