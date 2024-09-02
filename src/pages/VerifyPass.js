@@ -14,7 +14,9 @@ const VerifyPass = () => {
   navigate(-1); // 이전 페이지로 이동
   }
 
-  const handleInfoModification = async () => {
+  const handleInfoModification = async (e) => {
+    e.preventDefault();
+    
     console.log('확인 버튼 클릭');
 
     if (password === '') {
@@ -46,7 +48,7 @@ const VerifyPass = () => {
 
   return (
     <div className="div-verify">
-      <div className="group-verify">
+      <form className="group-verify" onSubmit={handleInfoModification}>
         <img className="rect-edit-info" alt="" src="/vector/rect-verify-pass.svg"/>
         <div className="div-pass">
           <input className="rect-pass" type="password" src="/vector/rect-user-input.svg" value={password} onChange={(e) => setPassword(e.target.value)} />
@@ -54,10 +56,10 @@ const VerifyPass = () => {
         </div>
         <div className="div-btn-submit">
           <div className="btn-submit">
-            <div className="submit" onClick={handleInfoModification}>확인</div>
+            <button type='submit' className="submit" onClick={handleInfoModification}>확인</button>
           </div>
         </div>
-      </div>
+      </form>
       <div className="group-title">
         <div className="title-edit">회원 정보 수정</div>
         <img className="back-verify" alt="" src="/vector/back.svg" onClick={handleBack}/>
