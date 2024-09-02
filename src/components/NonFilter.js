@@ -7,8 +7,7 @@ const NonFilter = ( {nonfilterrecommend} ) => {
   // console.log("메인에서 넘어온 값입니다. 논필터");
   // console.log(nonfilterrecommend);
 
-  const token = localStorage.getItem('token');
-
+  // const token = localStorage.getItem('token');
   const navigate = useNavigate();
 
   const [bookinfo, setBookinfo] = useState([]);
@@ -16,17 +15,44 @@ const NonFilter = ( {nonfilterrecommend} ) => {
   const getBookInfo = useCallback(async (isbn) => {
     // console.log('책 정보 요청:', isbn)
     try {
-      const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/load-books`, {
+      // "BOOK_COVER_URL", "GENRE_LV1", "GENRE_LV2", "INFO_TEXT_BOLD", ISBN_THIRTEEN_NO
+      const response1 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/load-books`, {
         params: { isbn: isbn }, 
-        headers: { 'authorization': `${token}` }
+        // headers: { 'authorization': `${token}` }
       });
-      setBookinfo(prevBookinfo => [...prevBookinfo, response.data]);
+
+      // // "AUTHOR", "EA_ISBN", "PUBLISHER", "TITLE"
+      // const response2 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
+      //   params : { type: 'isbn', value: isbn }
+      // });
+
+      // "author", "description", "discount", "image", "isbn", "link", "pubdate", "publisher", "title"
+      const response2 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-NaverBooks`, {
+        params: { 
+          type: 'isbn',
+          value: isbn
+        },
+        headers: {
+          'Content-Type': 'application/json'
+        }        
+      });
+      // console.log(response2.data.items[0]);
+
+      let response = { };
+      if (response2.data.items.length === 0) {
+        response = { ...response1.data, author: "", description : "", discount : "", image : "", isbn : "", link : "", pubdate : "", publisher : "", title : "" };
+      } else {
+        response = { ...response1.data, ...response2.data.items[0] };
+      }
+
+      setBookinfo(prevBookinfo => [...prevBookinfo, response]);
     } catch (error) {
-      // 이건 절대 실패할 수 없는거임 - 왜냐 AI에서 보내는거니까
+      // load-book은 실패할 수 없음
       console.error(`ISBN ${isbn}에 대한 요청 실패:`, error);
       // setBookinfo();
     }
-  }, [token]);
+  // }, [token]);
+  }, []);
 
   // 랜덤으로 책 정보 5개 추출
   const getRandom = useCallback((list) => {    
@@ -43,7 +69,7 @@ const NonFilter = ( {nonfilterrecommend} ) => {
     
   }, [getBookInfo]);
 
-  // 처음 로드시 랜덤으로 추출된 책 정보를 저장
+  // 처음 로드 시 랜덤으로 추출된 책 정보를 저장
   useEffect(() => {
     setBookinfo([]);
     if (nonfilterrecommend && nonfilterrecommend.length > 0) {
@@ -59,7 +85,7 @@ const NonFilter = ( {nonfilterrecommend} ) => {
     }
   }; 
 
-  // console.log('랜덤으로 추출된 책의 정보:', bookinfo);
+  console.log('랜덤으로 추출된 책의 정보:', bookinfo);
 
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
@@ -70,27 +96,10 @@ const NonFilter = ( {nonfilterrecommend} ) => {
 
   // 클릭 시
   const showDetail = async (index) => {
-    // console.log('책 상세정보:', bookinfo[index]);
+    console.log('책 상세정보');
+    console.log(bookinfo[index]);
 
-    try {
-      const res = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
-        params : {
-          type: 'isbn',
-          value: bookinfo[index].ISBN_THIRTEEN_NO
-        }
-      });
-      // console.log('책 상세정보 요청 성공');
-      // console.log(res.data.docs[0]);
-
-      // 두 데이터 합치기
-      const bookdata = { ...res.data.docs[0], ...bookinfo[index] };
-      // console.log('두 데이터 합친 책 정보:', bookdata);
-
-      navigate('/search/book', { state: { bookinfo: bookdata } });
-
-    } catch (error) {
-      console.error('책 상세정보 요청 실패:', error);
-    }
+    navigate('/search/book', { state: { bookinfo: bookinfo[index] } });
   };
     
   return (
@@ -106,7 +115,7 @@ const NonFilter = ( {nonfilterrecommend} ) => {
           {bookinfo.slice(0, 5).map((book, index) => (
             <div key={index} className={`card-${index + 1}`} onClick={() => showDetail(index)}>
               <div className="card-blur">
-                <img className="card-img" alt="" src={book.BOOK_COVER_URL} />
+                <img className="card-img" alt="" src={book.image? book.image: book.BOOK_COVER_URL} />
               </div>
               <div className="div-card-content">
                 <p className="card-text">

@@ -23,13 +23,14 @@ const BestSellers = () => {
     // 베스트 셀러 목록을 가져오는 GET 요청
     const fetchBestSellers = async (selectedGenre) => {
         try {
+            // GENRE_LV1, author, cover, isbn, publisher, rank, title
             const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/bestseller`, {
                 params: { genre: selectedGenre },
                 headers: {
                     'Content-Type': 'application/json'
                 }
             });
-            console.log(`${selectedGenre} 베스트 셀러 목록:`, response.data);
+            // console.log(`${selectedGenre} 베스트 셀러 목록:`, response.data);
 
             // 8개만 저장
             const bestSellersWithGenre = response.data.slice(0, 8).map((item, index) => ({
@@ -45,28 +46,48 @@ const BestSellers = () => {
 
     const showDetail = async(index) => {
         const book = bestSellers[index];
-        console.log('선택한 책:', book);
+        // console.log('선택한 책:', book);
 
         try {
+            // "BOOK_COVER_URL", "GENRE_LV1", "GENRE_LV2", "INFO_TEXT_BOLD", ISBN_THIRTEEN_NO
             const response1 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/load-books`, {
                 params: { isbn: parseInt(book.isbn, 10) },
             });
 
-            const response2 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
-                params : { type: 'isbn', value: parseInt(book.isbn, 10) }
+            // // "AUTHOR", "EA_ISBN", "PUBLISHER", "TITLE"
+            // const response2 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
+            //     params : { type: 'isbn', value: parseInt(book.isbn, 10) }
+            // });
+
+            // "author", "description", "discount", "image", "isbn", "link", "pubdate", "publisher", "title"
+            const response2 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-NaverBooks`, {
+                params: { 
+                type: 'isbn',
+                value: parseInt(book.isbn, 10)
+                },
+                headers: {
+                'Content-Type': 'application/json'
+                }        
             });
 
-            // 두 데이터 합치기
-            const bookinfo = {...response1.data, ...response2.data.docs[0]};
-            
+            let bookinfo = { };
+            if (response2.data.items.length === 0) {
+                bookinfo = { ...response1.data, author: "", description : "", discount : "", image : "", isbn : "", link : "", pubdate : "", publisher : "", title : "" };
+            } else {
+                bookinfo = { ...response1.data, ...response2.data.items[0] };
+            }
+
             console.log(bookinfo);
 
             navigate('/search/book', { state: { bookinfo: bookinfo } });
 
             } catch (error) {
+                alert('이 책에 대한 상세 정보가 아직 준비되지 않았습니다.');
                 console.error(`요청 실패:`, error);
             }
         }
+
+    // console.log('베스트셀러 목록:', bestSellers);
 
     return (
         <div className="div-bestsellers">

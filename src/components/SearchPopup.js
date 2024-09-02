@@ -43,7 +43,7 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
           });
           dataList2.push(response2.data);
         } catch (error) {
-          dataList2.push({ ISBN_THIRTEEN_NO: parseInt(data.EA_ISBN, 10), GENRE_LV1: "", GENRE_LV2: "", INFO_TEXT: "", BOOK_COVER_URL: ""});
+          dataList2.push({ ISBN_THIRTEEN_NO: parseInt(data.EA_ISBN, 10), GENRE_LV1: "", GENRE_LV2: "", INFO_TEXT_BOLD: "", BOOK_COVER_URL: ""});
         }
       }
 
@@ -56,6 +56,7 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
       // console.log('검색한 책의 리스트는', dataList);
       
       setSearchResults(dataList);
+
       if (resultsRef.current) {
         resultsRef.current.scrollTop = 0; // 스크롤을 맨 위로 이동
       }
@@ -87,7 +88,6 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
 
     onClose();
   }
-
 
    // 엔터 키를 눌렀을 때 검색을 실행하는 함수
    const handleKeyPress = (event) => {

@@ -6,14 +6,13 @@ import axiosInstance from '../api/axios';
 
 const Filter = ( {filterrecommend} ) => {
   const token = localStorage.getItem('token');
-
   const navigate = useNavigate();
 
   const [isbn, setIsbn] = useState();
   const [bookcomment, setBookcomment] = useState();
   const [bookcover, setBookcover] = useState();
 
-  // 이거는 지우면 안됨
+  // 책 한줄평 가져오기
   const getBookComment = useCallback(async (isbn) => {
     try {
       const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/comment`, {
@@ -39,15 +38,15 @@ const Filter = ( {filterrecommend} ) => {
   // 랜덤으로 책 정보 추출
   const getRandom = useCallback((list) => {
     const randomIndex = Math.floor(Math.random() * list.length);
-    console.log('랜덤으로 추출된 인덱스:', randomIndex);
-    console.log('랜덤으로 추출된 책의 ISBN:', list[randomIndex]);
+    // console.log('랜덤으로 추출된 인덱스:', randomIndex);
+    // console.log('랜덤으로 추출된 책의 ISBN:', list[randomIndex]);
     setBookcover(`https://contents.kyobobook.co.kr/sih/fit-in/230x0/pdt/${list[randomIndex]}.jpg`);
     getBookComment(list[randomIndex]);
     setIsbn(list[randomIndex]);
     // getBookComment(9791190174756);
   }, [getBookComment]);
 
-  // 랜덤으로 추출된 책 정보를 저장
+  // 처음 로드 시 랜덤으로 추출된 책 정보를 저장
   useEffect(() => {
     if (filterrecommend && filterrecommend.length > 0) {
       getRandom(filterrecommend);
@@ -56,6 +55,7 @@ const Filter = ( {filterrecommend} ) => {
 
   // console.log('랜덤으로 추출된 책의 코멘트:', bookcomment);
 
+  // 다시 추천 버튼 클릭 시
   const handleFilterLeftClick = () => {
     console.log('다시 추천 버튼 클릭');
     if (filterrecommend && filterrecommend.length > 0) {
@@ -75,24 +75,36 @@ const Filter = ( {filterrecommend} ) => {
   };
 
   const showDetail = async (isbn) => {
-    console.log('책 상세정보');
-    console.log(isbn);
+    // console.log('책 상세정보');
+    // console.log(isbn);
     try {
       const response1 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/load-books`, {
         params: { isbn: isbn }
       });
 
-      const response2 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
-        params : { type: 'isbn', value: isbn }
+      // const response2 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
+      //   params : { type: 'isbn', value: isbn }
+      // });
+      
+      // "author", "description", "discount", "image", "isbn", "link", "pubdate", "publisher", "title"
+      const response2 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-NaverBooks`, {
+        params: { 
+          type: 'isbn',
+          value: isbn
+        },
+        headers: {
+          'Content-Type': 'application/json'
+        }        
       });
 
-      // console.log('로드 북:', response1.data);
-      // console.log('설치 북:', response2.data.docs[0]);
+      let bookinfo = { };
+      if (response2.data.items.length === 0) {
+        bookinfo = { ...response1.data, author: "", description : "", discount : "", image : "", isbn : "", link : "", pubdate : "", publisher : "", title : "" };
+      } else {
+        bookinfo = { ...response1.data, ...response2.data.items[0] };
+      }
 
-      // 두 데이터 합치기
-      const bookinfo = {...response1.data, ...response2.data.docs[0]};
-      
-      console.log(bookinfo);
+      // console.log(bookinfo);
 
       navigate('/search/book', { state: { bookinfo: bookinfo } });
 

@@ -55,10 +55,10 @@ const BookPost = () => {
         'authorization': `${token}`
       }
     }).then( async (res) => {
-      console.log('북박스 아이디를 가져오는데 성공했습니다.', res);
+      // console.log('북박스 아이디를 가져오는데 성공했습니다.', res);
 
       const matchingBookbox = res.data.find(item => item.genre === bookinfo.GENRE_LV1);
-      console.log(matchingBookbox);
+      // console.log(matchingBookbox);
 
       try {
         const response = await axiosInstance.post(`${process.env.REACT_APP_DB_HOST}/user/bookbox/mybook/post`, {
@@ -76,7 +76,8 @@ const BookPost = () => {
               'Content-Type': 'application/json'
           }
       });
-        console.log('북포스트가 성공적으로 등록되었습니다.', response);
+        console.log('북포스트가 성공적으로 등록되었습니다.');
+        console.log(response);
 
         // 등록 후 마이 페이지로 이동
         navigate('/user');
