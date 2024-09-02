@@ -6,11 +6,12 @@ import { FaUser } from "react-icons/fa6";
 import { IoSearchSharp } from "react-icons/io5";
 
 const Header = () => {
-  const [searchInput, setSearchInput] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const token = localStorage.getItem('token');
   const navigate = useNavigate();
+
+  const [searchInput, setSearchInput] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // 로그인 로그아웃 클릭
   const handleAuthClick = () => {
@@ -32,7 +33,6 @@ const Header = () => {
     }
   }, [token]);
 
- 
   const handleSearch = async () => {
     console.log('검색어:', searchInput);
   
@@ -44,6 +44,7 @@ const Header = () => {
 
     // 제목만 검색
     try {
+      // "AUTHOR", "EA_ISBN", "PUBLISHER", "TITLE"
       const response1 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
         params: {
           type: 'title',
@@ -58,6 +59,7 @@ const Header = () => {
 
       for (const data of dataList1) {
         try {
+          // "BOOK_COVER_URL", "GENRE_LV1", "GENRE_LV2", "INFO_TEXT_BOLD", ISBN_THIRTEEN_NO
           const response2 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/load-books`, {
             params: {
               isbn: parseInt(data.EA_ISBN, 10)
@@ -66,7 +68,7 @@ const Header = () => {
           // console.log('response2의 값은', response2.data)
           dataList2.push(response2.data);
         } catch (error) {
-          dataList2.push({ ISBN_THIRTEEN_NO: parseInt(data.EA_ISBN, 10), GENRE_LV1: "", GENRE_LV2: "", INFO_TEXT: "", BOOK_COVER_URL: `https://contents.kyobobook.co.kr/sih/fit-in/100x0/pdt/${data.EA_ISBN}.jpg`});
+          dataList2.push({ ISBN_THIRTEEN_NO: parseInt(data.EA_ISBN, 10), GENRE_LV1: "", GENRE_LV2: "", INFO_TEXT_BOLD: "", BOOK_COVER_URL: `https://contents.kyobobook.co.kr/sih/fit-in/100x0/pdt/${data.EA_ISBN}.jpg`});
           // console.error(`ISBN ${data.EA_ISBN}에 대한 요청 실패:`, error);
         }
       }
@@ -92,7 +94,6 @@ const Header = () => {
     }
   };
 
-     
   return (
     <div className="div-header">
       <div className="div-logo" onClick={() => navigate('/')}>

@@ -11,12 +11,14 @@ const UserWithdraw = () => {
   const [password, setPassword] = useState('');
 
   const handleBack = () => {
-  navigate(-1); // 이전 페이지로 이동
+    navigate(-1); // 이전 페이지로 이동
   }
 
-  const handleUserDelete = async () => {
+  const handleUserDelete = async (e) => {
     // 비밀번호 확인 및 회원 탈퇴 요청
     // console.log('회원 탈퇴 버튼 클릭')
+
+    e.preventDefault();
 
     if (password === '') {
       alert('비밀번호를 입력해주세요.');
@@ -54,8 +56,8 @@ const UserWithdraw = () => {
           // 토큰 삭제
           localStorage.removeItem('token');
 
-          // 회원가입 페이지 이동
-          navigate('/join');
+          // 로그인 페이지 이동
+          navigate('/login');
         }).catch((error) => {
           // console.log('비밀번호는 맞지만, 회원 탈퇴에 실패했습니다.');
           console.log(error);
@@ -66,7 +68,7 @@ const UserWithdraw = () => {
       setPassword('');
       alert('비밀번호가 일치하지 않습니다.');
       console.log(error);
-      console.log('비밀번호가 다릅니다.')
+      // console.log('비밀번호가 다릅니다.')
     })
   };
   
