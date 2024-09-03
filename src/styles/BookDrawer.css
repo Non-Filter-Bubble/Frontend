@@ -63,20 +63,26 @@
 
   /*북서랍 slick ----------------------------------------------------*/
   .book-drawer-container .book-drawer-genre .slick-slide {
-    width: 100% !important;
+    margin-right: 10px;
   }
   .book-drawer-container .book-drawer-genre .slick-track {
     margin: 0 ; /* 슬라이드 간격 조정 */
-    min-width: 466px !important;
     display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
   }
   .book-drawer-container .book-drawer-genre .slick-current {
-    width: 500px !important;
   }
   .book-drawer-container .book-drawer-genre .slick-list {
     overflow: hidden;
+    display: flex;
+    justify-content: flex-start; 
+    height: 157px !important;
   }
 
+  .book-drawer-container .book-drawer-genre .slick-slide .slick-active {
+    min-width: 100px !important; 
+  }
   
   .book-drawer-container .book-drawer-genre .slick-prev:hover,
   .book-drawer-container .book-drawer-genre .slick-next:hover {
@@ -96,7 +102,7 @@
   
   .book-drawer-container .book-drawer-book {
     position: relative;
-    
+    max-width:100px !important;
   }
   
   .book-drawer-container .book-drawer-book .book-drawer-book-img {
