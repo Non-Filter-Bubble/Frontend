@@ -241,8 +241,18 @@
   height: 38px;
   position: relative;
   /* width: 90px; */
-  width: 120px;
+  width: 90px;
 }
+.div-user-info .div-dupli .div-btn {
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 30px;
+  height: 38px;
+  position: relative;
+  /* width: 90px; */
+  width: 110px;
+}
+
 
 .div-user-info .text-btn {
   color: #000000;
@@ -282,7 +292,7 @@
   height: 40px;
   position: relative;
   /* width: 100px; */
-  width: 150px;
+  width: 140px;
 }
 
 .div-user-info .submit {

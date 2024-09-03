@@ -9,6 +9,7 @@
   padding: 0 50px;
   box-sizing: border-box;
   position: relative;
+  border-bottom: 1px solid #ccc; /* 구분선 설정 */
 }
 
 .div-logo {

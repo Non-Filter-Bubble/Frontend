@@ -48,6 +48,8 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin-bottom: 0 0 0 20px;
     font-family: "Pretendard-Light";
+    max-width: 530px;
+    min-height: 237px;
   }
   
   .book-drawer-container .book-drawer-genre .genre-title {
@@ -65,7 +67,7 @@
   }
   .book-drawer-container .book-drawer-genre .slick-track {
     margin: 0 ; /* 슬라이드 간격 조정 */
-    width: 466px !important;
+    min-width: 466px !important;
     display: flex;
   }
   .book-drawer-container .book-drawer-genre .slick-current {
