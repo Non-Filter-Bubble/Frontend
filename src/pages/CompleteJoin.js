@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import '../styles/CompleteJoin.css'; 
 import axiosInstance from "../api/axios";
 
 const CompleteJoin = () => {
-
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
+
+  const [isLoading, setIsLoading] = useState(false); // 로딩 상태 추가
 
   const okClick = async (e) => {
     console.log('확인 버튼 클릭');
     e.preventDefault();
+
+    setIsLoading(true); // 로딩 시작
 
     try {
       const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/recommend`, {
@@ -20,7 +23,7 @@ const CompleteJoin = () => {
         }}
       );
       console.log('추천 도서 요청');
-      console.log(response);
+      // console.log(response);
 
       const recommendData = response.data;
 
@@ -28,9 +31,11 @@ const CompleteJoin = () => {
 
     } catch (error) {
       console.error('실패:', error);
+    } finally {
+      setIsLoading(false); // 로딩 종료
     }
 
-    navigate('/');
+    // navigate('/');
 
   };
 
@@ -54,6 +59,16 @@ const CompleteJoin = () => {
         </div>
       </div>
     </div>
+
+    {/* 로딩 안내 창 */}
+    {isLoading && (
+      <div className="loading-modal">
+        <div className="loading-modal-content">
+          <p>추천 도서를 불러오는 중입니다. 잠시만 기다려 주세요...</p>
+        </div>
+      </div>
+    )}
+
   </div>
 );
 };

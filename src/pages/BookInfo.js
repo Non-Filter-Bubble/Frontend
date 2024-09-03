@@ -1,5 +1,3 @@
-// 도서관 정보 가지고 와야 함
-
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import axiosInstance from '../api/axios';
@@ -14,15 +12,13 @@ const BookInfo = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const bookinfo = location.state.bookinfo;
-  // const [img, setImg] = useState('');
-  // const [description, setDescription] = useState(''); 
-  const [info, setInfo] = useState([]);;
-  console.log('넘어온 값', bookinfo);
-  console.log('네이버로 가져온 값', info);
 
-  const [bookmarks, setBookmarks] = useState([]);
-  // console.log(bookmarks);
+  // const bookinfo = location.state?.bookinfo || {}; // 도서 정보
+  const bookinfo = location.state.bookinfo; // 도서 정보
+
+  const [finalBookInfo, setFinalBookInfo] = useState(bookinfo); // 사용할 도서 정보
+
+  const [bookmarks, setBookmarks] = useState([]); // 찜 목록
 
   const [library, setLibrary] = useState([]);
 
@@ -42,8 +38,8 @@ const BookInfo = () => {
   }, [bookmarks]);
 
   // 구매하기 버튼
-  const handlePurchase = (bookinfo) => {
-    window.open(`https://search.shopping.naver.com/book/search?bookTabType=ALL&pageIndex=1&pageSize=40&query=${bookinfo.TITLE}&sort=REL`, '_blank');
+  const handlePurchase = (finalBookInfo) => {
+    window.open(`https://search.shopping.naver.com/book/search?bookTabType=ALL&pageIndex=1&pageSize=40&query=${finalBookInfo.TITLE ? finalBookInfo.TITLE : finalBookInfo.title}&sort=REL`, '_blank');
   };
 
   // 찜한 책 목록 가져오기
@@ -75,20 +71,18 @@ const BookInfo = () => {
     fetchBookmarks();
   }, [token]);
 
-  // 찜하기
-  const toggleFavorite = async (bookinfo) => {
-    // console.log(`찜하기 클릭`);
-    // console.log(bookinfo);
+  // 찜하기 버틑 클릭
+  const toggleFavorite = async (finalBookInfo) => {
 
-    let bookmark = bookmarks.find(b => parseInt(b.isbn, 10) === parseInt(bookinfo.EA_ISBN, 10));
-    // console.log(bookmark);
+    let bookmark = bookmarks.find(b => parseInt(b.isbn, 10) === finalBookInfo.ISBN_THIRTEEN_NO); // 찜 되어 있는 거 확인
+    console.log(bookmark); // bookmarkId, isbn
 
     try {
       if (!bookmark) { // 찜하지 않은 책을 찜한 경우
         // console.log('찜하지 않은 책을 찜에 대해 찜 버튼을 눌렀습니다.');
 
         const response = await axiosInstance.post(`${process.env.REACT_APP_DB_HOST}/user/like`, { 
-          isbn: bookinfo.EA_ISBN,
+          isbn: finalBookInfo.ISBN_THIRTEEN_NO,
           main_screen_selected: false,
           search_screen_selected: true
         }, {
@@ -99,13 +93,15 @@ const BookInfo = () => {
         });
 
         const responseText = response.data;
+        // console.log(response.data); // Bookmark saved successfully with ID: 19
         const bookmarkIdMatch = responseText.match(/Bookmark saved successfully with ID: (\d+)/);
+        // console.log(bookmarkIdMatch);
         const bookmarkId = bookmarkIdMatch ? parseInt(bookmarkIdMatch[1], 10) : null;
 
         if (bookmarkId) {
-          setBookmarks((prevBookmarks) => [...prevBookmarks, { bookmarkId, isbn: parseInt(bookinfo.EA_ISBN, 10) }]);
+          setBookmarks((prevBookmarks) => [...prevBookmarks, { bookmarkId, isbn: finalBookInfo.ISBN_THIRTEEN_NO }]);
         } else {
-          console.error('Failed to parse bookmarkId');
+          console.error('찜 실패');
         }
 
       } else { // 이미 찜한 책을 또 누른 경우
@@ -124,34 +120,44 @@ const BookInfo = () => {
     }
   };
    
-  const isBookmarked = (bookinfo) => bookmarks.some(b => parseInt(b.isbn, 10) === parseInt(bookinfo.EA_ISBN, 10));
+  const isBookmarked = (finalBookInfo) => bookmarks.some(b => parseInt(b.isbn, 10) === bookinfo.ISBN_THIRTEEN_NO);
 
   useEffect(() => {
-    // 줄거리 가져오기
-    const getPlot = async () => {
-      const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-NaverBooks`, {
-        params: { 
-          type: 'isbn',
-          value: bookinfo.ISBN_THIRTEEN_NO 
-        },
-        headers: {
-          'authorization': `${token}`,
-          'Content-Type': 'application/json'
-        }
-        
+    // 없는 값들 채우기
+    const getInfo = async () => {
+      const response1 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-NaverBooks`, {
+        params: { type: 'isbn', value: bookinfo.ISBN_THIRTEEN_NO },
+        headers: { 'Content-Type': 'application/json' }
       });
-      if (response.data.items.length === 0) {
-        setInfo({author:"", description : "", discount : "", image : "", isbn : "", link : "", pubdate : "", publisher : "", title : ""});
-      } else {
-        setInfo(response.data.items[0]);
+
+      const response2 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
+        params : { type: 'isbn', value: bookinfo.ISBN_THIRTEEN_NO }
+      });
+
+      console.log(response1.data.items[0]);
+      console.log(response2.data.docs[0]);
+
+      let response = { };
+      if (response1.data.items.length === 0 && response2.data.docs.length !== 0) {
+        response = { author: "", description : "", discount : "", image : "", isbn : "", link : "", pubdate : "", publisher : "", title : "", ...response2.data.docs[0] };
+      } else if (response1.data.items.length !== 0 && response2.data.docs.length === 0) {
+        response = { ...response1.data.items[0], AUTHOR: "", EA_ISBN:"" , PUBLISHER:"", TITLE:"" };
+      } else if (response1.data.items.length === 0 && response2.data.docs.length === 0) {
+        alert('도서 정보를 가져오는데 실패했습니다.');
+        navigate(-1);
+        return;
+        // response = { author: "", description : "", discount : "", image : "", isbn : "", link : "", pubdate : "", publisher : "", title : "", AUTHOR: "", EA_ISBN:"" , PUBLISHER:"", TITLE:"" };
       }
-      // console.log(response);
-      // setDescription(response.data.items[0].description);
-      // setImg(response.data.items[0].image);
-      // setInfo(response.data.items[0]);
+
+      // 가지고 온 값과 가져온 값을 합쳐서 저장
+      setFinalBookInfo(prevState => ({ ...prevState, ...response }));
+      
+      // setFinalBookInfo(response);
     }
-    getPlot();
-  }, [bookinfo, token]);
+    getInfo();
+  }, [bookinfo.ISBN_THIRTEEN_NO, navigate]);
+
+  console.log('finalBookInfo:', finalBookInfo);
 
   useEffect(() => {
     const dynamicPosition = () => {
@@ -187,7 +193,7 @@ const BookInfo = () => {
     return () => {
       window.removeEventListener('resize', dynamicPosition);
     };
-  }, [info]);
+  }, [finalBookInfo]);
 
   // 도서관 정보 가져오기 - 일단 서울로 함
   useEffect(() => {
@@ -195,7 +201,7 @@ const BookInfo = () => {
       try {
         const response = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/searchLibraryByBook`, {
           params: { 
-            isbn: bookinfo.ISBN_THIRTEEN_NO,
+            isbn: finalBookInfo.ISBN_THIRTEEN_NO,
             region: 11 
         },
           headers: {
@@ -212,7 +218,7 @@ const BookInfo = () => {
     };
 
     handleLibrary();
-  }, [bookinfo.ISBN_THIRTEEN_NO]);
+  }, [finalBookInfo.ISBN_THIRTEEN_NO]);
 
   // console.log('도서관 정보', library);
 
@@ -228,46 +234,41 @@ const BookInfo = () => {
     }
   };
 
-  console.log(bookinfo)
-
   return (
     <div className="div-bookinfo">
 
       <img className="back-bookinfo" alt="" src="/vector/back.svg" onClick={handleBack}/>
-      <div className="book-title">{bookinfo.TITLE}</div>
+      <div className="book-title">{finalBookInfo.TITLE ? finalBookInfo.TITLE : finalBookInfo.title}</div>
       <img className="line" alt="Line" src="/vector/line-book.svg" />
       
       <div className="book">
-        <img className="book-img" alt={bookinfo.TITLE} src={bookinfo.BOOK_COVER_URL !== "" ? bookinfo.BOOK_COVER_URL : DEFAULT_IMAGE_URL}/>
-        {/* <img className="book-img" alt={bookinfo.TITLE} src={bookinfo.BOOK_COVER_URL !== "" ? info.image : DEFAULT_IMAGE_URL}/> */}
-        <img className="icon-cart" alt="Shopping cart" src="/images/icon-cart-white.png" onClick={() => handlePurchase(bookinfo)} />
+        <img className="book-img" alt={finalBookInfo.title} src={finalBookInfo.BOOK_COVER_URL !== "" ? finalBookInfo.BOOK_COVER_URL : DEFAULT_IMAGE_URL}/>
+        
+        <img className="icon-cart" alt="Shopping cart" src="/images/icon-cart-white.png" onClick={() => handlePurchase(finalBookInfo)} />
         <img className="icon-heart" 
           alt="" 
-          src={isBookmarked(bookinfo) ? "/images/filled-heart-big.png" : "/images/empty-heart-big.png"} 
-          onClick={() => toggleFavorite(bookinfo)} />
+          src={isBookmarked(finalBookInfo) ? "/images/filled-heart-big.png" : "/images/empty-heart-big.png"} 
+          onClick={() => toggleFavorite(finalBookInfo)} />
       </div>
       
       <div className="div-content">
         <div className="group-7">
           <div className="div-name">
             <div className="text-wrapper-5">도서명</div>
-            <div className="text-wrapper-6">{bookinfo.TITLE}</div>
+            <div className="text-wrapper-6">{finalBookInfo.title}</div>
           </div>
           <div className="div-author">
             <div className="author">저자</div>
-            <div className="text-wrapper-6">{bookinfo.AUTHOR}</div>
-            {/* <div className="text-wrapper-6">{info.author}</div> */}
+            <div className="text-wrapper-6">{finalBookInfo.author}</div>
           </div>
           <div className="div-company">
             <div className="text-wrapper-5">출판사</div>
-            <div className="company">{bookinfo.PUBLISHER}</div>
-            {/* <div className="company">{info.publisher}</div> */}
+            <div className="company">{finalBookInfo.publisher}</div>
           </div>
         </div>
         <div className="div-plot">
           <div className="title-plot">줄거리</div>
-          {/* <p className="plot">{description}</p> */}
-          <p className="plot" ref={plotRef}>{info.description}</p>
+          <p className="plot" ref={plotRef}>{finalBookInfo.description}</p>
         </div>
       </div>
 
@@ -298,8 +299,6 @@ const BookInfo = () => {
           <button className="next-button" onClick={nextSlide}>&gt;</button>
         </div>
       </div>
-
-      
     </div>
   );
 };

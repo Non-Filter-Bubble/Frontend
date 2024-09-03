@@ -14,15 +14,18 @@ import Tutorial from '../components/Tutorial';
 import "../styles/Main.css"
 
 const Main = () => {
+    const token = localStorage.getItem('token');
     const navigate = useNavigate();
     const location = useLocation();
 
-    const initialRecommendData = location.state?.recommendData || {};
-    console.log(initialRecommendData)
-    const [recommendData, setRecommendData] = useState(initialRecommendData);
-    console.log(recommendData)
+    const initialRecommendData = location.state?.recommendData || {}; // 처음 회원가입하고 들어온 추천 도서 결과
 
-    const token = localStorage.getItem('token');
+    // console.log(initialRecommendData)
+    
+    const [recommendData, setRecommendData] = useState(initialRecommendData); // 추천 도서 리스트
+    // console.log(recommendData)
+
+   
     const initialLoad = useRef(true);
 
     const nonFilterRef = useRef(null);
@@ -95,8 +98,7 @@ const Main = () => {
                 behavior: 'smooth'
             });
         }
-    };
-    
+    };    
 
     return (
         <div className="div-main">

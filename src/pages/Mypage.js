@@ -10,7 +10,6 @@ import { GoHeartFill } from "react-icons/go";
 
 const Mypage = () => {
   const token = localStorage.getItem('token');
-  
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -52,6 +51,10 @@ const Mypage = () => {
     setPopupVisible(!isPopupVisible);
   };
 
+  const closePopup = () => {
+    setPopupVisible(false);
+  };
+
   return (
     <div className="div-my">
       <div className="profile-container">
@@ -71,7 +74,7 @@ const Mypage = () => {
       <div className="book-drawer">
         <BookDrawer token={token} navigate={navigate} />
       </div>
-      {isPopupVisible && <HeartPopup />}
+      {isPopupVisible && <HeartPopup onClose={closePopup} />}
     </div>
   );
 };

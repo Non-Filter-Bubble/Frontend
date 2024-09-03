@@ -7,12 +7,25 @@ import '../styles/HeartPopup.css'; // Screen 컴포넌트의 스타일을 포함
 // 기본 이미지 경로
 const DEFAULT_IMAGE_URL = '../images/bookImage-small.png';
 
-const HeartPopup = () => {
+const HeartPopup = ({ onClose }) => {
   const token = localStorage.getItem('token');
 
   const [bookmarks, setBookmarks] = useState([]);
   const [showBookmarks, setShowBookmarks] = useState([]);
   const resultsRef = useRef(null); // 검색 결과 컨테이너를 위한 참조 생성
+
+  // 팝업 외부 클릭 시 팝업 닫기
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (resultsRef.current && !resultsRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [onClose]);
 
   // 찜한 책 목록 가져오기
   useEffect(() => {   
@@ -78,7 +91,12 @@ const HeartPopup = () => {
 
   // 찜 취소
   const toggleHeart = async (book) => {
-    console.log(book);
+    // console.log(book);
+    const confirmDelete = window.confirm(`정말로 [${book.title}] 책의 찜을 취소하시겠습니까?`);
+
+    if (!confirmDelete) {
+      return; // 사용자가 취소를 선택하면 함수 종료
+    }
 
     let bookmark = bookmarks.find(b => parseInt(b.isbn, 10) === parseInt(book.isbn, 10));
     console.log(bookmark);
@@ -101,22 +119,28 @@ const HeartPopup = () => {
 
   return (
     <div className="div-heart-popup" ref={resultsRef}>
-        {showBookmarks.map((book, index) => (
-          <div key={index} className="group-book-wrapper">
-            <div className="group-book">
-              <img className="book-img" alt=" " src={book.image || DEFAULT_IMAGE_URL} />
-              <div className="group-book-info">
-                <div className="title">{book.title}</div>
-                <div className="author">{book.author}</div>
-                <div className="company">{book.publisher}</div>
+        {showBookmarks.length === 0 ? 
+        (
+          <p>아직 찜한 도서가 없습니다.</p>
+        ) : 
+        (
+          showBookmarks.map((book, index) => (
+            <div key={index} className="group-book-wrapper">
+              <div className="group-book">
+                <img className="book-img" alt=" " src={book.image || DEFAULT_IMAGE_URL} />
+                <div className="group-book-info">
+                  <div className="title">{book.title}</div>
+                  <div className="author">{book.author}</div>
+                  <div className="company">{book.publisher}</div>
+                </div>
+                <img className="image" alt="" src="images/filled-heart-small.png" onClick={() => toggleHeart(book)} />
               </div>
-              <img className="image" alt="" src="images/filled-heart-small.png" onClick={() => toggleHeart(book)} />
+              {index < showBookmarks.length - 1 && (
+                <img className="line-div-search-book" alt="Line" src="/vector/line-search-popup.svg" />
+              )}
             </div>
-            {index < showBookmarks.length - 1 && (
-              <img className="line-div-search-book" alt="Line" src="/vector/line-search-popup.svg" />
-            )}
-          </div>
-        ))}
+          ))
+        )}
     </div>
 
   );

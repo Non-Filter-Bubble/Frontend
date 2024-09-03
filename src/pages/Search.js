@@ -11,11 +11,14 @@ const Search = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
   const location = useLocation();
-  const dataList = location.state?.dataList || [];   // 검색 결과 수
+
+  const dataList = location.state?.dataList || [];   // 검색 결과
   const searchInput = location.state?.searchInput || '';
 
   const [bookmarks, setBookmarks] = useState([]);
-  const [search, setSearch] = useState('');
+  
+  const [search, setSearch] = useState(''); // 검색입력어
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;  // 한페이지에 최대 4개의 검색 결과
 
@@ -66,10 +69,10 @@ const Search = () => {
   // 찜 버튼
   const toggleFavorite = async (book) => {
     console.log(`찜하기 클릭`);
-    console.log(book);
+    // console.log(book);
 
     let bookmark = bookmarks.find(b => parseInt(b.isbn, 10) === parseInt(book.EA_ISBN, 10));
-    console.log(bookmark);
+    // console.log(bookmark);
 
     try {
       if (!bookmark) { // 찜하지 않은 책을 찜한 경우
@@ -151,6 +154,7 @@ const Search = () => {
 
   // 제목만 검색
     try {
+      // "AUTHOR", "EA_ISBN", "PUBLISHER", "TITLE"
       const response1 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
         params: {
           type: 'title',
@@ -159,11 +163,11 @@ const Search = () => {
       });
 
       const dataList1 = response1.data.docs;   
-
       const dataList2 = [];
 
       for (const data of dataList1) {
         try {
+          // "BOOK_COVER_URL", "GENRE_LV1", "GENRE_LV2", "INFO_TEXT_BOLD", ISBN_THIRTEEN_NO
           const response2 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/load-books`, {
             params: {
               isbn: parseInt(data.EA_ISBN, 10)
@@ -171,7 +175,7 @@ const Search = () => {
           });
           dataList2.push(response2.data);
         } catch (error) {
-          dataList2.push({ ISBN_THIRTEEN_NO: parseInt(data.EA_ISBN, 10), GENRE_LV1: "", GENRE_LV2: "", INFO_TEXT: "", BOOK_COVER_URL: `https://contents.kyobobook.co.kr/sih/fit-in/100x0/pdt/${data.EA_ISBN}.jpg`});
+          dataList2.push({ ISBN_THIRTEEN_NO: parseInt(data.EA_ISBN, 10), GENRE_LV1: "", GENRE_LV2: "", INFO_TEXT_BOLD: "", BOOK_COVER_URL: `https://contents.kyobobook.co.kr/sih/fit-in/100x0/pdt/${data.EA_ISBN}.jpg`});
         }
       }
 
@@ -181,9 +185,10 @@ const Search = () => {
         return { ...data1, ...data2 };
       });
 
+      console.log('검색의 결과 입니다.')
       console.log(dataList);
       
-      // 검색 결과 페이지로 이동
+      // 검색 결과 목록 페이지로 이동
       navigate("/search", { state: { dataList: dataList, searchInput: search } });
 
       setSearch('');
@@ -199,6 +204,8 @@ const Search = () => {
     console.log('검색 버튼 클릭');
     handleSearch();
   }
+
+  console.log(currentData);
 
   return (
     <div className="div-search">

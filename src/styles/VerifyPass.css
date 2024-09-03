@@ -65,16 +65,22 @@
   }
   
   .div-verify .submit {
+    background-color: #000000;
+    border-radius: 30px;
+    height: 40px;
+    /* position: relative; */
+    width: 100px;
+    cursor: pointer;
     color: #ffffff;
     font-family: "Pretendard-Regular", Helvetica;
     font-size: 20px;
     font-weight: 400;
-    left: 34px;
+    /* left: 34px; */
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 8px;
-    width: 50px;
+    /* top: 8px;
+    width: 50px; */
   }
   
   .div-verify .group-title {
