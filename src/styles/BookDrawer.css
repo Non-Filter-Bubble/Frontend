@@ -50,6 +50,7 @@
     font-family: "Pretendard-Light";
     max-width: 530px;
     min-height: 237px;
+    
   }
   
   .book-drawer-container .book-drawer-genre .genre-title {
@@ -119,25 +120,19 @@
   }
   
   .book-drawer-container .book-drawer-no-books {
-    flex: 1 ; /* 크기를 부모의 100%로 설정 */
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
+    display: flex !important; 
     color: #888;
-    font-size: 1em;
+    font-size: 14px;
     height: 150px;
     border: 2px dashed #ddd;
     border-radius: 4px;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-  }
+    justify-content: center !important;
+    align-items: center !important;
+    width: 440px !important;
+}
   
   .book-drawer-container .book-drawer-book-overlay {
     border-radius: 4px;
-    position: absolute;
-    top: 25px;
-    left: 20px;
     padding: 5px;
     display: flex;
     flex-direction: column;
