@@ -1,51 +1,53 @@
 :root {
-  --scale-factor: 1;  /* 기본 스케일 팩터 */
+  --container-width: 1280px; /* 고정 너비 설정 */
 }
 
 /* 전역 설정 */
 body {
-  width:100%;
-  min-width: 1290px;
+  width: 100%;
+  min-width: 1280px; /* 최소 너비 고정 */
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  font-family: "Pretendard-"
 }
 
 .header {
   width: 100%;
   overflow-x: hidden; /* 가로 스크롤 없애기 */
+  
 }
 
+/* 중앙 정렬과 고정 너비 설정 */
 .App {
-  width: 100%; /* 기본 너비 설정 */
-  max-width: 1920px; /* 최대 너비 설정 */
+  width: var(--container-width); /* 고정된 너비 사용 */
+  max-width: 100%; /* 최대 너비 제한 */
   margin: 0 auto; /* 가운데 정렬 */
-  transform-origin: top center; /* 변환 원점 설정 */
-  transform: scale(var(--scale-factor)); /* 스케일 적용 */
-  transition: transform 0.3s ease; /* 부드러운 변환 적용 */
-  overflow-x: hidden; /* 가로 스크롤 없애기 */
 }
 
-/* 너비가 1920px 이하일 때 스케일 동적 조정 */
-@media (max-width: 1920px) {
-  :root {
-      --scale-factor: calc(100vw / 1920); /* 뷰포트 너비에 따른 스케일 계산 */
-  }
-
+/* 반응형 레이아웃 - 최소 너비 이하일 때 */
+@media (max-width: 1200px) {
   .App {
-      transform: scale(var(--scale-factor)); /* 스케일 적용 */
+      width: 100%; /* 뷰포트 너비 사용 */
+      max-width: 1200px; /* 최대 너비 유지 */
+      padding: 0 10px; /* 작아진 화면에서 양쪽 여백을 줄임 */
       margin: 0 auto; /* 가운데 정렬 유지 */
   }
 }
 
-/* 최소 너비(예: 1200px) 이하일 때 스케일 중지 및 레이아웃 조정 */
-@media (max-width: 1200px) { 
-  :root {
-      --scale-factor: calc(100vw / 1200); /* 최소 너비에 따른 스케일 계산 */
-  }
+/* 헤더, 푸터, 메인 등 레이아웃 요소들에 대한 기본 설정 */
+header, footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
 
-  .App {
-      width: 100%; /* 뷰포트 전체 너비 사용 */
-      max-width: 1200px; /* 최대 너비 설정 */
-      transform: none; /* 스케일 중지 */
-      margin: 0 auto; /* 가운데 정렬 유지 */
-      /* 소형 화면을 위한 추가 스타일 조정 */
-  }
+main {
+  padding: 20px 0;
+}
+
+h1, h2, h3 {
+  margin-bottom: 20px;
+  color: #333;
 }
