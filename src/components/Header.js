@@ -106,10 +106,10 @@ const Header = () => {
                value={searchInput}
                onChange={(e) => setSearchInput(e.target.value)}
                onKeyPress={(e) => e.key === 'Enter' && handleSearch()}/>
-        <div className="icon-search" onClick={handleSearch} ><IoSearchSharp size="20"/></div>
+        <div className="icon-search" onClick={handleSearch} ><IoSearchSharp size="40"/></div>
       </div>
 
-      <div className="icon-user" onClick={() => isLoggedIn && navigate('/user')} ><FaUser size="20"/></div>
+      <div className="icon-user" onClick={() => isLoggedIn && navigate('/user')} ><FaUser size="22"/></div>
 
       <div className="div-auth" onClick={handleAuthClick}>
         <div className="auth">{isLoggedIn ? 'Logout' : 'Login'}</div>
