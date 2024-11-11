@@ -1,9 +1,9 @@
 .book-drawer-container {
     background: #f8f8f8;
     height: auto;
-    padding: 70px 360px;
+    padding: 70px 100px;
     border-radius: 8px;
-    min-width: 1800px;
+    width: 100%
   }
  
  .book-drawer-container .book-drawer-header {
