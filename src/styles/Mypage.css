@@ -7,7 +7,7 @@
   height: 200px;
   display: flex;
   align-items: center;
-  padding: 0 320px;
+  padding: 0 100px;
   position: relative; /* 부모 요소에서 배치 기준 */
   margin-top: 50px;
   margin-bottom: 20px;
