@@ -5,7 +5,7 @@ const Slide01 = ({ scrollToNonFilter }) => {
   const detailClick = () => {
     // container 클릭 시 실행할 코드
     console.log('detail clicked');
-    scrollToNonFilter();
+    scrollToNonFilter();  // 스크롤 이동
   };
 
   

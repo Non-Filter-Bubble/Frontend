@@ -8,44 +8,37 @@ import NonFilter from "../components/NonFilter";
 import Filter from "../components/Filter";
 import BestSellers from "../components/BestSellers";
 import BookDrawer from "../components/BookDrawer";
-
 import Tutorial from '../components/Tutorial';
 
-import "../styles/Main.css"
+import "../styles/Main.css";
 
 const Main = () => {
     const token = localStorage.getItem('token');
     const navigate = useNavigate();
     const location = useLocation();
 
-    const initialRecommendData = location.state?.recommendData || {}; // 처음 회원가입하고 들어온 추천 도서 결과
-
-    // console.log(initialRecommendData)
-    
-    const [recommendData, setRecommendData] = useState(initialRecommendData); // 추천 도서 리스트
-    // console.log(recommendData)
-
-   
+    const initialRecommendData = location.state?.recommendData || {};
+    const [recommendData, setRecommendData] = useState(initialRecommendData);
     const initialLoad = useRef(true);
 
     const nonFilterRef = useRef(null);
     const filterRef = useRef(null);
     const bestSellersRef = useRef(null);
     const bookDrawerRef = useRef(null);
+    const slide01Ref = useRef(null);  // Slide01 컴포넌트의 ref 생성
 
     const [showTutorial, setShowTutorial] = useState(false);
 
     useEffect(() => {
         const dontShowTutorial = localStorage.getItem('dontShowTutorial');
         if (dontShowTutorial !== 'true') {
-          setShowTutorial(true);
+            setShowTutorial(true);
         }
     }, []);
     
     const handleTutorialClose = (dontShowAgain) => {
         if (dontShowAgain) {
             localStorage.setItem('dontShowTutorial', 'true');
-            setShowTutorial(false);
         }
         setShowTutorial(false);
     };
@@ -98,12 +91,15 @@ const Main = () => {
                 behavior: 'smooth'
             });
         }
-    };    
+    };
 
     return (
         <div className="div-main">
             {showTutorial && <Tutorial onClose={handleTutorialClose} />}
-            <Slide />
+            {/* Slide01에 ref 전달 및 scrollToSlide01 함수 전달 */}
+            <div ref={slide01Ref}>
+                <Slide scrollToNonFilter={() => scrollToSection(nonFilterRef)} scrollToSlide01={() => scrollToSection(slide01Ref)} />
+            </div>
             <MainHeader 
                 scrollToNonFilter={() => scrollToSection(nonFilterRef)}
                 scrollToFilter={() => scrollToSection(filterRef)}
@@ -119,11 +115,9 @@ const Main = () => {
             <div ref={bookDrawerRef}>
                 <BookDrawer token={token} navigate={navigate} />
             </div>
-            
             <div ref={bestSellersRef}>
                 <BestSellers />
             </div>
-            
         </div>
     );
 };

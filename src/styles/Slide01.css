@@ -50,21 +50,21 @@
 }
 .slide01-ment1 {
     position: absolute;
-    top: 100px;
-    left: 26rem;
+    top: 130px;
+    left: 250px;
     font-weight: 300;
 }
 .slide01-ment2 {
     position: absolute;
-    top: 240px;
-    left: 26rem;
+    top: 270px;
+    left: 250px;
     font-size: 20px;
     font-weight: 300;
 }
 .detail-box {
     position: absolute;
     top: 0rem;
-    left: 0rem;
+    left: 200px;
     background-color: #ffffff;
     width: 11.25rem;
     height: 2.5rem;
@@ -72,13 +72,12 @@
 .detail {
     position: absolute;
     top: 0.438rem;
-    left: 3.113rem;
     line-height: 150%;
 }
 .btn-detail {
     position: absolute;
-    top: 300px;
-    left: 26rem;
+    top: 00px;
+    left: 0px;
     width: 11.25rem;
     height: 2.5rem;
     font-size: 1.125rem;

@@ -24,8 +24,8 @@
 
 .slide02-ment1 {
     position: absolute;
-    top: 100px;
-    left: 26rem;
+    top: 170px;
+    left: 250px;
     font-weight: 300;
     white-space: nowrap;
 }
@@ -35,8 +35,8 @@
 }
 .slide02-ment2 {
     position: absolute;
-    top: 12.625rem;
-    left: 26rem;
+    top: 240px;
+    left: 250px;
     font-size: 20px;
     font-weight: 300;
 }
@@ -57,7 +57,7 @@
 .btn-detail {
     position: absolute;
     top: 400px;
-    left: 26rem;
+    left: 250px;
     width: 11.25rem;
     height: 2.5rem;
     font-size: 1.125rem;
