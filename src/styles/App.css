@@ -1,48 +1,33 @@
 :root {
-  --container-width: 1280px; /* 고정 너비 설정 */
+  --container-width: 1280px;
 }
 
-/* 전역 설정 */
 body {
   width: 100%;
-  min-width: 1280px; /* 최소 너비 고정 */
   margin: 0;
   padding: 0;
   background-color: #ffffff;
-  font-family: "Pretendard-"
+  font-family: "Pretendard-";
+  overflow-x: hidden; /* 가로 스크롤 제거 */
 }
 
 .header {
   width: 100%;
-  overflow-x: hidden; /* 가로 스크롤 없애기 */
-  
+  overflow-x: hidden; /* 가로 스크롤 제거 */
 }
 
-/* 중앙 정렬과 고정 너비 설정 */
 .App {
-  width: var(--container-width); /* 고정된 너비 사용 */
+  width: var(--container-width);
   max-width: 100%; /* 최대 너비 제한 */
-  margin: 0 auto; /* 가운데 정렬 */
+  margin: 0 auto; /* 중앙 정렬 */
 }
 
-/* 반응형 레이아웃 - 최소 너비 이하일 때 */
-@media (max-width: 1200px) {
-  .App {
-      width: 100%; /* 뷰포트 너비 사용 */
-      max-width: 1200px; /* 최대 너비 유지 */
-      padding: 0 10px; /* 작아진 화면에서 양쪽 여백을 줄임 */
-      margin: 0 auto; /* 가운데 정렬 유지 */
+@media (max-width: 1280px) {
+  :root {
+    --container-width: 100%; /* 최소 너비보다 작을 때 100%로 설정 */
   }
-}
-
-/* 헤더, 푸터, 메인 등 레이아웃 요소들에 대한 기본 설정 */
-header, footer {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
-main {
-  padding: 20px 0;
+  .App {
+    width: 100%;
+    padding: 0 10px;
+  }
 }
