@@ -104,6 +104,7 @@ const BookPost = () => {
       
       
       {/* 책 커버 이미지 */}
+      <div className="book-content-wrapper">
       <img className="book-cover" alt="" src={bookinfo.BOOK_COVER_URL || DEFAULT_IMAGE_URL} />
           
       <div className="book-info-container">
@@ -162,6 +163,7 @@ const BookPost = () => {
         <textarea className="rect-review" type="text" placeholder="" value={review} onChange={(e) => setReview(e.target.value)}/>
       </div>
 
+      <div className='div-button-containder'>
       <div className="div-good">
         <img 
           className="btn-good" 
@@ -178,6 +180,7 @@ const BookPost = () => {
           onClick={toggleBadBtn} 
         />
       </div>
+      </div>
 
       <div className="div-submit">
         <div className="subit-btn" onClick={handlePost}>
@@ -186,6 +189,7 @@ const BookPost = () => {
       </div>
 
       {isPopupVisible && <SearchPopup onClose={togglePopup} bookinfo={bookinfo} setBookinfo={setBookinfo}/>}
+    </div>
     </div>
     </div>
   );

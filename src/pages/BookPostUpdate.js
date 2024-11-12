@@ -14,12 +14,20 @@ const BookPostUpdate = () => {
   const bookinfoshow = location.state?.bookinfoshow || {};
 
   const [comment, setComment] = useState(bookinfoshow.comment);
-    const [review, setReview] = useState(bookinfoshow.review);
+  const [review, setReview] = useState(bookinfoshow.review);
+  const [selectedButton, setSelectedButton] = useState(null);
   
   const handleBack = () => {
     navigate(-1); // 이전 페이지로 이동
   };
 
+  const toggleGoodBtn = () => {
+    setSelectedButton(selectedButton === 'good' ? null : 'good');
+  };
+
+  const toggleBadBtn = () => {
+    setSelectedButton(selectedButton === 'bad' ? null : 'bad');
+  };
   // console.log('선택한 책의 결과:', bookinfo);
 
   // 수정 버튼 누름
@@ -57,6 +65,7 @@ const BookPostUpdate = () => {
       
       
       {/* 책 커버 이미지 */}
+      <div className="book-content-wrapper">
       <img className="book-cover" alt="" src={bookinfoshow.imageUrl || DEFAULT_IMAGE_URL} />
           
       <div className="book-info-container">
@@ -103,15 +112,28 @@ const BookPostUpdate = () => {
 
       {/* 독서 후기 */}
       <div className="div-review">
-        <textarea className="rect-review" type="text" placeholder="" value={review} onChange={(e) => setReview(e.target.value)}/>
         <div className="subtitle-review">독서 후기</div>
+        <textarea className="rect-review" type="text" placeholder="" value={review} onChange={(e) => setReview(e.target.value)}/>
+        
       </div>
 
-      <div className="div-good">
-        <img className="btn-good" alt="" src={bookinfoshow.evaluation === true ? "/images/filled-good-btn.png" : "/images/empty-good-btn.png"} />
-      </div>
-      <div className="div-bad">
-        <img className="btn-bad" alt="" src={bookinfoshow.evaluation === false ? "/images/filled-bad-btn.png" : "/images/empty-bad-btn.png"} /> 
+      <div className='div-button-containder'>
+        <div className="div-good">
+          <img 
+            className="btn-good" 
+            alt="" 
+            src={selectedButton === 'good' ? "/images/filled-good-btn.png" : "/images/empty-good-btn.png"} 
+            onClick={toggleGoodBtn} 
+          />
+        </div>
+        <div className="div-bad">
+          <img 
+            className="btn-bad" 
+            alt="" 
+            src={selectedButton === 'bad' ? "/images/filled-bad-btn.png" : "/images/empty-bad-btn.png"} 
+            onClick={toggleBadBtn} 
+          />
+        </div>
       </div>
 
       <div className="div-submit">
@@ -119,6 +141,7 @@ const BookPostUpdate = () => {
           <div className="submit">수정</div>
         </div>
       </div>
+    </div>
     </div>
     </div>
   );

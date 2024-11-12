@@ -1,6 +1,5 @@
 .div-bookpost {
   background-color: #ffffff;
-  height: 1403px;
   margin: auto;
   position: relative;
   width: 100%;
@@ -17,7 +16,6 @@
   justify-content: flex-start;
   width: 100%;
   margin-bottom: 30px;
-  
 }
 
 .div-bookpost .back-book {
@@ -35,32 +33,40 @@
   font-weight: 600;
 }
 
-
-
 /* 책 커버 */
 .div-bookpost .book-cover {
   display: block;
   width: 180px;
-  height: 270px;
+  height: 260px;
   margin-bottom: 60px;
 }
+.book-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px; /* 전체 콘텐츠의 최대 너비 설정 */
+}
 
-.div-bookpost .book-info-container {
-  margin-right: 50px;
+.book-info-container {
+  width: 100%;
+  max-width: 400px;
+  margin-right:80px;
 }
 
 .div-bookpost .group-bookname,
 .div-bookpost .group-author,
 .div-bookpost .group-company {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
   margin-bottom: 20px;
 }
 
 .div-bookpost .title-bookname,
 .div-bookpost .title-author,
 .div-bookpost .title-company {
+  width: 80px;
+  flex-shrink: 0;
   color: transparent;
   font-family: "Pretendard-Medium", Helvetica;
   font-size: 20px;
@@ -71,20 +77,20 @@
 .div-bookpost .rect-bookname,
 .div-bookpost .rect-author,
 .div-bookpost .rect-company {
+  flex: 1;
   background-color: #f5f5f5;
   border: 1px solid;
   border-color: #8e8e8e;
   height: 35px;
-  width: 280px;
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 15px;
   display: flex;
   align-items: center;
   overflow-x: auto;
   white-space: nowrap;
+  padding: 10px;
+  overflow-y: hidden; 
 }
-
-
 
 .div-bookpost .rect-bookname::-webkit-scrollbar-thumb,
 .div-bookpost .rect-author::-webkit-scrollbar-thumb,
@@ -93,111 +99,14 @@
   border-radius: 2px;
 }
 
-/* 도서명 */
-.div-bookpost .group-bookname {
-  margin-bottom: 20px;
-}
-
-.div-bookpost .title-bookname {
-  color: transparent;
-  font-family: "Pretendard-Medium", Helvetica;
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-.div-bookpost .rect-bookname {
-  background-color: #f5f5f5;
-  border: 1px solid;
-  border-color: #8e8e8e;
-  height: 35px;
-  width: 280px;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;
-  padding: 10px;
-}
-
-.div-bookpost .div-searchbook-btn {
-  position: absolute;
-  top: 340px;
-  right: 360px;
-  cursor: pointer;
-}
-
-.div-bookpost .searchbook-btn {
-  border: 1px solid;
-  border-color: #000000;
-  border-radius: 30px;
-  height: 37px;
-  width: 99px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.div-bookpost .searchbook {
-  color: #000000;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 18px;
-  font-weight: 400;
-}
-
-/* 저자 */
-.div-bookpost .group-author {
-  margin-bottom: 20px;
-}
-
-.div-bookpost .rect-author {
-  background-color: #f5f5f5;
-  border: 1px solid;
-  border-color: #8e8e8e;
-  height: 35px;
-  width: 280px;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;
-  padding: 10px;
-}
-
-.div-bookpost .title-author {
-  color: transparent;
-  font-family: "Pretendard-Medium", Helvetica;
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-/* 출판사 */
-.div-bookpost .group-company {
-  margin-bottom: 20px;
-}
-
-.div-bookpost .rect-company {
-  background-color: #f5f5f5;
-  border: 1px solid;
-  border-color: #8e8e8e;
-  height: 35px;
-  width: 280px;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;
-  padding: 10px;
-}
-
-.div-bookpost .title-company {
-  color: transparent;
-  font-family: "Pretendard-Medium", Helvetica;
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
 /* 한줄평 */
 .div-bookpost .div-one-line {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
   margin-bottom: 20px;
   margin-top: 30px;
   width: 100%;
+  position: relative;
 }
 
 .div-bookpost .one-line-notice {
@@ -210,71 +119,69 @@
   top: -16px;
 }
 
-.div-bookpost .rect-one-line {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #8e8e8e;
-  height: 80px;
-  width: 280px;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  overflow: auto;
-}
-
 .div-bookpost .title-one-line {
+  width: 80px;
+  flex-shrink: 0;
   color: transparent;
   font-family: "Pretendard-Medium", Helvetica;
   font-size: 20px;
   font-weight: 500;
   margin-right: 20px;
-  margin-top: -40px;
+}
+
+.div-bookpost .rect-one-line {
+  flex: 1;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #8e8e8e;
+  width: 300px;
+  height: 80px;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 15px;
+  padding: 8px;
+  overflow: auto;
 }
 
 /* 독서 후기 */
 .div-bookpost .div-review {
+  display: flex;
+  align-items: flex-start;
   margin-bottom: 20px;
 }
 
-.div-bookpost .rect-review {
-  background-color: #ffffff;
-  border: 1px solid;
-  border-color: #8e8e8e;
-  height: 380px;
-  width: 280px;
-  padding: 10px;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;
-}
-
 .div-bookpost .subtitle-review {
+  width: 80px;
+  flex-shrink: 0;
   color: #000000;
   font-family: "Pretendard-Medium", Helvetica;
   font-size: 20px;
   font-weight: 500;
-  margin-bottom: 5px;
-}
-
-.div-bookpost .div-good {
-  background-color: #ffffff;
-  border-radius: 35px;
-  height: 70px;
-  width: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
   margin-right: 20px;
 }
 
-.div-bookpost .btn-good {
-  height: 49px;
-  width: 49px;
-  object-fit: cover;
+.div-bookpost .rect-review {
+  flex: 1;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #8e8e8e;
+  height: 380px;
+  padding: 10px;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 15px;
+  overflow-y: auto;
 }
 
+/* 평가 버튼 */
+.div-button-containder {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+  width: 100%;
+  margin-left:40px;
+}
+
+.div-bookpost .div-good,
 .div-bookpost .div-bad {
   background-color: #ffffff;
   border-radius: 35px;
@@ -284,19 +191,23 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  
 }
 
+.div-bookpost .btn-good,
 .div-bookpost .btn-bad {
   height: 49px;
   width: 49px;
   object-fit: cover;
 }
 
+/* 제출 버튼 */
 .div-bookpost .div-submit {
   display: flex;
   justify-content: center;
   margin-top: 30px;
   cursor: pointer;
+  margin-left:80px;
 }
 
 .div-bookpost .subit-btn {
