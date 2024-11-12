@@ -41,31 +41,31 @@ function App() {
         break;
 
       case "/join":
-        title = "회원가입";
+        title = "Join";
         metaDescription = "Join us and enjoy our service!";
         break;
 
       case "/join/booktype":
-        title = "회원가입";
+        title = "Join";
         metaDescription = "Join us and enjoy our service!";
         break;
 
-      case "/join/booktype/genre":
-        title = "회원가입";
+      case "/join/genre":
+        title = "Join";
         metaDescription = "Join us and enjoy our service!";
         break;
 
       case "/complete-join":
-        title = "회원가입";
+        title = "Join";
         metaDescription = "Join us and enjoy our service!";
         break;
 
       case "/login":
-        title = "로그인";
+        title = "Login";
         break;
 
       case "/user":
-        title = "마이페이지";
+        title = "Mypage";
         metaDescription = "Manage your user profile here.";
         break;
 
@@ -74,8 +74,13 @@ function App() {
         metaDescription = "Update your user information including nickname and password.";
         break;
 
-      case "/user/bookpost":
+      case "/bookpost":
         title = "북서랍 등록";
+        metaDescription = "Post a new book.";
+        break;
+
+      case "/bookpostupdate":
+        title = "북서랍 수정";
         metaDescription = "Post a new book.";
         break;
 
