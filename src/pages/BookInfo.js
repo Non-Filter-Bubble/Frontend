@@ -142,6 +142,8 @@ const BookInfo = () => {
         response = { author: "", description : "", discount : "", image : "", isbn : "", link : "", pubdate : "", publisher : "", title : "", ...response2.data.docs[0] };
       } else if (response1.data.items.length !== 0 && response2.data.docs.length === 0) {
         response = { ...response1.data.items[0], AUTHOR: "", EA_ISBN:"" , PUBLISHER:"", TITLE:"" };
+      } else if (response1.data.items.length !== 0 && response2.data.docs.length !== 0) {
+        response = { ...response1.data.items[0], ...response2.data.docs[0] };
       } else if (response1.data.items.length === 0 && response2.data.docs.length === 0) {
         alert('도서 정보를 가져오는데 실패했습니다.');
         navigate(-1);
