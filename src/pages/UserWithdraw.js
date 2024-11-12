@@ -75,8 +75,8 @@ const UserWithdraw = () => {
   return (
     <div className="div-withdraw">
       <div className="group-title">
-        <div className="title">회원 탈퇴</div>
         <img className="back-with" alt="" src="/vector/back.svg" onClick={handleBack}/>
+        <div className="title">회원 탈퇴</div> 
       </div>
 
       <p className="notice-with">
@@ -84,13 +84,12 @@ const UserWithdraw = () => {
         <br />
         탈퇴를 원하시면 현재 비밀번호를 입력해주십시오.
       </p>
-
-      <img className="rect-with" alt=" "src="/vector/rect-with.svg"/>
       
       <div className="group-input">
         <div className="group-pass">
-          <input className="rect-with-input"  type="password" src="/vector/rect-user-input.svg" value={password} onChange={(e) => setPassword(e.target.value)} />
           <div className="text-pass">비밀번호 확인</div>
+          <input className="rect-with-input"  type="password" src="/vector/rect-user-input.svg" value={password} onChange={(e) => setPassword(e.target.value)} />
+          
         </div>
         <div className="div-submit">
           <div className="btn-submit">

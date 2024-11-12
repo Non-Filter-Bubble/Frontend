@@ -1,128 +1,132 @@
 .div-withdraw {
-    background-color: #ffffff;
-    height: 1403px;
-    position: relative;
-    width: 100%;
-  }
+  position: relative;
+  background-color: #ffffff;
+  width: 100%;
+  height: 100vh;
+  padding: 100px 150px;
+}
+
+.div-withdraw .group-title {
+  position: relative;
+  top: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.div-withdraw .title {
+  position: relative;
+  color: #000000;
+  font-family: "Pretendard-SemiBold", Helvetica;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  margin-left: 20px;
+}
+
+.div-withdraw .back-with {
+  position: relative;
+  width: 14px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.div-withdraw .notice-with {
+  position: relative;
+  color: #fd0303;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  top: 130px;
+  left: 40px;
+}
+
+.div-withdraw .rect-with {
+  position: relative;
+  top: 340px;
+  left: 380px;
+  width: 1160px;
+  height: 300px;
+}
+
+.div-withdraw .group-input {
+  position: relative;
+  margin-top: 160px;
+  left: 30px;
+  width: 900px;
+  height: 300px;
+  background-size: 100% 100%;
+  padding: 10px;
+  border-radius: 30px;
+  border: 1px solid #a6a6a6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   
-  .div-withdraw .group-title {
-    height: 44px;
-    left: 360px;
-    position: absolute;
-    top: 200px;
-    width: 163px;
-  }
   
-  .div-withdraw .title{
-    color: #000000;
-    font-family: "Pretendard-SemiBold", Helvetica;
-    font-size: 30px;
-    font-weight: 600;
-    left: 50px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 0;
-    white-space: nowrap;
-  }
-  
-  .div-withdraw .back-with {
-    height: 34px;
-    left: -3px;
-    position: absolute;
-    top: 2px;
-    width: 14px;
-    cursor: pointer;
-  }
-  
-  .div-withdraw .notice-with {
-    color: #fd0303;
-    font-family: "Pretendard-Regular", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    left: 410px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 265px;
-  }
-  
-  .div-withdraw .rect-with {
-    height: 300px;
-    left: 380px;
-    position: absolute;
-    top: 340px;
-    width: 1160px;
-  }
-  
-  .div-withdraw .group-input {
-    background-size: 100% 100%;
-    height: 300px;
-    left: 380px;
-    position: absolute;
-    top: 340px;
-    width: 1160px;
-  }
-  
-  .div-withdraw .group-pass {
-    height: 40px;
-    left: 317px;
-    position: absolute;
-    top: 96px;
-    width: 428px;
-  }
-  
-  .div-withdraw .rect-with-input {
-    height: 40px;
-    left: 126px;
-    position: absolute;
-    top: 0;
-    width: 280px;
-    padding: 10px;
-    font-family: "Pretendard-Regular", Helvetica;
-    font-size: 15px;
-  }
-  
-  .div-withdraw .text-pass {
-    color: #000000;
-    font-family: "Pretendard-Medium", Helvetica;
-    font-size: 20px;
-    font-weight: 500;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 8px;
-    white-space: nowrap;
-  }
-  
-  .div-withdraw .div-submit {
-    height: 40px;
-    left: 530px;
-    position: absolute;
-    top: 224px;
-    width: 102px;
-    cursor: pointer;
-  }
-  
-  .div-withdraw .btn-submit {
-    background-color: #000000;
-    border-radius: 30px;
-    height: 40px;
-    position: relative;
-    width: 100px;
-  }
-  
-  .div-withdraw .submit {
-    color: #ffffff;
-    font-family: "Pretendard-Regular", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    left: 34px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 8px;
-    width: 50px;
-  }
-  
+}
+
+.div-withdraw .group-pass {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top:20px;
+}
+
+.div-withdraw .rect-with-input {
+  position: relative;
+  width: 280px;
+  height: 40px;
+  padding: 10px;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 15px;
+}
+
+.div-withdraw .text-pass {
+  position: relative;
+  color: #000000;
+  font-family: "Pretendard-Medium", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  margin-right: 20px;
+  margin-left: -20px;
+}
+
+.div-withdraw .div-submit {
+  position: relative;
+  width: 102px;
+  height: 40px;
+  cursor: pointer;
+  margin-top: 70px;
+  margin-bottom: 0px;
+}
+
+.div-withdraw .btn-submit {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  background-color: #000000;
+  border-radius: 30px;
+}
+
+.div-withdraw .submit {
+  position: relative;
+  top: 8px;
+  left: 34px;
+  color: #ffffff;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  width: 50px;
+}
