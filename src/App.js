@@ -116,7 +116,7 @@ function App() {
     <div className='App'>
       <div className='header'>
         <Header />
-        {token && location.pathname !== '/join/booktype' && location.pathname !== '/join/genre' && <StickyNavbar />} 
+        {token && location.pathname !== '/join/booktype' && location.pathname !== '/join/genre' && location.pathname !== '/complete-join' && <StickyNavbar />} 
         {/* 로그인된 경우이고, SelectBookType과 SelectGenre 페이지가 아닌 경우에만 StickyNavbar 렌더링 */}
       </div>
       <div className="content-container">
