@@ -40,21 +40,107 @@
   height: 260px;
   margin-bottom: 60px;
 }
+
 .book-content-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 600px; /* 전체 콘텐츠의 최대 너비 설정 */
+  max-width: 600px;
 }
 
 .book-info-container {
   width: 100%;
   max-width: 400px;
-  margin-right:80px;
+  margin-right: 80px;
 }
 
-.div-bookpost .group-bookname,
+/* 도서명과 검색 버튼 */
+.div-bookpost .group-bookname {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.div-bookpost .title-bookname {
+  width: 80px;
+  flex-shrink: 0;
+  color: transparent;
+  font-family: "Pretendard-Medium", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 20px;
+}
+
+.div-bookpost .rect-bookname {
+  width: 300px;
+  background-color: #f5f5f5;
+  border: 1px solid;
+  border-color: #8e8e8e;
+  height: 35px;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+/* 도서 검색 버튼 */
+.div-bookpost .div-searchbook-btn {
+  position: absolute;
+  left: 420px;
+}
+
+.div-bookpost .searchbook-btn {
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 30px;
+  height: 35px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 80px;
+}
+
+.div-bookpost .searchbook {
+  color: #000000;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.div-bookpost .search-popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+}
+
+/* 배경 오버레이 추가 */
+.div-bookpost .search-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 검은 배경 */
+  z-index: 9998; /* 팝업보다는 낮고 다른 요소들보다는 높은 z-index */
+}
+
+
+/* 저자, 출판사 공통 스타일 */
 .div-bookpost .group-author,
 .div-bookpost .group-company {
   display: flex;
@@ -62,7 +148,6 @@
   margin-bottom: 20px;
 }
 
-.div-bookpost .title-bookname,
 .div-bookpost .title-author,
 .div-bookpost .title-company {
   width: 80px;
@@ -74,10 +159,9 @@
   margin-right: 20px;
 }
 
-.div-bookpost .rect-bookname,
 .div-bookpost .rect-author,
 .div-bookpost .rect-company {
-  flex: 1;
+  width: 300px;
   background-color: #f5f5f5;
   border: 1px solid;
   border-color: #8e8e8e;
@@ -87,9 +171,9 @@
   display: flex;
   align-items: center;
   overflow-x: auto;
+  overflow-y: hidden;
   white-space: nowrap;
   padding: 10px;
-  overflow-y: hidden; 
 }
 
 .div-bookpost .rect-bookname::-webkit-scrollbar-thumb,
@@ -169,6 +253,7 @@
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 15px;
   overflow-y: auto;
+  width: 300px;
 }
 
 /* 평가 버튼 */
@@ -178,7 +263,7 @@
   gap: 40px;
   margin-top: 40px;
   width: 100%;
-  margin-left:40px;
+  margin-left: 40px;
 }
 
 .div-bookpost .div-good,
@@ -191,7 +276,6 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  
 }
 
 .div-bookpost .btn-good,
@@ -207,7 +291,7 @@
   justify-content: center;
   margin-top: 30px;
   cursor: pointer;
-  margin-left:80px;
+  margin-left: 80px;
 }
 
 .div-bookpost .subit-btn {

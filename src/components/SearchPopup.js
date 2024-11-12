@@ -99,7 +99,7 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
   return (
     <div className="div-search-popup">
       <div className="search-popup">
-        <div className="div-search">
+        <div className="div-search-wrapper">
           <img className="line-div-search" alt="" src="/vector/line-div-search-popup.svg" />
           <img className="btn-close" alt=" " src="/images/btn-close-popup.png" onClick={onClose} />
           <img className="btn-search-popup" alt=" " src="/images/btn-search-popup.png" onClick={handleSearch} />
@@ -109,26 +109,25 @@ const SearchPopup = ({ onClose, bookinfo, setBookinfo }) => {
             placeholder="검색어를 입력하세요"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyPress={handleKeyPress} // 엔터 키 감지 이벤트 추가
+            onKeyPress={handleKeyPress}
           />  
-        </div>
-        
-        <div className="div-search-result" ref={resultsRef}>
-          {searchResults.map((book, index) => (
-            <div key={index} className="group-book-wrapper">
-              <div className="group-book" onClick={() => handleSelectBook(book)}>
-                <img className="book-img" alt=" " src={book.BOOK_COVER_URL || DEFAULT_IMAGE_URL} />
-                <div className="group-book-info">
-                  <div className="title">{book.TITLE}</div>
-                  <div className="author">{book.AUTHOR}</div>
-                  <div className="company">{book.PUBLISHER}</div>
+          <div className="div-search-result" ref={resultsRef}>
+            {searchResults.map((book, index) => (
+              <div key={index} className="group-book-wrapper">
+                <div className="group-book" onClick={() => handleSelectBook(book)}>
+                  <img className="book-img" alt=" " src={book.BOOK_COVER_URL || DEFAULT_IMAGE_URL} />
+                  <div className="group-book-info">
+                    <div className="popup-title">{book.TITLE}</div>
+                    <div className="author">{book.AUTHOR}</div>
+                    <div className="company">{book.PUBLISHER}</div>
+                  </div>
                 </div>
+                {index < searchResults.length - 1 && (
+                  <img className="line-div-search-book" alt="Line" src="/vector/line-search-popup.svg" />
+                )}
               </div>
-              {index < searchResults.length - 1 && (
-                <img className="line-div-search-book" alt="Line" src="/vector/line-search-popup.svg" />
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
