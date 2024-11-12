@@ -107,18 +107,19 @@ const SelectGenre = () => {
         <div className="div-select">
           {genres.map((genre, index) => (
             <div key={index} className={genre.className}>
-              <div
-                className={`${genre.textClass} ${selectedGenres.includes(genre.name) ? 'selected' : ''}`}
-                onClick={() => toggleGenreSelection(genre.name)}
-              >
-                {genre.name}
-              </div>
               <img
                 className={`rectangle ${selectedGenres.includes(genre.name) ? 'selected' : ''}`}
                 alt=""
                 src={genre.image}
                 onClick={() => toggleGenreSelection(genre.name)}
               />
+              <div
+                className={`${genre.textClass} ${selectedGenres.includes(genre.name) ? 'selected' : ''}`}
+                onClick={() => toggleGenreSelection(genre.name)}
+              >
+                {genre.name}
+              </div>
+              
             </div>
           ))}
         </div>

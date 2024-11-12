@@ -1,293 +1,120 @@
 .div-genre {
   background-color: #ffffff;
-  height: 1619px;
-  position: relative;
+  min-height: 100vh;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 150px 320px;
 }
 
 .div-genre .content {
-  height: 968px;
-  left: 360px;
-  position: absolute;
-  top: 150px;
-  width: 1179px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1179px;
+  margin: 0 auto;
 }
 
 .div-genre .group-title {
-  height: 290px;
-  left: 0;
-  position: absolute;
-  top: 0px;
-  width: 559px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .div-genre .text-big {
-  align-self: stretch;
   color: #000000;
   font-family: "Pretendard-Bold", Helvetica;
-  font-size: 50px;
+  font-size: 36px;
   font-weight: 700;
-  letter-spacing: 0;
-  line-height: normal;
-  position: relative;
-  left: 42px;
-  top: -50px;
+  line-height: 1.3;
+  margin-bottom: 20px;
 }
 
 .div-genre .text-small {
   color: #000000;
   font-family: "Pretendard-Regular", Helvetica;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 400;
-  left: 40px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 150px;
-  white-space: nowrap;
+  line-height: 1.5;
 }
 
 .div-genre .div-select {
-  height: 960px;
-  left: 524px;
-  position: absolute;
-  top: 8px;
-  width: 655px;
-}
-
-.div-genre .group-1 {
-  height: 198px;
-  left: 525px;
-  position: absolute;
-  top: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 132px);
+  grid-template-rows: repeat(4, 198px);
+  gap: 40px;
+  max-width: 655px;
+  }
+  .div-genre .group-1,
+  .div-genre .group-2,
+  .div-genre .group-3,
+  .div-genre .group-4,
+  .div-genre .group-5,
+  .div-genre .group-6,
+  .div-genre .group-7,
+  .div-genre .group-8,
+  .div-genre .group-9,
+  .div-genre .group-10,
+  .div-genre .group-11,
+  .div-genre .group-12,
+  .div-genre .group-13,
+  .div-genre .group-14 {
+  position: relative;
   width: 132px;
-}
-
-.div-genre .text-wrapper-2 {
-  color: #000000;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;
-  font-weight: 400;
-  left: 30px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 180px;
-  white-space: nowrap;
-}
-
+  height: 198px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+ 
 .div-genre .rectangle {
-  height: 170px;
-  position: absolute;
   width: 130px;
+  height: 170px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 8px; /* 이미지와 텍스트 사이 간격 */
+  object-fit: cover; /* 이미지 비율 유지 */
 }
 
-.div-genre .rectangle:hover{
-  box-shadow: 0 5px 20px rgba(0, 123, 255, 1);
-}
-
-.div-genre .rectangle.selected {
-  box-shadow: 0 5px 40px rgba(0, 123, 255, 1);
-}
-
-.div-genre .group-2 {
-  height: 198px;
-  left: 175px;
-  position: absolute;
-  top: 0;
-  width: 132px;
-}
-
-.div-genre .text-wrapper-3 {
+.div-genre [class^="text-wrapper"] {
   color: #000000;
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 15px;
   font-weight: 400;
-  left: 45px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 180px;
-  white-space: nowrap;
-}
-
-.div-genre .group-3 {
-  height: 198px;
-  left: 350px;
-  position: absolute;
-  top: 0;
-  width: 132px;
-}
-
-.div-genre .group-4 {
-  height: 198px;
-  left: 525px;
-  position: absolute;
-  top: 254px;
-  width: 132px;
-}
-
-.div-genre .text-wrapper-4 {
-  color: #000000;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;
-  font-weight: 400;
-  left: 39px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 180px;
-  white-space: nowrap;
-}
-
-.div-genre .group-5 {
-  height: 198px;
-  left: 175px;
-  position: absolute;
-  top: 254px;
-  width: 132px;
-}
-
-.div-genre .group-6 {
-  height: 198px;
-  left: 350px;
-  position: absolute;
-  top: 254px;
-  width: 132px;
-}
-
-.div-genre .group-7 {
-  height: 198px;
-  left: 175px;
-  position: absolute;
-  top: 508px;
-  width: 132px;
-}
-
-.div-genre .group-8 {
-  height: 198px;
-  left: 0;
-  position: absolute;
-  top: 508px;
-  width: 132px;
-}
-
-.div-genre .group-9 {
-  height: 198px;
-  left: 350px;
-  position: absolute;
-  top: 508px;
-  width: 132px;
-}
-
-.div-genre .text-wrapper-5 {
-  color: #000000;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;
-  font-weight: 400;
-  left: 52px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 180px;
-  white-space: nowrap;
-}
-
-.div-genre .group-10 {
-  height: 198px;
-  left: 525px;
-  position: absolute;
-  top: 508px;
-  width: 132px;
-}
-
-.div-genre .text-wrapper-6 {
-  color: #000000;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;
-  font-weight: 400;
-  left: 46px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 180px;
-  white-space: nowrap;
-}
-
-.div-genre .group-11 {
-  height: 198px;
-  left: 175px;
-  position: absolute;
-  top: 762px;
-  width: 132px;
-}
-
-.div-genre .group-12 {
-  height: 198px;
-  left: 0;
-  position: absolute;
-  top: 762px;
-  width: 132px;
-}
-
-.div-genre .text-wrapper-7 {
-  color: #000000;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;
-  font-weight: 400;
-  left: 26px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 180px;
-  white-space: nowrap;
-}
-
-.div-genre .group-13 {
-  height: 198px;
-  left: 350px;
-  position: absolute;
-  top: 762px;
-  width: 132px;
-}
-
-.div-genre .group-14 {
-  height: 198px;
-  left: 525px;
-  position: absolute;
-  top: 762px;
-  width: 132px;
+  text-align: center;
+  width: 100%;
+  position: relative; /* absolute에서 relative로 변경 */
 }
 
 .div-genre .div-btn-next {
-  height: 63px;
-  left: 895px;
-  position: absolute;
-  top: 1268px;
-  width: 132px;
-  cursor: pointer;
+  margin-top: 60px;
 }
 
 .div-genre .div-btn {
   background-color: #000000;
   border-radius: 30px;
-  height: 63px;
-  position: relative;
-  width: 130px;
+  height: 60px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .div-genre .next {
   color: #ffffff;
   font-family: "Pretendard-Regular", Helvetica;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 400;
-  left: 39px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 13px;
-  white-space: nowrap;
+}
+
+/* 기존 hover와 selected 스타일 유지 */
+.div-genre .rectangle:hover {
+  box-shadow: 0 5px 20px rgba(0, 123, 255, 1);
+}
+
+.div-genre .rectangle.selected {
+  box-shadow: 0 5px 40px rgba(0, 123, 255, 1);
 }
