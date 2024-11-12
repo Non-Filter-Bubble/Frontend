@@ -48,8 +48,11 @@ const VerifyPass = () => {
 
   return (
     <div className="div-verify">
+       <div className="group-title">
+       <img className="back-verify" alt="" src="/vector/back.svg" onClick={handleBack}/>
+        <div className="title-edit">회원 정보 수정</div>
+      </div>
       <form className="group-verify" onSubmit={handleInfoModification}>
-        <img className="rect-edit-info" alt="" src="/vector/rect-verify-pass.svg"/>
         <div className="div-pass">
           <input className="rect-pass" type="password" src="/vector/rect-user-input.svg" value={password} onChange={(e) => setPassword(e.target.value)} />
           <div className="password-confirm">비밀번호 확인</div>
@@ -60,10 +63,7 @@ const VerifyPass = () => {
           </div>
         </div>
       </form>
-      <div className="group-title">
-        <div className="title-edit">회원 정보 수정</div>
-        <img className="back-verify" alt="" src="/vector/back.svg" onClick={handleBack}/>
-      </div>
+     
     </div>
   );
 };
