@@ -1,69 +1,54 @@
 .div-user-info {
   background-color: #ffffff;
-  height: 1403px;
+  min-height: 100vh;
   position: relative;
   width: 100%;
 }
 
 .div-user-info .div-title {
-  height: 44px;
-  left: 360px;
-  position: absolute;
-  top: 200px;
-  width: 222px;
+  margin: 200px auto 0;
+  max-width: 1160px;
+  position: relative;
+  width: 100%;
 }
 
 .div-user-info .title {
   color: #000000;
   font-family: "Pretendard-SemiBold", Helvetica;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 600;
-  left: 50px;
+  margin-left: 50px;
   letter-spacing: 0;
   line-height: normal;
-  position: absolute;
-  top: 0;
   white-space: nowrap;
 }
 
 .div-user-info .back-user-info {
-  height: 34px;
-  left: -3px;
   position: absolute;
-  top: 2px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
   width: 14px;
   cursor: pointer;
 }
 
 .div-user-info .div-edit-info {
-  height: 791px;
-  left: 379px;
-  position: absolute;
-  top: 300px;
-  width: 1162px;
+  margin: 100px auto 0;
+  max-width: 1160px;
+  width: 100%;
 }
 
 .div-user-info .group-new-pass {
-  height: 791px;
   position: relative;
-  width: 1160px;
+  width: 100%;
 }
 
 .div-user-info .profile {
+  display: block;
   height: 200px;
-  left: 481px;
   object-fit: cover;
-  position: absolute;
-  top: 50px;
+  margin: 30px auto 0;
   width: 200px;
-}
-
-.div-user-info .rectangle {
-  height: 791px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 1160px;
 }
 
 .div-user-info .notice-pass {
@@ -71,84 +56,103 @@
   font-family: "Pretendard-Medium", Helvetica;
   font-size: 14px;
   font-weight: 500;
-  left: 580px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 500px;
-}
-
-.div-user-info .div-pass {
-  height: 40px;
-  left: 309px;
-  position: absolute;
-  top: 459px;
-  width: 424px;
-  padding:10px;
-}
-
-.div-user-info .rect-pass {
-  height: 40px;
-  left: 122px;
-  position: absolute;
-  top: 0;
-  width: 280px;
-  padding: 10px;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;  
+  text-align: center;
+  margin-left: 160px;
+  margin-bottom: 0px;
 }
 
 
-.div-user-info .div-new-pass {
-  height: 40px;
-  left: 309px;
-  position: absolute;
-  top: 538px;
-  width: 424px;
-  padding: 10px;
-}
-
-.div-user-info .rect-new-pass {
-  height: 40px;
-  left: 122px;
-  position: absolute;
-  top: 0;
-  width: 280px;
-  padding: 10px;
+.div-user-info .group-nickname {
+  position: relative;
+  }
+  
+  .div-user-info .rect-nickname {
+  border: 1px solid #a6a6a6;
+  border-radius: 4px;
+  display: inline-block;
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 15px;
+  height: 40px;
+  padding: 10px;
+  vertical-align: middle;
+  width: 380px
+  }
+
+
+  .div-user-info .div-dupli {
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  margin-left: 20px; 
+  }
+
+
+.div-user-info .div-btn {
+    border: 1px solid #000000;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-block;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    width: 120px;
+    margin-right: -20px;
+  }
+  
+.div-user-info .text-btn {
+    color: #000000;
+    display: inline-block;
+    font-family: "Pretendard-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+
+.div-user-info .div-pass,
+.div-user-info .div-new-pass,
+.div-user-info .div-new-pass-2,
+.div-user-info .group-id,
+.div-user-info .group-nickname {
+  margin-bottom: 30px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left:-70px;
 }
 
 .div-user-info .subtitle {
   color: #000000;
+  display: inline-block;
   font-family: "Pretendard-Medium", Helvetica;
   font-size: 20px;
   font-weight: 500;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 8px;
-  white-space: nowrap;
+  margin-right: 20px;
+  vertical-align: middle;
+  width: 130px;
+  text-align: right;
 }
 
-.div-user-info .group-id {
+.div-user-info .rect-pass,
+.div-user-info .rect-new-pass,
+.div-user-info .rect-new-pass-2,
+.div-user-info .rect-id,
+.div-user-info .rect-nickname {
+  border: 1px solid #a6a6a6;
+  border-radius: 4px;
+  display: inline-block;
+  font-family: "Pretendard-Regular", Helvetica;
+  font-size: 15px;
   height: 40px;
-  left: 349px;
-  position: absolute;
-  top: 301px;
-  width: 384px;
+  padding: 10px;
+  vertical-align: middle;
+  width: 300px;
 }
 
 .div-user-info .rect-id {
   background-color: #f5f5f5;
-  border: 1px solid;
   border-color: #8e8e8e;
-  height: 40px;
-  left: 82px;
-  position: absolute;
-  top: 0;
-  width: 280px;
 }
 
 .div-user-info .id {
@@ -156,155 +160,34 @@
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 15px;
   font-weight: 400;
-  left: 11px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 10px;
-  width: 69px;
-}
-
-.div-user-info .div-new-pass-2{
-  height: 40px;
-  left: 292px;
-  position: absolute;
-  top: 619px;
-  width: 441px;
-}
-
-.div-user-info .rect-new-pass-2 {
-  height: 40px;
-  left: 139px;
-  position: absolute;
-  top: 0;
-  width: 280px;
-  padding: 10px;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;
-}
-
-.div-user-info .group-nickname {
-  height: 57px;
-  left: 349px;
-  position: absolute;
-  top: 380px;
-  width: 494px;
-  
-}
-
-.div-user-info .notice-ok-nickname {
-  color: #009432;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 14px;
-  font-weight: 400;
-  left: 82px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 42px;
-}
-
-.div-user-info .group-6 {
-  height: 40px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 492px;
 }
 
 
 
-.div-user-info .rect-nickname {
-  height: 40px;
-  left: 82px;
-  position: absolute;
-  top: 0;
-  width: 280px;
-  padding:10px;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 15px;
-}
-
-.div-user-info .div-dupli {
-  height: 38px;
-  left: 402px;
-  position: absolute;
-  top: 1px;
-  width: 92px;
-  cursor: pointer;
-}
-
-.div-user-info .div-btn {
-  border: 1px solid;
-  border-color: #000000;
-  border-radius: 30px;
-  height: 38px;
-  position: relative;
-  /* width: 90px; */
-  width: 90px;
-}
-.div-user-info .div-dupli .div-btn {
-  border: 1px solid;
-  border-color: #000000;
-  border-radius: 30px;
-  height: 38px;
-  position: relative;
-  /* width: 90px; */
-  width: 110px;
-}
-
-
-.div-user-info .text-btn {
-  color: #000000;
-  font-family: "Pretendard-Regular", Helvetica;
-  font-size: 18px;
-  font-weight: 400;
-  left: 13px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 8px;
-  white-space: nowrap;
-  width: 63px;
-}
 
 .div-user-info .div-withdrawal {
-  height: 38px;
-  left: 1037px;
-  position: absolute;
-  top: 31px;
-  width: 92px;
-  cursor: pointer;
+  margin-top: 50px;
+  text-align: right;
 }
 
 .div-user-info .div-submit {
-  height: 40px;
-  left: 531px;
-  position: absolute;
-  top: 700px;
-  width: 102px;
-  cursor: pointer;
+  margin: 50px auto 0;
+  max-width: 500px;
+  text-align: center;
 }
 
 .div-user-info .btn-submit {
   background-color: #000000;
   border-radius: 30px;
-  height: 40px;
-  position: relative;
-  /* width: 100px; */
-  width: 140px;
-}
-
-.div-user-info .submit {
   color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 20px;
   font-weight: 400;
-  /* left: 34px; */
-  left: 14px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 8px;
-  /* width: 50px; */
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 140px;
 }
+

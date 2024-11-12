@@ -184,6 +184,7 @@ const UserInfo = () => {
         <div className="title">회원 정보 수정</div>
         <img className="back-user-info" alt=" " src="/vector/back.svg" onClick={handleBack}/>
       </div>
+      <img className="profile" alt="" src="/images/profile-user-info.png" />
 
       <div className="div-edit-info">
         <div className="group-new-pass">
@@ -198,8 +199,9 @@ const UserInfo = () => {
           <div className="group-nickname">
             {/* <div className="notice-ok-nickname">사용 가능한 닉네임입니다.</div> */}
             <div className="group-6">
+            <div className="subtitle">닉네임</div>
               <input className="rect-nickname" type="text" src="/vector/rect-user-input.svg" value={nickname} onChange={(e) => setNickname(e.target.value)}/>
-              <div className="subtitle">닉네임</div>
+              
               <div className="div-dupli">
                 <div className="div-btn">
                   {/* <div className="text-btn" onClick={handleNicknameChange}>중복확인</div> */}
@@ -210,24 +212,27 @@ const UserInfo = () => {
           </div>
 
           <div className="div-pass">
+          <div className="subtitle">현재 비밀번호</div>
             <input className="rect-pass" type="password" src="/vector/rect-user-input.svg" value={password} onChange={(e) => setPassword(e.target.value)} />
-            <div className="subtitle">현재 비밀번호</div>
+            
           </div>
 
-          <img className="profile" alt="" src="/images/profile-user-info.png" />
+          
           
           {/* 이거때문에 닉네임 안보임 */}
           {/* <img className="rectangle" alt="Rectangle" src="/vector/rect-edit-info.svg" /> */}
           <p className="notice-pass">8-20자 이내 , 숫자 , 영어</p>
 
           <div className="div-new-pass">
+          <div className="subtitle">새 비밀번호</div>
             <input className="rect-new-pass" type="password" src="/vector/rect-user-input.svg" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
-            <div className="subtitle">새 비밀번호</div>
+            
           </div>
           
           <div className="div-new-pass-2">
-            <input className="rect-new-pass-2" type="password" src="/vector/rect-user-input.svg" value={newPasswordCheck} onChange={(e) => setNewPasswordCheck(e.target.value)} />
             <div className="subtitle">비밀번호 확인</div>
+            <input className="rect-new-pass-2" type="password" src="/vector/rect-user-input.svg" value={newPasswordCheck} onChange={(e) => setNewPasswordCheck(e.target.value)} />
+            
           </div>
 
           <div className="div-submit">
