@@ -5,7 +5,7 @@
   padding: 80px 0;
 }
 
-.title {
+.div-search .title {
   color: #000000;
   font-family: "Pretendard-SemiBold", Helvetica;
   font-size: 24px;
@@ -15,7 +15,7 @@
 }
 
  
- .div-search-box {
+.div-search .div-search-box {
   width: 700px;
   height: 40px;
   position: relative;
@@ -27,7 +27,7 @@
   padding-left: 50px;
  }
  
- .search-box {
+ .div-search .search-box {
   border: 1px solid #000000;
   border-radius: 25px;
   height: 42px;
@@ -39,13 +39,13 @@
   
  }
  
- .div-btn-search {
+ .div-search .div-btn-search {
   position: relative; /* absolute에서 relative로 변경 */
   height: 45px;
   margin-top: 5px; /* 버튼 위치 조정 */
  }
  
- .btn-search {
+ .div-search .btn-search {
   background-color: #000000;
   border-radius: 18px;
   height: 40px;
@@ -56,19 +56,19 @@
   align-items: center;   
 }
 
-.search {
+.div-search .search {
   color: #ffffff;
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 16px;
 }
 
-.line-search {
+.div-search .line-search {
   width: 100%;
   height: 1px;
   margin: 40px 0;
 }
 
-.search-results-wrapper {
+.div-search .search-results-wrapper {
   width: 100%; 
   max-width: 1280px;
   padding: 40px; 
@@ -76,14 +76,14 @@
   margin: 50px auto;
 }
 
-.search-results {
+.div-search .search-results {
   width: 100%; 
   max-width: 700px; 
   margin: 0 auto;
   position: relative;
 }
 
-.book-1, .book-2, .book-3, .book-4 {
+.div-search .book-1, .book-2, .book-3, .book-4 {
   position: relative;
   height: 220px;
   width: 100%;
@@ -98,7 +98,7 @@
   cursor: pointer;
 }
 
-.img-book-1, .img-book-2, .img-book-3, .img-book-4 {
+.div-search .img-book-1, .img-book-2, .img-book-3, .img-book-4 {
   position: relative;
   left: 50px;
   width: 110px;
@@ -109,13 +109,13 @@
   margin: 0; /* 추가 */
 }
 
-.book-1-info, .book-2-info, .book-3-info, .book-4-info {
+.div-search .book-1-info, .book-2-info, .book-3-info, .book-4-info {
   position: relative;
   left: 100px;
   margin-top: 0; /* 수정 */
 }
 
-.book-title {
+.div-search .book-title {
   color: #000000;
   font-family: "Pretendard-SemiBold", Helvetica;
   font-size: 18px;
@@ -127,7 +127,7 @@
   line-height: 1.4; /* 추가: 줄간격 조정 */
  }
  
- .book-author {
+ .div-search .book-author {
   color: #666;
   font-family: "Pretendard-Regular", Helvetica;
   font-size: 14px;
@@ -144,7 +144,7 @@
   font-size: 14px;
 }
 
-.book-service {
+.div-search .book-service {
   position: absolute;
   right: 50px;
   bottom: 40px;
@@ -154,14 +154,14 @@
   height: 26px; /* 아이콘 높이와 동일하게 설정 */
 }
 
-.pagination {
+.div-search .pagination {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-top: 40px;
 }
 
-.pagination button {
+.div-search .pagination button {
   padding: 5px 5px;
   font-size: 14px;
   background-color: #ffffff;
@@ -171,12 +171,12 @@
   min-width: 35px;
 }
 
-.pagination button:hover {
+.div-search .pagination button:hover {
   background-color: #000000;
   color: #ffffff;
 }
 
-.pagination button.active {
+.div-search .pagination button.active {
   background-color: #000000;
   color: #ffffff;
 }

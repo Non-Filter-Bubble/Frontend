@@ -1,7 +1,7 @@
 .div-heart-popup {
   background-color: #ffffff;
   border-radius: 30px;
-  border: 2px solid #a6a6a6;
+  border: 1px solid #a6a6a6;
   height: 778px;
   overflow: hidden;
   width: 400px;
@@ -9,8 +9,9 @@
   top: 200px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 30;
+  z-index: 1000;
   overflow-y: auto; /* 세로 스크롤 활성화 */
+  padding: 20px;
 }
 
 .div-heart-popup > p {
@@ -20,175 +21,63 @@
   text-align: center;
 }
 
-.div-heart-popup .rectangle {
-  height: 778px;
+.group-book {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
   position: relative;
-  width: 400px;
 }
 
-.div-heart-popup .group {
+.group-book .book-img {
+  width: 90px;
   height: 130px;
-  left: 42px;
-  position: absolute;
-  top: 58px;
-  width: 286px;
+  object-fit: cover;
+  margin-right: 20px;
 }
 
-.div-heart-popup .div {
-  height: 104px;
-  left: 110px;
-  position: absolute;
-  top: 0;
-  width: 182px;
+.group-book-info {
+  flex: 1;
 }
 
-.div-heart-popup .text-wrapper {
+.group-book-info .title,
+.group-book-info .author,
+.group-book-info .company {
+  margin: 5px 0;
+}
+
+.group-book-info .title {
   color: #000000;
   font-family: "Pretendard-SemiBold", Helvetica;
   font-size: 15px;
   font-weight: 600;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 0;
-  width: 176px;
+  margin-bottom: 10px;
 }
 
-.div-heart-popup .text-wrapper-2 {
+.group-book-info .author,
+.group-book-info .company {
   color: #000000;
   font-family: "Pretendard-Light", Helvetica;
   font-size: 13px;
   font-weight: 300;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  text-align: center;
-  top: 90px;
-  white-space: nowrap;
-  width: 85px;
 }
 
-.div-heart-popup .text-wrapper-3 {
-  color: #000000;
-  font-family: "Pretendard-Light", Helvetica;
-  font-size: 13px;
-  font-weight: 300;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  text-align: center;
-  top: 56px;
-  white-space: nowrap;
-  width: 72px;
-}
-
-.div-heart-popup .image-wrapper {
-  /*background-image: url(./rectangle-59.png);*/
-  background-position: 50% 50%;
-  background-size: cover;
-  height: 130px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 90px;
-}
-
-.div-heart-popup .image {
-  height: 35px;
-  left: 85px;
-  object-fit: cover;
-  position: absolute;
-  /* top: 95px; */
+.group-book .heart-icon {
   width: 35px;
-  cursor: pointer;
-}
-
-.div-heart-popup .group-2 {
-  height: 130px;
-  left: 41px;
-  position: absolute;
-  top: 238px;
-  width: 287px;
-}
-
-.div-heart-popup .group-3 {
-  height: 104px;
-  left: 111px;
-  position: absolute;
-  top: 0;
-  width: 182px;
-}
-
-.div-heart-popup .img-wrapper {
-  /*background-image: url(./rectangle-59.png);*/
-  background-position: 50% 50%;
-  background-size: cover;
-  height: 130px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 90px;
-}
-
-.div-heart-popup .img {
   height: 35px;
-  left: 54px;
-  object-fit: cover;
-  position: absolute;
-  top: 95px;
-  width: 35px;
   cursor: pointer;
+  margin-left: auto;
+  margin-top: 100px;
 }
 
-.div-heart-popup .group-4 {
-  height: 130px;
-  left: 41px;
+.group-book-wrapper {
+  position: relative;
+}
+
+.line-div-search-book {
   position: absolute;
-  top: 418px;
-  width: 287px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 100%;
+  height: 1px;
 }
-
-.div-heart-popup .group-5 {
-  /*background-image: url(./rectangle-59.png);*/
-  background-position: 50% 50%;
-  background-size: cover;
-  height: 130px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 90px;
-}
-
-.div-heart-popup .group-6 {
-  height: 130px;
-  left: 41px;
-  position: absolute;
-  top: 598px;
-  width: 287px;
-}
-
-.div-heart-popup .group-7 {
-  /*background-image: url(./rectangle-59.png);*/
-  background-position: 50% 50%;
-  background-size: cover;
-  height: 130px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 90px;
-}
-
-.group-book  {
-  padding: 20px;
-}
-
-.group-book .book-img {
-  float: left;
-}
-
- .group-book-info {
-  padding: 0 0 0 120px;
-} 

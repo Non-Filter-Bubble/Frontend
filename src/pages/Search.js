@@ -5,6 +5,7 @@ import '../styles/Search.css';
 import { GoHeart, GoHeartFill } from "react-icons/go";
 import { GiShoppingCart } from "react-icons/gi";
 
+
 // 기본 이미지 경로
 const DEFAULT_IMAGE_URL = '../images/bookImage.jpg';
 

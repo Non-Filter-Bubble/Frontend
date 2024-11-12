@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axiosInstance from '../api/axios';
 import '../styles/HeartPopup.css'; // Screen 컴포넌트의 스타일을 포함합니다.
+import { GoHeartFill } from "react-icons/go";
 
 // 기본 이미지 경로
 const DEFAULT_IMAGE_URL = '../images/bookImage-small.png';
@@ -133,7 +134,9 @@ const HeartPopup = ({ onClose }) => {
                   <div className="author">{book.author}</div>
                   <div className="company">{book.publisher}</div>
                 </div>
-                <img className="image" alt="" src="images/filled-heart-small.png" onClick={() => toggleHeart(book)} />
+                <div className="heart-icon" onClick={() => toggleHeart(book)}>
+                  <GoHeartFill size={35} color='#D7443E' />
+                </div>
               </div>
               {index < showBookmarks.length - 1 && (
                 <img className="line-div-search-book" alt="Line" src="/vector/line-search-popup.svg" />
