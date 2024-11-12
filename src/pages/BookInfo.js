@@ -236,44 +236,49 @@ const BookInfo = () => {
 
   return (
     <div className="div-bookinfo">
-
-      <img className="back-bookinfo" alt="" src="/vector/back.svg" onClick={handleBack}/>
-      <div className="book-title">{finalBookInfo.TITLE ? finalBookInfo.TITLE : finalBookInfo.title}</div>
-      <img className="line" alt="Line" src="/vector/line-book.svg" />
-      
-      <div className="book">
-        <img className="book-img" alt={finalBookInfo.title} src={finalBookInfo.BOOK_COVER_URL !== "" ? finalBookInfo.BOOK_COVER_URL : DEFAULT_IMAGE_URL}/>
+      <div className="header">
+        <img className="back-bookinfo" alt="" src="/vector/back.svg" onClick={handleBack}/>
+        <div className="book-title">{finalBookInfo.TITLE ? finalBookInfo.TITLE : finalBookInfo.title}</div>
+      </div>
+  
+      <div className="content-wrapper">
+        <div className="book">
+          <img className="book-img" alt={finalBookInfo.title} src={finalBookInfo.BOOK_COVER_URL !== "" ? finalBookInfo.BOOK_COVER_URL : DEFAULT_IMAGE_URL}/>
+          
+          <div className="book-actions">
+            <img className="icon-cart" alt="Shopping cart" src="/images/icon-cart-white.png" onClick={() => handlePurchase(finalBookInfo)} />
+            <img className="icon-heart" 
+              alt="" 
+              src={isBookmarked(finalBookInfo) ? "/images/filled-heart-big.png" : "/images/empty-heart-big.png"} 
+              onClick={() => toggleFavorite(finalBookInfo)} />
+          </div>
+        </div>
         
-        <img className="icon-cart" alt="Shopping cart" src="/images/icon-cart-white.png" onClick={() => handlePurchase(finalBookInfo)} />
-        <img className="icon-heart" 
-          alt="" 
-          src={isBookmarked(finalBookInfo) ? "/images/filled-heart-big.png" : "/images/empty-heart-big.png"} 
-          onClick={() => toggleFavorite(finalBookInfo)} />
-      </div>
-      
-      <div className="div-content">
-        <div className="group-7">
-          <div className="div-name">
-            <div className="text-wrapper-5">도서명</div>
-            <div className="text-wrapper-6">{finalBookInfo.title}</div>
+        <div className="div-content">
+          <div className="group-7">
+            <div className="div-name">
+              <div className="text-wrapper-5">도서명</div>
+              <div className="text-wrapper-6">{finalBookInfo.title}</div>
+            </div>
+            <div className="div-author">
+              <div className="author">저자</div>
+              <div className="text-wrapper-6">{finalBookInfo.author}</div>
+            </div>
+            <div className="div-company">
+              <div className="text-wrapper-5">출판사</div>
+              <div className="company">{finalBookInfo.publisher}</div>
+            </div>
+            <div className="div-plot">
+              <div className="title-plot">줄거리</div>
+              <p className="plot" ref={plotRef}>{finalBookInfo.description}</p>
           </div>
-          <div className="div-author">
-            <div className="author">저자</div>
-            <div className="text-wrapper-6">{finalBookInfo.author}</div>
           </div>
-          <div className="div-company">
-            <div className="text-wrapper-5">출판사</div>
-            <div className="company">{finalBookInfo.publisher}</div>
-          </div>
-        </div>
-        <div className="div-plot">
-          <div className="title-plot">줄거리</div>
-          <p className="plot" ref={plotRef}>{finalBookInfo.description}</p>
+          
         </div>
       </div>
-
+  
       <img className="line-2" alt="Line" src="/vector/line-book.svg" ref={line2Ref}/>
-
+  
       {/* 한줄평이 있는 경우만 보여줌 - 여기도 나중에 3개가 아닐 때를 고려해야함 */}
       {commentSample[bookinfo.ISBN_THIRTEEN_NO] && <div className="div-comment" ref={commentRef}>
         <div className="title-comment">한줄평</div>
@@ -285,7 +290,7 @@ const BookInfo = () => {
           ))}
         </div>
       </div>}
-
+  
       <div className="div-library" ref={libraryRef}>
         <div className="title-library">도서관 정보</div>
         <div className="div-library-box">
