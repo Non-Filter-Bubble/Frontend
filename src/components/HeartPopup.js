@@ -54,21 +54,28 @@ const HeartPopup = ({ onClose }) => {
             
             // isbn으로 책 정보 가져오기
             try {
-              const response1 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
+              // const response1 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-books`, {
+              //   params: {
+              //     type: 'isbn',
+              //     value: bookmark.isbn
+              //   }
+              // });
+
+              const response1 = await axiosInstance.get(`${process.env.REACT_APP_DB_HOST}/search-NaverBooks`, {
                 params: {
                   type: 'isbn',
                   value: bookmark.isbn
                 }
               });
-              console.log(response1.data.docs);
+              console.log(response1.data.items);
 
               // 일단 찜은 AI에서 수집한 책의 정보만 보여주기로!!!!
               const combinedData = {
                 bookmarkId: bookmark.bookmarkId,
-                isbn: response1.data.docs[0].EA_ISBN,
-                title: response1.data.docs[0].TITLE,
-                author: response1.data.docs[0].AUTHOR,
-                publisher: response1.data.docs[0].PUBLISHER,
+                isbn: response1.data.items[0].isbn,
+                title: response1.data.items[0].title,
+                author: response1.data.items[0].author,
+                publisher: response1.data.items[0].publisher,
                 image: `https://contents.kyobobook.co.kr/sih/fit-in/100x0/pdt/${bookmark.isbn}.jpg`
               };
           
