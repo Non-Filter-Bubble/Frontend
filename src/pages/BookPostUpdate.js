@@ -15,20 +15,12 @@ const BookPostUpdate = () => {
 
   const [comment, setComment] = useState(bookinfoshow.comment);
   const [review, setReview] = useState(bookinfoshow.review);
-  const [selectedButton, setSelectedButton] = useState(null);
   
   const handleBack = () => {
     navigate(-1); // 이전 페이지로 이동
   };
 
-  const toggleGoodBtn = () => {
-    setSelectedButton(selectedButton === 'good' ? null : 'good');
-  };
-
-  const toggleBadBtn = () => {
-    setSelectedButton(selectedButton === 'bad' ? null : 'bad');
-  };
-  // console.log('선택한 책의 결과:', bookinfo);
+  // console.log('선택한 책의 결과:', bookinfoshow);
 
   // 수정 버튼 누름
   const handleUpdate = async () => {
@@ -122,16 +114,14 @@ const BookPostUpdate = () => {
           <img 
             className="btn-good" 
             alt="" 
-            src={selectedButton === 'good' ? "/images/filled-good-btn.png" : "/images/empty-good-btn.png"} 
-            onClick={toggleGoodBtn} 
+            src={bookinfoshow.evaluation === true ? "/images/filled-good-btn.png" : "/images/empty-good-btn.png"}
           />
         </div>
         <div className="div-bad">
           <img 
             className="btn-bad" 
             alt="" 
-            src={selectedButton === 'bad' ? "/images/filled-bad-btn.png" : "/images/empty-bad-btn.png"} 
-            onClick={toggleBadBtn} 
+            src={bookinfoshow.evaluation === false ? "/images/filled-bad-btn.png" : "/images/empty-bad-btn.png"}
           />
         </div>
       </div>
