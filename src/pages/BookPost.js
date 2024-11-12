@@ -97,11 +97,10 @@ const BookPost = () => {
     <div className="div-bookpost">
 
       <div className="div-bookpost-title">
-        <div className="bookpost-title">북서랍 등록</div>
         <img className="back-book" alt="" src="/vector/back.svg" onClick={handleBack} />
+        <div className="bookpost-title">북서랍 등록</div>
       </div>
 
-      <img className="line-bookpost" alt="" src="/vector/line-book.svg" />
       
       
       {/* 책 커버 이미지 */}
@@ -126,40 +125,41 @@ const BookPost = () => {
 
       {/* 저자 */}
       <div className="group-author">
-        <div className="rect-author">{bookinfo.AUTHOR}</div>
         <p className="title-author">
           <span className="subtitle">저자</span>
           <span className="star">*</span>
         </p>
+        <div className="rect-author">{bookinfo.AUTHOR}</div>
       </div>
       
       {/* 출판사 */}
       <div className="group-company">
-        <div className="rect-company">{bookinfo.PUBLISHER}</div>
         <p className="title-company">
           <span className="subtitle">출판사</span>
           <span className="star">*</span>
         </p>
+        <div className="rect-company">{bookinfo.PUBLISHER}</div>
       </div>
 
       {/* 한줄평 */}
       <div className="div-one-line">
-        <div className="one-line-notice">50자 이내</div>
-        <div className="overlap-4">
-          <textarea className="rect-one-line" type="text" 
-          placeholder="다른 사람에게 책을 소개해주세요" 
-          maxLength="50" value={comment} onChange={(e) => setComment(e.target.value)} required/>
-          <p className="title-one-line">
+         <p className="title-one-line">
             <span className="subtitle">한줄평</span>
             <span className="star">*</span>
           </p>
+          <div className="one-line-notice">50자 이내</div>
+          <div className="overlap-4">
+          <textarea className="rect-one-line" type="text" 
+          placeholder="다른 사람에게 책을 소개해주세요" 
+          value={comment} onChange={(e) => setComment(e.target.value)} required/>
+         
         </div>
       </div>      
 
       {/* 독서 후기 */}
       <div className="div-review">
-        <textarea className="rect-review" type="text" placeholder="" value={review} onChange={(e) => setReview(e.target.value)}/>
         <div className="subtitle-review">독서 후기</div>
+        <textarea className="rect-review" type="text" placeholder="" value={review} onChange={(e) => setReview(e.target.value)}/>
       </div>
 
       <div className="div-good">
