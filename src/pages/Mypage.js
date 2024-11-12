@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import axiosInstance from '../api/axios';
 import '../styles/Mypage.css'; 
-
 import HeartPopup from '../components/HeartPopup'; 
 import BookDrawer from '../components/BookDrawer'; // 분리한 BookDrawer 컴포넌트를 가져옵니다.
 
